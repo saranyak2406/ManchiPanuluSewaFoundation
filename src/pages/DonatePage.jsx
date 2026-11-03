@@ -17,8 +17,10 @@ import {
 } from 'lucide-react';
 import Button from '../components/Button';
 import { complianceInfo } from '../data/statsData';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function DonatePage() {
+  const { t } = useLanguage();
   const [donorTab, setDonorTab] = useState('domestic'); // 'domestic' | 'international'
   const [selectedCurrency, setSelectedCurrency] = useState('USD');
   const [selectedAmount, setSelectedAmount] = useState(1200);
@@ -105,19 +107,20 @@ export default function DonatePage() {
 
   return (
     <>
-      {/* Page Hero */}
+      {/* Page Hero - Matching User's Target Design Exactly */}
       <section className="page-hero">
         <div className="container">
-          <div className="page-hero-inner">
-            <div className="eyebrow-badge" style={{ backgroundColor: 'rgba(120, 201, 83, 0.15)', color: 'var(--color-sprout-light)', borderColor: 'rgba(120, 201, 83, 0.3)' }}>
-              <Heart size={15} />
-              <span>Nourish Seva</span>
+          <div className="page-hero-inner-unboxed">
+            <div className="page-hero-eyebrow">
+              <Heart size={16} />
+              <span>{t('donate.badge')}</span>
             </div>
-            <h1 className="page-hero-title">
-              Support Our Grassroots Initiatives
+            <h1 className="page-hero-title-exact">
+              {t('donate.heroTitle')}
             </h1>
-            <p className="page-hero-desc">
-              Every single rupee or contribution translates into tangible, accountable action on the ground — purchasing native saplings, cooking fresh meals, and providing equipment for cleanup volunteers.
+            <div className="page-hero-accent-line"></div>
+            <p className="page-hero-desc-exact">
+              {t('donate.heroDesc')}
             </p>
           </div>
         </div>

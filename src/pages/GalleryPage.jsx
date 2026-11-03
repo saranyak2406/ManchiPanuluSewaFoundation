@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { Camera, Film, Image as ImageIcon, Play, Sparkles } from 'lucide-react';
 import GalleryModal from '../components/GalleryModal';
 import { galleryData } from '../data/galleryData';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function GalleryPage() {
+  const { t } = useLanguage();
   const [activeCategory, setActiveCategory] = useState('All');
   const [selectedItemIndex, setSelectedItemIndex] = useState(null);
 
@@ -41,19 +43,20 @@ export default function GalleryPage() {
 
   return (
     <>
-      {/* Page Hero */}
+      {/* Page Hero - Matching User's Target Design Exactly */}
       <section className="page-hero">
         <div className="container">
-          <div className="page-hero-inner">
-            <div className="eyebrow-badge" style={{ backgroundColor: 'rgba(120, 201, 83, 0.15)', color: 'var(--color-sprout-light)', borderColor: 'rgba(120, 201, 83, 0.3)' }}>
-              <Camera size={15} />
-              <span>Visual Chronicle</span>
+          <div className="page-hero-inner-unboxed">
+            <div className="page-hero-eyebrow">
+              <Camera size={16} />
+              <span>{t('home.galleryBadge')}</span>
             </div>
-            <h1 className="page-hero-title">
-              Our Visual Journey of Seva
+            <h1 className="page-hero-title-exact">
+              {t('home.galleryTitle')}
             </h1>
-            <p className="page-hero-desc">
-              Every photograph and video documentary captures real people in selfless action — planting future forests, nourishing tired caregivers, and breathing life back into choked waterways.
+            <div className="page-hero-accent-line"></div>
+            <p className="page-hero-desc-exact">
+              {t('home.gallerySubtitle')}
             </p>
           </div>
         </div>

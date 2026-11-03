@@ -23,8 +23,10 @@ import Button from '../components/Button';
 import { projectsData } from '../data/projectsData';
 import { galleryData } from '../data/galleryData';
 import { blogData } from '../data/blogData';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function HomePage() {
+  const { t } = useLanguage();
   const [selectedProject, setSelectedProject] = useState(null);
   const [selectedArticle, setSelectedArticle] = useState(null);
 
@@ -95,43 +97,43 @@ export default function HomePage() {
               <div>
                 <div className="eyebrow-badge">
                   <Compass size={14} />
-                  <span>About Our Foundation</span>
+                  <span>{t('home.aboutBadge')}</span>
                 </div>
                 <h2 style={{ marginBottom: '1.25rem', color: 'var(--color-forest-900)' }}>
-                  A Sacred Covenant with Nature and Community
+                  {t('home.aboutTitle')}
                 </h2>
                 <p style={{ marginBottom: '1.25rem', lineHeight: '1.7' }}>
-                  <strong>Manchi Panulu Seva Foundation</strong> was born from a fundamental belief: true social progress is indivisible from ecological health. When communities protect trees, care for water bodies, and feed those in hunger, a resilient society takes root.
+                  {t('home.aboutP1')}
                 </p>
                 <p style={{ marginBottom: '1.75rem', lineHeight: '1.7' }}>
-                  We operate with transparent field audits, grassroots volunteer teams, and community ownership. Whether executing high-density Miyawaki urban forests or coordinating hot meal drives outside public hospitals, our hands are always active on the ground.
+                  {t('home.aboutP2')}
                 </p>
 
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem', marginBottom: '2rem' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.92rem', fontWeight: 600, color: 'var(--color-forest-800)' }}>
                     <CheckCircle2 size={18} style={{ color: 'var(--color-forest-600)' }} />
-                    <span>Verified NGO Governance</span>
+                    <span>{t('home.governance')}</span>
                   </div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.92rem', fontWeight: 600, color: 'var(--color-forest-800)' }}>
                     <CheckCircle2 size={18} style={{ color: 'var(--color-forest-600)' }} />
-                    <span>100% Native Tree Policy</span>
+                    <span>{t('home.nativePolicy')}</span>
                   </div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.92rem', fontWeight: 600, color: 'var(--color-forest-800)' }}>
                     <CheckCircle2 size={18} style={{ color: 'var(--color-forest-600)' }} />
-                    <span>Hygienic Annadhanam</span>
+                    <span>{t('home.hygienicFood')}</span>
                   </div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.92rem', fontWeight: 600, color: 'var(--color-forest-800)' }}>
                     <CheckCircle2 size={18} style={{ color: 'var(--color-forest-600)' }} />
-                    <span>Zero Waste Cleanups</span>
+                    <span>{t('home.zeroWaste')}</span>
                   </div>
                 </div>
 
                 <div style={{ display: 'flex', gap: '1rem' }}>
                   <Button to="/about" variant="primary" size="md" icon={ArrowRight}>
-                    Discover Our Story
+                    {t('home.discoverStory')}
                   </Button>
                   <Button to="/volunteer" variant="outline" size="md">
-                    Become a Volunteer
+                    {t('home.becomeVolunteer')}
                   </Button>
                 </div>
               </div>

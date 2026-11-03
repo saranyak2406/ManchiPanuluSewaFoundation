@@ -5,8 +5,10 @@ import ProjectCard from '../components/ProjectCard';
 import ProjectDetailModal from '../components/ProjectDetailModal';
 import Button from '../components/Button';
 import { projectsData } from '../data/projectsData';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function ProjectsPage() {
+  const { t } = useLanguage();
   const [searchParams, setSearchParams] = useSearchParams();
   const initialCategory = searchParams.get('category') || 'All';
 
@@ -41,19 +43,20 @@ export default function ProjectsPage() {
 
   return (
     <>
-      {/* Page Hero */}
+      {/* Page Hero - Matching User's Target Design Exactly */}
       <section className="page-hero">
         <div className="container">
-          <div className="page-hero-inner">
-            <div className="eyebrow-badge" style={{ backgroundColor: 'rgba(120, 201, 83, 0.15)', color: 'var(--color-sprout-light)', borderColor: 'rgba(120, 201, 83, 0.3)' }}>
-              <Trees size={15} />
-              <span>Grassroots Action</span>
+          <div className="page-hero-inner-unboxed">
+            <div className="page-hero-eyebrow">
+              <Trees size={16} />
+              <span>{t('home.projectsBadge')}</span>
             </div>
-            <h1 className="page-hero-title">
-              Our Ongoing & Completed Projects
+            <h1 className="page-hero-title-exact">
+              {t('home.projectsTitle')}
             </h1>
-            <p className="page-hero-desc">
-              Every sapling planted, every hot meal delivered, and every lake revived represents real sweat, meticulous planning, and community passion. Explore our active drives and completed milestones.
+            <div className="page-hero-accent-line"></div>
+            <p className="page-hero-desc-exact">
+              {t('home.projectsSubtitle')}
             </p>
           </div>
         </div>

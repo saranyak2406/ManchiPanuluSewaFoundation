@@ -3,8 +3,10 @@ import { BookOpen, Search, Clock, Calendar, User, ArrowRight, Tag } from 'lucide
 import BlogModal from '../components/BlogModal';
 import Button from '../components/Button';
 import { blogData } from '../data/blogData';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function BlogPage() {
+  const { t } = useLanguage();
   const [activeCategory, setActiveCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedArticle, setSelectedArticle] = useState(null);
@@ -31,19 +33,20 @@ export default function BlogPage() {
 
   return (
     <>
-      {/* Page Hero */}
+      {/* Page Hero - Matching User's Target Design Exactly */}
       <section className="page-hero">
         <div className="container">
-          <div className="page-hero-inner">
-            <div className="eyebrow-badge" style={{ backgroundColor: 'rgba(120, 201, 83, 0.15)', color: 'var(--color-sprout-light)', borderColor: 'rgba(120, 201, 83, 0.3)' }}>
-              <BookOpen size={15} />
-              <span>Articles & Reflections</span>
+          <div className="page-hero-inner-unboxed">
+            <div className="page-hero-eyebrow">
+              <BookOpen size={16} />
+              <span>{t('home.blogBadge')}</span>
             </div>
-            <h1 className="page-hero-title">
-              Insights on Nature, Humanity & Preservation
+            <h1 className="page-hero-title-exact">
+              {t('home.blogTitle')}
             </h1>
-            <p className="page-hero-desc">
-              Thoughtful articles, field observations, and ecological guides authored by our volunteers, foresters, and community seva coordinators.
+            <div className="page-hero-accent-line"></div>
+            <p className="page-hero-desc-exact">
+              {t('home.blogSubtitle')}
             </p>
           </div>
         </div>

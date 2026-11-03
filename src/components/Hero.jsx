@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Heart, ArrowRight, Users } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Hero() {
+  const { t } = useLanguage();
   const heroRef = useRef(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
@@ -117,16 +119,16 @@ export default function Hero() {
             {/* Minimal Subtag with Accent Lines */}
             <div className="hero-subtag-banner">
               <span className="subtag-line" aria-hidden="true"></span>
-              <span className="subtag-text">SERVE • SUPPORT • TRANSFORM</span>
+              <span className="subtag-text">{t('hero.subtag')}</span>
               <span className="subtag-line" aria-hidden="true"></span>
             </div>
 
             {/* Editorial Serif Heading Matching User's Image */}
             <h1 className="envarn-hero-heading-exact">
-              Good Deeds Today,<br />
-              Restoring the{' '}
+              {t('hero.titlePart1')}<br />
+              {t('hero.titlePart2')}{' '}
               <span className="highlight-future">
-                Future
+                {t('hero.titleHighlight')}
                 <svg
                   className="brush-swoosh"
                   viewBox="0 0 210 14"
@@ -144,20 +146,20 @@ export default function Hero() {
 
             {/* Subtitle Matching User's Image */}
             <p className="envarn-hero-subheading-exact">
-              Serving Humanity, Protecting Nature, Building a Sustainable Tomorrow.<br className="hidden-mobile-br" />
-              Together, we can create a kinder, greener and better world.
+              {t('hero.subtitleLine1')}<br className="hidden-mobile-br" />
+              {t('hero.subtitleLine2')}
             </p>
 
             {/* Two Action Buttons Matching User's Image */}
             <div className="envarn-hero-buttons-exact">
               <Link to="/donate" className="btn-hero-donate-exact" aria-label="Donate Now to Manchi Panulu Seva Foundation">
                 <Heart size={18} fill="#FFFFFF" color="#FFFFFF" className="btn-icon-heart" />
-                <span>Donate Now</span>
+                <span>{t('hero.donateBtn')}</span>
                 <ArrowRight size={17} className="btn-icon-arrow" />
               </Link>
               <Link to="/volunteer" className="btn-hero-mission-exact" aria-label="Join Our Mission as a Volunteer">
                 <Users size={19} className="btn-icon-users" />
-                <span>Join Our Mission</span>
+                <span>{t('hero.volunteerBtn')}</span>
               </Link>
             </div>
           </div>

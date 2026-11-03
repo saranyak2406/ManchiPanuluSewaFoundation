@@ -14,8 +14,10 @@ import {
 import Button from '../components/Button';
 import { complianceInfo } from '../data/statsData';
 import { faqData } from '../data/faqData';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function ContactPage() {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -62,19 +64,20 @@ export default function ContactPage() {
 
   return (
     <>
-      {/* Page Hero */}
+      {/* Page Hero - Matching User's Target Design Exactly */}
       <section className="page-hero">
         <div className="container">
-          <div className="page-hero-inner">
-            <div className="eyebrow-badge" style={{ backgroundColor: 'rgba(120, 201, 83, 0.15)', color: 'var(--color-sprout-light)', borderColor: 'rgba(120, 201, 83, 0.3)' }}>
-              <Mail size={15} />
-              <span>Reach Out</span>
+          <div className="page-hero-inner-unboxed">
+            <div className="page-hero-eyebrow">
+              <Mail size={16} />
+              <span>{t('contact.badge')}</span>
             </div>
-            <h1 className="page-hero-title">
-              We Would Love to Hear From You
+            <h1 className="page-hero-title-exact">
+              {t('contact.heroTitle')}
             </h1>
-            <p className="page-hero-desc">
-              Have questions about upcoming tree drives? Want to request food seva at a community shelter, or partner for an eco-cleanup? Get in touch with our team.
+            <div className="page-hero-accent-line"></div>
+            <p className="page-hero-desc-exact">
+              {t('contact.heroDesc')}
             </p>
           </div>
         </div>

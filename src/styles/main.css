@@ -22,6 +22,33 @@ body {
   min-height: 100vh;
 }
 
+/* Multilingual Native Font Encodings for Telugu & Hindi */
+body.lang-te {
+  font-family: 'Noto Sans Telugu', var(--font-body);
+}
+
+body.lang-te h1,
+body.lang-te h2,
+body.lang-te h3,
+body.lang-te .page-hero-title,
+body.lang-te .envarn-hero-heading-exact {
+  font-family: 'Noto Sans Telugu', var(--font-editorial);
+  letter-spacing: normal !important;
+}
+
+body.lang-hi {
+  font-family: 'Noto Sans Devanagari', var(--font-body);
+}
+
+body.lang-hi h1,
+body.lang-hi h2,
+body.lang-hi h3,
+body.lang-hi .page-hero-title,
+body.lang-hi .envarn-hero-heading-exact {
+  font-family: 'Noto Sans Devanagari', var(--font-editorial);
+  letter-spacing: normal !important;
+}
+
 /* Full Screen Edge-to-Edge Layout - No Outer Borders or Black Margins */
 .app-shell {
   min-height: 100vh;

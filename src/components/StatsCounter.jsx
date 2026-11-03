@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { TreePine, HeartHandshake, Sparkles, Users, Info } from 'lucide-react';
 import { statsData } from '../data/statsData';
+import { useLanguage } from '../context/LanguageContext';
 
 const iconMap = {
   TreePine,
@@ -67,6 +68,16 @@ function SingleCounter({ targetValue, prefix = '', suffix = '' }) {
 }
 
 export default function StatsCounter() {
+  const { t, language } = useLanguage();
+
+  const getTranslatedLabel = (stat) => {
+    if (stat.id === 'trees-planted') return t('stats.treesLabel');
+    if (stat.id === 'meals-served') return t('stats.mealsLabel');
+    if (stat.id === 'water-bodies') return t('stats.waterLabel');
+    if (stat.id === 'volunteers') return t('stats.volunteersLabel');
+    return stat.label;
+  };
+
   return (
     <div className="stats-banner">
       <div className="stats-grid">
@@ -85,7 +96,7 @@ export default function StatsCounter() {
                 suffix={stat.suffix}
               />
 
-              <div className="stat-label-title">{stat.label}</div>
+              <div className="stat-label-title">{getTranslatedLabel(stat)}</div>
               <p className="stat-desc">{stat.description}</p>
             </div>
           );
@@ -94,7 +105,7 @@ export default function StatsCounter() {
 
       <div className="stats-audit-notice">
         <Info size={14} style={{ display: 'inline', verticalAlign: 'middle', marginRight: '4px' }} />
-        <span>Transparent Audit Note: Figures shown above are prototype placeholders demonstrating real-time animated counters. Official verified metrics are audited annually.</span>
+        <span>{t('stats.transparencyNote')}</span>
       </div>
     </div>
   );

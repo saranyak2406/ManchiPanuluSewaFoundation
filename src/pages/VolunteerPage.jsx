@@ -12,8 +12,10 @@ import {
   AlertCircle
 } from 'lucide-react';
 import Button from '../components/Button';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function VolunteerPage() {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     fullName: '',
     phone: '',
@@ -98,18 +100,19 @@ export default function VolunteerPage() {
 
   return (
     <>
-      {/* Page Hero */}
+      {/* Page Hero - Matching User's Target Design Exactly */}
       <section className="page-hero">
         <div className="container">
-          <div className="page-hero-inner">
-            <div className="eyebrow-badge" style={{ backgroundColor: 'rgba(120, 201, 83, 0.15)', color: 'var(--color-sprout-light)', borderColor: 'rgba(120, 201, 83, 0.3)' }}>
-              <Users size={15} />
-              <span>Join Our Mission</span>
+          <div className="page-hero-inner-unboxed">
+            <div className="page-hero-eyebrow">
+              <Users size={16} />
+              <span>{t('hero.volunteerBtn')}</span>
             </div>
-            <h1 className="page-hero-title">
+            <h1 className="page-hero-title-exact">
               Be the Change: Volunteer in Seva
             </h1>
-            <p className="page-hero-desc">
+            <div className="page-hero-accent-line"></div>
+            <p className="page-hero-desc-exact">
               Nothing matches the fulfillment of digging soil for a future banyan tree or serving warm food to a tired hospital caretaker. Join our family of grassroots volunteers.
             </p>
           </div>

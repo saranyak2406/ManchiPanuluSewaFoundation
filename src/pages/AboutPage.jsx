@@ -15,8 +15,10 @@ import {
 } from 'lucide-react';
 import Button from '../components/Button';
 import { complianceInfo } from '../data/statsData';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function AboutPage() {
+  const { t } = useLanguage();
   const leadershipTeam = [
     {
       name: "Dr. K. Ramachandra Rao",
@@ -63,19 +65,20 @@ export default function AboutPage() {
 
   return (
     <>
-      {/* Page Hero */}
+      {/* Page Hero - Matching User's Target Design Exactly */}
       <section className="page-hero">
         <div className="container">
-          <div className="page-hero-inner">
-            <div className="eyebrow-badge" style={{ backgroundColor: 'rgba(120, 201, 83, 0.15)', color: 'var(--color-sprout-light)', borderColor: 'rgba(120, 201, 83, 0.3)' }}>
-              <Compass size={15} />
-              <span>About Us</span>
+          <div className="page-hero-inner-unboxed">
+            <div className="page-hero-eyebrow">
+              <Compass size={16} />
+              <span>{t('about.badge')}</span>
             </div>
-            <h1 className="page-hero-title">
-              Good Deeds Rooted in Soil, Sustained by Compassion
+            <h1 className="page-hero-title-exact">
+              {t('about.heroTitle')}
             </h1>
-            <p className="page-hero-desc">
-              Manchi Panulu Seva Foundation exists to prove that humanity thrives when we care for one another and reverence the living earth that sustains us.
+            <div className="page-hero-accent-line"></div>
+            <p className="page-hero-desc-exact">
+              {t('about.heroDesc')}
             </p>
           </div>
         </div>

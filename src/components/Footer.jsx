@@ -14,8 +14,10 @@ import {
 } from 'lucide-react';
 import Button from './Button';
 import { complianceInfo } from '../data/statsData';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Footer() {
+  const { t } = useLanguage();
   const [emailInput, setEmailInput] = useState('');
   const [subscribed, setSubscribed] = useState(false);
 
@@ -35,8 +37,8 @@ export default function Footer() {
         <div className="footer-main-grid">
           {/* Column 1: Brand & Ethos */}
           <div className="footer-brand-col">
-            <h3 className="footer-brand-title">MANCHI PANULU</h3>
-            <div className="footer-tagline">Good Deeds Today, A Better Tomorrow.</div>
+            <h3 className="footer-brand-title">{t('nav.brandTitle')}</h3>
+            <div className="footer-tagline">{t('footer.quote')}</div>
             <p className="footer-desc">
               Dedicated to serving humanity, protecting nature, and building a sustainable future through grassroots community action across India.
             </p>
@@ -128,15 +130,16 @@ export default function Footer() {
 
           {/* Column 3: Quick Navigation */}
           <div>
-            <h4 className="footer-heading">Quick Links</h4>
+            <h4 className="footer-heading">{t('footer.quickNav')}</h4>
             <ul className="footer-links-list">
-              <li><Link to="/about" className="footer-link">About the Foundation</Link></li>
-              <li><Link to="/projects" className="footer-link">Our Projects</Link></li>
-              <li><Link to="/gallery" className="footer-link">Photo & Video Gallery</Link></li>
-              <li><Link to="/blog" className="footer-link">Articles & Eco-Guides</Link></li>
-              <li><Link to="/volunteer" className="footer-link">Join Our Mission</Link></li>
-              <li><Link to="/contact" className="footer-link">Contact & Locate Us</Link></li>
-              <li><Link to="/donate" className="footer-link">Donate & Support</Link></li>
+              <li><Link to="/about" className="footer-link">{t('nav.about')}</Link></li>
+              <li><Link to="/services" className="footer-link">{t('nav.services')}</Link></li>
+              <li><Link to="/projects" className="footer-link">{t('nav.projects')}</Link></li>
+              <li><Link to="/gallery" className="footer-link">{t('nav.gallery')}</Link></li>
+              <li><Link to="/blog" className="footer-link">{t('nav.blog')}</Link></li>
+              <li><Link to="/volunteer" className="footer-link">{t('hero.volunteerBtn')}</Link></li>
+              <li><Link to="/contact" className="footer-link">{t('nav.contact')}</Link></li>
+              <li><Link to="/donate" className="footer-link">{t('nav.donate')}</Link></li>
             </ul>
           </div>
 

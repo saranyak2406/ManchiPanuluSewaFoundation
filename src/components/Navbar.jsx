@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
-import { Menu, X, Globe, ChevronDown, Heart } from 'lucide-react';
-import LanguageNoticeModal from './LanguageNoticeModal';
+import { Menu, X, Globe, ChevronDown, Check } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Navbar() {
+  const { language, setLanguage, t } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [langDropdownOpen, setLangDropdownOpen] = useState(false);
-  const [selectedLang, setSelectedLang] = useState('en');
-  const [langModalOpen, setLangModalOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -25,21 +24,18 @@ export default function Navbar() {
   }, [location.pathname]);
 
   const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'About us', path: '/about' },
-    { name: 'Our Services', path: '/services' },
-    { name: 'Our Projects', path: '/projects' },
-    { name: 'Gallery', path: '/gallery' },
-    { name: 'Blog', path: '/blog' },
-    { name: 'Contact us', path: '/contact' },
+    { name: t('nav.home'), path: '/' },
+    { name: t('nav.about'), path: '/about' },
+    { name: t('nav.services'), path: '/services' },
+    { name: t('nav.projects'), path: '/projects' },
+    { name: t('nav.gallery'), path: '/gallery' },
+    { name: t('nav.blog'), path: '/blog' },
+    { name: t('nav.contact'), path: '/contact' },
   ];
 
   const handleLanguageSelect = (langCode) => {
-    setSelectedLang(langCode);
+    setLanguage(langCode);
     setLangDropdownOpen(false);
-    if (langCode !== 'en') {
-      setLangModalOpen(true);
-    }
   };
 
   return (
@@ -59,8 +55,8 @@ export default function Navbar() {
                 </svg>
               </div>
               <div className="brand-text">
-                <span className="brand-title">Manchi Panulu</span>
-                <span className="brand-subtitle">SEVA FOUNDATION</span>
+                <span className="brand-title">{t('nav.brandTitle')}</span>
+                <span className="brand-subtitle">{t('nav.brandSubtitle')}</span>
               </div>
             </Link>
 
@@ -90,7 +86,7 @@ export default function Navbar() {
                   aria-label="Select Language"
                 >
                   <Globe size={15} />
-                  <span>{selectedLang === 'en' ? 'EN' : selectedLang === 'te' ? 'తె' : 'हि'}</span>
+                  <span>{language === 'en' ? 'EN' : language === 'te' ? 'తెలుగు' : 'हिन्दी'}</span>
                   <ChevronDown size={13} />
                 </button>
 
@@ -98,27 +94,36 @@ export default function Navbar() {
                   <div className="lang-menu">
                     <button
                       type="button"
-                      className={`lang-item ${selectedLang === 'en' ? 'active' : ''}`}
+                      className={`lang-item ${language === 'en' ? 'active' : ''}`}
                       onClick={() => handleLanguageSelect('en')}
                     >
-                      <span>English</span>
-                      <span className="lang-subtext">Default</span>
+                      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+                        <span style={{ fontWeight: 600 }}>English</span>
+                        <span className="lang-subtext">Global</span>
+                      </div>
+                      {language === 'en' && <Check size={14} style={{ color: 'var(--color-sprout)' }} />}
                     </button>
                     <button
                       type="button"
-                      className={`lang-item ${selectedLang === 'te' ? 'active' : ''}`}
+                      className={`lang-item ${language === 'te' ? 'active' : ''}`}
                       onClick={() => handleLanguageSelect('te')}
                     >
-                      <span>తెలుగు (Telugu)</span>
-                      <span className="lang-subtext">Preview</span>
+                      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+                        <span style={{ fontWeight: 600 }}>తెలుగు (Telugu)</span>
+                        <span className="lang-subtext">మాతృభాష</span>
+                      </div>
+                      {language === 'te' && <Check size={14} style={{ color: 'var(--color-sprout)' }} />}
                     </button>
                     <button
                       type="button"
-                      className={`lang-item ${selectedLang === 'hi' ? 'active' : ''}`}
+                      className={`lang-item ${language === 'hi' ? 'active' : ''}`}
                       onClick={() => handleLanguageSelect('hi')}
                     >
-                      <span>हिन्दी (Hindi)</span>
-                      <span className="lang-subtext">Preview</span>
+                      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+                        <span style={{ fontWeight: 600 }}>हिन्दी (Hindi)</span>
+                        <span className="lang-subtext">राष्ट्रभाषा</span>
+                      </div>
+                      {language === 'hi' && <Check size={14} style={{ color: 'var(--color-sprout)' }} />}
                     </button>
                   </div>
                 )}
@@ -126,77 +131,77 @@ export default function Navbar() {
 
               {/* Envarn-style dark solid rounded pill button */}
               <Link to="/donate" className="btn-envarn-pill-nav">
-                Donate Now
+                {t('nav.donate')}
               </Link>
 
-              {/* Mobile Hamburger Toggle */}
+              {/* Mobile Hamburger Trigger */}
               <button
                 type="button"
-                className="mobile-nav-toggle"
-                onClick={() => setMobileMenuOpen(true)}
-                aria-label="Open Navigation Menu"
+                className="mobile-menu-btn"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                aria-expanded={mobileMenuOpen}
+                aria-label="Toggle navigation menu"
               >
-                <Menu size={22} />
+                {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
               </button>
             </div>
           </div>
         </div>
-      </header>
 
-      {/* Mobile Drawer */}
-      {mobileMenuOpen && (
-        <>
-          <div className="mobile-drawer-overlay" onClick={() => setMobileMenuOpen(false)} />
-          <div className="mobile-drawer">
-            <div className="drawer-header">
-              <div className="brand-text">
-                <span className="brand-title" style={{ fontSize: '1.2rem' }}>Manchi Panulu</span>
-                <span className="brand-subtitle">SEVA FOUNDATION</span>
-              </div>
-              <button
-                type="button"
-                className="mobile-nav-toggle"
-                onClick={() => setMobileMenuOpen(false)}
-                aria-label="Close menu"
-              >
-                <X size={20} />
-              </button>
-            </div>
+        {/* Mobile Navigation Drawer */}
+        {mobileMenuOpen && (
+          <div className="mobile-menu-drawer">
+            <div className="container mobile-menu-inner">
+              <nav className="mobile-nav-links">
+                {navLinks.map((link) => (
+                  <NavLink
+                    key={link.path}
+                    to={link.path}
+                    end={link.path === '/'}
+                    className={({ isActive }) => `mobile-nav-item ${isActive ? 'active' : ''}`}
+                  >
+                    {link.name}
+                  </NavLink>
+                ))}
+              </nav>
 
-            <nav className="drawer-nav-list">
-              {navLinks.map((link) => (
-                <NavLink
-                  key={link.path}
-                  to={link.path}
-                  end={link.path === '/'}
-                  className={({ isActive }) => `drawer-nav-item ${isActive ? 'active' : ''}`}
-                >
-                  {link.name}
-                </NavLink>
-              ))}
-              <NavLink to="/volunteer" className={({ isActive }) => `drawer-nav-item ${isActive ? 'active' : ''}`}>
-                Join Our Mission
-              </NavLink>
-            </nav>
+              <div className="mobile-drawer-bottom">
+                {/* Mobile Language Switcher */}
+                <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1.25rem', justifyContent: 'center' }}>
+                  <button
+                    type="button"
+                    className={`lang-item ${language === 'en' ? 'active' : ''}`}
+                    onClick={() => handleLanguageSelect('en')}
+                    style={{ padding: '0.4rem 0.85rem', borderRadius: 'var(--radius-pill)', border: '1px solid rgba(22, 36, 20, 0.15)' }}
+                  >
+                    EN
+                  </button>
+                  <button
+                    type="button"
+                    className={`lang-item ${language === 'te' ? 'active' : ''}`}
+                    onClick={() => handleLanguageSelect('te')}
+                    style={{ padding: '0.4rem 0.85rem', borderRadius: 'var(--radius-pill)', border: '1px solid rgba(22, 36, 20, 0.15)' }}
+                  >
+                    తెలుగు
+                  </button>
+                  <button
+                    type="button"
+                    className={`lang-item ${language === 'hi' ? 'active' : ''}`}
+                    onClick={() => handleLanguageSelect('hi')}
+                    style={{ padding: '0.4rem 0.85rem', borderRadius: 'var(--radius-pill)', border: '1px solid rgba(22, 36, 20, 0.15)' }}
+                  >
+                    हिन्दी
+                  </button>
+                </div>
 
-            <div className="drawer-footer">
-              <Link to="/donate" className="btn-envarn-primary" style={{ width: '100%', textAlign: 'center' }}>
-                Donate Now
-              </Link>
-              <div style={{ textAlign: 'center', fontSize: '0.82rem', color: 'var(--color-text-muted)' }}>
-                "Good Deeds Today, A Better Tomorrow"
+                <Link to="/donate" className="btn-envarn-primary-seamless" style={{ width: '100%', textAlign: 'center' }}>
+                  {t('nav.donate')}
+                </Link>
               </div>
             </div>
           </div>
-        </>
-      )}
-
-      {/* Language Preview Modal */}
-      <LanguageNoticeModal
-        isOpen={langModalOpen}
-        onClose={() => setLangModalOpen(false)}
-        selectedLang={selectedLang}
-      />
+        )}
+      </header>
     </>
   );
 }

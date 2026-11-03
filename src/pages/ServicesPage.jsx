@@ -19,6 +19,7 @@ import {
 } from 'lucide-react';
 import Button from '../components/Button';
 import { servicesData } from '../data/servicesData';
+import { useLanguage } from '../context/LanguageContext';
 
 const iconMap = {
   Trees,
@@ -36,6 +37,7 @@ const iconMap = {
 };
 
 export default function ServicesPage() {
+  const { t } = useLanguage();
   const [requestFormOpen, setRequestFormOpen] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formData, setFormData] = useState({
@@ -66,18 +68,19 @@ export default function ServicesPage() {
 
   return (
     <>
-      {/* Page Hero */}
+      {/* Page Hero - Matching User's Target Design Exactly */}
       <section className="page-hero">
         <div className="container">
-          <div className="page-hero-inner">
-            <div className="eyebrow-badge" style={{ backgroundColor: 'rgba(120, 201, 83, 0.15)', color: 'var(--color-sprout-light)', borderColor: 'rgba(120, 201, 83, 0.3)' }}>
-              <Trees size={15} />
-              <span>Our Core Disciplines</span>
+          <div className="page-hero-inner-unboxed">
+            <div className="page-hero-eyebrow">
+              <Trees size={16} />
+              <span>{t('nav.services')}</span>
             </div>
-            <h1 className="page-hero-title">
+            <h1 className="page-hero-title-exact">
               Three Pillars of Dedicated Service
             </h1>
-            <p className="page-hero-desc">
+            <div className="page-hero-accent-line"></div>
+            <p className="page-hero-desc-exact">
               Holistic community action structured across three dedicated domains: nurturing indigenous plant life, providing direct social care to vulnerable lives, and cleaning and restoring living waterbodies.
             </p>
           </div>
