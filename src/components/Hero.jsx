@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { Heart, ArrowRight, Users, ArrowDown } from 'lucide-react';
+import { Heart, ArrowRight, Users } from 'lucide-react';
 
 export default function Hero() {
   const heroRef = useRef(null);
@@ -38,13 +38,6 @@ export default function Hero() {
       cancelAnimationFrame(animationFrameId);
     };
   }, []);
-
-  const scrollToServices = () => {
-    const el = document.getElementById('services');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   return (
     <section ref={heroRef} className="envarn-hero-fullscreen-3d" id="home">
@@ -168,19 +161,6 @@ export default function Hero() {
               </Link>
             </div>
           </div>
-        </div>
-
-        {/* Bottom Bar: Explore Pill Anchor with Subtle Ambient Glow */}
-        <div className="envarn-hero-bottom-bar">
-          <button
-            type="button"
-            onClick={scrollToServices}
-            className="hero-scroll-pill-3d"
-            aria-label="Scroll to services"
-          >
-            <span>Explore Our Three Pillars of Seva</span>
-            <ArrowDown size={15} className="animate-bounce" />
-          </button>
         </div>
       </div>
     </section>

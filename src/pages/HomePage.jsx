@@ -15,13 +15,11 @@ import {
   Eye
 } from 'lucide-react';
 import Hero from '../components/Hero';
-import ServiceCard from '../components/ServiceCard';
 import ProjectCard from '../components/ProjectCard';
 import StatsCounter from '../components/StatsCounter';
 import ProjectDetailModal from '../components/ProjectDetailModal';
 import BlogModal from '../components/BlogModal';
 import Button from '../components/Button';
-import { servicesData } from '../data/servicesData';
 import { projectsData } from '../data/projectsData';
 import { galleryData } from '../data/galleryData';
 import { blogData } from '../data/blogData';
@@ -43,38 +41,6 @@ export default function HomePage() {
       <section className="section" style={{ paddingTop: '1rem', paddingBottom: '3.5rem' }}>
         <div className="container">
           <StatsCounter />
-        </div>
-      </section>
-
-      {/* 3. Three Main Pillars of Service */}
-      <section className="section section-sage" id="services">
-        <div className="container">
-          <div className="section-header">
-            <div className="eyebrow-badge">
-              <Sparkles size={14} />
-              <span>Core Service Pillars</span>
-            </div>
-            <h2 className="section-title">Three Areas of Lasting Impact</h2>
-            <p className="section-subtitle">
-              Every action we take is anchored in our tripartite commitment: nourishing nature through native plants, uplifting human lives through selfless seva, and safeguarding natural ecosystems.
-            </p>
-          </div>
-
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '2rem'
-          }}>
-            {servicesData.map((service) => (
-              <ServiceCard key={service.id} service={service} />
-            ))}
-          </div>
-
-          <div style={{ textAlign: 'center', marginTop: '3.5rem' }}>
-            <Button to="/services" variant="primary" size="lg" icon={ArrowRight}>
-              Explore Complete Service Methodology
-            </Button>
-          </div>
         </div>
       </section>
 
