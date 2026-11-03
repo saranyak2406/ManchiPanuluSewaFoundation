@@ -1,0 +1,62 @@
+:root {
+  /* Envarn-Inspired Color Palette */
+  --color-outer-forest: #081B12;      /* Deep luxurious forest outer frame */
+  --color-forest-900: #0C261A;        /* Dark forest surface */
+  --color-forest-800: #123826;        /* Rich evergreen */
+  --color-forest-700: #194C35;        /* Deep jungle green */
+  --color-forest-600: #226446;        /* Evergreen mid */
+
+  --color-sage-50: #F6FAF6;           /* Main light website background */
+  --color-sage-100: #EEF5EE;          /* Soft sage tint */
+  --color-sage-200: #DEEBDE;          /* Subtle sage border & dividers */
+  --color-sage-300: #C2D9C2;          /* Sage muted accent */
+  --color-sage-400: #9EC09E;          /* Muted leaf */
+
+  --color-sprout: #78C953;            /* Vibrant nature sprout green */
+  --color-sprout-light: #9DE07E;      /* Bright sprout highlight */
+  --color-gold: #E2B357;              /* Warm earth / golden sunlight */
+  --color-gold-light: #F4D189;        /* Soft gold */
+
+  --color-text-main: #132219;         /* High-contrast deep slate green text */
+  --color-text-muted: #4F6759;        /* Soft editorial body muted */
+  --color-text-light: #F4F8F4;        /* Off-white light text */
+  --color-text-light-muted: #B4C7BC;  /* Light muted on dark surfaces */
+
+  --color-surface-white: #FFFFFF;     /* Crisp white cards */
+  --color-surface-translucent: rgba(255, 255, 255, 0.88);
+  --color-surface-dark-card: #0F2D1F;
+
+  --color-border-subtle: rgba(18, 56, 38, 0.08);
+  --color-border-card: rgba(18, 56, 38, 0.12);
+  --color-border-dark: rgba(255, 255, 255, 0.12);
+
+  /* Typography */
+  --font-heading: 'Fraunces', Georgia, serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Border Radii */
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-2xl: 40px;
+  --radius-pill: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(12, 38, 26, 0.04);
+  --shadow-md: 0 8px 24px rgba(12, 38, 26, 0.06);
+  --shadow-lg: 0 16px 40px rgba(12, 38, 26, 0.09);
+  --shadow-glow: 0 0 25px rgba(120, 201, 83, 0.3);
+  --shadow-gold-glow: 0 0 25px rgba(226, 179, 87, 0.25);
+
+  /* Transitions */
+  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Layout */
+  --content-max-width: 1280px;
+  --frame-padding: 16px;
+}
+

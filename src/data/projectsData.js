@@ -1,0 +1,147 @@
+export const projectsData = [
+  {
+    id: "haritha-sankalpam-miyawaki",
+    title: "Haritha Sankalpam – Urban Miyawaki Forest",
+    category: "Plants",
+    categoryLabel: "Plants & Nature",
+    status: "Ongoing",
+    badgeColor: "ongoing",
+    location: "Peri-Urban Zone, Telangana & Andhra Region",
+    duration: "2025 – Present",
+    targetMetric: "25,000 Saplings Target (Placeholder)",
+    achievedMetric: "18,400 Saplings Planted (Placeholder)",
+    volunteersCount: "420+ Volunteers",
+    shortDescription: "Transforming 4 acres of barren, degraded municipal land into a dense, multi-tiered native forest using the high-density Miyawaki methodology.",
+    fullDescription: "Haritha Sankalpam is an urban afforestation initiative aimed at restoring degraded land. By planting 40+ native tree varieties including Neem, Peepal, Banyan, and Jamun in multi-tier density, the forest absorbs 30x more carbon dioxide and develops 10x faster than traditional monoculture plantations.",
+    image: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1000&q=80",
+    keyHighlights: [
+      "40+ indigenous species carefully selected for drought resistance",
+      "Drip irrigation and organic mulching to ensure >92% survival rate",
+      "Local school and youth group participation every Sunday morning",
+      "Quarterly biodiversity surveys tracking return of native bird species"
+    ],
+    fundsTarget: "₹8,50,000",
+    fundsRaised: "₹6,40,000"
+  },
+  {
+    id: "anna-seva-daily-hunger-relief",
+    title: "Amrutha Aahaaram – Daily Hunger Relief",
+    category: "Seva",
+    categoryLabel: "Social Seva",
+    status: "Ongoing",
+    badgeColor: "ongoing",
+    location: "Government Hospitals & Night Shelters",
+    duration: "2024 – Present",
+    targetMetric: "1,00,000 Meals Annual Goal (Placeholder)",
+    achievedMetric: "72,500 Meals Served (Placeholder)",
+    volunteersCount: "350+ Volunteers",
+    shortDescription: "Serving wholesome, nutritious, freshly prepared hot vegetarian meals to patient attendants, daily wage earners, and elderly individuals.",
+    fullDescription: "When families travel hundreds of kilometers to seek care at government hospitals, attendants frequently skip meals due to severe financial distress. Amrutha Aahaaram deploys mobile kitchen vans delivering hot, freshly cooked khichdi, sambar rice, and nutrition packs with uncompromised hygiene.",
+    image: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1000&q=80",
+    keyHighlights: [
+      "Centralized hygienic cloud kitchen with food safety protocols",
+      "Zero food waste policy – surplus delivered to verified night shelters",
+      "Special weekend meal distribution targeting construction workers",
+      "Direct nutritional tracking for vulnerable pregnant women and seniors"
+    ],
+    fundsTarget: "₹12,00,000",
+    fundsRaised: "₹9,80,000"
+  },
+  {
+    id: "jal-punarjeevana-lake-cleanup",
+    title: "Jal Punarjeevana – Lake & Stepwell Revival",
+    category: "Environment",
+    categoryLabel: "Environmental Service",
+    status: "Ongoing",
+    badgeColor: "ongoing",
+    location: "Community Waterbodies & Village Tanks",
+    duration: "2025 – Present",
+    targetMetric: "12 Waterbodies Restoration (Placeholder)",
+    achievedMetric: "7 Lakes De-silted & Cleaned (Placeholder)",
+    volunteersCount: "580+ Volunteers",
+    shortDescription: "Restoring silted community ponds, removing invasive hyacinth and plastic debris, and building natural filtration channels.",
+    fullDescription: "Water scarcity directly threatens agricultural vitality and community health. The Jal Punarjeevana initiative combines volunteer lake cleanups with mechanical desilting, deep contour bunding, and vetiver grass stabilization to restore natural aquifers and rainwater percolation.",
+    image: "https://images.unsplash.com/photo-1618477461853-cf6ed80faba5?auto=format&fit=crop&w=1000&q=80",
+    keyHighlights: [
+      "Extracted over 35 metric tons of plastic waste and invasive weeds",
+      "Constructed bio-swales and stone riprap bunds along lake perimeter",
+      "Planted 3,200 native reed plants to naturally filter incoming runoff",
+      "Community water custodians committee formed for ongoing monitoring"
+    ],
+    fundsTarget: "₹15,00,000",
+    fundsRaised: "₹11,20,000"
+  },
+  {
+    id: "vidya-deepam-student-support",
+    title: "Vidya Deepam – Rural Student Kits & Green Labs",
+    category: "Seva",
+    categoryLabel: "Social Seva",
+    status: "Completed",
+    badgeColor: "completed",
+    location: "24 Rural Government Schools",
+    duration: "2024 – 2025",
+    targetMetric: "3,000 Students Empowered (Placeholder)",
+    achievedMetric: "3,250 Kits Distributed (Placeholder)",
+    volunteersCount: "210 Volunteers",
+    shortDescription: "Providing educational backpacks, solar study lamps, reusable water bottles, and setting up eco-awareness library corners in rural schools.",
+    fullDescription: "Vidya Deepam bridged the educational resource gap for underprivileged students while embedding environmental consciousness from an early age. Each kit included eco-friendly stationary, seed-embedded pencils, notebooks, and a stainless steel water canteen.",
+    image: "https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1000&q=80",
+    keyHighlights: [
+      "100% plastic-free student kit materials",
+      "Delivered 24 environmental audio-visual interactive sessions",
+      "Introduced school kitchen gardens managed by student eco-clubs",
+      "Recognized by local educational mandal officers for impactful outreach"
+    ],
+    fundsTarget: "₹6,00,000",
+    fundsRaised: "₹6,00,000"
+  },
+  {
+    id: "clean-corridor-anti-plastic",
+    title: "Swachh Parisaram – Plastic-Free Pilgrimage & Market Corridors",
+    category: "Environment",
+    categoryLabel: "Environmental Service",
+    status: "Completed",
+    badgeColor: "completed",
+    location: "Major Temple Trails & Market Streets",
+    duration: "2024 – 2025",
+    targetMetric: "50 Tons Single-Use Plastic Prevented (Placeholder)",
+    achievedMetric: "58 Tons Diverted & Recycled (Placeholder)",
+    volunteersCount: "640 Volunteers",
+    shortDescription: "Eliminating disposable single-use polythene bags by distributing 45,000 stitched cotton bags and establishing segregation bins.",
+    fullDescription: "High-footfall pilgrimage and traditional weekly market zones generate overwhelming plastic litter that chokes cattle and drains. Swachh Parisaram replaced single-use bags with free reusable cloth bags made by women's self-help groups.",
+    image: "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=1000&q=80",
+    keyHighlights: [
+      "Distributed 45,000 reusable tote bags hand-stitched by local women SHGs",
+      "Installed 80 color-coded segregation bins at prime market corners",
+      "Tied up with certified municipal recyclers for scientific processing",
+      "Trained 180 local shopkeepers as certified green merchants"
+    ],
+    fundsTarget: "₹7,20,000",
+    fundsRaised: "₹7,20,000"
+  },
+  {
+    id: "vanam-manadhe-agroforestry",
+    title: "Vanam Manadhe – Agroforestry for Small Farmers",
+    category: "Plants",
+    categoryLabel: "Plants & Nature",
+    status: "Upcoming",
+    badgeColor: "upcoming",
+    location: "Drought-prone Agricultural Mandals",
+    duration: "Scheduled Launch 2026",
+    targetMetric: "50,000 Fruit & Timber Saplings (Placeholder)",
+    achievedMetric: "Nursery Preparation Phase (Placeholder)",
+    volunteersCount: "Enrollment Open",
+    shortDescription: "Assisting marginal farmers in planting multi-tier fruit and timber saplings to replenish depleted soils and create sustainable alternate incomes.",
+    fullDescription: "Vanam Manadhe addresses rural climate vulnerability by empowering marginal farmers with free organic saplings of Teak, Mango, Guava, Drumstick (Moringa), and Sandalwood. This initiative enhances groundwater recharge while insulating farm income.",
+    image: "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=1000&q=80",
+    keyHighlights: [
+      "Partnering with organic farming scientists for soil mapping",
+      "Direct nursery distribution with zero middlemen",
+      "3-year solar micro-drip advisory support",
+      "Registration open for farmer clusters and environmental sponsors"
+    ],
+    fundsTarget: "₹18,00,000",
+    fundsRaised: "₹4,50,000"
+  }
+];
+
