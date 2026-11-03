@@ -366,12 +366,12 @@
 /* Editorial Heading Matching User's Target Design */
 .envarn-hero-heading-exact {
   font-family: var(--font-editorial);
-  font-size: clamp(2.8rem, 5.2vw, 4.3rem);
+  font-size: clamp(2.1rem, 3.8vw, 3.2rem);
   font-weight: 800;
   color: #152B16;
-  line-height: 1.08;
-  letter-spacing: -0.025em;
-  margin-bottom: 1.35rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.15rem;
   text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6);
 }
 
@@ -393,11 +393,11 @@
 /* Hero Subtitle */
 .envarn-hero-subheading-exact {
   font-family: var(--font-body);
-  font-size: clamp(1.02rem, 1.35vw, 1.18rem);
+  font-size: clamp(0.96rem, 1.2vw, 1.08rem);
   color: #2D3F2A;
-  line-height: 1.68;
-  margin-bottom: 2.25rem;
-  max-width: 580px;
+  line-height: 1.62;
+  margin-bottom: 1.85rem;
+  max-width: 540px;
   font-weight: 500;
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.45);
 }
