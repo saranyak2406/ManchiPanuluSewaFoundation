@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
-import { Menu, X, Heart, Globe, ChevronDown, Sparkles } from 'lucide-react';
-import Button from './Button';
+import { Menu, X, Globe, ChevronDown, Heart } from 'lucide-react';
 import LanguageNoticeModal from './LanguageNoticeModal';
 
 export default function Navbar() {
@@ -20,7 +19,6 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile drawer on route change
   useEffect(() => {
     setMobileMenuOpen(false);
     setLangDropdownOpen(false);
@@ -28,12 +26,12 @@ export default function Navbar() {
 
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'About Us', path: '/about' },
+    { name: 'About us', path: '/about' },
     { name: 'Our Services', path: '/services' },
     { name: 'Our Projects', path: '/projects' },
     { name: 'Gallery', path: '/gallery' },
     { name: 'Blog', path: '/blog' },
-    { name: 'Contact Us', path: '/contact' },
+    { name: 'Contact us', path: '/contact' },
   ];
 
   const handleLanguageSelect = (langCode) => {
@@ -50,17 +48,18 @@ export default function Navbar() {
         <div className="container">
           <div className="navbar-inner">
             {/* Brand Logo */}
-            <Link to="/" className="brand-logo" aria-label="Manchi Panulu Seva Foundation Home">
+            <Link to="/" className="brand-logo" aria-label="Manchi Panulu Seva Foundation">
               <div className="brand-icon-wrapper">
-                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2Z" fill="#143F2B" />
-                  <path d="M12 4C8 8 7 13 12 18C17 13 16 8 12 4Z" fill="#78C953" />
-                  <path d="M12 7V17M12 11L14.5 9M12 13.5L9.5 11.5" stroke="#FFFFFF" strokeWidth="1.5" strokeLinecap="round" />
-                  <circle cx="12" cy="3.5" r="1.5" fill="#E2B357" />
+                {/* Sprout emblem inside curved badge */}
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 21V10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                  <path d="M12 14C8.5 14 6 11.5 6 8C9.5 8 12 10.5 12 14Z" fill="currentColor" />
+                  <path d="M12 16C15.5 16 18 13.5 18 10C14.5 10 12 12.5 12 16Z" fill="currentColor" />
+                  <path d="M12 9C10.5 6.5 12 3 12 3C12 3 13.5 6.5 12 9Z" fill="currentColor" />
                 </svg>
               </div>
               <div className="brand-text">
-                <span className="brand-title">MANCHI PANULU</span>
+                <span className="brand-title">Manchi Panulu</span>
                 <span className="brand-subtitle">SEVA FOUNDATION</span>
               </div>
             </Link>
@@ -79,7 +78,7 @@ export default function Navbar() {
               ))}
             </nav>
 
-            {/* Action Buttons: Language Selector + Donate Button + Mobile Toggle */}
+            {/* Right Actions: Language Switcher & Pill Button */}
             <div className="nav-actions">
               {/* Language Switcher */}
               <div className="lang-dropdown-wrapper">
@@ -90,9 +89,9 @@ export default function Navbar() {
                   aria-expanded={langDropdownOpen}
                   aria-label="Select Language"
                 >
-                  <Globe size={16} />
+                  <Globe size={15} />
                   <span>{selectedLang === 'en' ? 'EN' : selectedLang === 'te' ? 'తె' : 'हि'}</span>
-                  <ChevronDown size={14} />
+                  <ChevronDown size={13} />
                 </button>
 
                 {langDropdownOpen && (
@@ -125,10 +124,10 @@ export default function Navbar() {
                 )}
               </div>
 
-              {/* Donate Button */}
-              <Button to="/donate" variant="sprout" size="sm" icon={Heart} iconPosition="left">
+              {/* Envarn-style dark solid rounded pill button */}
+              <Link to="/donate" className="btn-envarn-pill-nav">
                 Donate Now
-              </Button>
+              </Link>
 
               {/* Mobile Hamburger Toggle */}
               <button
@@ -151,7 +150,7 @@ export default function Navbar() {
           <div className="mobile-drawer">
             <div className="drawer-header">
               <div className="brand-text">
-                <span className="brand-title" style={{ fontSize: '1.15rem' }}>MANCHI PANULU</span>
+                <span className="brand-title" style={{ fontSize: '1.2rem' }}>Manchi Panulu</span>
                 <span className="brand-subtitle">SEVA FOUNDATION</span>
               </div>
               <button
@@ -181,9 +180,9 @@ export default function Navbar() {
             </nav>
 
             <div className="drawer-footer">
-              <Button to="/donate" variant="sprout" size="md" icon={Heart} style={{ width: '100%' }}>
+              <Link to="/donate" className="btn-envarn-primary" style={{ width: '100%', textAlign: 'center' }}>
                 Donate Now
-              </Button>
+              </Link>
               <div style={{ textAlign: 'center', fontSize: '0.82rem', color: 'var(--color-text-muted)' }}>
                 "Good Deeds Today, A Better Tomorrow"
               </div>
@@ -201,4 +200,3 @@ export default function Navbar() {
     </>
   );
 }
-

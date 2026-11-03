@@ -116,22 +116,274 @@
 }
 
 /* ==========================================================================
+   ENVARN REFERENCE STYLES (Buttons, Hero, Circular Stamp, Hands Visual)
+   ========================================================================== */
+.btn-envarn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.85rem 2rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-forest-900);
+  color: #FFFFFF;
+  border: 1px solid var(--color-forest-900);
+  transition: all var(--transition-normal);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-envarn-primary:hover {
+  background-color: var(--color-forest-700);
+  border-color: var(--color-forest-700);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(23, 35, 24, 0.25);
+  color: #FFFFFF;
+}
+
+.btn-envarn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.85rem 2rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: var(--radius-pill);
+  background-color: transparent;
+  color: var(--color-forest-900);
+  border: 1.5px solid var(--color-border-pill);
+  transition: all var(--transition-normal);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-envarn-outline:hover {
+  background-color: rgba(23, 35, 24, 0.06);
+  border-color: var(--color-forest-900);
+  transform: translateY(-2px);
+}
+
+.btn-envarn-pill-nav {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1.45rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-forest-900);
+  color: #FFFFFF;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.btn-envarn-pill-nav:hover {
+  background-color: var(--color-forest-700);
+  color: #FFFFFF;
+  transform: translateY(-1px);
+}
+
+/* Envarn Hero Section */
+.envarn-hero-section {
+  background-color: var(--color-sage-bg);
+  padding-top: 3.5rem;
+  padding-bottom: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.envarn-hero-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 992px) {
+  .envarn-hero-top {
+    flex-wrap: nowrap;
+  }
+}
+
+.envarn-hero-text-block {
+  max-width: 680px;
+}
+
+.envarn-hero-heading {
+  font-family: var(--font-heading);
+  font-size: clamp(2.6rem, 5.2vw, 4.35rem);
+  font-weight: 700;
+  color: var(--color-forest-900);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  margin-bottom: 1.25rem;
+}
+
+.envarn-hero-subheading {
+  font-size: 1.15rem;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+  margin-bottom: 2rem;
+  max-width: 580px;
+}
+
+.envarn-hero-buttons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.envarn-stamp-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-forest-900);
+  flex-shrink: 0;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .envarn-stamp-container {
+    margin: 1.5rem auto 0 auto;
+  }
+}
+
+.eyebrow-pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.95rem;
+  border-radius: var(--radius-pill);
+  background-color: rgba(22, 36, 20, 0.08);
+  color: var(--color-forest-800);
+  border: 1px solid rgba(22, 36, 20, 0.15);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+.hero-landscape-banner-wrap {
+  width: 100%;
+  margin-top: 2.5rem;
+  position: relative;
+}
+
+.hero-landscape-card {
+  position: relative;
+  width: 100%;
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(22, 36, 20, 0.16);
+  border: 3px solid rgba(255, 255, 255, 0.6);
+  background-color: var(--color-sage-bg);
+}
+
+.hero-landscape-full-img {
+  width: 100%;
+  height: auto;
+  max-height: 640px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Floating interactive pillar badges on the landscape image */
+.landscape-floating-pill {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.55rem 1.15rem;
+  background-color: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: var(--radius-pill);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-forest-900);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  transition: transform var(--transition-normal);
+  z-index: 5;
+}
+
+.landscape-floating-pill:hover {
+  transform: translateY(-3px) scale(1.04);
+}
+
+.pill-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot-seva {
+  background-color: #E2B357;
+}
+
+.dot-env {
+  background-color: #38A169;
+}
+
+.dot-plants {
+  background-color: #5EA83C;
+}
+
+.pill-seva {
+  bottom: 12%;
+  left: 6%;
+}
+
+.pill-environment {
+  top: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.pill-environment:hover {
+  transform: translateX(-50%) translateY(-3px) scale(1.04);
+}
+
+.pill-plants {
+  bottom: 12%;
+  right: 6%;
+}
+
+@media (max-width: 768px) {
+  .landscape-floating-pill {
+    display: none;
+  }
+}
+
+@keyframes rotateStamp {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ==========================================================================
    NAVBAR
    ========================================================================== */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background-color: rgba(246, 250, 246, 0.92);
+  background-color: rgba(216, 222, 212, 0.92);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--color-border-subtle);
+  border-bottom: 1px solid rgba(23, 35, 24, 0.06);
   transition: all var(--transition-normal);
 }
 
 .site-header.scrolled {
-  box-shadow: 0 6px 20px rgba(12, 38, 26, 0.06);
-  background-color: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 6px 20px rgba(23, 35, 24, 0.07);
+  background-color: rgba(216, 222, 212, 0.98);
 }
 
 .navbar-inner {
