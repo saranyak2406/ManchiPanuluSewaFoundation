@@ -209,26 +209,25 @@
   }
 }
 
-/* 3D Background Layer - Positioned Downwards to give hands and heart breathing space */
+/* 3D Background Layer - Positioned with floral moss at bottom and heart on right */
 .hero-3d-bg-layer {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  bottom: -40px;
-  background-image: url('/hero-heart-nature.jpg');
+  bottom: 0;
+  background-image: url('/hero-clean-backdrop.jpg');
   background-size: cover;
-  background-position: center 88%;
+  background-position: center bottom;
   background-repeat: no-repeat;
-  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform;
   z-index: 1;
 }
 
 @media (min-width: 1024px) {
   .hero-3d-bg-layer {
-    background-position: center 84%;
-    bottom: -60px;
+    background-position: center bottom;
   }
 }
 
@@ -326,153 +325,171 @@
   }
 }
 
-/* 3D Frosted Glass Text Card - Provides perfect text contrast without hiding nature */
-.hero-glass-text-card {
-  max-width: 660px;
-  background: rgba(222, 231, 202, 0.76);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border: 1.5px solid rgba(255, 255, 255, 0.7);
-  border-radius: 34px;
-  padding: 2.25rem 2.6rem;
-  box-shadow: 
-    0 24px 50px rgba(22, 36, 20, 0.14),
-    0 2px 4px rgba(255, 255, 255, 0.8) inset;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+/* Seamless Hero Text Block - Mixed Directly into Sunlit Meadow Background (No Outer Box) */
+.hero-natural-text-block {
+  max-width: 650px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0.5rem 0 0 0;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform;
+  z-index: 10;
 }
 
-.hero-glass-text-card:hover {
-  box-shadow: 
-    0 30px 65px rgba(22, 36, 20, 0.18),
-    0 2px 4px rgba(255, 255, 255, 0.9) inset;
-}
-
-.eyebrow-pill-badge {
+/* Minimal Subtag with Accent Lines */
+.hero-subtag-banner {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.4rem 1.05rem;
-  border-radius: var(--radius-pill);
-  background: rgba(22, 36, 20, 0.1);
-  color: #162414;
-  border: 1px solid rgba(22, 36, 20, 0.2);
-  font-size: 0.78rem;
+  gap: 0.85rem;
+  margin-bottom: 1.15rem;
+}
+
+.subtag-line {
+  width: 44px;
+  height: 1.5px;
+  background: rgba(30, 49, 27, 0.45);
+  display: inline-block;
+  border-radius: 1px;
+}
+
+.subtag-text {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.16em;
+  color: #1E311B;
   text-transform: uppercase;
-  margin-bottom: 1.25rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
-.envarn-hero-heading-3d {
-  font-family: var(--font-heading);
-  font-size: clamp(2.4rem, 4.8vw, 3.85rem);
+/* Editorial Heading Matching User's Target Design */
+.envarn-hero-heading-exact {
+  font-family: var(--font-editorial);
+  font-size: clamp(2.8rem, 5.2vw, 4.3rem);
   font-weight: 800;
-  color: #122110;
+  color: #152B16;
   line-height: 1.08;
-  letter-spacing: -0.035em;
-  margin-bottom: 1rem;
+  letter-spacing: -0.025em;
+  margin-bottom: 1.35rem;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6);
 }
 
-.heading-sub-gradient {
-  background: linear-gradient(135deg, #162414 0%, #2A4824 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.highlight-future {
+  position: relative;
+  display: inline-block;
+  color: #2E7D32;
 }
 
-.envarn-hero-subheading-3d {
-  font-size: 1.15rem;
-  color: #384A36;
-  line-height: 1.65;
-  margin-bottom: 2rem;
+.brush-swoosh {
+  position: absolute;
+  left: -2%;
+  bottom: -6px;
+  width: 104%;
+  height: 12px;
+  pointer-events: none;
+}
+
+/* Hero Subtitle */
+.envarn-hero-subheading-exact {
+  font-family: var(--font-body);
+  font-size: clamp(1.02rem, 1.35vw, 1.18rem);
+  color: #2D3F2A;
+  line-height: 1.68;
+  margin-bottom: 2.25rem;
+  max-width: 580px;
   font-weight: 500;
-}
-
-.envarn-hero-buttons {
-  display: flex;
-  align-items: center;
-  gap: 1.1rem;
-  flex-wrap: wrap;
-}
-
-/* 3D Realistic Buttons */
-.btn-envarn-primary-3d {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.9rem 2.25rem;
-  font-size: 0.96rem;
-  font-weight: 700;
-  border-radius: var(--radius-pill);
-  background: linear-gradient(180deg, #243B1E 0%, #162414 100%);
-  color: #FFFFFF;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 
-    0 8px 24px rgba(22, 36, 20, 0.35),
-    inset 0 1px 1px rgba(255, 255, 255, 0.35);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.btn-envarn-primary-3d:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 
-    0 14px 32px rgba(22, 36, 20, 0.45),
-    inset 0 1px 1px rgba(255, 255, 255, 0.5);
-  color: #FFFFFF;
-}
-
-.btn-envarn-primary-3d:active {
-  transform: translateY(-1px) scale(0.99);
-}
-
-.btn-envarn-outline-3d {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.9rem 2.25rem;
-  font-size: 0.96rem;
-  font-weight: 700;
-  border-radius: var(--radius-pill);
-  background: rgba(255, 255, 255, 0.55);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  color: #162414;
-  border: 1.5px solid rgba(22, 36, 20, 0.45);
-  box-shadow: 
-    0 6px 18px rgba(22, 36, 20, 0.08),
-    inset 0 1px 1px rgba(255, 255, 255, 0.7);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.btn-envarn-outline-3d:hover {
-  background: rgba(255, 255, 255, 0.85);
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 10px 25px rgba(22, 36, 20, 0.15);
-  border-color: #162414;
-}
-
-/* 3D Stamp with Layered Shadow */
-.envarn-stamp-container-3d {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #162414;
-  flex-shrink: 0;
-  margin-top: 1rem;
-  filter: drop-shadow(0 16px 32px rgba(22, 36, 20, 0.22));
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.45);
 }
 
 @media (max-width: 768px) {
-  .envarn-stamp-container-3d {
-    margin: 1.5rem auto 0 auto;
+  .hidden-mobile-br {
+    display: none;
   }
+}
+
+/* Exact Action Buttons */
+.envarn-hero-buttons-exact {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+/* Primary Button: Solid Dark Forest Green Pill */
+.btn-hero-donate-exact {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.95rem 2.2rem;
+  background: #183820;
+  color: #FFFFFF !important;
+  border-radius: var(--radius-pill);
+  font-size: 1.02rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(24, 56, 32, 0.35);
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid #183820;
+  cursor: pointer;
+}
+
+.btn-hero-donate-exact:hover {
+  background: #112816;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(24, 56, 32, 0.45);
+  color: #FFFFFF !important;
+}
+
+.btn-hero-donate-exact .btn-icon-heart {
+  animation: heartPulse 2.4s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+.btn-hero-donate-exact .btn-icon-arrow {
+  transition: transform 0.25s ease;
+  flex-shrink: 0;
+}
+
+.btn-hero-donate-exact:hover .btn-icon-arrow {
+  transform: translateX(4px);
+}
+
+/* Secondary Button: Frosted Glass Pill */
+.btn-hero-mission-exact {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.95rem 2.2rem;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1.5px solid rgba(24, 56, 32, 0.24);
+  color: #183820 !important;
+  border-radius: var(--radius-pill);
+  font-size: 1.02rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.btn-hero-mission-exact:hover {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(24, 56, 32, 0.45);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(24, 56, 32, 0.16);
+  color: #183820 !important;
+}
+
+.btn-hero-mission-exact .btn-icon-users {
+  flex-shrink: 0;
+}
+
+@keyframes heartPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.18); }
 }
 
 /* 3D Explore Pill Anchor */

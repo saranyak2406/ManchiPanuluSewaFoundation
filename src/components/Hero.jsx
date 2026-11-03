@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { Sprout, ArrowDown, Heart, Trees, Droplets, Sparkles } from 'lucide-react';
-import CircularStamp from './CircularStamp';
+import { Heart, ArrowRight, Users, ArrowDown } from 'lucide-react';
 
 export default function Hero() {
   const heroRef = useRef(null);
@@ -13,7 +12,6 @@ export default function Hero() {
     const handleMouseMove = (e) => {
       if (!heroRef.current) return;
       const rect = heroRef.current.getBoundingClientRect();
-      // Calculate normalized mouse position from -1 to 1
       const x = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
       const y = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
 
@@ -49,69 +47,65 @@ export default function Hero() {
   };
 
   return (
-    <section ref={heroRef} className="envarn-hero-fullscreen-3d">
-      {/* 3D Background Layer - Shifted down for zero overlap */}
+    <section ref={heroRef} className="envarn-hero-fullscreen-3d" id="home">
+      {/* 3D Realistic Background Layer - using newly generated clean backdrop with heart, sun, and moss */}
       <div
         className="hero-3d-bg-layer"
         style={{
-          transform: `scale(1.06) translate3d(${mousePos.x * -16}px, ${mousePos.y * -12}px, 0)`
+          transform: `scale(1.04) translate3d(${mousePos.x * -12}px, ${mousePos.y * -8}px, 0)`
         }}
       />
 
-      {/* 3D Volumetric Sunbeam / Ambient Glow Layer */}
+      {/* 3D Volumetric Sunbeam Glow behind heart */}
       <div
         className="hero-3d-sunbeam"
         style={{
-          transform: `translate3d(${mousePos.x * 20}px, ${mousePos.y * 15}px, 0)`
+          transform: `translate3d(${mousePos.x * 16}px, ${mousePos.y * 12}px, 0)`
         }}
       />
 
-      {/* 3D Floating Botanical Leaves Particles Layer */}
+      {/* 3D Floating Botanical Leaves Particles */}
       <div className="hero-3d-leaves-layer" aria-hidden="true">
-        {/* Leaf 1: Top Left Foreground */}
         <div
           className="floating-leaf leaf-1"
           style={{
-            transform: `translate3d(${mousePos.x * 35}px, ${mousePos.y * 25}px, 0) rotate(${mousePos.x * 15}deg)`
+            transform: `translate3d(${mousePos.x * 28}px, ${mousePos.y * 18}px, 0) rotate(${mousePos.x * 10}deg)`
           }}
         >
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="#3D5A2B">
+          <svg width="42" height="42" viewBox="0 0 24 24" fill="#3D5A2B">
             <path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 0 0 8 20C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/>
           </svg>
         </div>
 
-        {/* Leaf 2: Center Top Floating */}
         <div
           className="floating-leaf leaf-2"
           style={{
-            transform: `translate3d(${mousePos.x * -25}px, ${mousePos.y * -30}px, 0) rotate(${mousePos.y * 20}deg)`
+            transform: `translate3d(${mousePos.x * -20}px, ${mousePos.y * -22}px, 0) rotate(${mousePos.y * 16}deg)`
           }}
         >
-          <svg width="34" height="34" viewBox="0 0 24 24" fill="#587E3E">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="#587E3E">
             <path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 0 0 8 20C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/>
           </svg>
         </div>
 
-        {/* Leaf 3: Right Floating Golden Accent */}
         <div
           className="floating-leaf leaf-3"
           style={{
-            transform: `translate3d(${mousePos.x * 40}px, ${mousePos.y * 35}px, 0) rotate(${mousePos.x * -25}deg)`
+            transform: `translate3d(${mousePos.x * 32}px, ${mousePos.y * 26}px, 0) rotate(${mousePos.x * -18}deg)`
           }}
         >
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="#C89945">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="#C89945">
             <path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 0 0 8 20C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/>
           </svg>
         </div>
 
-        {/* Leaf 4: Bottom Right Blurred Foreground */}
         <div
           className="floating-leaf leaf-4"
           style={{
-            transform: `translate3d(${mousePos.x * -45}px, ${mousePos.y * -35}px, 0) rotate(${mousePos.y * -15}deg)`
+            transform: `translate3d(${mousePos.x * -34}px, ${mousePos.y * -25}px, 0) rotate(${mousePos.y * -12}deg)`
           }}
         >
-          <svg width="56" height="56" viewBox="0 0 24 24" fill="#2E4822" style={{ filter: 'blur(1.5px)' }}>
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="#2E4822" style={{ filter: 'blur(1.5px)' }}>
             <path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 0 0 8 20C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/>
           </svg>
         </div>
@@ -119,51 +113,64 @@ export default function Hero() {
 
       {/* Main Foreground Container */}
       <div className="container envarn-hero-container">
-        {/* Top Content Row: Left Frosted Card + Right 3D Stamp */}
+        {/* Top Content Row: Left Unboxed Text Perfectly Blended Into Meadow */}
         <div className="envarn-hero-top">
-          {/* Left Text Block with 3D Glass Depth */}
           <div
-            className="hero-glass-text-card"
+            className="hero-natural-text-block"
             style={{
-              transform: `translate3d(${mousePos.x * 10}px, ${mousePos.y * 8}px, 20px)`
+              transform: `translate3d(${mousePos.x * 5}px, ${mousePos.y * 4}px, 0)`
             }}
           >
-            <div className="eyebrow-pill-badge">
-              <Sprout size={15} />
-              <span>MANCHI PANULU SEVA FOUNDATION</span>
+            {/* Minimal Subtag with Accent Lines */}
+            <div className="hero-subtag-banner">
+              <span className="subtag-line" aria-hidden="true"></span>
+              <span className="subtag-text">SERVE • SUPPORT • TRANSFORM</span>
+              <span className="subtag-line" aria-hidden="true"></span>
             </div>
 
-            <h1 className="envarn-hero-heading-3d">
+            {/* Editorial Serif Heading Matching User's Image */}
+            <h1 className="envarn-hero-heading-exact">
               Good Deeds Today,<br />
-              <span className="heading-sub-gradient">Restoring the Future</span>
+              Restoring the{' '}
+              <span className="highlight-future">
+                Future
+                <svg
+                  className="brush-swoosh"
+                  viewBox="0 0 210 14"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M3 9.5C52 4.2 130 3.2 206 8.5C146 11.8 72 11.2 3 9.5Z"
+                    fill="#2E7D32"
+                  />
+                </svg>
+              </span>
             </h1>
 
-            <p className="envarn-hero-subheading-3d">
-              Serving Humanity, Protecting Nature, Building a Sustainable Future. We're on a mission to heal the planet and uplift lives — one tree, one community, one generation at a time.
+            {/* Subtitle Matching User's Image */}
+            <p className="envarn-hero-subheading-exact">
+              Serving Humanity, Protecting Nature, Building a Sustainable Tomorrow.<br className="hidden-mobile-br" />
+              Together, we can create a kinder, greener and better world.
             </p>
 
-            <div className="envarn-hero-buttons">
-              <Link to="/volunteer" className="btn-envarn-primary-3d">
-                <span>Join The Mission</span>
-              </Link>
-              <Link to="/donate" className="btn-envarn-outline-3d">
+            {/* Two Action Buttons Matching User's Image */}
+            <div className="envarn-hero-buttons-exact">
+              <Link to="/donate" className="btn-hero-donate-exact" aria-label="Donate Now to Manchi Panulu Seva Foundation">
+                <Heart size={18} fill="#FFFFFF" color="#FFFFFF" className="btn-icon-heart" />
                 <span>Donate Now</span>
+                <ArrowRight size={17} className="btn-icon-arrow" />
+              </Link>
+              <Link to="/volunteer" className="btn-hero-mission-exact" aria-label="Join Our Mission as a Volunteer">
+                <Users size={19} className="btn-icon-users" />
+                <span>Join Our Mission</span>
               </Link>
             </div>
-          </div>
-
-          {/* Right 3D Floating Rotating Stamp */}
-          <div
-            className="envarn-stamp-container-3d"
-            style={{
-              transform: `translate3d(${mousePos.x * -18}px, ${mousePos.y * -14}px, 40px)`
-            }}
-          >
-            <CircularStamp size={170} />
           </div>
         </div>
 
-        {/* Bottom Bar: Explore Pill Anchor with 3D Float */}
+        {/* Bottom Bar: Explore Pill Anchor with Subtle Ambient Glow */}
         <div className="envarn-hero-bottom-bar">
           <button
             type="button"
