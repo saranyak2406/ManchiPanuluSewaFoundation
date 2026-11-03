@@ -17,7 +17,7 @@ import { faqData } from '../data/faqData';
 import { useLanguage } from '../context/LanguageContext';
 
 export default function ContactPage() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -73,7 +73,11 @@ export default function ContactPage() {
               <span>{t('contact.badge')}</span>
             </div>
             <h1 className="page-hero-title-exact">
-              {t('contact.heroTitle')}
+              {language === 'en' ? (
+                <>We Would Love<br />to Hear From You</>
+              ) : (
+                t('contact.heroTitle')
+              )}
             </h1>
             <div className="page-hero-accent-line"></div>
             <p className="page-hero-desc-exact">
