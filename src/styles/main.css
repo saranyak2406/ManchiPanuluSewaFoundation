@@ -15,7 +15,7 @@ html {
 
 body {
   font-family: var(--font-body);
-  background-color: var(--color-outer-forest);
+  background-color: var(--color-sage-50);
   color: var(--color-text-main);
   line-height: 1.6;
   overflow-x: hidden;
@@ -45,34 +45,28 @@ body {
   z-index: 0;
 }
 
-/* On large screens: Desktop Outer Border / Frame Effect inspired by Envarn */
-@media (min-width: 1080px) {
-  .app-shell {
-    padding: var(--frame-padding);
-  }
-
-  .canvas-container {
-    border-radius: var(--radius-xl);
-    overflow: hidden;
-    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.45);
-    background-color: var(--color-sage-50);
-    display: flex;
-    flex-direction: column;
-    min-height: calc(100vh - (var(--frame-padding) * 2));
-    position: relative;
-    border: 1px solid rgba(255, 255, 255, 0.06);
-  }
+/* Full Screen Layout - Outer black borders removed */
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-sage-50);
+  position: relative;
+  width: 100%;
+  padding: 0;
+  margin: 0;
 }
 
-@media (max-width: 1079px) {
-  .canvas-container {
-    background-color: var(--color-sage-50);
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    position: relative;
-    width: 100%;
-  }
+.canvas-container {
+  background-color: var(--color-sage-50);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+  width: 100%;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
 }
 
 main.main-content {
