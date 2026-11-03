@@ -18,7 +18,7 @@ import { complianceInfo } from '../data/statsData';
 import { useLanguage } from '../context/LanguageContext';
 
 export default function AboutPage() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const leadershipTeam = [
     {
       name: "Dr. K. Ramachandra Rao",
@@ -74,7 +74,11 @@ export default function AboutPage() {
               <span>{t('about.badge')}</span>
             </div>
             <h1 className="page-hero-title-exact">
-              {t('about.heroTitle')}
+              {language === 'en' ? (
+                <>Good Deeds Rooted in<br />Soil, Sustained by<br />Compassion</>
+              ) : (
+                t('about.heroTitle')
+              )}
             </h1>
             <div className="page-hero-accent-line"></div>
             <p className="page-hero-desc-exact">
