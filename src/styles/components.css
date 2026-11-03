@@ -186,13 +186,35 @@
   transform: translateY(-1px);
 }
 
-/* Envarn Hero Section */
-.envarn-hero-section {
-  background-color: var(--color-sage-bg);
-  padding-top: 3.5rem;
-  padding-bottom: 0;
+/* Envarn Hero Full-Screen Background Section */
+.envarn-hero-fullscreen {
   position: relative;
+  min-height: calc(100vh - 82px);
+  width: 100%;
+  background: 
+    linear-gradient(180deg, rgba(222, 231, 202, 0.76) 0%, rgba(222, 231, 202, 0.42) 36%, rgba(222, 231, 202, 0.08) 68%, rgba(222, 231, 202, 0) 100%),
+    url('/hero-heart-nature.jpg') center bottom / cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 3rem 0 2rem 0;
   overflow: hidden;
+}
+
+@media (min-width: 1200px) {
+  .envarn-hero-fullscreen {
+    min-height: 90vh;
+    padding-top: 3.5rem;
+  }
+}
+
+.envarn-hero-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  position: relative;
+  z-index: 2;
 }
 
 .envarn-hero-top {
@@ -251,6 +273,39 @@
   .envarn-stamp-container {
     margin: 1.5rem auto 0 auto;
   }
+}
+
+.envarn-hero-bottom-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 8rem;
+  padding-bottom: 0.5rem;
+}
+
+.hero-scroll-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.55rem 1.35rem;
+  background-color: rgba(22, 36, 20, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #FFFFFF;
+  border-radius: var(--radius-pill);
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.hero-scroll-pill:hover {
+  background-color: var(--color-forest-900);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
 .eyebrow-pill-badge {

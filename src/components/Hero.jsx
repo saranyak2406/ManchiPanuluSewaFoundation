@@ -1,15 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Heart, Trees, Droplets, Sparkles, Sprout } from 'lucide-react';
+import { Sprout, ArrowDown, Heart, Trees, Droplets } from 'lucide-react';
 import CircularStamp from './CircularStamp';
 
 export default function Hero() {
+  const scrollToServices = () => {
+    const el = document.getElementById('services');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <section className="envarn-hero-section">
-      <div className="container">
-        {/* Top Split: Left Content + Right Circular Stamp */}
+    <section className="envarn-hero-fullscreen">
+      <div className="container envarn-hero-container">
+        {/* Top Content Row: Headline, Subtitle, Buttons + Rotating Stamp */}
         <div className="envarn-hero-top">
-          {/* Left Text & Call to Actions */}
+          {/* Left Text Block */}
           <div className="envarn-hero-text-block">
             <div className="eyebrow-pill-badge">
               <Sprout size={15} />
@@ -35,43 +42,23 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right Circular Stamp Emblem */}
+          {/* Right Rotating Stamp */}
           <div className="envarn-stamp-container">
             <CircularStamp size={160} />
           </div>
         </div>
 
-        {/* Full Landscape Image Showcase with 3 Pillar Interactive Badges */}
-        <div className="hero-landscape-banner-wrap">
-          <div className="hero-landscape-card">
-            <img
-              src="/hero-heart-nature.jpg"
-              alt="Manchi Panulu Seva Foundation - Hands of Humanity and Nature Holding Sacred Green Heart"
-              className="hero-landscape-full-img"
-              loading="eager"
-            />
-
-            {/* Pillar 1 Badge: Seva / Humanity */}
-            <div className="landscape-floating-pill pill-seva">
-              <span className="pill-dot dot-seva"></span>
-              <Heart size={14} className="pill-icon" />
-              <span>Seva: Social Service</span>
-            </div>
-
-            {/* Pillar 2 Badge: Environment / Sacred Waters */}
-            <div className="landscape-floating-pill pill-environment">
-              <span className="pill-dot dot-env"></span>
-              <Droplets size={14} className="pill-icon" />
-              <span>Environment: Water & Planet</span>
-            </div>
-
-            {/* Pillar 3 Badge: Plants / Nature Protection */}
-            <div className="landscape-floating-pill pill-plants">
-              <span className="pill-dot dot-plants"></span>
-              <Trees size={14} className="pill-icon" />
-              <span>Plants: Nature Protection</span>
-            </div>
-          </div>
+        {/* Bottom Bar: Explore Pill Anchor */}
+        <div className="envarn-hero-bottom-bar">
+          <button
+            type="button"
+            onClick={scrollToServices}
+            className="hero-scroll-pill"
+            aria-label="Scroll to services"
+          >
+            <span>Explore Our Three Pillars of Seva</span>
+            <ArrowDown size={15} className="animate-bounce" />
+          </button>
         </div>
       </div>
     </section>
