@@ -44,7 +44,7 @@ export default function Navbar() {
         <div className="container">
           <div className="navbar-inner">
             {/* Brand Logo */}
-            <Link to="/" className="brand-logo" aria-label="Manchi Panulu Seva Foundation">
+            <Link to="/" className="brand-logo" aria-label="Manchi Panulu Sewa Foundation">
               <div className="brand-icon-wrapper">
                 {/* Sprout emblem inside curved badge */}
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none">

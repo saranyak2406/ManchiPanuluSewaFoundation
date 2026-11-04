@@ -10,7 +10,7 @@ export const translations = {
       contact: "Contact us",
       donate: "Donate Now",
       brandTitle: "Manchi Panulu",
-      brandSubtitle: "SEVA FOUNDATION"
+      brandSubtitle: "SEWA FOUNDATION"
     },
     hero: {
       subtag: "SERVE • SUPPORT • TRANSFORM",
@@ -37,7 +37,7 @@ export const translations = {
     home: {
       aboutBadge: "About Our Foundation",
       aboutTitle: "A Sacred Covenant with Nature and Community",
-      aboutP1: "Manchi Panulu Seva Foundation was born from a fundamental belief: true social progress is indivisible from ecological health. When communities protect trees, care for water bodies, and feed those in hunger, a resilient society takes root.",
+      aboutP1: "Manchi Panulu Sewa Foundation was born from a fundamental belief: true social progress is indivisible from ecological health. When communities protect trees, care for water bodies, and feed those in hunger, a resilient society takes root.",
       aboutP2: "We operate with transparent field audits, grassroots volunteer teams, and community ownership. Whether executing high-density Miyawaki urban forests or coordinating hot meal drives outside public hospitals, our hands are always active on the ground.",
       governance: "Verified NGO Governance",
       nativePolicy: "100% Native Tree Policy",
@@ -50,7 +50,7 @@ export const translations = {
       projectsSubtitle: "From restoring depleted urban water tanks to planting micro-forests, explore how our volunteers turn intention into enduring reality.",
       viewAllProjects: "View All Ongoing & Completed Projects",
       galleryBadge: "Visual Archive",
-      galleryTitle: "Moments of Seva in Action",
+      galleryTitle: "Moments of Sewa in Action",
       gallerySubtitle: "A glimpse into weekend plantations, community meal circles, lake desilting drives, and environmental youth workshops.",
       exploreGallery: "Explore Full Photo & Video Gallery",
       blogBadge: "Eco-Guides & Stories",
@@ -66,7 +66,7 @@ export const translations = {
     about: {
       badge: "About Us",
       heroTitle: "Good Deeds Rooted in Soil, Sustained by Compassion",
-      heroDesc: "Manchi Panulu Seva Foundation exists to prove that humanity thrives when we care for one another and reverence the living earth that sustains us.",
+      heroDesc: "Manchi Panulu Sewa Foundation exists to prove that humanity thrives when we care for one another and reverence the living earth that sustains us.",
       heritageBadge: "Our Heritage",
       meaningTitle: "The Meaning of 'Manchi Panulu'",
       meaningP1: "In Telugu, 'Manchi Panulu' simply translates to 'Good Deeds'. In an era often dominated by haste and disconnection, we wanted our foundation to speak with honest, grounded simplicity.",
@@ -76,7 +76,7 @@ export const translations = {
     contact: {
       badge: "Reach Out",
       heroTitle: "We Would Love to Hear From You",
-      heroDesc: "Have questions about upcoming tree drives? Want to request food seva at a community shelter, or partner for an eco-cleanup? Get in touch with our team.",
+      heroDesc: "Have questions about upcoming tree drives? Want to request food sewa at a community shelter, or partner for an eco-cleanup? Get in touch with our team.",
       formName: "Full Name",
       formEmail: "Email Address",
       formPhone: "Phone Number",
@@ -89,7 +89,7 @@ export const translations = {
       emailTitle: "Official Email"
     },
     donate: {
-      badge: "Contribute to Seva",
+      badge: "Contribute to Sewa",
       heroTitle: "Every Rupee Protects a Tree, Feeds a Soul",
       heroDesc: "100% of your public contributions go straight to saplings, organic manure, clean meal ingredients, and water revival equipment.",
       domesticTab: "Domestic Donors (INR)",
@@ -101,9 +101,9 @@ export const translations = {
     footer: {
       quote: "Good deeds today are the roots of a flourishing tomorrow.",
       quickNav: "Quick Navigation",
-      pillarsTitle: "Three Pillars of Seva",
+      pillarsTitle: "Three Pillars of Sewa",
       p1: "Plants & Native Flora",
-      p2: "Human Social Seva",
+      p2: "Human Social Sewa",
       p3: "Environmental Revival",
       contactTitle: "Contact & Transparency",
       rights: "All Rights Reserved. Registered Public Charitable Trust."

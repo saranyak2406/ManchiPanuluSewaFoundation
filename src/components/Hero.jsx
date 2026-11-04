@@ -152,7 +152,7 @@ export default function Hero() {
 
             {/* Two Action Buttons Matching User's Image */}
             <div className="envarn-hero-buttons-exact">
-              <Link to="/donate" className="btn-hero-donate-exact" aria-label="Donate Now to Manchi Panulu Seva Foundation">
+              <Link to="/donate" className="btn-hero-donate-exact" aria-label="Donate Now to Manchi Panulu Sewa Foundation">
                 <Heart size={18} fill="#FFFFFF" color="#FFFFFF" className="btn-icon-heart" />
                 <span>{t('hero.donateBtn')}</span>
                 <ArrowRight size={17} className="btn-icon-arrow" />

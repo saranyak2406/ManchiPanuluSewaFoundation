@@ -20,7 +20,7 @@ export default function ProjectsPage() {
   const categories = [
     { label: 'All Disciplines', value: 'All' },
     { label: 'Plants & Nature', value: 'Plants' },
-    { label: 'Social Seva', value: 'Seva' },
+    { label: 'Social Sewa', value: 'Sewa' },
     { label: 'Environmental Service', value: 'Environment' }
   ];
 
@@ -29,7 +29,8 @@ export default function ProjectsPage() {
   const filteredProjects = useMemo(() => {
     return projectsData.filter((project) => {
       const matchesCategory =
-        activeCategory === 'All' || project.category === activeCategory;
+        activeCategory === 'All' ||
+        project.category === activeCategory;
       const matchesStatus =
         activeStatus === 'All' || project.status === activeStatus;
       const matchesSearch =

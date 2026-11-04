@@ -101,13 +101,13 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/services#social-seva" className="footer-link">
-                  Seva – Social Service
+                <Link to="/services#social-sewa" className="footer-link">
+                  Sewa – Social Service
                 </Link>
               </li>
               <li>
-                <Link to="/services#environment-seva" className="footer-link">
-                  Environment Seva
+                <Link to="/services#environment-sewa" className="footer-link">
+                  Environment Sewa
                 </Link>
               </li>
               <li>
@@ -116,7 +116,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/projects?category=Seva" className="footer-link">
+                <Link to="/projects?category=Sewa" className="footer-link">
                   Daily Food Relief (Annadhanam)
                 </Link>
               </li>
@@ -194,7 +194,7 @@ export default function Footer() {
         {/* Footer Bottom Line */}
         <div className="footer-bottom">
           <div>
-            © {new Date().getFullYear()} Manchi Panulu Seva Foundation. All rights reserved.
+            © {new Date().getFullYear()} Manchi Panulu Sewa Foundation. All rights reserved.
           </div>
           <div style={{ display: 'flex', gap: '1.5rem', fontSize: '0.82rem' }}>
             <span>Protect Nature</span>

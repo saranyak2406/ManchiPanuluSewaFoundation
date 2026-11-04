@@ -114,7 +114,7 @@ export default function BlogModal({ article, onClose }) {
               Back to Articles
             </Button>
             <Button to="/volunteer" variant="sprout" size="sm">
-              Participate in Seva
+              Participate in Sewa
             </Button>
           </div>
         </div>

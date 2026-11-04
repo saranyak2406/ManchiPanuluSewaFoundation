@@ -46,7 +46,7 @@ export const statsData = [
 ];
 
 export const complianceInfo = {
-  foundationName: "Manchi Panulu Seva Foundation",
+  foundationName: "Manchi Panulu Sewa Foundation",
   registeredType: "Non-Governmental Non-Profit Organization (Registered Trust / Section 8 Placeholder)",
   registrationPlaceholder: "Reg. No. MPSF/AP-TS/2024/XXXX (Placeholder)",
   panPlaceholder: "AAATM0000A (Placeholder)",
@@ -56,9 +56,9 @@ export const complianceInfo = {
   supportedCurrencies: ["INR (₹)", "USD ($)", "EUR (€)", "GBP (£)"],
   officeAddress: "Plot No. 42, Santhi Nagar, Beside Green Park, Hyderabad / Visakhapatnam, India - 500034 (Placeholder)",
   helplinePhone: "+91 98765 43210 (Placeholder Helpline)",
-  officialEmail: "contact@manchipanuluseva.org (Placeholder)",
-  volunteerEmail: "volunteer@manchipanuluseva.org",
-  donationsEmail: "donations@manchipanuluseva.org",
+  officialEmail: "contact@manchipanulusewa.org (Placeholder)",
+  volunteerEmail: "volunteer@manchipanulusewa.org",
+  donationsEmail: "donations@manchipanulusewa.org",
   workingHours: "Monday to Saturday: 9:00 AM – 6:30 PM IST"
 };
 

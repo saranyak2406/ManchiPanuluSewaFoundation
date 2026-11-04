@@ -12,7 +12,7 @@ export default function GalleryPage() {
   const categories = [
     { label: 'All Moments', value: 'All' },
     { label: 'Plants & Afforestation', value: 'Plants' },
-    { label: 'Social Seva', value: 'Seva' },
+    { label: 'Social Sewa', value: 'Sewa' },
     { label: 'Environmental Service', value: 'Environment' },
     { label: 'Video Features', value: 'video' }
   ];

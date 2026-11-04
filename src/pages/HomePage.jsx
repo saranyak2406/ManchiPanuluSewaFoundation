@@ -70,7 +70,7 @@ export default function HomePage() {
                 }}>
                   <img
                     src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=900&q=80"
-                    alt="Manchi Panulu Seva Foundation in Action"
+                    alt="Manchi Panulu Sewa Foundation in Action"
                     style={{ width: '100%', height: '460px', objectFit: 'cover' }}
                   />
                 </div>
@@ -186,7 +186,7 @@ export default function HomePage() {
               <Eye size={14} />
               <span>Visual Archive</span>
             </div>
-            <h2 className="section-title">Moments of Seva in Action</h2>
+            <h2 className="section-title">Moments of Sewa in Action</h2>
             <p className="section-subtitle">
               A glimpse into weekend plantations, community meal circles, lake desilting drives, and environmental youth workshops.
             </p>
@@ -295,7 +295,7 @@ export default function HomePage() {
           <div style={{ maxWidth: '820px', margin: '0 auto', textAlign: 'center' }}>
             <div className="eyebrow-badge">
               <Heart size={14} />
-              <span>Step Forward in Seva</span>
+              <span>Step Forward in Sewa</span>
             </div>
             <h2 style={{ color: '#FFFFFF', marginBottom: '1.5rem' }}>
               Your Good Deed Today Can Seed a Flourishing Tomorrow

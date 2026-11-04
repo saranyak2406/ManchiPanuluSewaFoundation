@@ -1,6 +1,6 @@
-# Manchi Panulu Seva Foundation Website
+# Manchi Panulu Sewa Foundation Website
 
-A premium, modern, fully responsive web application for **Manchi Panulu Seva Foundation**, inspired by the visual elegance and ecological aesthetic of the Envarn reference design.
+A premium, modern, fully responsive web application for **Manchi Panulu Sewa Foundation**, inspired by the visual elegance and ecological aesthetic of the Envarn reference design.
 
 > **Motto:** *"Good Deeds Today, A Better Tomorrow."*  
 > **Core Ethos:** **Protect Nature. Serve Humanity. Preserve the Environment.**
@@ -25,13 +25,13 @@ The website implements an **Envarn-inspired aesthetic**:
    - Biodiversity and sacred grove conservation
    - School seed-ball workshops & eco-clubs
 
-2. **Seva – Social Service**
+2. **Sewa – Social Service**
    - Direct aid for marginalized and vulnerable communities
    - Daily wholesome food relief (*Annadhanam*) outside public hospitals
    - Rapid emergency and cold-wave disaster support
    - Student educational kits and elder dignity support
 
-3. **Environment Seva – Environmental Service**
+3. **Environment Sewa – Environmental Service**
    - Urban lake and stepwell revival (*Jal Punarjeevana*)
    - Community plog runs and riverbank plastic eradication
    - Water conservation, aquifer recharge & bio-swales
@@ -52,7 +52,7 @@ The website implements an **Envarn-inspired aesthetic**:
 ## 📂 Project Architecture
 
 ```
-manchi-panulu-seva-foundation/
+manchi-panulu-sewa-foundation/
 ├── public/
 │   ├── favicon.svg              # Custom leaf-sprout foundation favicon
 │   └── ...
@@ -73,7 +73,7 @@ manchi-panulu-seva-foundation/
 │   ├── pages/
 │   │   ├── HomePage.jsx         # Complete landing page with all 10 core sections
 │   │   ├── AboutPage.jsx        # History, Mission, Vision, Values & Leadership
-│   │   ├── ServicesPage.jsx     # Deep-dive into 3 pillars & Request Seva modal
+│   │   ├── ServicesPage.jsx     # Deep-dive into 3 pillars & Request Sewa modal
 │   │   ├── ProjectsPage.jsx     # Searchable & filterable ongoing/completed initiatives
 │   │   ├── GalleryPage.jsx      # Photo & video gallery with interactive lightbox
 │   │   ├── BlogPage.jsx         # Articles, guides, and stories of change
@@ -104,7 +104,7 @@ manchi-panulu-seva-foundation/
 
 1. Navigate to the project directory:
    ```bash
-   cd manchi-panulu-seva-foundation
+   cd manchi-panulu-sewa-foundation
    ```
 
 2. Start the Vite development server:

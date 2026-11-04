@@ -28,7 +28,7 @@ export default function AboutPage() {
     },
     {
       name: "Smt. V. Annapurna",
-      role: "Director of Social Seva (Placeholder)",
+      role: "Director of Social Sewa (Placeholder)",
       bio: "Pioneered community meal kitchens and disaster relief networks, coordinating over 100,000 nutritious meals across government hospitals.",
       image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=600&q=80"
     },
@@ -49,7 +49,7 @@ export default function AboutPage() {
     {
       year: "2024",
       title: "Formal Trust Registration",
-      desc: "Formally registered as Manchi Panulu Seva Foundation with the three declared pillars: Plants, Social Seva, and Environmental Service."
+      desc: "Formally registered as Manchi Panulu Sewa Foundation with the three declared pillars: Plants, Social Sewa, and Environmental Service."
     },
     {
       year: "2025",
@@ -124,8 +124,8 @@ export default function AboutPage() {
                 border: '4px solid #FFFFFF'
               }}>
                 <img
-                  src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=900&q=80"
-                  alt="Manchi Panulu Seva Foundation Nature Protection"
+                  src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=900&q=80"
+                  alt="Manchi Panulu Sewa Foundation Nature Protection"
                   style={{ width: '100%', height: '420px', objectFit: 'cover' }}
                 />
               </div>
@@ -178,7 +178,7 @@ export default function AboutPage() {
                 Our Mission
               </h3>
               <p style={{ lineHeight: '1.8', color: 'var(--color-text-muted)', marginBottom: '1.5rem' }}>
-                To mobilize citizens and communities for proactive ecological restoration and direct humanitarian seva; revitalizing green cover through native tree plantation, eradicating acute hunger among vulnerable hospital patients and homeless populations, and preserving freshwater ecosystems through community stewardship.
+                To mobilize citizens and communities for proactive ecological restoration and direct humanitarian sewa; revitalizing green cover through native tree plantation, eradicating acute hunger among vulnerable hospital patients and homeless populations, and preserving freshwater ecosystems through community stewardship.
               </p>
               <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.6rem', fontSize: '0.92rem', color: 'var(--color-forest-800)', fontWeight: 600 }}>
                 <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
@@ -273,7 +273,7 @@ export default function AboutPage() {
               </div>
               <h4 style={{ color: 'var(--color-forest-900)', marginBottom: '0.5rem' }}>Compassionate Dignity</h4>
               <p style={{ fontSize: '0.92rem', color: 'var(--color-text-muted)' }}>
-                Social seva is delivered with reverence, humility, and warm smiles. We honor the inherent sanctity of every human being.
+                Social sewa is delivered with reverence, humility, and warm smiles. We honor the inherent sanctity of every human being.
               </p>
             </div>
 

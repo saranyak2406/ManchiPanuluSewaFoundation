@@ -1,7 +1,7 @@
 export const faqData = [
   {
-    question: "What does 'Manchi Panulu Seva Foundation' stand for?",
-    answer: "In Telugu, 'Manchi Panulu' translates to 'Good Deeds' and 'Seva' signifies 'Selfless Service'. Our foundation is built upon three non-negotiable pillars: Plants (Nature Protection), Seva (Human Social Welfare), and Environment Seva (Ecological & Water Conservation). We believe every single act of kindness creates a sustainable tomorrow."
+    question: "What does 'Manchi Panulu Sewa Foundation' stand for?",
+    answer: "In Telugu, 'Manchi Panulu' translates to 'Good Deeds' and 'Sewa' signifies 'Selfless Service'. Our foundation is built upon three non-negotiable pillars: Plants (Nature Protection), Sewa (Human Social Welfare), and Environment Sewa (Ecological & Water Conservation). We believe every single act of kindness creates a sustainable tomorrow."
   },
   {
     question: "How do you ensure the long-term survival of planted saplings?",
@@ -17,11 +17,11 @@ export const faqData = [
   },
   {
     question: "How can I register as a volunteer, and do I need prior experience?",
-    answer: "No prior experience is necessary! Anyone passionate about nature, human welfare, and environmental cleanliness can register on our 'Join Our Mission' page. We offer weekend field drives, kitchen prep seva, digital content creation, and eco-workshop educator tracks."
+    answer: "No prior experience is necessary! Anyone passionate about nature, human welfare, and environmental cleanliness can register on our 'Join Our Mission' page. We offer weekend field drives, kitchen prep sewa, digital content creation, and eco-workshop educator tracks."
   },
   {
     question: "Can I sponsor food or saplings for a personal celebration?",
-    answer: "Yes! Many community members sponsor Annadhanam (meals) or a grove of 25+ saplings in commemoration of birthdays, anniversaries, or in loving memory of departed family members. You can specify this in your donation or contact our seva coordination desk."
+    answer: "Yes! Many community members sponsor Annadhanam (meals) or a grove of 25+ saplings in commemoration of birthdays, anniversaries, or in loving memory of departed family members. You can specify this in your donation or contact our sewa coordination desk."
   }
 ];
 

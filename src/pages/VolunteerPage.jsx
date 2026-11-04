@@ -32,10 +32,10 @@ export default function VolunteerPage() {
 
   const availableTracks = [
     { id: 'Plants & Afforestation', label: 'Plants & Afforestation (Tree Planting & Nurseries)' },
-    { id: 'Food Relief Seva', label: 'Food Relief Seva (Annadhanam Cooking & Packaging)' },
+    { id: 'Food Relief Sewa', label: 'Food Relief Sewa (Annadhanam Cooking & Packaging)' },
     { id: 'Lake & Water Conservation', label: 'Lake & Water Conservation (Desilting & Cleanups)' },
     { id: 'Eco-Education Workshops', label: 'Youth Eco-Clubs (School Workshops & Seed Balls)' },
-    { id: 'Digital & Content Seva', label: 'Digital, Media & Photography Support' }
+    { id: 'Digital & Content Sewa', label: 'Digital, Media & Photography Support' }
   ];
 
   const handleTrackToggle = (trackId) => {
@@ -109,7 +109,7 @@ export default function VolunteerPage() {
               <span>{t('hero.volunteerBtn')}</span>
             </div>
             <h1 className="page-hero-title-exact">
-              Be the Change: Volunteer in Seva
+              Be the Change: Volunteer in Sewa
             </h1>
             <div className="page-hero-accent-line"></div>
             <p className="page-hero-desc-exact">
@@ -138,7 +138,7 @@ export default function VolunteerPage() {
                 Meaningful Grassroots Action, Zero Bureaucracy
               </h2>
               <p style={{ lineHeight: '1.7', color: 'var(--color-text-muted)', marginBottom: '2rem' }}>
-                At Manchi Panulu Seva Foundation, volunteers are not observers; they are the heart, hands, and moral compass of every drive. Whether you have 2 hours on a Sunday or want to lead monthly drives in your mandal, you are deeply welcome.
+                At Manchi Panulu Sewa Foundation, volunteers are not observers; they are the heart, hands, and moral compass of every drive. Whether you have 2 hours on a Sunday or want to lead monthly drives in your mandal, you are deeply welcome.
               </p>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', marginBottom: '2.5rem' }}>
@@ -168,7 +168,7 @@ export default function VolunteerPage() {
                   </div>
                   <div>
                     <h4 style={{ fontSize: '1.1rem', color: 'var(--color-forest-900)', marginBottom: '0.25rem' }}>Volunteer Certificate of Honor</h4>
-                    <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)' }}>Receive verified volunteer seva hours and recognition for civic leadership and college credits.</p>
+                    <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)' }}>Receive verified volunteer sewa hours and recognition for civic leadership and college credits.</p>
                   </div>
                 </div>
               </div>
@@ -219,7 +219,7 @@ export default function VolunteerPage() {
                     </div>
 
                     <h3 style={{ fontSize: '1.8rem', color: 'var(--color-forest-900)', marginBottom: '0.75rem' }}>
-                      Welcome to the Seva Family!
+                      Welcome to the Sewa Family!
                     </h3>
 
                     <p style={{ fontSize: '1rem', color: 'var(--color-text-muted)', lineHeight: '1.7', marginBottom: '1.75rem' }}>

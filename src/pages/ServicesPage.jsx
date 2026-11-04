@@ -327,7 +327,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Interactive Modal: Request Seva in Your Area */}
+      {/* Interactive Modal: Request Sewa in Your Area */}
       {requestFormOpen && (
         <div className="modal-overlay" onClick={() => setRequestFormOpen(false)} role="dialog" aria-modal="true">
           <div className="modal-card" onClick={(e) => e.stopPropagation()}>
@@ -336,7 +336,7 @@ export default function ServicesPage() {
             </button>
 
             <h3 style={{ fontSize: '1.6rem', color: 'var(--color-forest-900)', marginBottom: '0.5rem' }}>
-              Request Seva in Your Neighborhood
+              Request Sewa in Your Neighborhood
             </h3>
             <p style={{ fontSize: '0.92rem', color: 'var(--color-text-muted)', marginBottom: '1.5rem' }}>
               Know an area that desperately needs tree plantation, a hospital perimeter requiring food relief, or an abandoned pond needing revival? Tell us!
@@ -403,8 +403,8 @@ export default function ServicesPage() {
                     className="form-select"
                   >
                     <option value="Plants – Nature Protection">Plants – Tree Plantation & Sapling Drive</option>
-                    <option value="Seva – Social Service">Seva – Food Relief & Community Support</option>
-                    <option value="Environment Seva – Environmental Service">Environment Seva – Lake Cleanup & Waste Reduction</option>
+                    <option value="Sewa – Social Service">Sewa – Food Relief & Community Support</option>
+                    <option value="Environment Sewa – Environmental Service">Environment Sewa – Lake Cleanup & Waste Reduction</option>
                   </select>
                 </div>
 

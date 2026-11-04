@@ -8,7 +8,7 @@ export const servicesData = [
     color: "#1B4D34",
     accentColor: "#88C057",
     badge: "Pillar 01",
-    heroImage: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=1200&q=80",
     programs: [
       {
         title: "Tree Plantation Programs",
@@ -36,14 +36,14 @@ export const servicesData = [
       }
     ],
     gallery: [
-      "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=800&q=80",
       "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=800&q=80"
+      "https://images.unsplash.com/photo-1541443131876-44b03de101c5?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1576085898323-218337e3e43c?auto=format&fit=crop&w=800&q=80"
     ]
   },
   {
-    id: "social-seva",
-    pillar: "Seva",
+    id: "social-sewa",
+    pillar: "Sewa",
     subtitle: "Social Service",
     tagline: "Unconditional Compassion in Action",
     summary: "Standing beside the underprivileged, providing nutritious hot meals, disaster relief, clothing, educational kits, and dignifying support for elderly and vulnerable citizens.",
@@ -78,14 +78,14 @@ export const servicesData = [
       }
     ],
     gallery: [
-      "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=800&q=80",
       "https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1532629345422-7515f3d16bb2?auto=format&fit=crop&w=800&q=80"
+      "https://images.unsplash.com/photo-1594708767771-a7502209ff51?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=800&q=80"
     ]
   },
   {
-    id: "environment-seva",
-    pillar: "Environment Seva",
+    id: "environment-sewa",
+    pillar: "Environment Sewa",
     subtitle: "Environmental Service",
     tagline: "Healing Landscapes, Restoring Waters",
     summary: "Rejuvenating freshwater bodies, conducting clean-up drives in public spaces, eliminating single-use plastics, and advocating sustainable zero-waste community practices.",
@@ -120,9 +120,9 @@ export const servicesData = [
       }
     ],
     gallery: [
-      "https://images.unsplash.com/photo-1618477461853-cf6ed80faba5?auto=format&fit=crop&w=800&q=80",
       "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80"
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1574482620811-1aa16ffe3c82?auto=format&fit=crop&w=800&q=80"
     ]
   }
 ];

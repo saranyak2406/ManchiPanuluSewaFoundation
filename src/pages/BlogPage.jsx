@@ -14,14 +14,15 @@ export default function BlogPage() {
   const categories = [
     { label: 'All Articles', value: 'All' },
     { label: 'Plants & Afforestation', value: 'Plants' },
-    { label: 'Social Seva', value: 'Seva' },
+    { label: 'Social Sewa', value: 'Sewa' },
     { label: 'Environmental Service', value: 'Environment' }
   ];
 
   const filteredArticles = useMemo(() => {
     return blogData.filter((article) => {
       const matchesCategory =
-        activeCategory === 'All' || article.category === activeCategory;
+        activeCategory === 'All' ||
+        article.category === activeCategory;
       const matchesSearch =
         article.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         article.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||

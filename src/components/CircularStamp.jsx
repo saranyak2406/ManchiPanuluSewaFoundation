@@ -17,7 +17,7 @@ export default function CircularStamp({
         justifyContent: 'center',
         userSelect: 'none'
       }}
-      title="Manchi Panulu Seva Foundation - Core Covenant"
+      title="Manchi Panulu Sewa Foundation - Core Covenant"
     >
       {/* Outer Rotating Text SVG */}
       <svg

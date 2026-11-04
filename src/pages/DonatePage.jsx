@@ -25,7 +25,7 @@ export default function DonatePage() {
   const [selectedCurrency, setSelectedCurrency] = useState('USD');
   const [selectedAmount, setSelectedAmount] = useState(1200);
   const [customAmount, setCustomAmount] = useState('');
-  const [allocatedCause, setAllocatedCause] = useState('Where Most Needed (General Seva)');
+  const [allocatedCause, setAllocatedCause] = useState('Where Most Needed (General Sewa)');
   const [copiedUpi, setCopiedUpi] = useState(false);
 
   // Form State
@@ -69,7 +69,7 @@ export default function DonatePage() {
   const currentIntlPresets = internationalPresets[selectedCurrency] || internationalPresets.USD;
 
   const handleCopyUpi = () => {
-    navigator.clipboard.writeText('manchipanulu.seva@upi');
+    navigator.clipboard.writeText('manchipanulu.sewa@upi');
     setCopiedUpi(true);
     setTimeout(() => setCopiedUpi(false), 3000);
   };
@@ -217,10 +217,10 @@ export default function DonatePage() {
                     onChange={(e) => setAllocatedCause(e.target.value)}
                     className="form-select"
                   >
-                    <option value="Where Most Needed (General Seva)">Where Most Needed (General Seva)</option>
+                    <option value="Where Most Needed (General Sewa)">Where Most Needed (General Sewa)</option>
                     <option value="Plants – Indigenous Tree Plantation Drives">Plants – Indigenous Tree Plantation Drives</option>
-                    <option value="Seva – Hospital Patient Food Relief (Annadhanam)">Seva – Hospital Patient Food Relief (Annadhanam)</option>
-                    <option value="Environment Seva – Lake & River Revival Drives">Environment Seva – Lake & River Revival Drives</option>
+                    <option value="Sewa – Hospital Patient Food Relief (Annadhanam)">Sewa – Hospital Patient Food Relief (Annadhanam)</option>
+                    <option value="Environment Sewa – Lake & River Revival Drives">Environment Sewa – Lake & River Revival Drives</option>
                   </select>
                 </div>
 
@@ -356,7 +356,7 @@ export default function DonatePage() {
                     onClick={handleCopyUpi}
                     title="Click to copy UPI ID"
                   >
-                    <span>manchipanulu.seva@upi</span>
+                    <span>manchipanulu.sewa@upi</span>
                     {copiedUpi ? <Check size={16} color="#78C953" /> : <Copy size={16} />}
                   </div>
                   {copiedUpi && (
@@ -382,7 +382,7 @@ export default function DonatePage() {
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', fontSize: '0.9rem' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: '0.5rem', borderBottom: '1px solid var(--color-border-subtle)' }}>
                       <span style={{ color: 'var(--color-text-muted)' }}>Beneficiary Name:</span>
-                      <strong style={{ color: 'var(--color-forest-900)' }}>Manchi Panulu Seva Foundation</strong>
+                      <strong style={{ color: 'var(--color-forest-900)' }}>Manchi Panulu Sewa Foundation</strong>
                     </div>
                     <div style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: '0.5rem', borderBottom: '1px solid var(--color-border-subtle)' }}>
                       <span style={{ color: 'var(--color-text-muted)' }}>Bank Name:</span>
@@ -419,7 +419,7 @@ export default function DonatePage() {
                         Notice to International & Overseas Donors (FCRA Regulatory Compliance)
                       </strong>
                       <p style={{ fontSize: '0.9rem', color: '#6C521E', lineHeight: '1.6' }}>
-                        Under Indian law, non-profit entities require statutory clearance under the Foreign Contribution Regulation Act (FCRA) administered by the Ministry of Home Affairs to receive direct foreign inward wire contributions. <strong>Manchi Panulu Seva Foundation does not claim international donation eligibility without necessary statutory authorizations.</strong>
+                        Under Indian law, non-profit entities require statutory clearance under the Foreign Contribution Regulation Act (FCRA) administered by the Ministry of Home Affairs to receive direct foreign inward wire contributions. <strong>Manchi Panulu Sewa Foundation does not claim international donation eligibility without necessary statutory authorizations.</strong>
                       </p>
                       <p style={{ fontSize: '0.9rem', color: '#6C521E', lineHeight: '1.6', marginTop: '0.5rem' }}>
                         If you are an overseas citizen, NRI, or an international philanthropic body interested in supporting our environmental or social initiatives, please submit your inquiry below. We will coordinate through our approved international partnership networks or notify you once statutory overseas channels open.
@@ -590,7 +590,7 @@ export default function DonatePage() {
                 <CheckCircle2 size={36} />
               </div>
               <h3 style={{ fontSize: '1.75rem', color: 'var(--color-forest-900)', marginBottom: '0.25rem' }}>
-                Thank You for Your Sacred Seva!
+                Thank You for Your Sacred Sewa!
               </h3>
               <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)' }}>
                 Official Digital Acknowledgment Voucher

@@ -102,7 +102,7 @@ export default function ContactPage() {
                 <span>Foundation Coordination Hub</span>
               </div>
               <h2 style={{ color: 'var(--color-forest-900)', marginBottom: '1.25rem' }}>
-                Connect Directly with Our Seva Desk
+                Connect Directly with Our Sewa Desk
               </h2>
               <p style={{ lineHeight: '1.7', color: 'var(--color-text-muted)', marginBottom: '2.5rem' }}>
                 Whether you are an individual wanting to volunteer, a school coordinating an environmental rally, or a family sponsoring a meal drive, our dedicated coordinators are ready to support.
@@ -142,7 +142,7 @@ export default function ContactPage() {
                     <Phone size={22} />
                   </div>
                   <div>
-                    <h4 style={{ fontSize: '1.05rem', color: 'var(--color-forest-900)', marginBottom: '0.25rem' }}>Volunteer & Seva Helpline (Placeholder)</h4>
+                    <h4 style={{ fontSize: '1.05rem', color: 'var(--color-forest-900)', marginBottom: '0.25rem' }}>Volunteer & Sewa Helpline (Placeholder)</h4>
                     <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)' }}>
                       {complianceInfo.helplinePhone}
                     </p>
@@ -296,7 +296,7 @@ export default function ContactPage() {
                         >
                           <option value="General Inquiry">General Inquiry</option>
                           <option value="Tree Plantation Partnership">Tree Plantation & Afforestation Partnership</option>
-                          <option value="Hospital Food Seva Sponsorship">Hospital Food Seva Sponsorship (Annadhanam)</option>
+                          <option value="Hospital Food Sewa Sponsorship">Hospital Food Sewa Sponsorship (Annadhanam)</option>
                           <option value="Lake Cleanup & Water Conservation">Lake Cleanup & Waterbody Initiative</option>
                           <option value="Volunteer Coordination">Volunteer Coordination</option>
                           <option value="CSR & Institutional Collaboration">CSR & Institutional Collaboration</option>
