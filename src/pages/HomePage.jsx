@@ -69,8 +69,8 @@ export default function HomePage() {
                   border: '4px solid #FFFFFF'
                 }}>
                   <img
-                    src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=900&q=80"
-                    alt="Manchi Panulu Sewa Foundation in Action"
+                    src="/home-foundation-action.jpg"
+                    alt="Manchi Panulu Sewa Foundation in Action - Vruksha, Manava, Prakruthi & Aashraya Sewa"
                     style={{ width: '100%', height: '460px', objectFit: 'cover' }}
                   />
                 </div>
@@ -128,7 +128,7 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <div style={{ display: 'flex', gap: '1rem' }}>
+                <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
                   <Button to="/about" variant="primary" size="md" icon={ArrowRight}>
                     {t('home.discoverStory')}
                   </Button>
@@ -137,6 +137,98 @@ export default function HomePage() {
                   </Button>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4.5. Four Core Pillars of Sewa Showcase */}
+      <section className="section section-sage" style={{ paddingTop: '3.5rem', paddingBottom: '4rem' }}>
+        <div className="container">
+          <div className="section-header" style={{ maxWidth: '720px', margin: '0 auto 3rem auto', textAlign: 'center' }}>
+            <div className="eyebrow-badge" style={{ margin: '0 auto 0.85rem auto' }}>
+              <Sparkles size={14} />
+              <span>Core Mandate</span>
+            </div>
+            <h2 style={{ color: 'var(--color-forest-900)', marginBottom: '1rem', fontSize: 'clamp(2rem, 3.2vw, 2.6rem)' }}>
+              Four Pillars of Dedicated Sewa
+            </h2>
+            <p style={{ color: 'var(--color-forest-700)', fontSize: '1.05rem', lineHeight: '1.6' }}>
+              Rooted in soil, driven by compassion, and committed to ecological rejuvenation and uplifting every vulnerable life.
+            </p>
+          </div>
+
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+            gap: '1.75rem'
+          }}>
+            {/* Pillar 01 */}
+            <div className="pillar-home-card">
+              <div className="pillar-home-badge">PILLAR 01 — TREE & NATURE PROTECTION</div>
+              <div className="pillar-home-icon-wrap" style={{ background: 'rgba(27, 77, 52, 0.1)', color: '#1B4D34' }}>
+                <Trees size={26} />
+              </div>
+              <h3 className="pillar-home-title">Vruksha Sewa</h3>
+              <div className="pillar-home-tagline">Rooting Hope, Greening Tomorrow</div>
+              <p className="pillar-home-desc">
+                Dedicated to afforestation, indigenous tree plantation, sapling distribution, and nurturing green landscapes.
+              </p>
+              <Link to="/services#vrukshasewa" className="pillar-home-link">
+                <span>Explore Pillar</span>
+                <ArrowRight size={15} />
+              </Link>
+            </div>
+
+            {/* Pillar 02 */}
+            <div className="pillar-home-card">
+              <div className="pillar-home-badge">PILLAR 02 — HUMANITARIAN & SOCIAL SERVICE</div>
+              <div className="pillar-home-icon-wrap" style={{ background: 'rgba(44, 74, 56, 0.1)', color: '#2C4A38' }}>
+                <Heart size={26} />
+              </div>
+              <h3 className="pillar-home-title">Manava Sewa</h3>
+              <div className="pillar-home-tagline">Compassion in Action, Humanity at Heart</div>
+              <p className="pillar-home-desc">
+                Providing nutritious meals, clothing, educational assistance, disaster relief, and compassionate support for elderly and vulnerable individuals.
+              </p>
+              <Link to="/services#manava-sewa" className="pillar-home-link">
+                <span>Explore Pillar</span>
+                <ArrowRight size={15} />
+              </Link>
+            </div>
+
+            {/* Pillar 03 */}
+            <div className="pillar-home-card">
+              <div className="pillar-home-badge">PILLAR 03 — ENVIRONMENTAL CONSERVATION</div>
+              <div className="pillar-home-icon-wrap" style={{ background: 'rgba(24, 61, 47, 0.1)', color: '#183D2F' }}>
+                <Globe size={26} />
+              </div>
+              <h3 className="pillar-home-title">Prakruthi Sewa</h3>
+              <div className="pillar-home-tagline">Restoring Nature, Sustaining Life</div>
+              <p className="pillar-home-desc">
+                Revitalizing water bodies, organizing cleanliness drives, reducing plastic pollution, and promoting sustainable, zero-waste communities.
+              </p>
+              <Link to="/services#prakruthi-sewa" className="pillar-home-link">
+                <span>Explore Pillar</span>
+                <ArrowRight size={15} />
+              </Link>
+            </div>
+
+            {/* Pillar 04 */}
+            <div className="pillar-home-card">
+              <div className="pillar-home-badge">PILLAR 04 — POVERTY RELIEF & EMPOWERMENT</div>
+              <div className="pillar-home-icon-wrap" style={{ background: 'rgba(30, 59, 47, 0.1)', color: '#1E3B2F' }}>
+                <Users size={26} />
+              </div>
+              <h3 className="pillar-home-title">Aashraya Sewa</h3>
+              <div className="pillar-home-tagline">Restoring Dignity, Empowering Lives</div>
+              <p className="pillar-home-desc">
+                Supporting economically disadvantaged families through essential supplies, emergency medical assistance, livelihood opportunities, and self-reliance initiatives.
+              </p>
+              <Link to="/services#aashraya-sewa" className="pillar-home-link">
+                <span>Explore Pillar</span>
+                <ArrowRight size={15} />
+              </Link>
             </div>
           </div>
         </div>

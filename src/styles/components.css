@@ -406,6 +406,80 @@
   .hidden-mobile-br {
     display: none;
   }
+
+  .envarn-hero-fullscreen-3d {
+    min-height: calc(100svh - 70px);
+    padding: 2.25rem 0 2rem 0;
+  }
+
+  /* Soft sage contrast veil so hero text never clashes with the heart leaves */
+  .envarn-hero-fullscreen-3d::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(235, 242, 225, 0.94) 0%,
+      rgba(235, 242, 225, 0.88) 45%,
+      rgba(235, 242, 225, 0.35) 72%,
+      transparent 100%
+    );
+    pointer-events: none;
+    z-index: 4;
+  }
+
+  .hero-3d-bg-layer {
+    background-position: 72% 38% !important;
+  }
+
+  .hero-natural-text-block {
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .hero-subtag-banner {
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    max-width: 100%;
+  }
+
+  .subtag-line {
+    width: 22px;
+  }
+
+  .subtag-text {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+  }
+
+  .envarn-hero-heading-exact {
+    font-size: clamp(1.75rem, 6.2vw, 2.15rem);
+    line-height: 1.16;
+    margin-bottom: 0.85rem;
+  }
+
+  .envarn-hero-subheading-exact {
+    font-size: 0.92rem;
+    line-height: 1.55;
+    margin-bottom: 1.5rem;
+    max-width: 100%;
+  }
+
+  .envarn-hero-buttons-exact {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    max-width: 320px;
+    gap: 0.75rem;
+  }
+
+  .btn-hero-donate-exact,
+  .btn-hero-mission-exact {
+    width: 100%;
+    justify-content: center;
+    padding: 0.85rem 1.5rem;
+    font-size: 0.95rem;
+  }
 }
 
 /* Exact Action Buttons */
@@ -885,7 +959,104 @@
   border-top: 1px solid var(--color-border-card);
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.15rem;
+}
+
+.mobile-drawer-close-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: rgba(22, 36, 20, 0.08);
+  border: none;
+  color: var(--color-forest-900);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.mobile-drawer-close-btn:hover {
+  background-color: rgba(22, 36, 20, 0.16);
+  transform: rotate(90deg);
+}
+
+.drawer-lang-selector {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  background-color: rgba(22, 36, 20, 0.06);
+  padding: 0.35rem;
+  border-radius: var(--radius-pill);
+}
+
+.drawer-lang-btn {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: var(--radius-pill);
+  border: none;
+  background: transparent;
+  color: var(--color-text-main);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-align: center;
+}
+
+.drawer-lang-btn.active {
+  background-color: var(--color-forest-900);
+  color: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(12, 38, 26, 0.2);
+}
+
+.btn-drawer-donate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  width: 100%;
+  padding: 0.95rem 1.5rem;
+  background-color: var(--color-forest-900);
+  color: #FFFFFF !important;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(12, 38, 26, 0.25);
+  transition: all var(--transition-fast);
+}
+
+.btn-drawer-donate:hover {
+  background-color: var(--color-forest-700);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 680px) {
+  .nav-desktop-donate {
+    display: none !important;
+  }
+
+  .brand-title {
+    font-size: 1.1rem;
+  }
+
+  .brand-subtitle {
+    font-size: 0.62rem;
+  }
+
+  .brand-icon-wrapper {
+    width: 38px;
+    height: 38px;
+  }
+
+  .navbar-inner {
+    height: 70px;
+  }
+
+  .lang-btn {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.8rem;
+  }
 }
 
 /* ==========================================================================
@@ -1772,5 +1943,91 @@
 @keyframes floatSlow {
   0% { transform: translateY(0px); }
   100% { transform: translateY(-8px); }
+}
+
+/* ==========================================================================
+   HOMEPAGE PILLAR CARDS (Vruksha, Manava, Prakruthi, Aashraya Sewa)
+   ========================================================================== */
+.pillar-home-card {
+  background: #FFFFFF;
+  border-radius: var(--radius-xl);
+  padding: 2.25rem 1.85rem;
+  border: 1px solid rgba(23, 35, 24, 0.08);
+  box-shadow: 0 4px 18px rgba(18, 34, 18, 0.04);
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-normal);
+  position: relative;
+}
+
+.pillar-home-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 36px rgba(18, 34, 18, 0.1);
+  border-color: rgba(30, 80, 50, 0.2);
+}
+
+.pillar-home-badge {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--color-forest-700);
+  text-transform: uppercase;
+  margin-bottom: 1.15rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid rgba(23, 35, 24, 0.06);
+}
+
+.pillar-home-icon-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  transition: transform var(--transition-normal);
+}
+
+.pillar-home-card:hover .pillar-home-icon-wrap {
+  transform: scale(1.08) rotate(4deg);
+}
+
+.pillar-home-title {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--color-forest-900);
+  margin-bottom: 0.35rem;
+}
+
+.pillar-home-tagline {
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: #2E7D32;
+  margin-bottom: 0.95rem;
+}
+
+.pillar-home-desc {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  margin-bottom: 1.5rem;
+  flex: 1;
+}
+
+.pillar-home-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-forest-900);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.pillar-home-link:hover {
+  color: #2E7D32;
+  gap: 0.75rem;
 }
 

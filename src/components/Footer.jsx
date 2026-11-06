@@ -91,28 +91,28 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 2: Three Service Pillars */}
+          {/* Column 2: Four Core Pillars */}
           <div>
-            <h4 className="footer-heading">Our Three Pillars</h4>
+            <h4 className="footer-heading">Four Core Pillars</h4>
             <ul className="footer-links-list">
               <li>
                 <Link to="/services#vrukshasewa" className="footer-link">
-                  VrukshaSewa – Nature Protection
+                  Vruksha Sewa – Tree & Nature Protection
                 </Link>
               </li>
               <li>
-                <Link to="/services#social-sewa" className="footer-link">
-                  Sewa – Social Service
+                <Link to="/services#manava-sewa" className="footer-link">
+                  Manava Sewa – Humanitarian Service
                 </Link>
               </li>
               <li>
-                <Link to="/services#environment-sewa" className="footer-link">
-                  Environment Sewa
+                <Link to="/services#prakruthi-sewa" className="footer-link">
+                  Prakruthi Sewa – Conservation
                 </Link>
               </li>
               <li>
-                <Link to="/services#poor-sewa" className="footer-link">
-                  Poor Sewa – Aid for Needy
+                <Link to="/services#aashraya-sewa" className="footer-link">
+                  Aashraya Sewa – Poverty Relief
                 </Link>
               </li>
               <li>

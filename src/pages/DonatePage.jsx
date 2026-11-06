@@ -218,10 +218,10 @@ export default function DonatePage() {
                     className="form-select"
                   >
                     <option value="Where Most Needed (General Sewa)">Where Most Needed (General Sewa)</option>
-                    <option value="VrukshaSewa – Indigenous Tree Plantation Drives">VrukshaSewa – Indigenous Tree Plantation Drives</option>
-                    <option value="Sewa – Hospital Patient Food Relief (Annadhanam)">Sewa – Hospital Patient Food Relief (Annadhanam)</option>
-                    <option value="Environment Sewa – Lake & River Revival Drives">Environment Sewa – Lake & River Revival Drives</option>
-                    <option value="Poor Sewa – Ration Kits, Warmth & Medical Aid for Needy">Poor Sewa – Ration Kits, Warmth & Medical Aid for Needy</option>
+                    <option value="Vruksha Sewa — Tree & Nature Protection">Vruksha Sewa — Tree & Nature Protection</option>
+                    <option value="Manava Sewa — Humanitarian & Social Service">Manava Sewa — Humanitarian & Social Service</option>
+                    <option value="Prakruthi Sewa — Environmental Conservation">Prakruthi Sewa — Environmental Conservation</option>
+                    <option value="Aashraya Sewa — Poverty Relief & Empowerment">Aashraya Sewa — Poverty Relief & Empowerment</option>
                   </select>
                 </div>
 
@@ -545,10 +545,10 @@ export default function DonatePage() {
                       onChange={(e) => setAllocatedCause(e.target.value)}
                       className="form-select"
                     >
-                      <option value="Miyawaki Afforestation & Carbon Sequestration">Miyawaki Afforestation & Carbon Sequestration</option>
-                      <option value="Direct Hunger Relief & Food Security (Annadhanam)">Direct Hunger Relief & Food Security (Annadhanam)</option>
-                      <option value="Freshwater Wetland & Lake Revitalization">Freshwater Wetland & Lake Revitalization</option>
-                      <option value="Youth Eco-Clubs & Environmental Education">Youth Eco-Clubs & Environmental Education</option>
+                      <option value="Vruksha Sewa — Tree & Nature Protection">Vruksha Sewa — Tree & Nature Protection</option>
+                      <option value="Manava Sewa — Humanitarian & Social Service">Manava Sewa — Humanitarian & Social Service</option>
+                      <option value="Prakruthi Sewa — Environmental Conservation">Prakruthi Sewa — Environmental Conservation</option>
+                      <option value="Aashraya Sewa — Poverty Relief & Empowerment">Aashraya Sewa — Poverty Relief & Empowerment</option>
                     </select>
                   </div>
 

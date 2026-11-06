@@ -1,13 +1,13 @@
 export const servicesData = [
   {
     id: "vrukshasewa",
-    pillar: "VrukshaSewa",
+    pillar: "Vruksha Sewa",
     subtitle: "Tree & Nature Protection",
     tagline: "Rooting Hope, Greening Tomorrow",
-    summary: "Dedicated to mass afforestation, indigenous tree plantation, free sapling distribution, and ecological awareness across rural and urban landscapes.",
+    summary: "Dedicated to afforestation, indigenous tree plantation, sapling distribution, and nurturing green landscapes.",
     color: "#1B4D34",
     accentColor: "#88C057",
-    badge: "Pillar 01",
+    badge: "PILLAR 01 — TREE & NATURE PROTECTION",
     heroImage: "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1200&q=80",
     programs: [
       {
@@ -42,14 +42,14 @@ export const servicesData = [
     ]
   },
   {
-    id: "social-sewa",
-    pillar: "Sewa",
-    subtitle: "Social Service",
-    tagline: "Unconditional Compassion in Action",
-    summary: "Standing beside the underprivileged, providing nutritious hot meals, disaster relief, clothing, educational kits, and dignifying support for elderly and vulnerable citizens.",
+    id: "manava-sewa",
+    pillar: "Manava Sewa",
+    subtitle: "Humanitarian & Social Service",
+    tagline: "Compassion in Action, Humanity at Heart",
+    summary: "Providing nutritious meals, clothing, educational assistance, disaster relief, and compassionate support for elderly and vulnerable individuals.",
     color: "#2C4A38",
     accentColor: "#E3B873",
-    badge: "Pillar 02",
+    badge: "PILLAR 02 — HUMANITARIAN & SOCIAL SERVICE",
     heroImage: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1200&q=80",
     programs: [
       {
@@ -84,14 +84,14 @@ export const servicesData = [
     ]
   },
   {
-    id: "environment-sewa",
-    pillar: "Environment Sewa",
-    subtitle: "Environmental Service",
-    tagline: "Healing Landscapes, Restoring Waters",
-    summary: "Rejuvenating freshwater bodies, conducting clean-up drives in public spaces, eliminating single-use plastics, and advocating sustainable zero-waste community practices.",
+    id: "prakruthi-sewa",
+    pillar: "Prakruthi Sewa",
+    subtitle: "Environmental Conservation",
+    tagline: "Restoring Nature, Sustaining Life",
+    summary: "Revitalizing water bodies, organizing cleanliness drives, reducing plastic pollution, and promoting sustainable, zero-waste communities.",
     color: "#183D2F",
     accentColor: "#38A169",
-    badge: "Pillar 03",
+    badge: "PILLAR 03 — ENVIRONMENTAL CONSERVATION",
     heroImage: "https://images.unsplash.com/photo-1618477461853-cf6ed80faba5?auto=format&fit=crop&w=1200&q=80",
     programs: [
       {
@@ -126,14 +126,14 @@ export const servicesData = [
     ]
   },
   {
-    id: "poor-sewa",
-    pillar: "Poor Sewa",
-    subtitle: "Poverty Relief & Support for the Needy",
-    tagline: "Restoring Hope, Uplifting Lives with Dignity",
-    summary: "Dedicated to uplifting marginalized and impoverished communities, daily-wage families, and destitute individuals through direct food kits, warm clothing, emergency medical relief, and self-reliance livelihood support.",
+    id: "aashraya-sewa",
+    pillar: "Aashraya Sewa",
+    subtitle: "Poverty Relief & Empowerment",
+    tagline: "Restoring Dignity, Empowering Lives",
+    summary: "Supporting economically disadvantaged families through essential supplies, emergency medical assistance, livelihood opportunities, and self-reliance initiatives.",
     color: "#1E3B2F",
     accentColor: "#DDA853",
-    badge: "Pillar 04",
+    badge: "PILLAR 04 — POVERTY RELIEF & EMPOWERMENT",
     heroImage: "https://images.unsplash.com/photo-1578357078586-491adf1aa5ba?auto=format&fit=crop&w=1200&q=80",
     programs: [
       {

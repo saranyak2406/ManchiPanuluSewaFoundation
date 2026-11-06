@@ -77,11 +77,11 @@ export default function ServicesPage() {
               <span>{t('nav.services')}</span>
             </div>
             <h1 className="page-hero-title-exact">
-              Four Pillars of<br />Dedicated Sewa
+              Four Pillars of<br className="hidden-mobile-br" /> Dedicated Sewa
             </h1>
             <div className="page-hero-accent-line"></div>
             <p className="page-hero-desc-exact">
-              Holistic community action structured across four dedicated pillars: VrukshaSewa nature conservation, direct human social care, waterbody environmental restoration, and Poor Sewa destitute relief.
+              Holistic community action structured across four dedicated pillars: Vruksha Sewa, Manava Sewa, Prakruthi Sewa, and Aashraya Sewa.
             </p>
           </div>
         </div>

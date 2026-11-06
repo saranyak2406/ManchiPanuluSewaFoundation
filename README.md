@@ -19,29 +19,25 @@ The website implements an **Envarn-inspired aesthetic**:
 
 ## 🏛️ Four Core Pillars of Service
 
-1. **VrukshaSewa – Nature Protection**
-   - High-density Miyawaki urban forestation
-   - Indigenous sapling and tree distribution
-   - Biodiversity and sacred grove conservation
-   - School seed-ball workshops & eco-clubs
+1. **PILLAR 01 — TREE & NATURE PROTECTION: Vruksha Sewa**
+   - *Rooting Hope, Greening Tomorrow*
+   - Dedicated to afforestation, indigenous tree plantation, sapling distribution, and nurturing green landscapes.
+   - High-density Miyawaki urban forestation & native species conservation.
 
-2. **Sewa – Social Service**
-   - Community compassion and volunteer solidarity
-   - Daily wholesome food relief (*Annadhanam*) outside public hospitals
-   - Rapid emergency and disaster relief mobilization
-   - Student educational kits and youth eco-mentorship
+2. **PILLAR 02 — HUMANITARIAN & SOCIAL SERVICE: Manava Sewa**
+   - *Compassion in Action, Humanity at Heart*
+   - Providing nutritious meals, clothing, educational assistance, disaster relief, and compassionate support for elderly and vulnerable individuals.
+   - Daily wholesome food relief (*Annadhanam*) outside public hospitals.
 
-3. **Environment Sewa – Environmental Service**
-   - Urban lake and stepwell revival (*Jal Punarjeevana*)
-   - Community plog runs and riverbank plastic eradication
-   - Water conservation, aquifer recharge & bio-swales
-   - Citizen composting and single-use plastic elimination drives
+3. **PILLAR 03 — ENVIRONMENTAL CONSERVATION: Prakruthi Sewa**
+   - *Restoring Nature, Sustaining Life*
+   - Revitalizing water bodies, organizing cleanliness drives, reducing plastic pollution, and promoting sustainable, zero-waste communities.
+   - Urban lake revival (*Jal Punarjeevana*) & community plog runs.
 
-4. **Poor Sewa – Poverty Relief & Destitute Care**
-   - Monthly essential dry ration & grocery kits for destitute families
-   - Thermal blankets, tarpaulins & winter warmth relief drives
-   - Emergency medical aid, prescription support & mobility aids
-   - Livelihood tools (sewing machines, vocational kits) for self-reliance
+4. **PILLAR 04 — POVERTY RELIEF & EMPOWERMENT: Aashraya Sewa**
+   - *Restoring Dignity, Empowering Lives*
+   - Supporting economically disadvantaged families through essential supplies, emergency medical assistance, livelihood opportunities, and self-reliance initiatives.
+   - Monthly dry ration kits, thermal winter blankets, and vocational tool donations.
 
 ---
 

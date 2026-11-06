@@ -49,7 +49,7 @@ export default function AboutPage() {
     {
       year: "2024",
       title: "Formal Trust Registration",
-      desc: "Formally registered as Manchi Panulu Sewa Foundation with the four declared pillars: VrukshaSewa, Social Sewa, Environmental Service, and Poor Sewa."
+      desc: "Formally registered as Manchi Panulu Sewa Foundation with the four declared pillars: Vruksha Sewa, Manava Sewa, Prakruthi Sewa, and Aashraya Sewa."
     },
     {
       year: "2025",
@@ -75,7 +75,7 @@ export default function AboutPage() {
             </div>
             <h1 className="page-hero-title-exact">
               {language === 'en' ? (
-                <>Good Deeds Rooted in<br />Soil, Sustained by<br />Compassion</>
+                <>Good Deeds Rooted in<br className="hidden-mobile-br" /> Soil, Sustained by<br className="hidden-mobile-br" /> Compassion</>
               ) : (
                 t('about.heroTitle')
               )}
@@ -112,7 +112,7 @@ export default function AboutPage() {
                 A good deed is not measured by its monetary scale; it is measured by its purity of intent and long-term consequence. When a volunteer plants a slow-growing Banyan sapling whose shade they may never sit under, that is a good deed. When our kitchen serves hot, nutritious food to an anxious family waiting outside an emergency ward, that is a good deed. When youth spend Sunday wading through marshland to liberate a waterbody from plastic suffocation, that is a good deed.
               </p>
               <p style={{ lineHeight: '1.8', color: 'var(--color-forest-900)', fontWeight: 600 }}>
-                Our fourfold mandate: <strong>Protect Nature. Serve Humanity. Preserve the Environment. Uplift the Poor.</strong>
+                Our fourfold mandate: <strong>Vruksha Sewa (Protect Nature) • Manava Sewa (Serve Humanity) • Prakruthi Sewa (Preserve Environment) • Aashraya Sewa (Empower the Poor).</strong>
               </p>
             </div>
 

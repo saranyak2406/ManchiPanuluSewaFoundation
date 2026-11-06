@@ -102,10 +102,10 @@ export const translations = {
       quote: "Good deeds today are the roots of a flourishing tomorrow.",
       quickNav: "Quick Navigation",
       pillarsTitle: "Four Pillars of Sewa",
-      p1: "VrukshaSewa – Trees & Flora",
-      p2: "Human Social Sewa",
-      p3: "Environmental Revival",
-      p4: "Poor Sewa – Aid for Needy",
+      p1: "Vruksha Sewa — Tree & Nature Protection",
+      p2: "Manava Sewa — Humanitarian & Social Service",
+      p3: "Prakruthi Sewa — Environmental Conservation",
+      p4: "Aashraya Sewa — Poverty Relief & Empowerment",
       contactTitle: "Contact & Transparency",
       rights: "All Rights Reserved. Registered Public Charitable Trust."
     }
@@ -214,10 +214,10 @@ export const translations = {
       quote: "నేటి మంచి పనులే రేపటి హరిత వసంతానికి బలమైన పునాదులు.",
       quickNav: "త్వరిత లింకులు",
       pillarsTitle: "సేవ యొక్క నాలుగు స్తంభాలు",
-      p1: "వృక్షసేవ & దేశీయ వృక్షాలు",
-      p2: "నిరుపేదలకు మానవ సేవ",
-      p3: "పర్యావరణ & జల పునరుద్ధరణ",
-      p4: "పేదల సేవ & సహాయం",
+      p1: "వృక్ష సేవ (Vruksha Sewa) — చెట్లు & ప్రకృతి రక్షణ",
+      p2: "మానవ సేవ (Manava Sewa) — మానవతా & సమాజ సేవ",
+      p3: "ప్రకృతి సేవ (Prakruthi Sewa) — పర్యావరణ పరిరక్షణ",
+      p4: "ఆశ్రయ సేవ (Aashraya Sewa) — పేదరిక నిర్మూలన & సాధికారత",
       contactTitle: "సంప్రదింపు & పారదర్శకత",
       rights: "సర్వ హక్కులు ప్రత్యేకించబడినవి. నమోదిత ప్రజా సేవా ట్రస్ట్."
     }

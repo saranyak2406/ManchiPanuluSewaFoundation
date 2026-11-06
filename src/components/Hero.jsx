@@ -146,8 +146,7 @@ export default function Hero() {
 
             {/* Subtitle Matching User's Image */}
             <p className="envarn-hero-subheading-exact">
-              {t('hero.subtitleLine1')}<br className="hidden-mobile-br" />
-              {t('hero.subtitleLine2')}
+              {t('hero.subtitleLine1')}{' '}<br className="hidden-mobile-br" />{t('hero.subtitleLine2')}
             </p>
 
             {/* Two Action Buttons Matching User's Image */}

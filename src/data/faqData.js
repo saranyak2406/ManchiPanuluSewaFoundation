@@ -1,7 +1,7 @@
 export const faqData = [
   {
     question: "What does 'Manchi Panulu Sewa Foundation' stand for?",
-    answer: "In Telugu, 'Manchi Panulu' translates to 'Good Deeds' and 'Sewa' signifies 'Selfless Service'. Our foundation is built upon four non-negotiable pillars: VrukshaSewa (Tree & Nature Protection), Sewa (Human Social Welfare), Environment Sewa (Ecological & Water Conservation), and Poor Sewa (Poverty Relief & Destitute Support). We believe every single act of kindness creates a sustainable tomorrow."
+    answer: "In Telugu, 'Manchi Panulu' translates to 'Good Deeds' and 'Sewa' signifies 'Selfless Service'. Our foundation is built upon four non-negotiable pillars: Vruksha Sewa (Tree & Nature Protection), Manava Sewa (Humanitarian & Social Service), Prakruthi Sewa (Environmental Conservation), and Aashraya Sewa (Poverty Relief & Empowerment). We believe every single act of kindness creates a sustainable tomorrow."
   },
   {
     question: "How do you ensure the long-term survival of planted saplings?",
