@@ -209,7 +209,7 @@
   }
 }
 
-/* 3D Full-Bleed Background Layer - Using the User's Indian Foundation Action Artwork */
+/* 3D Full-Bleed Background Layer - Bright & Radiant Indian Foundation Action Artwork */
 .hero-3d-bg-layer {
   position: absolute;
   top: 0;
@@ -220,21 +220,22 @@
   background-size: cover;
   background-position: center 30%;
   background-repeat: no-repeat;
+  filter: brightness(1.18) contrast(1.04) saturate(1.08);
   transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform;
   z-index: 1;
 }
 
-/* Ambient Depth Scrim - Preserves Text Legibility on Left While Showing Photo Radiantly */
+/* Ambient Depth Scrim - Bright, Sunny & Crystal Clear */
 .hero-backdrop-scrim {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     90deg,
-    rgba(243, 247, 237, 0.95) 0%,
-    rgba(243, 247, 237, 0.90) 38%,
-    rgba(243, 247, 237, 0.50) 62%,
-    rgba(243, 247, 237, 0.15) 100%
+    rgba(255, 255, 255, 0.88) 0%,
+    rgba(255, 255, 255, 0.74) 36%,
+    rgba(255, 255, 255, 0.26) 65%,
+    rgba(255, 255, 255, 0.05) 100%
   );
   pointer-events: none;
   z-index: 2;
@@ -439,13 +440,13 @@
     padding: 2.25rem 0 2rem 0;
   }
 
-  /* Mobile Scrim so text remains 100% legible over the Indian photo */
+  /* Mobile Scrim - Bright, luminous and crystal clear */
   .hero-backdrop-scrim {
     background: linear-gradient(
       180deg,
-      rgba(243, 247, 237, 0.94) 0%,
-      rgba(243, 247, 237, 0.85) 50%,
-      rgba(243, 247, 237, 0.40) 80%,
+      rgba(255, 255, 255, 0.90) 0%,
+      rgba(255, 255, 255, 0.76) 52%,
+      rgba(255, 255, 255, 0.22) 80%,
       transparent 100%
     );
   }
