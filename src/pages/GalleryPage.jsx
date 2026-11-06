@@ -11,7 +11,7 @@ export default function GalleryPage() {
 
   const categories = [
     { label: 'All Moments', value: 'All' },
-    { label: 'Plants & Afforestation', value: 'Plants' },
+    { label: 'VrukshaSewa (Afforestation)', value: 'VrukshaSewa' },
     { label: 'Social Sewa', value: 'Sewa' },
     { label: 'Environmental Service', value: 'Environment' },
     { label: 'Video Features', value: 'video' }
@@ -20,7 +20,11 @@ export default function GalleryPage() {
   const filteredItems = galleryData.filter((item) => {
     if (activeCategory === 'All') return true;
     if (activeCategory === 'video') return item.type === 'video';
-    return item.category === activeCategory;
+    return (
+      item.category === activeCategory ||
+      ((activeCategory === 'VrukshaSewa' || activeCategory === 'Plants') && (item.category === 'VrukshaSewa' || item.category === 'Plants')) ||
+      (activeCategory === 'Sewa' && item.category === 'Seva')
+    );
   });
 
   const currentItem = selectedItemIndex !== null ? filteredItems[selectedItemIndex] : null;

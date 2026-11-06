@@ -17,25 +17,31 @@ The website implements an **Envarn-inspired aesthetic**:
 
 ---
 
-## 🏛️ Three Core Areas of Service
+## 🏛️ Four Core Pillars of Service
 
-1. **Plants – Nature Protection**
+1. **VrukshaSewa – Nature Protection**
    - High-density Miyawaki urban forestation
    - Indigenous sapling and tree distribution
    - Biodiversity and sacred grove conservation
    - School seed-ball workshops & eco-clubs
 
 2. **Sewa – Social Service**
-   - Direct aid for marginalized and vulnerable communities
+   - Community compassion and volunteer solidarity
    - Daily wholesome food relief (*Annadhanam*) outside public hospitals
-   - Rapid emergency and cold-wave disaster support
-   - Student educational kits and elder dignity support
+   - Rapid emergency and disaster relief mobilization
+   - Student educational kits and youth eco-mentorship
 
 3. **Environment Sewa – Environmental Service**
    - Urban lake and stepwell revival (*Jal Punarjeevana*)
    - Community plog runs and riverbank plastic eradication
    - Water conservation, aquifer recharge & bio-swales
    - Citizen composting and single-use plastic elimination drives
+
+4. **Poor Sewa – Poverty Relief & Destitute Care**
+   - Monthly essential dry ration & grocery kits for destitute families
+   - Thermal blankets, tarpaulins & winter warmth relief drives
+   - Emergency medical aid, prescription support & mobility aids
+   - Livelihood tools (sewing machines, vocational kits) for self-reliance
 
 ---
 
@@ -52,7 +58,7 @@ The website implements an **Envarn-inspired aesthetic**:
 ## 📂 Project Architecture
 
 ```
-manchi-panulu-sewa-foundation/
+manchi-panulu-seva-foundation/
 ├── public/
 │   ├── favicon.svg              # Custom leaf-sprout foundation favicon
 │   └── ...
@@ -73,7 +79,7 @@ manchi-panulu-sewa-foundation/
 │   ├── pages/
 │   │   ├── HomePage.jsx         # Complete landing page with all 10 core sections
 │   │   ├── AboutPage.jsx        # History, Mission, Vision, Values & Leadership
-│   │   ├── ServicesPage.jsx     # Deep-dive into 3 pillars & Request Sewa modal
+│   │   ├── ServicesPage.jsx     # Deep-dive into 3 pillars & Request Seva modal
 │   │   ├── ProjectsPage.jsx     # Searchable & filterable ongoing/completed initiatives
 │   │   ├── GalleryPage.jsx      # Photo & video gallery with interactive lightbox
 │   │   ├── BlogPage.jsx         # Articles, guides, and stories of change
@@ -104,7 +110,7 @@ manchi-panulu-sewa-foundation/
 
 1. Navigate to the project directory:
    ```bash
-   cd manchi-panulu-sewa-foundation
+   cd manchi-panulu-seva-foundation
    ```
 
 2. Start the Vite development server:

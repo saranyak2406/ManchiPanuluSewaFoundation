@@ -563,7 +563,8 @@
   display: inline-block;
 }
 
-.dot-sewa {
+.dot-sewa,
+.dot-seva {
   background-color: #E2B357;
 }
 
@@ -575,7 +576,8 @@
   background-color: #5EA83C;
 }
 
-.pill-sewa {
+.pill-sewa,
+.pill-seva {
   bottom: 12%;
   left: 6%;
 }

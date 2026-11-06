@@ -13,7 +13,7 @@ export default function BlogPage() {
 
   const categories = [
     { label: 'All Articles', value: 'All' },
-    { label: 'Plants & Afforestation', value: 'Plants' },
+    { label: 'VrukshaSewa (Afforestation)', value: 'VrukshaSewa' },
     { label: 'Social Sewa', value: 'Sewa' },
     { label: 'Environmental Service', value: 'Environment' }
   ];
@@ -22,7 +22,9 @@ export default function BlogPage() {
     return blogData.filter((article) => {
       const matchesCategory =
         activeCategory === 'All' ||
-        article.category === activeCategory;
+        article.category === activeCategory ||
+        ((activeCategory === 'VrukshaSewa' || activeCategory === 'Plants') && (article.category === 'VrukshaSewa' || article.category === 'Plants')) ||
+        (activeCategory === 'Sewa' && article.category === 'Seva');
       const matchesSearch =
         article.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         article.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||

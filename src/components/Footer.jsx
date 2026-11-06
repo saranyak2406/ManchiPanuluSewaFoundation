@@ -96,8 +96,8 @@ export default function Footer() {
             <h4 className="footer-heading">Our Three Pillars</h4>
             <ul className="footer-links-list">
               <li>
-                <Link to="/services#plants-nature-protection" className="footer-link">
-                  Plants – Nature Protection
+                <Link to="/services#vrukshasewa" className="footer-link">
+                  VrukshaSewa – Nature Protection
                 </Link>
               </li>
               <li>
@@ -111,7 +111,12 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/projects?category=Plants" className="footer-link">
+                <Link to="/services#poor-sewa" className="footer-link">
+                  Poor Sewa – Aid for Needy
+                </Link>
+              </li>
+              <li>
+                <Link to="/projects?category=VrukshaSewa" className="footer-link">
                   Miyawaki Tree Drives
                 </Link>
               </li>
@@ -196,12 +201,14 @@ export default function Footer() {
           <div>
             © {new Date().getFullYear()} Manchi Panulu Sewa Foundation. All rights reserved.
           </div>
-          <div style={{ display: 'flex', gap: '1.5rem', fontSize: '0.82rem' }}>
+          <div style={{ display: 'flex', gap: '1.25rem', fontSize: '0.82rem', flexWrap: 'wrap' }}>
             <span>Protect Nature</span>
             <span>•</span>
             <span>Serve Humanity</span>
             <span>•</span>
-            <span>Preserve the Environment</span>
+            <span>Preserve Environment</span>
+            <span>•</span>
+            <span>Uplift the Poor</span>
           </div>
         </div>
       </div>

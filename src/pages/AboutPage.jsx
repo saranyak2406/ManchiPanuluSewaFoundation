@@ -49,7 +49,7 @@ export default function AboutPage() {
     {
       year: "2024",
       title: "Formal Trust Registration",
-      desc: "Formally registered as Manchi Panulu Sewa Foundation with the three declared pillars: Plants, Social Sewa, and Environmental Service."
+      desc: "Formally registered as Manchi Panulu Sewa Foundation with the four declared pillars: VrukshaSewa, Social Sewa, Environmental Service, and Poor Sewa."
     },
     {
       year: "2025",
@@ -112,7 +112,7 @@ export default function AboutPage() {
                 A good deed is not measured by its monetary scale; it is measured by its purity of intent and long-term consequence. When a volunteer plants a slow-growing Banyan sapling whose shade they may never sit under, that is a good deed. When our kitchen serves hot, nutritious food to an anxious family waiting outside an emergency ward, that is a good deed. When youth spend Sunday wading through marshland to liberate a waterbody from plastic suffocation, that is a good deed.
               </p>
               <p style={{ lineHeight: '1.8', color: 'var(--color-forest-900)', fontWeight: 600 }}>
-                Our triple mandate: <strong>Protect Nature. Serve Humanity. Preserve the Environment.</strong>
+                Our fourfold mandate: <strong>Protect Nature. Serve Humanity. Preserve the Environment. Uplift the Poor.</strong>
               </p>
             </div>
 
@@ -124,7 +124,7 @@ export default function AboutPage() {
                 border: '4px solid #FFFFFF'
               }}>
                 <img
-                  src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=900&q=80"
+                  src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1000&q=80"
                   alt="Manchi Panulu Sewa Foundation Nature Protection"
                   style={{ width: '100%', height: '420px', objectFit: 'cover' }}
                 />

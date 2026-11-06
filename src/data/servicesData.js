@@ -1,14 +1,14 @@
 export const servicesData = [
   {
-    id: "plants-nature-protection",
-    pillar: "Plants",
-    subtitle: "Nature Protection",
+    id: "vrukshasewa",
+    pillar: "VrukshaSewa",
+    subtitle: "Tree & Nature Protection",
     tagline: "Rooting Hope, Greening Tomorrow",
     summary: "Dedicated to mass afforestation, indigenous tree plantation, free sapling distribution, and ecological awareness across rural and urban landscapes.",
     color: "#1B4D34",
     accentColor: "#88C057",
     badge: "Pillar 01",
-    heroImage: "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1200&q=80",
     programs: [
       {
         title: "Tree Plantation Programs",
@@ -36,9 +36,9 @@ export const servicesData = [
       }
     ],
     gallery: [
-      "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1541443131876-44b03de101c5?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1576085898323-218337e3e43c?auto=format&fit=crop&w=800&q=80"
+      "https://images.unsplash.com/photo-1576085898323-218337e3e43c?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1622383563227-04401ab4e5ea?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=800&q=80"
     ]
   },
   {
@@ -78,9 +78,9 @@ export const servicesData = [
       }
     ],
     gallery: [
-      "https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=800&q=80",
       "https://images.unsplash.com/photo-1594708767771-a7502209ff51?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=800&q=80"
+      "https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=800&q=80"
     ]
   },
   {
@@ -120,9 +120,51 @@ export const servicesData = [
       }
     ],
     gallery: [
-      "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1574482620811-1aa16ffe3c82?auto=format&fit=crop&w=800&q=80"
+      "https://images.unsplash.com/photo-1621451537084-482c73073a0f?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=800&q=80"
+    ]
+  },
+  {
+    id: "poor-sewa",
+    pillar: "Poor Sewa",
+    subtitle: "Poverty Relief & Support for the Needy",
+    tagline: "Restoring Hope, Uplifting Lives with Dignity",
+    summary: "Dedicated to uplifting marginalized and impoverished communities, daily-wage families, and destitute individuals through direct food kits, warm clothing, emergency medical relief, and self-reliance livelihood support.",
+    color: "#1E3B2F",
+    accentColor: "#DDA853",
+    badge: "Pillar 04",
+    heroImage: "https://images.unsplash.com/photo-1578357078586-491adf1aa5ba?auto=format&fit=crop&w=1200&q=80",
+    programs: [
+      {
+        title: "Essential Grocery & Ration Kits",
+        description: "Delivering monthly dry ration kits (rice, dal, cooking oil, spices, and hygiene essentials) directly to single-parent households, elderly destitute, and disabled individuals with no breadwinner.",
+        icon: "HeartHandshake",
+        metrics: "Monthly doorstep nutrition kits reaching vulnerable families"
+      },
+      {
+        title: "Winter Warmth & Shelter Relief",
+        description: "Distributing thermal blankets, sweaters, tarpaulins, and floor mats to street dwellers, homeless families outside hospitals, and rural settlements during cold waves and monsoon rains.",
+        icon: "ShieldCheck",
+        metrics: "Thousands of blankets & weatherproofing kits distributed"
+      },
+      {
+        title: "Emergency Healthcare & Medicine Aid",
+        description: "Assisting poor families with essential prescription medicines, diagnostic scans, post-operative care nutrition, and mobility aids (wheelchairs, crutches) for needy patients.",
+        icon: "Sparkles",
+        metrics: "Direct financial & medicine aid for emergency treatments"
+      },
+      {
+        title: "Livelihood & Self-Reliance Support",
+        description: "Donating sewing machines, toolkits, seed capital for micro-vendors, and educational stationery to help destitute families generate dignified, independent income.",
+        icon: "Users",
+        metrics: "Empowering families to break the cycle of poverty"
+      }
+    ],
+    gallery: [
+      "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1526976668912-1a811878dd37?auto=format&fit=crop&w=800&q=80"
     ]
   }
 ];

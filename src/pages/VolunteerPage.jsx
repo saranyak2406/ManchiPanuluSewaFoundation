@@ -23,7 +23,7 @@ export default function VolunteerPage() {
     city: '',
     occupation: '',
     availability: 'Weekends (Saturday & Sunday)',
-    tracks: ['Plants & Afforestation'],
+    tracks: ['VrukshaSewa'],
     message: ''
   });
 
@@ -31,9 +31,10 @@ export default function VolunteerPage() {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const availableTracks = [
-    { id: 'Plants & Afforestation', label: 'Plants & Afforestation (Tree Planting & Nurseries)' },
+    { id: 'VrukshaSewa', label: 'VrukshaSewa (Tree Planting & Nurseries)' },
     { id: 'Food Relief Sewa', label: 'Food Relief Sewa (Annadhanam Cooking & Packaging)' },
     { id: 'Lake & Water Conservation', label: 'Lake & Water Conservation (Desilting & Cleanups)' },
+    { id: 'Poor Sewa & Destitute Aid', label: 'Poor Sewa (Ration Kits, Blanket Distribution & Health Aid)' },
     { id: 'Eco-Education Workshops', label: 'Youth Eco-Clubs (School Workshops & Seed Balls)' },
     { id: 'Digital & Content Sewa', label: 'Digital, Media & Photography Support' }
   ];
@@ -252,7 +253,7 @@ export default function VolunteerPage() {
                           city: '',
                           occupation: '',
                           availability: 'Weekends (Saturday & Sunday)',
-                          tracks: ['Plants & Afforestation'],
+                          tracks: ['VrukshaSewa'],
                           message: ''
                         });
                       }}

@@ -45,7 +45,7 @@ export default function ServicesPage() {
     phone: '',
     email: '',
     location: '',
-    serviceType: 'Plants – Nature Protection',
+    serviceType: 'VrukshaSewa – Nature Protection',
     details: ''
   });
 
@@ -60,7 +60,7 @@ export default function ServicesPage() {
         phone: '',
         email: '',
         location: '',
-        serviceType: 'Plants – Nature Protection',
+        serviceType: 'VrukshaSewa – Nature Protection',
         details: ''
       });
     }, 4000);
@@ -77,11 +77,11 @@ export default function ServicesPage() {
               <span>{t('nav.services')}</span>
             </div>
             <h1 className="page-hero-title-exact">
-              Three Pillars of Dedicated Service
+              Four Pillars of<br />Dedicated Sewa
             </h1>
             <div className="page-hero-accent-line"></div>
             <p className="page-hero-desc-exact">
-              Holistic community action structured across three dedicated domains: nurturing indigenous plant life, providing direct social care to vulnerable lives, and cleaning and restoring living waterbodies.
+              Holistic community action structured across four dedicated pillars: VrukshaSewa nature conservation, direct human social care, waterbody environmental restoration, and Poor Sewa destitute relief.
             </p>
           </div>
         </div>
@@ -402,9 +402,10 @@ export default function ServicesPage() {
                     onChange={(e) => setFormData({ ...formData, serviceType: e.target.value })}
                     className="form-select"
                   >
-                    <option value="Plants – Nature Protection">Plants – Tree Plantation & Sapling Drive</option>
+                    <option value="VrukshaSewa – Nature Protection">VrukshaSewa – Tree Plantation & Sapling Drive</option>
                     <option value="Sewa – Social Service">Sewa – Food Relief & Community Support</option>
                     <option value="Environment Sewa – Environmental Service">Environment Sewa – Lake Cleanup & Waste Reduction</option>
+                    <option value="Poor Sewa – Poverty Relief">Poor Sewa – Grocery Kits, Warmth & Medical Aid for Needy</option>
                   </select>
                 </div>
 

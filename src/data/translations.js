@@ -71,7 +71,7 @@ export const translations = {
       meaningTitle: "The Meaning of 'Manchi Panulu'",
       meaningP1: "In Telugu, 'Manchi Panulu' simply translates to 'Good Deeds'. In an era often dominated by haste and disconnection, we wanted our foundation to speak with honest, grounded simplicity.",
       meaningP2: "A good deed is not measured by its monetary scale; it is measured by its purity of intent and long-term consequence. When a volunteer plants a slow-growing Banyan sapling whose shade they may never sit under, that is a good deed. When our kitchen serves hot, nutritious food outside emergency wards, that is a good deed.",
-      mandate: "Our triple mandate: Protect Nature. Serve Humanity. Preserve the Environment."
+      mandate: "Our fourfold mandate: Protect Nature. Serve Humanity. Preserve the Environment. Uplift the Poor."
     },
     contact: {
       badge: "Reach Out",
@@ -101,10 +101,11 @@ export const translations = {
     footer: {
       quote: "Good deeds today are the roots of a flourishing tomorrow.",
       quickNav: "Quick Navigation",
-      pillarsTitle: "Three Pillars of Sewa",
-      p1: "Plants & Native Flora",
+      pillarsTitle: "Four Pillars of Sewa",
+      p1: "VrukshaSewa – Trees & Flora",
       p2: "Human Social Sewa",
       p3: "Environmental Revival",
+      p4: "Poor Sewa – Aid for Needy",
       contactTitle: "Contact & Transparency",
       rights: "All Rights Reserved. Registered Public Charitable Trust."
     }
@@ -182,7 +183,7 @@ export const translations = {
       meaningTitle: "'మంచి పనులు' యొక్క పరమార్థం",
       meaningP1: "తెలుగులో 'మంచి పనులు' అంటే సమాజానికి, ప్రకృతికి మేలు చేసే నిస్వార్థ సత్కార్యాలు. తొందరపాటు, స్వార్థం నిండిన ఈ రోజుల్లో నిష్కల్మషమైన సేవా సంస్కృతిని అందించాలన్నదే మా తపన.",
       meaningP2: "మంచి పని అనేది డబ్బుతో కొలవబడదు; అది నిస్వార్థ సంకల్పంతో, భవిష్యత్ తరాలకు కలిగే ప్రయోజనంతో కొలవబడుతుంది. రేపు తనకి నీడ ఇవ్వకపోయినా ఒక మర్రి చెట్టును నాటడం మంచి పని. ఆసుపత్రి ముందు ఆకలితో ఉన్నవారికి అన్నం పెట్టడం మంచి పని.",
-      mandate: "మా త్రిముఖ సంకల్పం: ప్రకృతి సంరక్షణ. మానవ సేవ. పర్యావరణ పరిరక్షణ."
+      mandate: "మా చతుర్ముఖ సంకల్పం: ప్రకృతి సంరక్షణ. మానవ సేవ. పర్యావరణ పరిరక్షణ. పేదల ఆదరణ."
     },
     contact: {
       badge: "సంప్రదించండి",
@@ -212,10 +213,11 @@ export const translations = {
     footer: {
       quote: "నేటి మంచి పనులే రేపటి హరిత వసంతానికి బలమైన పునాదులు.",
       quickNav: "త్వరిత లింకులు",
-      pillarsTitle: "త్రిముఖ సేవా రంగాలు",
-      p1: "మొక్కలు & దేశీయ వృక్షాలు",
+      pillarsTitle: "సేవ యొక్క నాలుగు స్తంభాలు",
+      p1: "వృక్షసేవ & దేశీయ వృక్షాలు",
       p2: "నిరుపేదలకు మానవ సేవ",
       p3: "పర్యావరణ & జల పునరుద్ధరణ",
+      p4: "పేదల సేవ & సహాయం",
       contactTitle: "సంప్రదింపు & పారదర్శకత",
       rights: "సర్వ హక్కులు ప్రత్యేకించబడినవి. నమోదిత ప్రజా సేవా ట్రస్ట్."
     }
@@ -293,7 +295,7 @@ export const translations = {
       meaningTitle: "'मंची पनुलु' का वास्तविक अर्थ",
       meaningP1: "तेलुगु में 'मंची पनुलु' का सीधा अर्थ है 'सत्कर्म या अच्छे कार्य'। हमारा विश्वास है कि प्रत्येक निस्वार्थ कार्य समाज और प्रकृति में सकारात्मक ऊर्जा का संचार करता है।",
       meaningP2: "एक अच्छा कर्म धन से नहीं, बल्कि उसकी नीयत और समाज पर पड़ने वाले प्रभाव से आंका जाता है। एक ऐसा बरगद लगाना जिसकी छाया में स्वयं कभी न बैठ पाएं, एक सच्चा सत्कर्म है।",
-      mandate: "हमारा त्रिसूत्री संकल्प: प्रकृति की रक्षा। मानवता की सेवा। पर्यावरण का संरक्षण।"
+      mandate: "हमारे चार मुख्य संकल्प: प्रकृति की रक्षा। मानवता की सेवा। पर्यावरण का संरक्षण। गरीबों की सहायता।"
     },
     contact: {
       badge: "संपर्क करें",
@@ -323,10 +325,11 @@ export const translations = {
     footer: {
       quote: "आज के सत्कर्म ही कल के समृद्ध भविष्य की मजबूत नींव हैं।",
       quickNav: "त्वरित लिंक",
-      pillarsTitle: "त्रिपक्षीय सेवा क्षेत्र",
-      p1: "पौधे और देसी वनस्पति",
+      pillarsTitle: "सेवा के चार मुख्य स्तंभ",
+      p1: "वृक्षसेवा और देसी वनस्पति",
       p2: "मानवीय समाज सेवा",
       p3: "पर्यावरण और जल संरक्षण",
+      p4: "गरीब सेवा और असहाय सहायता",
       contactTitle: "संपर्क एवं पारदर्शिता",
       rights: "सर्वाधिकार सुरक्षित। पंजीकृत सार्वजनिक धर्मार्थ ट्रस्ट।"
     }

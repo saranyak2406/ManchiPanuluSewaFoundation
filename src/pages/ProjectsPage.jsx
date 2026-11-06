@@ -19,7 +19,7 @@ export default function ProjectsPage() {
 
   const categories = [
     { label: 'All Disciplines', value: 'All' },
-    { label: 'Plants & Nature', value: 'Plants' },
+    { label: 'VrukshaSewa (Trees & Nature)', value: 'VrukshaSewa' },
     { label: 'Social Sewa', value: 'Sewa' },
     { label: 'Environmental Service', value: 'Environment' }
   ];
@@ -30,7 +30,10 @@ export default function ProjectsPage() {
     return projectsData.filter((project) => {
       const matchesCategory =
         activeCategory === 'All' ||
-        project.category === activeCategory;
+        project.category === activeCategory ||
+        ((activeCategory === 'VrukshaSewa' || activeCategory === 'Plants') && (project.category === 'VrukshaSewa' || project.category === 'Plants')) ||
+        (activeCategory === 'Sewa' && project.category === 'Seva') ||
+        (activeCategory === 'Seva' && project.category === 'Sewa');
       const matchesStatus =
         activeStatus === 'All' || project.status === activeStatus;
       const matchesSearch =

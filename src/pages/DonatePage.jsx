@@ -218,9 +218,10 @@ export default function DonatePage() {
                     className="form-select"
                   >
                     <option value="Where Most Needed (General Sewa)">Where Most Needed (General Sewa)</option>
-                    <option value="Plants – Indigenous Tree Plantation Drives">Plants – Indigenous Tree Plantation Drives</option>
+                    <option value="VrukshaSewa – Indigenous Tree Plantation Drives">VrukshaSewa – Indigenous Tree Plantation Drives</option>
                     <option value="Sewa – Hospital Patient Food Relief (Annadhanam)">Sewa – Hospital Patient Food Relief (Annadhanam)</option>
                     <option value="Environment Sewa – Lake & River Revival Drives">Environment Sewa – Lake & River Revival Drives</option>
+                    <option value="Poor Sewa – Ration Kits, Warmth & Medical Aid for Needy">Poor Sewa – Ration Kits, Warmth & Medical Aid for Needy</option>
                   </select>
                 </div>
 
