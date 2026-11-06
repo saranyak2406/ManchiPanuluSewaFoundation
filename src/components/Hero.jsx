@@ -43,77 +43,24 @@ export default function Hero() {
 
   return (
     <section ref={heroRef} className="envarn-hero-fullscreen-3d" id="home">
-      {/* 3D Realistic Background Layer - using newly generated clean backdrop with heart, sun, and moss */}
+      {/* 3D Realistic Background Layer using the User's Image */}
       <div
         className="hero-3d-bg-layer"
         style={{
-          transform: `scale(1.04) translate3d(${mousePos.x * -12}px, ${mousePos.y * -8}px, 0)`
+          transform: `scale(1.03) translate3d(${mousePos.x * -10}px, ${mousePos.y * -6}px, 0)`
         }}
       />
 
-      {/* 3D Volumetric Sunbeam Glow behind heart */}
-      <div
-        className="hero-3d-sunbeam"
-        style={{
-          transform: `translate3d(${mousePos.x * 16}px, ${mousePos.y * 12}px, 0)`
-        }}
-      />
-
-      {/* 3D Floating Botanical Leaves Particles */}
-      <div className="hero-3d-leaves-layer" aria-hidden="true">
-        <div
-          className="floating-leaf leaf-1"
-          style={{
-            transform: `translate3d(${mousePos.x * 28}px, ${mousePos.y * 18}px, 0) rotate(${mousePos.x * 10}deg)`
-          }}
-        >
-          <svg width="42" height="42" viewBox="0 0 24 24" fill="#3D5A2B">
-            <path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 0 0 8 20C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/>
-          </svg>
-        </div>
-
-        <div
-          className="floating-leaf leaf-2"
-          style={{
-            transform: `translate3d(${mousePos.x * -20}px, ${mousePos.y * -22}px, 0) rotate(${mousePos.y * 16}deg)`
-          }}
-        >
-          <svg width="30" height="30" viewBox="0 0 24 24" fill="#587E3E">
-            <path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 0 0 8 20C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/>
-          </svg>
-        </div>
-
-        <div
-          className="floating-leaf leaf-3"
-          style={{
-            transform: `translate3d(${mousePos.x * 32}px, ${mousePos.y * 26}px, 0) rotate(${mousePos.x * -18}deg)`
-          }}
-        >
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="#C89945">
-            <path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 0 0 8 20C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/>
-          </svg>
-        </div>
-
-        <div
-          className="floating-leaf leaf-4"
-          style={{
-            transform: `translate3d(${mousePos.x * -34}px, ${mousePos.y * -25}px, 0) rotate(${mousePos.y * -12}deg)`
-          }}
-        >
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="#2E4822" style={{ filter: 'blur(1.5px)' }}>
-            <path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 0 0 8 20C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/>
-          </svg>
-        </div>
-      </div>
+      {/* Subtle Depth Scrim for Pristine Legibility */}
+      <div className="hero-backdrop-scrim" aria-hidden="true" />
 
       {/* Main Foreground Container */}
       <div className="container envarn-hero-container">
-        {/* Top Content Row: Left Unboxed Text Perfectly Blended Into Meadow */}
         <div className="envarn-hero-top">
           <div
             className="hero-natural-text-block"
             style={{
-              transform: `translate3d(${mousePos.x * 5}px, ${mousePos.y * 4}px, 0)`
+              transform: `translate3d(${mousePos.x * 4}px, ${mousePos.y * 3}px, 0)`
             }}
           >
             {/* Minimal Subtag with Accent Lines */}
@@ -123,7 +70,7 @@ export default function Hero() {
               <span className="subtag-line" aria-hidden="true"></span>
             </div>
 
-            {/* Editorial Serif Heading Matching User's Image */}
+            {/* Editorial Serif Heading */}
             <h1 className="envarn-hero-heading-exact">
               {t('hero.titlePart1')}<br />
               {t('hero.titlePart2')}{' '}
@@ -144,12 +91,12 @@ export default function Hero() {
               </span>
             </h1>
 
-            {/* Subtitle Matching User's Image */}
+            {/* Subtitle */}
             <p className="envarn-hero-subheading-exact">
               {t('hero.subtitleLine1')}{' '}<br className="hidden-mobile-br" />{t('hero.subtitleLine2')}
             </p>
 
-            {/* Two Action Buttons Matching User's Image */}
+            {/* Two Action Buttons */}
             <div className="envarn-hero-buttons-exact">
               <Link to="/donate" className="btn-hero-donate-exact" aria-label="Donate Now to Manchi Panulu Sewa Foundation">
                 <Heart size={18} fill="#FFFFFF" color="#FFFFFF" className="btn-icon-heart" />
@@ -159,6 +106,26 @@ export default function Hero() {
               <Link to="/volunteer" className="btn-hero-mission-exact" aria-label="Join Our Mission as a Volunteer">
                 <Users size={19} className="btn-icon-users" />
                 <span>{t('hero.volunteerBtn')}</span>
+              </Link>
+            </div>
+
+            {/* Four Pillars Quick Navigation Badges */}
+            <div className="hero-pillars-pill-row">
+              <Link to="/services#vrukshasewa" className="hero-pillar-chip">
+                <span className="pillar-chip-dot dot-vruksha"></span>
+                <span>Vruksha Sewa</span>
+              </Link>
+              <Link to="/services#manava-sewa" className="hero-pillar-chip">
+                <span className="pillar-chip-dot dot-manava"></span>
+                <span>Manava Sewa</span>
+              </Link>
+              <Link to="/services#prakruthi-sewa" className="hero-pillar-chip">
+                <span className="pillar-chip-dot dot-prakruthi"></span>
+                <span>Prakruthi Sewa</span>
+              </Link>
+              <Link to="/services#aashraya-sewa" className="hero-pillar-chip">
+                <span className="pillar-chip-dot dot-aashraya"></span>
+                <span>Aashraya Sewa</span>
               </Link>
             </div>
           </div>

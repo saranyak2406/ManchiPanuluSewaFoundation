@@ -69,7 +69,7 @@ export default function HomePage() {
                   border: '4px solid #FFFFFF'
                 }}>
                   <img
-                    src="/home-foundation-action.jpg"
+                    src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=1000&q=80"
                     alt="Manchi Panulu Sewa Foundation in Action - Vruksha, Manava, Prakruthi & Aashraya Sewa"
                     style={{ width: '100%', height: '460px', objectFit: 'cover' }}
                   />

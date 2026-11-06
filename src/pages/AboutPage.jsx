@@ -24,19 +24,19 @@ export default function AboutPage() {
       name: "Dr. K. Ramachandra Rao",
       role: "Founder & Chief Trustee (Placeholder)",
       bio: "Lifelong naturalist and social reformer with three decades of grassroots community service in rural afforestation and public health advocacy.",
-      image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80"
+      image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=600&q=80"
     },
     {
       name: "Smt. V. Annapurna",
       role: "Director of Social Sewa (Placeholder)",
       bio: "Pioneered community meal kitchens and disaster relief networks, coordinating over 100,000 nutritious meals across government hospitals.",
-      image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=600&q=80"
+      image: "https://images.unsplash.com/photo-1753981031189-27bb7bd1c079?auto=format&fit=crop&w=600&q=80"
     },
     {
       name: "Sri Ananth Narayanan",
       role: "Head of Environmental Stewardship (Placeholder)",
       bio: "Ecological engineer specializing in urban waterbody restoration, phytoremediation, and indigenous Miyawaki forest cultivation.",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80"
+      image: "https://images.unsplash.com/photo-1628272107134-c66c4b580952?auto=format&fit=crop&w=600&q=80"
     }
   ];
 
@@ -124,7 +124,7 @@ export default function AboutPage() {
                 border: '4px solid #FFFFFF'
               }}>
                 <img
-                  src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1000&q=80"
+                  src="https://images.unsplash.com/photo-1617854818583-09e7f077a156?auto=format&fit=crop&w=1000&q=80"
                   alt="Manchi Panulu Sewa Foundation Nature Protection"
                   style={{ width: '100%', height: '420px', objectFit: 'cover' }}
                 />

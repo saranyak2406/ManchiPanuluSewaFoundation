@@ -187,7 +187,7 @@
 }
 
 /* ==========================================================================
-   REALISTIC 3D FULLSCREEN HERO SECTION
+   REALISTIC 3D FULLSCREEN HERO SECTION (HERO BACKGROUND IMAGE)
    ========================================================================== */
 .envarn-hero-fullscreen-3d {
   position: relative;
@@ -209,14 +209,14 @@
   }
 }
 
-/* 3D Background Layer - Adjusted so Heart, Sunrise, Hands & Moss Flora are Fully Visible */
+/* 3D Full-Bleed Background Layer - Using the User's Indian Foundation Action Artwork */
 .hero-3d-bg-layer {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url('/hero-clean-backdrop.jpg');
+  background-image: url('/hero-foundation-action.jpg');
   background-size: cover;
   background-position: center 30%;
   background-repeat: no-repeat;
@@ -225,31 +225,19 @@
   z-index: 1;
 }
 
-@media (min-width: 1024px) {
-  .hero-3d-bg-layer {
-    background-position: center 30%;
-  }
-}
-
-/* 3D Volumetric Sunbeam Glow - Aligned with Sunrise inside the Living Heart */
-.hero-3d-sunbeam {
+/* Ambient Depth Scrim - Preserves Text Legibility on Left While Showing Photo Radiantly */
+.hero-backdrop-scrim {
   position: absolute;
-  top: 36%;
-  left: 72%;
-  width: 460px;
-  height: 460px;
-  transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(255, 235, 160, 0.4) 0%, rgba(222, 231, 202, 0.14) 45%, transparent 70%);
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(243, 247, 237, 0.95) 0%,
+    rgba(243, 247, 237, 0.90) 38%,
+    rgba(243, 247, 237, 0.50) 62%,
+    rgba(243, 247, 237, 0.15) 100%
+  );
   pointer-events: none;
-  mix-blend-mode: screen;
   z-index: 2;
-  animation: sunGlow3D 8s ease-in-out infinite alternate;
-  will-change: transform, opacity;
-}
-
-@keyframes sunGlow3D {
-  0% { opacity: 0.7; transform: translate(-50%, -50%) scale(0.95); }
-  100% { opacity: 1; transform: translate(-50%, -50%) scale(1.08); }
 }
 
 /* 3D Floating Botanical Leaves Particles Layer */
@@ -288,13 +276,6 @@
   animation: swayLeaf3D 9s ease-in-out infinite alternate 2s;
 }
 
-.leaf-4 {
-  bottom: 8%;
-  right: 3%;
-  opacity: 0.5;
-  animation: swayLeaf3D 10s ease-in-out infinite alternate 0.5s;
-}
-
 @keyframes swayLeaf3D {
   0% { transform: translateY(0px) rotate(0deg); }
   50% { transform: translateY(-8px) rotate(6deg); }
@@ -325,7 +306,7 @@
   }
 }
 
-/* Seamless Hero Text Block - Mixed Directly into Sunlit Meadow Background (No Outer Box) */
+/* Seamless Hero Text Block */
 .hero-natural-text-block {
   max-width: 650px;
   background: transparent;
@@ -402,6 +383,52 @@
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.45);
 }
 
+/* Four Pillars Quick Navigation Pill Row */
+.hero-pillars-pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1.75rem;
+  align-items: center;
+}
+
+.hero-pillar-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.85rem;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(27, 77, 52, 0.16);
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #1E311B;
+  text-decoration: none;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 6px rgba(20, 40, 20, 0.05);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-pillar-chip:hover {
+  background: #FFFFFF;
+  border-color: #2E7D32;
+  color: #1B4D34;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(20, 40, 20, 0.1);
+}
+
+.pillar-chip-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot-vruksha { background: #2E7D32; }
+.dot-manava { background: #E68A00; }
+.dot-prakruthi { background: #00897B; }
+.dot-aashraya { background: #C2410C; }
+
 @media (max-width: 768px) {
   .hidden-mobile-br {
     display: none;
@@ -412,24 +439,19 @@
     padding: 2.25rem 0 2rem 0;
   }
 
-  /* Soft sage contrast veil so hero text never clashes with the heart leaves */
-  .envarn-hero-fullscreen-3d::after {
-    content: '';
-    position: absolute;
-    inset: 0;
+  /* Mobile Scrim so text remains 100% legible over the Indian photo */
+  .hero-backdrop-scrim {
     background: linear-gradient(
       180deg,
-      rgba(235, 242, 225, 0.94) 0%,
-      rgba(235, 242, 225, 0.88) 45%,
-      rgba(235, 242, 225, 0.35) 72%,
+      rgba(243, 247, 237, 0.94) 0%,
+      rgba(243, 247, 237, 0.85) 50%,
+      rgba(243, 247, 237, 0.40) 80%,
       transparent 100%
     );
-    pointer-events: none;
-    z-index: 4;
   }
 
   .hero-3d-bg-layer {
-    background-position: 72% 38% !important;
+    background-position: center 30% !important;
   }
 
   .hero-natural-text-block {
@@ -479,6 +501,16 @@
     justify-content: center;
     padding: 0.85rem 1.5rem;
     font-size: 0.95rem;
+  }
+
+  .hero-pillars-pill-row {
+    margin-top: 1.25rem;
+    gap: 0.5rem;
+  }
+
+  .hero-pillar-chip {
+    font-size: 0.76rem;
+    padding: 0.35rem 0.75rem;
   }
 }
 

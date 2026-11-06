@@ -7,7 +7,7 @@ export const blogData = [
     author: "Green Stewardship Team",
     date: "October 18, 2025",
     readTime: "5 min read",
-    image: "https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?auto=format&fit=crop&w=1000&q=80",
+    image: "https://images.unsplash.com/photo-1589182373726-e4f658ab50f0?auto=format&fit=crop&w=1000&q=80",
     excerpt: "Monoculture eucalyptus or ornamental exotic trees may grow quickly, but indigenous species like Peepal, Neem, and Banyan sustain 10x more native pollinators and birds while preserving ground aquifers.",
     content: `
 When embarking on tree plantation campaigns, the choice of saplings defines whether we are truly revitalizing ecology or inadvertently depleting groundwater.
@@ -31,7 +31,7 @@ Planting a tree is not a one-day event; it is an intergenerational bond. With pr
     author: "Human Welfare Wing",
     date: "November 12, 2025",
     readTime: "4 min read",
-    image: "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=1000&q=80",
+    image: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=1000&q=80",
     excerpt: "Serving food to someone in distress is an act of deep reverence. Discover how our community kitchen combines food safety, balanced nutrition, and compassionate human connection.",
     content: `
 In Telugu culture and ancient Indian philosophy, *Annadhanam* is revered as *Maha Dhanam* — the highest form of giving. Food is not merely fuel for the body; it is the fundamental basis of human peace, health, and dignity.
@@ -55,7 +55,7 @@ Good deeds ("Manchi Panulu") begin with an open heart and a warm plate. By allev
     author: "Water Stewardship Council",
     date: "December 05, 2025",
     readTime: "6 min read",
-    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1000&q=80",
+    image: "https://images.unsplash.com/photo-1721239571860-4f73b7e35551?auto=format&fit=crop&w=1000&q=80",
     excerpt: "Urban lakes are not sewage sumps—they are our frontline defense against flash floods and groundwater depletion. Here is our step-by-step restoration blueprint.",
     content: `
 Centuries ago, the Deccan plateau was engineered with interconnected cascade tanks and stepwells (*Baolis*) that held every drop of monsoon rainfall, preventing floods while keeping water tables accessible year-round.
@@ -80,7 +80,7 @@ Clean water is the birthright of every living creature. Reclaiming one lake at a
     author: "Volunteer Operations",
     date: "January 14, 2026",
     readTime: "4 min read",
-    image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1000&q=80",
+    image: "https://images.unsplash.com/photo-1594708767771-a7502209ff51?auto=format&fit=crop&w=1000&q=80",
     excerpt: "You do not need vast wealth or endless free hours to effect meaningful change. Discover how a single Sunday morning can transform your outlook and heal our world.",
     content: `
 Many well-meaning citizens hesitate to volunteer because they believe NGOs require full-time commitments or high specialized skills.
