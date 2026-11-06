@@ -101,10 +101,10 @@ export default function ServicesPage() {
               {/* Header for this pillar */}
               <div style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-                gap: '3.5rem',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
+                gap: 'clamp(1.5rem, 3vw, 3.5rem)',
                 alignItems: 'center',
-                marginBottom: '3.5rem'
+                marginBottom: 'clamp(2rem, 4vw, 3.5rem)'
               }}>
                 <div style={{ order: isReversed ? 2 : 1 }}>
                   <div className="eyebrow-badge" style={{ color: service.color, borderColor: service.color }}>
@@ -142,12 +142,14 @@ export default function ServicesPage() {
                     overflow: 'hidden',
                     boxShadow: 'var(--shadow-lg)',
                     border: '4px solid #FFFFFF',
-                    height: '420px'
+                    height: 'auto',
+                    minHeight: '260px',
+                    maxHeight: '420px'
                   }}>
                     <img
                       src={service.heroImage}
                       alt={`${service.pillar} - ${service.subtitle}`}
-                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                      style={{ width: '100%', height: '100%', maxHeight: '420px', objectFit: 'cover' }}
                       loading="lazy"
                     />
                   </div>
@@ -157,7 +159,7 @@ export default function ServicesPage() {
               {/* 4 Detailed Program Cards for this Pillar */}
               <div style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
                 gap: '1.75rem'
               }}>
                 {service.programs.map((prog, pIdx) => {
@@ -233,8 +235,8 @@ export default function ServicesPage() {
 
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-            gap: '2rem'
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 240px), 1fr))',
+            gap: '1.5rem'
           }}>
             <div style={{
               backgroundColor: 'rgba(255, 255, 255, 0.05)',

@@ -1991,6 +1991,10 @@
   flex-direction: column;
   transition: all var(--transition-normal);
   position: relative;
+  min-width: 0;
+  overflow: hidden;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .pillar-home-card:hover {
@@ -2002,12 +2006,15 @@
 .pillar-home-badge {
   font-size: 0.68rem;
   font-weight: 800;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   color: var(--color-forest-700);
   text-transform: uppercase;
   margin-bottom: 1.15rem;
   padding-bottom: 0.65rem;
   border-bottom: 1px solid rgba(23, 35, 24, 0.06);
+  white-space: normal;
+  line-height: 1.35;
+  word-break: break-word;
 }
 
 .pillar-home-icon-wrap {
@@ -2019,6 +2026,7 @@
   justify-content: center;
   margin-bottom: 1.25rem;
   transition: transform var(--transition-normal);
+  flex-shrink: 0;
 }
 
 .pillar-home-card:hover .pillar-home-icon-wrap {
@@ -2038,6 +2046,7 @@
   font-weight: 600;
   color: #2E7D32;
   margin-bottom: 0.95rem;
+  line-height: 1.4;
 }
 
 .pillar-home-desc {
@@ -2046,6 +2055,34 @@
   color: var(--color-text-muted);
   margin-bottom: 1.5rem;
   flex: 1;
+}
+
+@media (max-width: 768px) {
+  .pillar-home-card {
+    padding: 1.5rem 1.25rem;
+    border-radius: var(--radius-lg);
+  }
+
+  .pillar-home-badge {
+    font-size: 0.64rem;
+    margin-bottom: 0.85rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .pillar-home-title {
+    font-size: 1.25rem;
+  }
+
+  .pillar-home-tagline {
+    font-size: 0.82rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .pillar-home-desc {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    margin-bottom: 1.25rem;
+  }
 }
 
 .pillar-home-link {

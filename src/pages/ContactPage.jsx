@@ -92,8 +92,8 @@ export default function ContactPage() {
         <div className="container">
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '3.5rem'
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
+            gap: 'clamp(1.5rem, 3vw, 3.5rem)'
           }}>
             {/* Left Column: Official Contact Channels */}
             <div>
@@ -261,7 +261,7 @@ export default function ContactPage() {
                         {errors.name && <span className="form-error-msg">{errors.name}</span>}
                       </div>
 
-                      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
+                      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 180px), 1fr))', gap: '1rem' }}>
                         <div className="form-group">
                           <label className="form-label">Email Address *</label>
                           <input

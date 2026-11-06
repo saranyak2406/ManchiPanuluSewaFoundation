@@ -92,7 +92,7 @@ export const servicesData = [
     color: "#183D2F",
     accentColor: "#38A169",
     badge: "PILLAR 03 — ENVIRONMENTAL CONSERVATION",
-    heroImage: "https://images.unsplash.com/photo-1618477461853-cf6ed80faba5?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "https://images.unsplash.com/photo-1622036572682-909022b7b7a5?auto=format&fit=crop&w=1200&q=80",
     programs: [
       {
         title: "Environmental Protection Drives",
@@ -120,9 +120,9 @@ export const servicesData = [
       }
     ],
     gallery: [
-      "https://images.unsplash.com/photo-1621451537084-482c73073a0f?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=800&q=80"
+      "https://images.unsplash.com/photo-1593693397690-362cb9666fc2?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1567157577867-05ccb1388e66?auto=format&fit=crop&w=800&q=80"
     ]
   },
   {
@@ -134,7 +134,7 @@ export const servicesData = [
     color: "#1E3B2F",
     accentColor: "#DDA853",
     badge: "PILLAR 04 — POVERTY RELIEF & EMPOWERMENT",
-    heroImage: "https://images.unsplash.com/photo-1578357078586-491adf1aa5ba?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "https://images.unsplash.com/photo-1743090834072-4f70339bc917?auto=format&fit=crop&w=1200&q=80",
     programs: [
       {
         title: "Essential Grocery & Ration Kits",
@@ -163,8 +163,8 @@ export const servicesData = [
     ],
     gallery: [
       "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1526976668912-1a811878dd37?auto=format&fit=crop&w=800&q=80"
+      "https://images.unsplash.com/photo-1778148046782-2b5c2ce37612?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1609137144813-7d9921338f24?auto=format&fit=crop&w=800&q=80"
     ]
   }
 ];

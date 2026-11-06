@@ -243,7 +243,7 @@ export default function DonatePage() {
                     />
                   </div>
 
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 180px), 1fr))', gap: '1rem' }}>
                     <div className="form-group">
                       <label className="form-label">Email Address (for Receipt) *</label>
                       <input
@@ -489,7 +489,7 @@ export default function DonatePage() {
                 </h4>
 
                 <form onSubmit={handleSimulateDonation}>
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1rem' }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))', gap: '1rem' }}>
                     <div className="form-group">
                       <label className="form-label">Your Full Name *</label>
                       <input
@@ -514,7 +514,7 @@ export default function DonatePage() {
                     </div>
                   </div>
 
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1rem' }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))', gap: '1rem' }}>
                     <div className="form-group">
                       <label className="form-label">Country of Residence *</label>
                       <input

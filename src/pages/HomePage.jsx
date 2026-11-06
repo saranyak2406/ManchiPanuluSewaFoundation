@@ -57,8 +57,8 @@ export default function HomePage() {
           }}>
             <div style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-              gap: '3.5rem',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
+              gap: 'clamp(1.5rem, 3vw, 3.5rem)',
               alignItems: 'center'
             }}>
               <div style={{ position: 'relative' }}>
@@ -71,24 +71,24 @@ export default function HomePage() {
                   <img
                     src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=1000&q=80"
                     alt="Manchi Panulu Sewa Foundation in Action - Vruksha, Manava, Prakruthi & Aashraya Sewa"
-                    style={{ width: '100%', height: '460px', objectFit: 'cover' }}
+                    style={{ width: '100%', height: 'auto', minHeight: '280px', maxHeight: '460px', objectFit: 'cover' }}
                   />
                 </div>
                 <div style={{
                   position: 'absolute',
-                  bottom: '-1.5rem',
-                  right: '-1rem',
+                  bottom: '-1rem',
+                  right: '0.5rem',
+                  maxWidth: 'calc(100% - 1rem)',
                   background: 'var(--color-forest-900)',
                   color: '#FFFFFF',
-                  padding: '1.5rem 1.75rem',
+                  padding: '1.25rem 1.5rem',
                   borderRadius: 'var(--radius-lg)',
-                  boxShadow: 'var(--shadow-md)',
-                  maxWidth: '280px'
+                  boxShadow: 'var(--shadow-md)'
                 }}>
                   <div style={{ fontSize: '0.8rem', color: 'var(--color-sprout-light)', fontWeight: 700, textTransform: 'uppercase', marginBottom: '0.25rem' }}>
                     Grassroots Ethos
                   </div>
-                  <div style={{ fontFamily: 'var(--font-heading)', fontSize: '1.25rem', fontWeight: 800 }}>
+                  <div style={{ fontFamily: 'var(--font-heading)', fontSize: '1.15rem', fontWeight: 800 }}>
                     "Every seed planted is a prayer for tomorrow."
                   </div>
                 </div>
@@ -160,8 +160,8 @@ export default function HomePage() {
 
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-            gap: '1.75rem'
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))',
+            gap: '1.5rem'
           }}>
             {/* Pillar 01 */}
             <div className="pillar-home-card">
@@ -250,8 +250,8 @@ export default function HomePage() {
 
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '2rem'
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
+            gap: '1.75rem'
           }}>
             {featuredProjects.map((project) => (
               <ProjectCard
@@ -321,8 +321,8 @@ export default function HomePage() {
 
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '2rem'
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
+            gap: '1.75rem'
           }}>
             {latestArticles.map((article) => (
               <div

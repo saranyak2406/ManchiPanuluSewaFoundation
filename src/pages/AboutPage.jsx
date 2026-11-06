@@ -93,8 +93,8 @@ export default function AboutPage() {
         <div className="container">
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '3.5rem',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
+            gap: 'clamp(1.5rem, 3vw, 3.5rem)',
             alignItems: 'center'
           }}>
             <div>
@@ -150,8 +150,8 @@ export default function AboutPage() {
 
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '2rem'
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
+            gap: '1.75rem'
           }}>
             {/* Mission Card */}
             <div style={{
