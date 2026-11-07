@@ -430,6 +430,17 @@
 .dot-prakruthi { background: #00897B; }
 .dot-aashraya { background: #C2410C; }
 
+/* Responsive Mobile & Portrait Hero Background Layer (Using Vertical Indian Action Artwork) */
+@media (max-width: 850px), (orientation: portrait) and (max-width: 1024px) {
+  .hero-3d-bg-layer {
+    background-image: url('/hero-mobile-action.jpg') !important;
+    background-size: cover !important;
+    background-position: center top !important;
+    filter: brightness(1.16) contrast(1.05) saturate(1.08) !important;
+    transform: none !important;
+  }
+}
+
 @media (max-width: 768px) {
   .hidden-mobile-br {
     display: none;
@@ -440,24 +451,29 @@
     padding: 2.25rem 0 2rem 0;
   }
 
-  /* Mobile Scrim - Bright, luminous and crystal clear */
+  /* Mobile Scrim - Bright, luminous and crystal clear: protects top text legibility while keeping bottom heroes vivid */
   .hero-backdrop-scrim {
     background: linear-gradient(
       180deg,
-      rgba(255, 255, 255, 0.90) 0%,
-      rgba(255, 255, 255, 0.76) 52%,
-      rgba(255, 255, 255, 0.22) 80%,
-      transparent 100%
-    );
+      rgba(255, 255, 255, 0.92) 0%,
+      rgba(255, 255, 255, 0.82) 34%,
+      rgba(255, 255, 255, 0.42) 58%,
+      rgba(255, 255, 255, 0.10) 80%,
+      rgba(255, 255, 255, 0.0) 100%
+    ) !important;
   }
 
   .hero-3d-bg-layer {
-    background-position: center 30% !important;
+    background-image: url('/hero-mobile-action.jpg') !important;
+    background-size: cover !important;
+    background-position: center top !important;
+    transform: none !important;
   }
 
   .hero-natural-text-block {
     max-width: 100%;
     margin: 0;
+    transform: none !important;
   }
 
   .hero-subtag-banner {
@@ -512,6 +528,46 @@
   .hero-pillar-chip {
     font-size: 0.76rem;
     padding: 0.35rem 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .envarn-hero-fullscreen-3d {
+    min-height: calc(100svh - 64px);
+    padding: 1.75rem 0 1.5rem 0;
+  }
+
+  .envarn-hero-heading-exact {
+    font-size: clamp(1.55rem, 5.8vw, 1.95rem);
+    line-height: 1.18;
+    margin-bottom: 0.75rem;
+  }
+
+  .envarn-hero-subheading-exact {
+    font-size: 0.88rem;
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+  }
+
+  .envarn-hero-buttons-exact {
+    max-width: 100%;
+    gap: 0.65rem;
+  }
+
+  .btn-hero-donate-exact,
+  .btn-hero-mission-exact {
+    padding: 0.78rem 1.25rem;
+    font-size: 0.92rem;
+  }
+
+  .hero-pillars-pill-row {
+    margin-top: 1rem;
+    gap: 0.45rem;
+  }
+
+  .hero-pillar-chip {
+    font-size: 0.72rem;
+    padding: 0.3rem 0.65rem;
   }
 }
 
