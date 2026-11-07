@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { NavLink, Link, useLocation } from 'react-router-dom';
-import { Menu, X, Globe, ChevronDown, Check } from 'lucide-react';
+import { Menu, X, Globe, ChevronDown, Check, Heart } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 export default function Navbar() {
@@ -23,6 +24,18 @@ export default function Navbar() {
     setLangDropdownOpen(false);
   }, [location.pathname]);
 
+  // Lock body scroll when mobile drawer is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
+
   const navLinks = [
     { name: t('nav.home'), path: '/' },
     { name: t('nav.about'), path: '/about' },
@@ -38,13 +51,23 @@ export default function Navbar() {
     setLangDropdownOpen(false);
   };
 
+  const handleLinkClick = (path) => {
+    setMobileMenuOpen(false);
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  };
+
   return (
     <>
       <header className={`site-header ${isScrolled ? 'scrolled' : ''}`}>
         <div className="container">
           <div className="navbar-inner">
             {/* Brand Logo */}
-            <Link to="/" className="brand-logo" aria-label="Manchi Panulu Sewa Foundation">
+            <Link
+              to="/"
+              className="brand-logo"
+              aria-label="Manchi Panulu Sewa Foundation"
+              onClick={() => handleLinkClick('/')}
+            >
               <div className="brand-icon-wrapper">
                 {/* Sprout emblem inside curved badge */}
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
@@ -129,7 +152,7 @@ export default function Navbar() {
                 )}
               </div>
 
-              {/* Envarn-style dark solid rounded pill button - Hidden on small mobile screens to prevent header overflow */}
+              {/* Envarn-style dark solid rounded pill button - Hidden on small mobile screens */}
               <Link to="/donate" className="btn-envarn-pill-nav nav-desktop-donate">
                 {t('nav.donate')}
               </Link>
@@ -138,7 +161,10 @@ export default function Navbar() {
               <button
                 type="button"
                 className="mobile-nav-toggle"
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setMobileMenuOpen(!mobileMenuOpen);
+                }}
                 aria-expanded={mobileMenuOpen}
                 aria-label="Toggle navigation menu"
               >
@@ -147,88 +173,96 @@ export default function Navbar() {
             </div>
           </div>
         </div>
+      </header>
 
-        {/* Mobile Navigation Drawer Modal */}
-        {mobileMenuOpen && (
-          <div className="mobile-drawer-overlay" onClick={() => setMobileMenuOpen(false)}>
-            <aside className="mobile-drawer" onClick={(e) => e.stopPropagation()}>
-              <div className="drawer-header">
-                <Link to="/" className="brand-logo" onClick={() => setMobileMenuOpen(false)}>
-                  <div className="brand-icon-wrapper" style={{ width: 38, height: 38 }}>
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                      <path d="M12 21V10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                      <path d="M12 14C8.5 14 6 11.5 6 8C9.5 8 12 10.5 12 14Z" fill="currentColor" />
-                      <path d="M12 16C15.5 16 18 13.5 18 10C14.5 10 12 12.5 12 16Z" fill="currentColor" />
-                      <path d="M12 9C10.5 6.5 12 3 12 3C12 3 13.5 6.5 12 9Z" fill="currentColor" />
-                    </svg>
-                  </div>
-                  <div className="brand-text">
-                    <span className="brand-title" style={{ fontSize: '1.05rem' }}>{t('nav.brandTitle')}</span>
-                    <span className="brand-subtitle" style={{ fontSize: '0.62rem' }}>{t('nav.brandSubtitle')}</span>
-                  </div>
-                </Link>
+      {/* Mobile Navigation Drawer Modal - Rendered into body via Portal so backdrop-filter NEVER traps it */}
+      {mobileMenuOpen && typeof document !== 'undefined' && createPortal(
+        <div
+          className="mobile-drawer-overlay"
+          onClick={() => setMobileMenuOpen(false)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Mobile Navigation Menu"
+        >
+          <aside className="mobile-drawer" onClick={(e) => e.stopPropagation()}>
+            <div className="drawer-header">
+              <Link to="/" className="brand-logo" onClick={() => handleLinkClick('/')}>
+                <div className="brand-icon-wrapper" style={{ width: 38, height: 38 }}>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 21V10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                    <path d="M12 14C8.5 14 6 11.5 6 8C9.5 8 12 10.5 12 14Z" fill="currentColor" />
+                    <path d="M12 16C15.5 16 18 13.5 18 10C14.5 10 12 12.5 12 16Z" fill="currentColor" />
+                    <path d="M12 9C10.5 6.5 12 3 12 3C12 3 13.5 6.5 12 9Z" fill="currentColor" />
+                  </svg>
+                </div>
+                <div className="brand-text">
+                  <span className="brand-title" style={{ fontSize: '1.05rem' }}>{t('nav.brandTitle')}</span>
+                  <span className="brand-subtitle" style={{ fontSize: '0.62rem' }}>{t('nav.brandSubtitle')}</span>
+                </div>
+              </Link>
+              <button
+                type="button"
+                className="mobile-drawer-close-btn"
+                onClick={() => setMobileMenuOpen(false)}
+                aria-label="Close menu"
+              >
+                <X size={22} />
+              </button>
+            </div>
+
+            <nav className="drawer-nav-list" aria-label="Mobile Navigation List">
+              {navLinks.map((link) => (
+                <NavLink
+                  key={link.path}
+                  to={link.path}
+                  end={link.path === '/'}
+                  className={({ isActive }) => `drawer-nav-item ${isActive ? 'active' : ''}`}
+                  onClick={() => handleLinkClick(link.path)}
+                >
+                  <span>{link.name}</span>
+                </NavLink>
+              ))}
+            </nav>
+
+            <div className="drawer-footer">
+              {/* Mobile Language Switcher Pills */}
+              <div className="drawer-lang-selector">
                 <button
                   type="button"
-                  className="mobile-drawer-close-btn"
-                  onClick={() => setMobileMenuOpen(false)}
-                  aria-label="Close menu"
+                  className={`drawer-lang-btn ${language === 'en' ? 'active' : ''}`}
+                  onClick={() => handleLanguageSelect('en')}
                 >
-                  <X size={22} />
+                  English
+                </button>
+                <button
+                  type="button"
+                  className={`drawer-lang-btn ${language === 'te' ? 'active' : ''}`}
+                  onClick={() => handleLanguageSelect('te')}
+                >
+                  తెలుగు
+                </button>
+                <button
+                  type="button"
+                  className={`drawer-lang-btn ${language === 'hi' ? 'active' : ''}`}
+                  onClick={() => handleLanguageSelect('hi')}
+                >
+                  हिन्दी
                 </button>
               </div>
 
-              <nav className="drawer-nav-list" aria-label="Mobile Navigation">
-                {navLinks.map((link) => (
-                  <NavLink
-                    key={link.path}
-                    to={link.path}
-                    end={link.path === '/'}
-                    className={({ isActive }) => `drawer-nav-item ${isActive ? 'active' : ''}`}
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    <span>{link.name}</span>
-                  </NavLink>
-                ))}
-              </nav>
-
-              <div className="drawer-footer">
-                {/* Mobile Language Switcher Pills */}
-                <div className="drawer-lang-selector">
-                  <button
-                    type="button"
-                    className={`drawer-lang-btn ${language === 'en' ? 'active' : ''}`}
-                    onClick={() => handleLanguageSelect('en')}
-                  >
-                    English
-                  </button>
-                  <button
-                    type="button"
-                    className={`drawer-lang-btn ${language === 'te' ? 'active' : ''}`}
-                    onClick={() => handleLanguageSelect('te')}
-                  >
-                    తెలుగు
-                  </button>
-                  <button
-                    type="button"
-                    className={`drawer-lang-btn ${language === 'hi' ? 'active' : ''}`}
-                    onClick={() => handleLanguageSelect('hi')}
-                  >
-                    हिन्दी
-                  </button>
-                </div>
-
-                <Link
-                  to="/donate"
-                  className="btn-drawer-donate"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {t('nav.donate')}
-                </Link>
-              </div>
-            </aside>
-          </div>
-        )}
-      </header>
+              <Link
+                to="/donate"
+                className="btn-drawer-donate"
+                onClick={() => handleLinkClick('/donate')}
+              >
+                <Heart size={16} fill="#FFFFFF" color="#FFFFFF" />
+                <span>{t('nav.donate')}</span>
+              </Link>
+            </div>
+          </aside>
+        </div>,
+        document.body
+      )}
     </>
   );
 }
