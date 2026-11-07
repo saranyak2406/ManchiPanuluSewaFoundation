@@ -113,19 +113,19 @@ export default function Hero() {
             <div className="hero-pillars-pill-row">
               <Link to="/services#vrukshasewa" className="hero-pillar-chip">
                 <span className="pillar-chip-dot dot-vruksha"></span>
-                <span>Vruksha Sewa</span>
+                <span>{t('hero.chipVruksha')}</span>
               </Link>
               <Link to="/services#manava-sewa" className="hero-pillar-chip">
                 <span className="pillar-chip-dot dot-manava"></span>
-                <span>Manava Sewa</span>
+                <span>{t('hero.chipManava')}</span>
               </Link>
               <Link to="/services#prakruthi-sewa" className="hero-pillar-chip">
                 <span className="pillar-chip-dot dot-prakruthi"></span>
-                <span>Prakruthi Sewa</span>
+                <span>{t('hero.chipPrakruthi')}</span>
               </Link>
               <Link to="/services#aashraya-sewa" className="hero-pillar-chip">
                 <span className="pillar-chip-dot dot-aashraya"></span>
-                <span>Aashraya Sewa</span>
+                <span>{t('hero.chipAashraya')}</span>
               </Link>
             </div>
           </div>

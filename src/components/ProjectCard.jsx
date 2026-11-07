@@ -1,8 +1,10 @@
 import React from 'react';
 import { MapPin, Users, Target, ArrowRight } from 'lucide-react';
 import Button from './Button';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function ProjectCard({ project, onSelect }) {
+  const { t } = useLanguage();
   const {
     title,
     categoryLabel,
@@ -63,10 +65,9 @@ export default function ProjectCard({ project, onSelect }) {
           icon={ArrowRight}
           style={{ width: '100%' }}
         >
-          View Project Details
+          {t('projects.viewDetails')}
         </Button>
       </div>
     </div>
   );
 }
-

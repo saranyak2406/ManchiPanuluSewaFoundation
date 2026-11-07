@@ -1,23 +1,25 @@
 import React, { useState } from 'react';
 import { Camera, Film, Image as ImageIcon, Play, Sparkles } from 'lucide-react';
 import GalleryModal from '../components/GalleryModal';
-import { galleryData } from '../data/galleryData';
+import { getGalleryData } from '../data/galleryData';
 import { useLanguage } from '../context/LanguageContext';
 
 export default function GalleryPage() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const currentGallery = getGalleryData(language);
+
   const [activeCategory, setActiveCategory] = useState('All');
   const [selectedItemIndex, setSelectedItemIndex] = useState(null);
 
   const categories = [
-    { label: 'All Moments', value: 'All' },
-    { label: 'VrukshaSewa (Afforestation)', value: 'VrukshaSewa' },
-    { label: 'Social Sewa', value: 'Sewa' },
-    { label: 'Environmental Service', value: 'Environment' },
-    { label: 'Video Features', value: 'video' }
+    { label: t('gallery.allMoments'), value: 'All' },
+    { label: t('gallery.catVruksha'), value: 'VrukshaSewa' },
+    { label: t('gallery.catSewa'), value: 'Sewa' },
+    { label: t('gallery.catEnv'), value: 'Environment' },
+    { label: t('gallery.catVideo'), value: 'video' }
   ];
 
-  const filteredItems = galleryData.filter((item) => {
+  const filteredItems = currentGallery.filter((item) => {
     if (activeCategory === 'All') return true;
     if (activeCategory === 'video') return item.type === 'video';
     return (
@@ -53,14 +55,14 @@ export default function GalleryPage() {
           <div className="page-hero-inner-unboxed">
             <div className="page-hero-eyebrow">
               <Camera size={16} />
-              <span>{t('home.galleryBadge')}</span>
+              <span>{t('gallery.badge')}</span>
             </div>
             <h1 className="page-hero-title-exact">
-              {t('home.galleryTitle')}
+              {t('gallery.heroTitle')}
             </h1>
             <div className="page-hero-accent-line"></div>
             <p className="page-hero-desc-exact">
-              {t('home.gallerySubtitle')}
+              {t('gallery.heroDesc')}
             </p>
           </div>
         </div>
@@ -98,18 +100,14 @@ export default function GalleryPage() {
 
                 {item.type === 'video' && (
                   <div className="video-play-indicator">
-                    <Play size={22} fill="#0A2316" />
+                    <Play size={20} fill="#FFFFFF" />
                   </div>
                 )}
 
                 <div className="gallery-item-overlay">
-                  <span className="gallery-overlay-badge">
-                    {item.type === 'video' ? `Video • ${item.videoDuration}` : item.categoryLabel}
-                  </span>
+                  <span className="gallery-overlay-badge">{item.categoryLabel}</span>
                   <div className="gallery-overlay-title">{item.title}</div>
-                  <div className="gallery-overlay-meta">
-                    {item.location} • {item.date}
-                  </div>
+                  <div className="gallery-overlay-meta">{item.location} • {item.date}</div>
                 </div>
               </div>
             ))}
@@ -127,4 +125,3 @@ export default function GalleryPage() {
     </>
   );
 }
-

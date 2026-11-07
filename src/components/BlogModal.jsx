@@ -1,8 +1,11 @@
 import React, { useEffect } from 'react';
 import { X, Calendar, Clock, User, Share2, Tag, ArrowLeft } from 'lucide-react';
 import Button from './Button';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function BlogModal({ article, onClose }) {
+  const { t } = useLanguage();
+
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') onClose();
@@ -16,7 +19,7 @@ export default function BlogModal({ article, onClose }) {
   return (
     <div className="modal-overlay" onClick={onClose} role="dialog" aria-modal="true">
       <div className="modal-card" style={{ maxWidth: '820px', padding: 0 }} onClick={(e) => e.stopPropagation()}>
-        <button className="modal-close-btn" style={{ zIndex: 10 }} onClick={onClose} aria-label="Close modal">
+        <button className="modal-close-btn" style={{ zIndex: 10 }} onClick={onClose} aria-label={t('blog.closeBtn')}>
           <X size={20} />
         </button>
 
@@ -111,10 +114,10 @@ export default function BlogModal({ article, onClose }) {
 
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <Button variant="outline" size="sm" onClick={onClose} icon={ArrowLeft} iconPosition="left">
-              Back to Articles
+              {t('blog.backToArticles')}
             </Button>
             <Button to="/volunteer" variant="sprout" size="sm">
-              Participate in Sewa
+              {t('blog.participateBtn')}
             </Button>
           </div>
         </div>
@@ -122,4 +125,3 @@ export default function BlogModal({ article, onClose }) {
     </div>
   );
 }
-

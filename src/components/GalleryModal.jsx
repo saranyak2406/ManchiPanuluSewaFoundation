@@ -1,8 +1,11 @@
 import React, { useEffect } from 'react';
 import { X, MapPin, Calendar, Film, Image as ImageIcon, ChevronLeft, ChevronRight } from 'lucide-react';
 import Button from './Button';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function GalleryModal({ item, onClose, onPrev, onNext }) {
+  const { t } = useLanguage();
+
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') onClose();
@@ -18,7 +21,7 @@ export default function GalleryModal({ item, onClose, onPrev, onNext }) {
   return (
     <div className="lightbox-modal" onClick={onClose} role="dialog" aria-modal="true">
       <div className="lightbox-content-box" onClick={(e) => e.stopPropagation()}>
-        <button className="lightbox-close-btn" onClick={onClose} aria-label="Close modal">
+        <button className="lightbox-close-btn" onClick={onClose} aria-label={t('gallery.modalClose')}>
           <X size={20} />
         </button>
 
@@ -41,7 +44,7 @@ export default function GalleryModal({ item, onClose, onPrev, onNext }) {
               fontSize: '0.85rem'
             }}>
               <Film size={16} />
-              <span>Video Feature ({item.videoDuration})</span>
+              <span>{t('gallery.videoDuration')} ({item.videoDuration})</span>
             </div>
           )}
 
@@ -139,4 +142,3 @@ export default function GalleryModal({ item, onClose, onPrev, onNext }) {
     </div>
   );
 }
-

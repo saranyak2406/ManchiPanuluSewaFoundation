@@ -19,47 +19,48 @@ import { useLanguage } from '../context/LanguageContext';
 
 export default function AboutPage() {
   const { t, language } = useLanguage();
+
   const leadershipTeam = [
     {
       name: "Dr. K. Ramachandra Rao",
-      role: "Founder & Chief Trustee (Placeholder)",
-      bio: "Lifelong naturalist and social reformer with three decades of grassroots community service in rural afforestation and public health advocacy.",
+      role: t('about.member1Role'),
+      bio: t('about.member1Bio'),
       image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=600&q=80"
     },
     {
       name: "Smt. V. Annapurna",
-      role: "Director of Social Sewa (Placeholder)",
-      bio: "Pioneered community meal kitchens and disaster relief networks, coordinating over 100,000 nutritious meals across government hospitals.",
+      role: t('about.member2Role'),
+      bio: t('about.member2Bio'),
       image: "https://images.unsplash.com/photo-1753981031189-27bb7bd1c079?auto=format&fit=crop&w=600&q=80"
     },
     {
       name: "Sri Ananth Narayanan",
-      role: "Head of Environmental Stewardship (Placeholder)",
-      bio: "Ecological engineer specializing in urban waterbody restoration, phytoremediation, and indigenous Miyawaki forest cultivation.",
+      role: t('about.member3Role'),
+      bio: t('about.member3Bio'),
       image: "https://images.unsplash.com/photo-1628272107134-c66c4b580952?auto=format&fit=crop&w=600&q=80"
     }
   ];
 
   const milestones = [
     {
-      year: "2023",
-      title: "The Seed of 'Manchi Panulu'",
-      desc: "A small circle of friends and nature enthusiasts started weekend food distributions outside government shelters and planted 500 neem saplings."
+      year: t('about.m1Year'),
+      title: t('about.m1Title'),
+      desc: t('about.m1Desc')
     },
     {
-      year: "2024",
-      title: "Formal Trust Registration",
-      desc: "Formally registered as Manchi Panulu Sewa Foundation with the four declared pillars: Vruksha Sewa, Manava Sewa, Prakruthi Sewa, and Aashraya Sewa."
+      year: t('about.m2Year'),
+      title: t('about.m2Title'),
+      desc: t('about.m2Desc')
     },
     {
-      year: "2025",
-      title: "First Miyawaki Forest & Lake Revival",
-      desc: "Planted our flagship 4-acre Haritha Sankalpam urban forest and launched community desilting across 7 urban and peri-urban water tanks."
+      year: t('about.m3Year'),
+      title: t('about.m3Title'),
+      desc: t('about.m3Desc')
     },
     {
-      year: "2026 & Beyond",
-      title: "Scaling Grassroots Impact",
-      desc: "Expanding to agroforestry support for marginal farmers, state-wide seed ball drives, and expanding our volunteer network to 10,000+ eco-warriors."
+      year: t('about.m4Year'),
+      title: t('about.m4Title'),
+      desc: t('about.m4Desc')
     }
   ];
 
@@ -100,19 +101,19 @@ export default function AboutPage() {
             <div>
               <div className="eyebrow-badge">
                 <Sparkles size={14} />
-                <span>Our Heritage</span>
+                <span>{t('about.heritageBadge')}</span>
               </div>
               <h2 style={{ color: 'var(--color-forest-900)', marginBottom: '1.25rem' }}>
-                The Meaning of "Manchi Panulu"
+                {t('about.meaningTitle')}
               </h2>
               <p style={{ marginBottom: '1.25rem', lineHeight: '1.8' }}>
-                In Telugu, <em>"Manchi Panulu"</em> simply translates to <strong>"Good Deeds"</strong>. In an era often dominated by haste and disconnection, we wanted our foundation to speak with honest, grounded simplicity.
+                {t('about.meaningP1')}
               </p>
               <p style={{ marginBottom: '1.25rem', lineHeight: '1.8' }}>
-                A good deed is not measured by its monetary scale; it is measured by its purity of intent and long-term consequence. When a volunteer plants a slow-growing Banyan sapling whose shade they may never sit under, that is a good deed. When our kitchen serves hot, nutritious food to an anxious family waiting outside an emergency ward, that is a good deed. When youth spend Sunday wading through marshland to liberate a waterbody from plastic suffocation, that is a good deed.
+                {t('about.meaningP2')}
               </p>
               <p style={{ lineHeight: '1.8', color: 'var(--color-forest-900)', fontWeight: 600 }}>
-                Our fourfold mandate: <strong>Vruksha Sewa (Protect Nature) • Manava Sewa (Serve Humanity) • Prakruthi Sewa (Preserve Environment) • Aashraya Sewa (Empower the Poor).</strong>
+                {t('about.mandate')}
               </p>
             </div>
 
@@ -140,11 +141,11 @@ export default function AboutPage() {
           <div className="section-header">
             <div className="eyebrow-badge">
               <Target size={14} />
-              <span>Guiding Lights</span>
+              <span>{t('about.lightsBadge')}</span>
             </div>
-            <h2 className="section-title">Our Mission & Vision</h2>
+            <h2 className="section-title">{t('about.missionVisionTitle')}</h2>
             <p className="section-subtitle">
-              Clear principles steering every seed we sow, every plate we serve, and every water channel we cleanse.
+              {t('about.missionVisionSubtitle')}
             </p>
           </div>
 
@@ -175,23 +176,23 @@ export default function AboutPage() {
                 <Compass size={28} />
               </div>
               <h3 style={{ fontSize: '1.75rem', color: 'var(--color-forest-900)', marginBottom: '1rem' }}>
-                Our Mission
+                {t('about.missionTitle')}
               </h3>
               <p style={{ lineHeight: '1.8', color: 'var(--color-text-muted)', marginBottom: '1.5rem' }}>
-                To mobilize citizens and communities for proactive ecological restoration and direct humanitarian sewa; revitalizing green cover through native tree plantation, eradicating acute hunger among vulnerable hospital patients and homeless populations, and preserving freshwater ecosystems through community stewardship.
+                {t('about.missionDesc')}
               </p>
               <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.6rem', fontSize: '0.92rem', color: 'var(--color-forest-800)', fontWeight: 600 }}>
                 <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                   <CheckCircle2 size={16} style={{ color: 'var(--color-forest-600)' }} />
-                  <span>Grassroots community participation</span>
+                  <span>{t('about.missionB1')}</span>
                 </li>
                 <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                   <CheckCircle2 size={16} style={{ color: 'var(--color-forest-600)' }} />
-                  <span>Ecologically sound native flora focus</span>
+                  <span>{t('about.missionB2')}</span>
                 </li>
                 <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                   <CheckCircle2 size={16} style={{ color: 'var(--color-forest-600)' }} />
-                  <span>Unconditional dignity in all service</span>
+                  <span>{t('about.missionB3')}</span>
                 </li>
               </ul>
             </div>
@@ -218,23 +219,23 @@ export default function AboutPage() {
                 <Sparkles size={28} />
               </div>
               <h3 style={{ fontSize: '1.75rem', color: 'var(--color-forest-900)', marginBottom: '1rem' }}>
-                Our Vision
+                {t('about.visionTitle')}
               </h3>
               <p style={{ lineHeight: '1.8', color: 'var(--color-text-muted)', marginBottom: '1.5rem' }}>
-                A harmonious society where pristine nature and compassionate humanity flourish side by side — where no person suffers from preventable starvation, every degraded urban space is transformed into a thriving native canopy, and our historic waterbodies run clear and life-giving.
+                {t('about.visionDesc')}
               </p>
               <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.6rem', fontSize: '0.92rem', color: 'var(--color-forest-800)', fontWeight: 600 }}>
                 <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                   <CheckCircle2 size={16} style={{ color: 'var(--color-gold)' }} />
-                  <span>Climate-resilient urban and rural green belts</span>
+                  <span>{t('about.visionB1')}</span>
                 </li>
                 <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                   <CheckCircle2 size={16} style={{ color: 'var(--color-gold)' }} />
-                  <span>Zero hunger in urban hospital perimeters</span>
+                  <span>{t('about.visionB2')}</span>
                 </li>
                 <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                   <CheckCircle2 size={16} style={{ color: 'var(--color-gold)' }} />
-                  <span>Plastic-free, rejuvenated wetlands and lakes</span>
+                  <span>{t('about.visionB3')}</span>
                 </li>
               </ul>
             </div>
@@ -248,11 +249,11 @@ export default function AboutPage() {
           <div className="section-header">
             <div className="eyebrow-badge">
               <ShieldCheck size={14} />
-              <span>Foundational Tenets</span>
+              <span>{t('about.tenetsBadge')}</span>
             </div>
-            <h2 className="section-title">Values We Live By</h2>
+            <h2 className="section-title">{t('about.valuesTitle')}</h2>
             <p className="section-subtitle">
-              These principles govern every project we select, every penny we allocate, and every partnership we form.
+              {t('about.valuesSubtitle')}
             </p>
           </div>
 
@@ -261,9 +262,9 @@ export default function AboutPage() {
               <div className="value-icon-box">
                 <Trees size={24} />
               </div>
-              <h4 style={{ color: 'var(--color-forest-900)', marginBottom: '0.5rem' }}>Ecological Integrity</h4>
+              <h4 style={{ color: 'var(--color-forest-900)', marginBottom: '0.5rem' }}>{t('about.val1Title')}</h4>
               <p style={{ fontSize: '0.92rem', color: 'var(--color-text-muted)' }}>
-                We plant strictly indigenous, biodiversity-enriching species. We do not plant invasive or water-depleting exotics.
+                {t('about.val1Desc')}
               </p>
             </div>
 
@@ -271,9 +272,9 @@ export default function AboutPage() {
               <div className="value-icon-box">
                 <Heart size={24} />
               </div>
-              <h4 style={{ color: 'var(--color-forest-900)', marginBottom: '0.5rem' }}>Compassionate Dignity</h4>
+              <h4 style={{ color: 'var(--color-forest-900)', marginBottom: '0.5rem' }}>{t('about.val2Title')}</h4>
               <p style={{ fontSize: '0.92rem', color: 'var(--color-text-muted)' }}>
-                Social sewa is delivered with reverence, humility, and warm smiles. We honor the inherent sanctity of every human being.
+                {t('about.val2Desc')}
               </p>
             </div>
 
@@ -281,9 +282,9 @@ export default function AboutPage() {
               <div className="value-icon-box">
                 <ShieldCheck size={24} />
               </div>
-              <h4 style={{ color: 'var(--color-forest-900)', marginBottom: '0.5rem' }}>Transparent Auditing</h4>
+              <h4 style={{ color: 'var(--color-forest-900)', marginBottom: '0.5rem' }}>{t('about.val3Title')}</h4>
               <p style={{ fontSize: '0.92rem', color: 'var(--color-text-muted)' }}>
-                Clear accounting, photographic evidence for all drives, and publicly accessible impact records ensure total trust.
+                {t('about.val3Desc')}
               </p>
             </div>
 
@@ -291,9 +292,9 @@ export default function AboutPage() {
               <div className="value-icon-box">
                 <Users size={24} />
               </div>
-              <h4 style={{ color: 'var(--color-forest-900)', marginBottom: '0.5rem' }}>Community Ownership</h4>
+              <h4 style={{ color: 'var(--color-forest-900)', marginBottom: '0.5rem' }}>{t('about.val4Title')}</h4>
               <p style={{ fontSize: '0.92rem', color: 'var(--color-text-muted)' }}>
-                We don't impose solutions from outside; we empower local residents and youth eco-ambassadors to safeguard their neighborhoods.
+                {t('about.val4Desc')}
               </p>
             </div>
           </div>
@@ -306,11 +307,11 @@ export default function AboutPage() {
           <div className="section-header">
             <div className="eyebrow-badge">
               <Users size={14} />
-              <span>Leadership & Stewardship</span>
+              <span>{t('about.teamBadge')}</span>
             </div>
-            <h2 className="section-title">Board of Trustees & Coordinators</h2>
+            <h2 className="section-title">{t('about.teamTitle')}</h2>
             <p className="section-subtitle">
-              Passionate environmentalists, community organizers, and social workers guiding our initiatives.
+              {t('about.teamSubtitle')}
             </p>
           </div>
 
@@ -337,11 +338,11 @@ export default function AboutPage() {
           <div className="section-header">
             <div className="eyebrow-badge">
               <Award size={14} />
-              <span>Our Journey</span>
+              <span>{t('about.journeyBadge')}</span>
             </div>
-            <h2 className="section-title">Milestones in Good Deeds</h2>
+            <h2 className="section-title">{t('about.milestonesTitle')}</h2>
             <p className="section-subtitle">
-              How a heartfelt grassroots desire grew into a dedicated foundation.
+              {t('about.milestonesSubtitle')}
             </p>
           </div>
 
@@ -374,7 +375,7 @@ export default function AboutPage() {
 
           <div style={{ textAlign: 'center', marginTop: '3.5rem' }}>
             <Button to="/volunteer" variant="primary" size="lg" icon={ArrowRight}>
-              Write the Next Chapter With Us
+              {t('about.writeNextChapter')}
             </Button>
           </div>
         </div>
@@ -382,4 +383,3 @@ export default function AboutPage() {
     </>
   );
 }
-

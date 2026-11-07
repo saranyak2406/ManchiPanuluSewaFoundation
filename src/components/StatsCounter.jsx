@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { TreePine, HeartHandshake, Sparkles, Users, Info } from 'lucide-react';
-import { statsData } from '../data/statsData';
+import { getStatsData } from '../data/statsData';
 import { useLanguage } from '../context/LanguageContext';
 
 const iconMap = {
@@ -69,19 +69,12 @@ function SingleCounter({ targetValue, prefix = '', suffix = '' }) {
 
 export default function StatsCounter() {
   const { t, language } = useLanguage();
-
-  const getTranslatedLabel = (stat) => {
-    if (stat.id === 'trees-planted') return t('stats.treesLabel');
-    if (stat.id === 'meals-served') return t('stats.mealsLabel');
-    if (stat.id === 'water-bodies') return t('stats.waterLabel');
-    if (stat.id === 'volunteers') return t('stats.volunteersLabel');
-    return stat.label;
-  };
+  const currentStats = getStatsData(language);
 
   return (
     <div className="stats-banner">
       <div className="stats-grid">
-        {statsData.map((stat) => {
+        {currentStats.map((stat) => {
           const IconComponent = iconMap[stat.icon] || Sparkles;
 
           return (
@@ -96,7 +89,7 @@ export default function StatsCounter() {
                 suffix={stat.suffix}
               />
 
-              <div className="stat-label-title">{getTranslatedLabel(stat)}</div>
+              <div className="stat-label-title">{stat.label}</div>
               <p className="stat-desc">{stat.description}</p>
             </div>
           );
@@ -110,4 +103,3 @@ export default function StatsCounter() {
     </div>
   );
 }
-

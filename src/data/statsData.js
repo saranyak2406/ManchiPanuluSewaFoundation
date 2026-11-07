@@ -45,6 +45,92 @@ export const statsData = [
   }
 ];
 
+export function getStatsData(lang = 'en') {
+  if (lang === 'te') {
+    return [
+      {
+        id: "trees-planted",
+        numericValue: 48500,
+        prefix: "",
+        suffix: "+",
+        label: "నాటిన దేశీయ వృక్షాలు",
+        description: "నగర చిట్టడవులు, రహదారులు, పాఠశాలలు మరియు గ్రామీణ ప్రాంతాలలో",
+        icon: "TreePine"
+      },
+      {
+        id: "meals-served",
+        numericValue: 125000,
+        prefix: "",
+        suffix: "+",
+        label: "అందించిన పౌష్టికాహార భోజనాలు",
+        description: "ప్రభుత్వ ఆసుపత్రులు మరియు నిరుపేద ప్రాంతాలలో తాజా వేడి అన్నదానం",
+        icon: "HeartHandshake"
+      },
+      {
+        id: "cleanups-conducted",
+        numericValue: 74,
+        prefix: "",
+        suffix: " కార్యక్రమాలు",
+        label: "జలాశయాల పూడికతీత & శుభ్రత",
+        description: "చెరువులు మరియు బావుల నుండి టన్నుల కొద్దీ ప్లాస్టిక్ వ్యర్థాల తొలగింపు",
+        icon: "Sparkles"
+      },
+      {
+        id: "volunteers-mobilized",
+        numericValue: 3200,
+        prefix: "",
+        suffix: "+",
+        label: "క్రియాశీల వాలంటీర్లు",
+        description: "నిస్వార్థ పౌరులు, కళాశాల యువత మరియు పర్యావరణ పరిరక్షకులు",
+        icon: "Users"
+      }
+    ];
+  }
+
+  if (lang === 'hi') {
+    return [
+      {
+        id: "trees-planted",
+        numericValue: 48500,
+        prefix: "",
+        suffix: "+",
+        label: "रोपे गए देसी वृक्ष",
+        description: "शहरी सूक्ष्म-वनों, राजमार्गों, विद्यालयों और ग्रामीण अंचलों में",
+        icon: "TreePine"
+      },
+      {
+        id: "meals-served",
+        numericValue: 125000,
+        prefix: "",
+        suffix: "+",
+        label: "परोसा गया पौष्टिक भोजन",
+        description: "सरकारी अस्पतालों और रैन बसेरों के बाहर ताजा व गर्म अन्नदान",
+        icon: "HeartHandshake"
+      },
+      {
+        id: "cleanups-conducted",
+        numericValue: 74,
+        prefix: "",
+        suffix: " अभियान",
+        label: "झील व पर्यावरण स्वच्छता",
+        description: "जलस्रोतों से मीट्रिक टन प्लास्टिक और अपशिष्ट का सुरक्षित निस्तारण",
+        icon: "Sparkles"
+      },
+      {
+        id: "volunteers-mobilized",
+        numericValue: 3200,
+        prefix: "",
+        suffix: "+",
+        label: "पंजीकृत स्वयंसेवक",
+        description: "जागरूक नागरिक, युवा छात्र एवं समर्पित पर्यावरण रक्षक",
+        icon: "Users"
+      }
+    ];
+  }
+
+  return statsData;
+}
+
 export const complianceInfo = {
   foundationName: "Manchi Panulu Sewa Foundation",
   registeredType: "Non-Governmental Non-Profit Organization (Registered Trust / Section 8 Placeholder)",
@@ -61,4 +147,3 @@ export const complianceInfo = {
   donationsEmail: "donations@manchipanulusewa.org",
   workingHours: "Monday to Saturday: 9:00 AM – 6:30 PM IST"
 };
-

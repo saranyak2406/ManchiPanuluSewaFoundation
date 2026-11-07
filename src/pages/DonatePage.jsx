@@ -20,7 +20,7 @@ import { complianceInfo } from '../data/statsData';
 import { useLanguage } from '../context/LanguageContext';
 
 export default function DonatePage() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [donorTab, setDonorTab] = useState('domestic'); // 'domestic' | 'international'
   const [selectedCurrency, setSelectedCurrency] = useState('USD');
   const [selectedAmount, setSelectedAmount] = useState(1200);
@@ -39,30 +39,30 @@ export default function DonatePage() {
   const [receiptData, setReceiptData] = useState(null);
 
   const domesticPresets = [
-    { amount: 500, label: '5 Native Saplings' },
-    { amount: 1200, label: '10 Wholesome Meals' },
-    { amount: 2500, label: 'Lake Cleanup Equipment' },
-    { amount: 5000, label: 'Urban Micro-Forest' }
+    { amount: 500, label: t('donate.preset1Label') },
+    { amount: 1200, label: t('donate.preset2Label') },
+    { amount: 2500, label: t('donate.preset3Label') },
+    { amount: 5000, label: t('donate.preset4Label') }
   ];
 
   const internationalPresets = {
     USD: [
-      { amount: 25, label: 'Nurture 10 Saplings' },
-      { amount: 50, label: 'Feed 20 Caregivers' },
-      { amount: 100, label: 'Waterbody Cleanup Gear' },
-      { amount: 250, label: 'Sponsor Community Eco-Lab' }
+      { amount: 25, label: t('donate.preset1Label') },
+      { amount: 50, label: t('donate.preset2Label') },
+      { amount: 100, label: t('donate.preset3Label') },
+      { amount: 250, label: t('donate.preset4Label') }
     ],
     EUR: [
-      { amount: 20, label: 'Nurture 10 Saplings' },
-      { amount: 45, label: 'Feed 20 Caregivers' },
-      { amount: 90, label: 'Waterbody Cleanup Gear' },
-      { amount: 220, label: 'Sponsor Community Eco-Lab' }
+      { amount: 20, label: t('donate.preset1Label') },
+      { amount: 45, label: t('donate.preset2Label') },
+      { amount: 90, label: t('donate.preset3Label') },
+      { amount: 220, label: t('donate.preset4Label') }
     ],
     GBP: [
-      { amount: 20, label: 'Nurture 10 Saplings' },
-      { amount: 40, label: 'Feed 20 Caregivers' },
-      { amount: 80, label: 'Waterbody Cleanup Gear' },
-      { amount: 200, label: 'Sponsor Community Eco-Lab' }
+      { amount: 20, label: t('donate.preset1Label') },
+      { amount: 40, label: t('donate.preset2Label') },
+      { amount: 80, label: t('donate.preset3Label') },
+      { amount: 200, label: t('donate.preset4Label') }
     ]
   };
 
@@ -80,9 +80,9 @@ export default function DonatePage() {
 
     const receipt = {
       receiptNo: `MPSF-REC-${Math.floor(100000 + Math.random() * 900000)}`,
-      date: new Date().toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' }),
-      donorName: donorName || 'Kind Benefactor',
-      donorEmail: donorEmail || 'kind.donor@example.com',
+      date: new Date().toLocaleDateString(language === 'te' ? 'te-IN' : language === 'hi' ? 'hi-IN' : 'en-IN', { year: 'numeric', month: 'long', day: 'numeric' }),
+      donorName: donorName || (language === 'te' ? 'దయగల దాత' : language === 'hi' ? 'उदार दानदाता' : 'Kind Benefactor'),
+      donorEmail: donorEmail || 'donor@example.com',
       donorPhone: donorPhone || 'N/A',
       donorPan: donorPan || 'N/A',
       amount: finalAmount,
@@ -141,7 +141,7 @@ export default function DonatePage() {
                   setCustomAmount('');
                 }}
               >
-                🇮🇳 Domestic Donors (Indian INR ₹)
+                🇮🇳 {t('donate.domesticTab')}
               </button>
               <button
                 type="button"
@@ -152,7 +152,7 @@ export default function DonatePage() {
                   setCustomAmount('');
                 }}
               >
-                🌐 International Supporters & Diaspora
+                🌐 {t('donate.intlTab')}
               </button>
             </div>
           </div>
@@ -163,10 +163,10 @@ export default function DonatePage() {
               {/* Left Column: Preset Selector and Form */}
               <div className="donation-card-main">
                 <h3 style={{ fontSize: '1.65rem', color: 'var(--color-forest-900)', marginBottom: '0.4rem' }}>
-                  Choose Your Contribution
+                  {t('donate.chooseTitle')}
                 </h3>
                 <p style={{ fontSize: '0.92rem', color: 'var(--color-text-muted)', marginBottom: '1.75rem' }}>
-                  Select an impact amount or specify your own custom gift in Indian Rupees (₹).
+                  {t('donate.chooseDesc')}
                 </p>
 
                 {/* Preset Amounts */}
@@ -189,7 +189,7 @@ export default function DonatePage() {
 
                 {/* Custom Amount Input */}
                 <div className="form-group" style={{ marginBottom: '1.75rem' }}>
-                  <label className="form-label">Or Enter Custom Amount (INR ₹)</label>
+                  <label className="form-label">{t('donate.customAmountLabel')}</label>
                   <div style={{ position: 'relative' }}>
                     <span style={{ position: 'absolute', left: '1rem', top: '50%', transform: 'translateY(-50%)', fontWeight: 700, color: 'var(--color-forest-700)' }}>
                       ₹
@@ -203,7 +203,7 @@ export default function DonatePage() {
                         setSelectedAmount(0);
                       }}
                       className="form-input"
-                      placeholder="e.g. 10000"
+                      placeholder={t('donate.customAmountPlaceholder')}
                       style={{ paddingLeft: '2.4rem' }}
                     />
                   </div>
@@ -211,72 +211,72 @@ export default function DonatePage() {
 
                 {/* Allocation Selector */}
                 <div className="form-group" style={{ marginBottom: '2rem' }}>
-                  <label className="form-label">Allocate To Specific Pillar</label>
+                  <label className="form-label">{t('donate.allocateLabel')}</label>
                   <select
                     value={allocatedCause}
                     onChange={(e) => setAllocatedCause(e.target.value)}
                     className="form-select"
                   >
-                    <option value="Where Most Needed (General Sewa)">Where Most Needed (General Sewa)</option>
-                    <option value="Vruksha Sewa — Tree & Nature Protection">Vruksha Sewa — Tree & Nature Protection</option>
-                    <option value="Manava Sewa — Humanitarian & Social Service">Manava Sewa — Humanitarian & Social Service</option>
-                    <option value="Prakruthi Sewa — Environmental Conservation">Prakruthi Sewa — Environmental Conservation</option>
-                    <option value="Aashraya Sewa — Poverty Relief & Empowerment">Aashraya Sewa — Poverty Relief & Empowerment</option>
+                    <option value={t('donate.optGeneral')}>{t('donate.optGeneral')}</option>
+                    <option value={t('donate.optPillar1')}>{t('donate.optPillar1')}</option>
+                    <option value={t('donate.optPillar2')}>{t('donate.optPillar2')}</option>
+                    <option value={t('donate.optPillar3')}>{t('donate.optPillar3')}</option>
+                    <option value={t('donate.optPillar4')}>{t('donate.optPillar4')}</option>
                   </select>
                 </div>
 
                 {/* Donor Details for Receipt */}
                 <h4 style={{ fontSize: '1.2rem', color: 'var(--color-forest-900)', marginBottom: '1rem', paddingTop: '1.25rem', borderTop: '1px solid var(--color-border-card)' }}>
-                  Donor Information for Digital Receipt
+                  {t('donate.donorInfoTitle')}
                 </h4>
 
                 <form onSubmit={handleSimulateDonation}>
                   <div className="form-group">
-                    <label className="form-label">Full Name *</label>
+                    <label className="form-label">{t('donate.fullName')}</label>
                     <input
                       type="text"
                       required
                       value={donorName}
                       onChange={(e) => setDonorName(e.target.value)}
                       className="form-input"
-                      placeholder="As per PAN / Bank records"
+                      placeholder={t('donate.fullNamePlaceholder')}
                     />
                   </div>
 
                   <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 180px), 1fr))', gap: '1rem' }}>
                     <div className="form-group">
-                      <label className="form-label">Email Address (for Receipt) *</label>
+                      <label className="form-label">{t('donate.email')}</label>
                       <input
                         type="email"
                         required
                         value={donorEmail}
                         onChange={(e) => setDonorEmail(e.target.value)}
                         className="form-input"
-                        placeholder="receipt@example.com"
+                        placeholder={t('donate.emailPlaceholder')}
                       />
                     </div>
                     <div className="form-group">
-                      <label className="form-label">Mobile Number *</label>
+                      <label className="form-label">{t('donate.phone')}</label>
                       <input
                         type="tel"
                         required
                         value={donorPhone}
                         onChange={(e) => setDonorPhone(e.target.value)}
                         className="form-input"
-                        placeholder="10-digit mobile"
+                        placeholder={t('donate.phonePlaceholder')}
                       />
                     </div>
                   </div>
 
                   <div className="form-group">
-                    <label className="form-label">PAN Number (Optional, for Indian 80G tax audit placeholder)</label>
+                    <label className="form-label">{t('donate.panLabel')}</label>
                     <input
                       type="text"
                       maxLength="10"
                       value={donorPan}
                       onChange={(e) => setDonorPan(e.target.value.toUpperCase())}
                       className="form-input"
-                      placeholder="e.g. ABCDE1234F"
+                      placeholder={t('donate.panPlaceholder')}
                     />
                   </div>
 
@@ -287,7 +287,7 @@ export default function DonatePage() {
                     icon={Heart}
                     style={{ width: '100%', marginTop: '1rem' }}
                   >
-                    Generate Donation Acknowledgment & Receipt
+                    {t('donate.confirmBtn')}
                   </Button>
                 </form>
 
@@ -295,7 +295,7 @@ export default function DonatePage() {
                 <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.65rem', marginTop: '1.5rem', fontSize: '0.82rem', color: 'var(--color-text-muted)' }}>
                   <Info size={16} style={{ color: 'var(--color-forest-700)', flexShrink: 0, marginTop: '2px' }} />
                   <span>
-                    Tax Exemption Note: 80G certificate registration under Indian Income Tax Act is currently marked as a demonstration placeholder. Official receipts with statutory exemption codes will be issued once full certification is gazetted.
+                    {t('donate.taxNotice')}
                   </span>
                 </div>
               </div>
@@ -305,27 +305,22 @@ export default function DonatePage() {
                 {/* UPI QR Code Box */}
                 <div className="upi-qr-card">
                   <div style={{ fontSize: '0.8rem', color: 'var(--color-sprout-light)', fontWeight: 700, textTransform: 'uppercase', marginBottom: '0.5rem', letterSpacing: '0.1em' }}>
-                    Instant UPI Payment
+                    {t('donate.badge')}
                   </div>
-                  <h4 style={{ color: '#FFFFFF', marginBottom: '1.25rem' }}>Scan with Any UPI App</h4>
+                  <h4 style={{ color: '#FFFFFF', marginBottom: '1.25rem' }}>{t('donate.upiTitle')}</h4>
 
                   <div className="upi-qr-box">
-                    {/* Stylized QR Code SVG Placeholder */}
                     <svg width="190" height="190" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <rect width="100" height="100" fill="white" />
-                      {/* Top-left locator */}
                       <rect x="10" y="10" width="26" height="26" rx="4" fill="#0C261A" />
                       <rect x="15" y="15" width="16" height="16" rx="2" fill="white" />
                       <rect x="18" y="18" width="10" height="10" rx="1" fill="#0C261A" />
-                      {/* Top-right locator */}
                       <rect x="64" y="10" width="26" height="26" rx="4" fill="#0C261A" />
                       <rect x="69" y="15" width="16" height="16" rx="2" fill="white" />
                       <rect x="72" y="18" width="10" height="10" rx="1" fill="#0C261A" />
-                      {/* Bottom-left locator */}
                       <rect x="10" y="64" width="26" height="26" rx="4" fill="#0C261A" />
                       <rect x="15" y="69" width="16" height="16" rx="2" fill="white" />
                       <rect x="18" y="72" width="10" height="10" rx="1" fill="#0C261A" />
-                      {/* Data Pattern Mock */}
                       <rect x="42" y="12" width="6" height="6" fill="#1B4D34" />
                       <rect x="52" y="12" width="6" height="6" fill="#78C953" />
                       <rect x="42" y="24" width="16" height="6" fill="#0C261A" />
@@ -342,7 +337,6 @@ export default function DonatePage() {
                       <rect x="54" y="68" width="6" height="20" fill="#0C261A" />
                       <rect x="68" y="76" width="20" height="6" fill="#1B4D34" />
                       <rect x="76" y="86" width="12" height="6" fill="#78C953" />
-                      {/* Center Foundation Leaf Emblem */}
                       <circle cx="50" cy="50" r="10" fill="#0C261A" />
                       <circle cx="50" cy="50" r="8" fill="#78C953" />
                     </svg>
@@ -362,7 +356,7 @@ export default function DonatePage() {
                   </div>
                   {copiedUpi && (
                     <div style={{ fontSize: '0.8rem', color: 'var(--color-sprout-light)', fontWeight: 600 }}>
-                      ✓ UPI ID Copied to Clipboard!
+                      ✓ {t('donate.upiCopied')}
                     </div>
                   )}
                 </div>
@@ -377,25 +371,25 @@ export default function DonatePage() {
                 }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', marginBottom: '1.25rem' }}>
                     <Building size={22} style={{ color: 'var(--color-forest-700)' }} />
-                    <h4 style={{ color: 'var(--color-forest-900)' }}>Direct Bank Transfer (NEFT / IMPS)</h4>
+                    <h4 style={{ color: 'var(--color-forest-900)' }}>{t('donate.bankTitle')}</h4>
                   </div>
 
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', fontSize: '0.9rem' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: '0.5rem', borderBottom: '1px solid var(--color-border-subtle)' }}>
-                      <span style={{ color: 'var(--color-text-muted)' }}>Beneficiary Name:</span>
+                      <span style={{ color: 'var(--color-text-muted)' }}>Beneficiary:</span>
                       <strong style={{ color: 'var(--color-forest-900)' }}>Manchi Panulu Sewa Foundation</strong>
                     </div>
                     <div style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: '0.5rem', borderBottom: '1px solid var(--color-border-subtle)' }}>
-                      <span style={{ color: 'var(--color-text-muted)' }}>Bank Name:</span>
+                      <span style={{ color: 'var(--color-text-muted)' }}>Bank:</span>
                       <strong style={{ color: 'var(--color-forest-900)' }}>State Bank of India (SBI)</strong>
                     </div>
                     <div style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: '0.5rem', borderBottom: '1px solid var(--color-border-subtle)' }}>
                       <span style={{ color: 'var(--color-text-muted)' }}>Account Number:</span>
-                      <strong style={{ fontFamily: 'monospace', color: 'var(--color-forest-900)' }}>41234567890 (Placeholder)</strong>
+                      <strong style={{ fontFamily: 'monospace', color: 'var(--color-forest-900)' }}>41234567890</strong>
                     </div>
                     <div style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: '0.5rem', borderBottom: '1px solid var(--color-border-subtle)' }}>
                       <span style={{ color: 'var(--color-text-muted)' }}>IFSC Code:</span>
-                      <strong style={{ fontFamily: 'monospace', color: 'var(--color-forest-900)' }}>SBIN0012345 (Placeholder)</strong>
+                      <strong style={{ fontFamily: 'monospace', color: 'var(--color-forest-900)' }}>SBIN0012345</strong>
                     </div>
                     <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                       <span style={{ color: 'var(--color-text-muted)' }}>Account Type:</span>
@@ -417,13 +411,10 @@ export default function DonatePage() {
                     <ShieldCheck size={26} style={{ color: '#A06E1A', flexShrink: 0, marginTop: '2px' }} />
                     <div>
                       <strong style={{ fontSize: '1rem', display: 'block', marginBottom: '0.35rem' }}>
-                        Notice to International & Overseas Donors (FCRA Regulatory Compliance)
+                        {t('donate.intlNotice')}
                       </strong>
                       <p style={{ fontSize: '0.9rem', color: '#6C521E', lineHeight: '1.6' }}>
-                        Under Indian law, non-profit entities require statutory clearance under the Foreign Contribution Regulation Act (FCRA) administered by the Ministry of Home Affairs to receive direct foreign inward wire contributions. <strong>Manchi Panulu Sewa Foundation does not claim international donation eligibility without necessary statutory authorizations.</strong>
-                      </p>
-                      <p style={{ fontSize: '0.9rem', color: '#6C521E', lineHeight: '1.6', marginTop: '0.5rem' }}>
-                        If you are an overseas citizen, NRI, or an international philanthropic body interested in supporting our environmental or social initiatives, please submit your inquiry below. We will coordinate through our approved international partnership networks or notify you once statutory overseas channels open.
+                        {t('donate.intlDesc')}
                       </p>
                     </div>
                   </div>
@@ -461,7 +452,7 @@ export default function DonatePage() {
 
                 {/* International Presets */}
                 <h4 style={{ fontSize: '1.2rem', color: 'var(--color-forest-900)', marginBottom: '1rem' }}>
-                  Impact Sponsorship Tier
+                  {t('donate.chooseTitle')}
                 </h4>
                 <div className="preset-amounts-grid" style={{ marginBottom: '2rem' }}>
                   {currentIntlPresets.map((preset) => {
@@ -485,31 +476,31 @@ export default function DonatePage() {
 
                 {/* International Inquiry Form */}
                 <h4 style={{ fontSize: '1.25rem', color: 'var(--color-forest-900)', marginBottom: '1rem', paddingTop: '1.25rem', borderTop: '1px solid var(--color-border-card)' }}>
-                  Submit International Support Inquiry
+                  {t('donate.intlRegInterest')}
                 </h4>
 
                 <form onSubmit={handleSimulateDonation}>
                   <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))', gap: '1rem' }}>
                     <div className="form-group">
-                      <label className="form-label">Your Full Name *</label>
+                      <label className="form-label">{t('donate.fullName')}</label>
                       <input
                         type="text"
                         required
                         value={donorName}
                         onChange={(e) => setDonorName(e.target.value)}
                         className="form-input"
-                        placeholder="e.g. Michael Jenkins"
+                        placeholder={t('donate.fullNamePlaceholder')}
                       />
                     </div>
                     <div className="form-group">
-                      <label className="form-label">Email Address *</label>
+                      <label className="form-label">{t('donate.email')}</label>
                       <input
                         type="email"
                         required
                         value={donorEmail}
                         onChange={(e) => setDonorEmail(e.target.value)}
                         className="form-input"
-                        placeholder="e.g. m.jenkins@example.org"
+                        placeholder={t('donate.emailPlaceholder')}
                       />
                     </div>
                   </div>
@@ -539,16 +530,16 @@ export default function DonatePage() {
                   </div>
 
                   <div className="form-group">
-                    <label className="form-label">Specific Pillar of Global Interest</label>
+                    <label className="form-label">{t('donate.allocateLabel')}</label>
                     <select
                       value={allocatedCause}
                       onChange={(e) => setAllocatedCause(e.target.value)}
                       className="form-select"
                     >
-                      <option value="Vruksha Sewa — Tree & Nature Protection">Vruksha Sewa — Tree & Nature Protection</option>
-                      <option value="Manava Sewa — Humanitarian & Social Service">Manava Sewa — Humanitarian & Social Service</option>
-                      <option value="Prakruthi Sewa — Environmental Conservation">Prakruthi Sewa — Environmental Conservation</option>
-                      <option value="Aashraya Sewa — Poverty Relief & Empowerment">Aashraya Sewa — Poverty Relief & Empowerment</option>
+                      <option value={t('donate.optPillar1')}>{t('donate.optPillar1')}</option>
+                      <option value={t('donate.optPillar2')}>{t('donate.optPillar2')}</option>
+                      <option value={t('donate.optPillar3')}>{t('donate.optPillar3')}</option>
+                      <option value={t('donate.optPillar4')}>{t('donate.optPillar4')}</option>
                     </select>
                   </div>
 
@@ -559,7 +550,7 @@ export default function DonatePage() {
                     icon={Globe}
                     style={{ width: '100%', marginTop: '1rem' }}
                   >
-                    Submit International Partnership Pledge
+                    {t('donate.intlRegInterest')}
                   </Button>
                 </form>
               </div>
@@ -572,7 +563,7 @@ export default function DonatePage() {
       {receiptData && (
         <div className="modal-overlay" onClick={() => setReceiptData(null)} role="dialog" aria-modal="true">
           <div className="modal-card" style={{ maxWidth: '620px' }} onClick={(e) => e.stopPropagation()}>
-            <button className="modal-close-btn" onClick={() => setReceiptData(null)} aria-label="Close">
+            <button className="modal-close-btn" onClick={() => setReceiptData(null)} aria-label={t('donate.closeBtn')}>
               ×
             </button>
 
@@ -591,10 +582,10 @@ export default function DonatePage() {
                 <CheckCircle2 size={36} />
               </div>
               <h3 style={{ fontSize: '1.75rem', color: 'var(--color-forest-900)', marginBottom: '0.25rem' }}>
-                Thank You for Your Sacred Sewa!
+                {t('donate.receiptTitle')}
               </h3>
               <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)' }}>
-                Official Digital Acknowledgment Voucher
+                {t('stats.transparencyBadge')}
               </p>
             </div>
 
@@ -607,30 +598,26 @@ export default function DonatePage() {
               fontSize: '0.92rem'
             }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.75rem' }}>
-                <span style={{ color: 'var(--color-text-muted)' }}>Receipt Reference:</span>
+                <span style={{ color: 'var(--color-text-muted)' }}>{t('donate.receiptNo')}</span>
                 <strong style={{ fontFamily: 'monospace', color: 'var(--color-forest-900)' }}>{receiptData.receiptNo}</strong>
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.75rem' }}>
-                <span style={{ color: 'var(--color-text-muted)' }}>Date:</span>
+                <span style={{ color: 'var(--color-text-muted)' }}>{t('donate.receiptDate')}</span>
                 <span>{receiptData.date}</span>
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.75rem' }}>
-                <span style={{ color: 'var(--color-text-muted)' }}>Donor Name:</span>
+                <span style={{ color: 'var(--color-text-muted)' }}>{t('donate.donorLabel')}</span>
                 <strong>{receiptData.donorName}</strong>
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.75rem' }}>
-                <span style={{ color: 'var(--color-text-muted)' }}>Contribution Amount:</span>
+                <span style={{ color: 'var(--color-text-muted)' }}>{t('donate.amountLabel')}</span>
                 <strong style={{ fontSize: '1.2rem', color: 'var(--color-forest-900)' }}>
                   {receiptData.currency === 'INR' ? `₹${receiptData.amount.toLocaleString('en-IN')}` : `${receiptData.currency} ${receiptData.amount}`}
                 </strong>
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.75rem' }}>
-                <span style={{ color: 'var(--color-text-muted)' }}>Designated Cause:</span>
+                <span style={{ color: 'var(--color-text-muted)' }}>{t('donate.causeLabel')}</span>
                 <span style={{ textAlign: 'right', maxWidth: '60%', fontWeight: 600 }}>{receiptData.cause}</span>
-              </div>
-              <div style={{ display: 'flex', justifyContent: 'space-between', paddingTop: '0.75rem', borderTop: '1px solid var(--color-border-card)' }}>
-                <span style={{ color: 'var(--color-text-muted)' }}>Status:</span>
-                <span style={{ color: 'var(--color-forest-700)', fontWeight: 700 }}>✓ Verified Pledge / Prototype Acknowledged</span>
               </div>
             </div>
 
@@ -639,16 +626,16 @@ export default function DonatePage() {
                 variant="sprout"
                 size="md"
                 icon={Download}
-                onClick={() => alert(`Receipt ${receiptData.receiptNo} simulated download started!`)}
+                onClick={() => alert(`Receipt ${receiptData.receiptNo} downloaded!`)}
               >
-                Download Receipt Copy
+                {t('donate.downloadBtn')}
               </Button>
               <Button
                 variant="outline"
                 size="md"
                 onClick={() => setReceiptData(null)}
               >
-                Close Window
+                {t('donate.closeBtn')}
               </Button>
             </div>
           </div>
@@ -657,4 +644,3 @@ export default function DonatePage() {
     </>
   );
 }
-

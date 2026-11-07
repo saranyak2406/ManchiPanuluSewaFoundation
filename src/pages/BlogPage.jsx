@@ -2,24 +2,26 @@ import React, { useState, useMemo } from 'react';
 import { BookOpen, Search, Clock, Calendar, User, ArrowRight, Tag } from 'lucide-react';
 import BlogModal from '../components/BlogModal';
 import Button from '../components/Button';
-import { blogData } from '../data/blogData';
+import { getBlogData } from '../data/blogData';
 import { useLanguage } from '../context/LanguageContext';
 
 export default function BlogPage() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const currentArticles = getBlogData(language);
+
   const [activeCategory, setActiveCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedArticle, setSelectedArticle] = useState(null);
 
   const categories = [
-    { label: 'All Articles', value: 'All' },
-    { label: 'VrukshaSewa (Afforestation)', value: 'VrukshaSewa' },
-    { label: 'Social Sewa', value: 'Sewa' },
-    { label: 'Environmental Service', value: 'Environment' }
+    { label: t('blog.allArticles'), value: 'All' },
+    { label: t('blog.catVruksha'), value: 'VrukshaSewa' },
+    { label: t('blog.catSewa'), value: 'Sewa' },
+    { label: t('blog.catEnv'), value: 'Environment' }
   ];
 
   const filteredArticles = useMemo(() => {
-    return blogData.filter((article) => {
+    return currentArticles.filter((article) => {
       const matchesCategory =
         activeCategory === 'All' ||
         article.category === activeCategory ||
@@ -32,7 +34,7 @@ export default function BlogPage() {
 
       return matchesCategory && matchesSearch;
     });
-  }, [activeCategory, searchQuery]);
+  }, [currentArticles, activeCategory, searchQuery]);
 
   return (
     <>
@@ -42,14 +44,14 @@ export default function BlogPage() {
           <div className="page-hero-inner-unboxed">
             <div className="page-hero-eyebrow">
               <BookOpen size={16} />
-              <span>{t('home.blogBadge')}</span>
+              <span>{t('blog.badge')}</span>
             </div>
             <h1 className="page-hero-title-exact">
-              {t('home.blogTitle')}
+              {t('blog.heroTitle')}
             </h1>
             <div className="page-hero-accent-line"></div>
             <p className="page-hero-desc-exact">
-              {t('home.blogSubtitle')}
+              {t('blog.heroDesc')}
             </p>
           </div>
         </div>
@@ -80,7 +82,7 @@ export default function BlogPage() {
               <Search size={18} style={{ color: 'var(--color-forest-700)' }} />
               <input
                 type="text"
-                placeholder="Search articles by title, topic, or tags..."
+                placeholder={t('blog.searchPlaceholder')}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 style={{
@@ -97,19 +99,19 @@ export default function BlogPage() {
                   onClick={() => setSearchQuery('')}
                   style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)', fontWeight: 600 }}
                 >
-                  Clear
+                  {t('projects.clear')}
                 </button>
               )}
             </div>
 
-            {/* Category Pills */}
+            {/* Category Filter Pills */}
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
               {categories.map((cat) => (
                 <button
                   key={cat.value}
                   type="button"
-                  onClick={() => setActiveCategory(cat.value)}
                   className={`filter-pill ${activeCategory === cat.value ? 'active' : ''}`}
+                  onClick={() => setActiveCategory(cat.value)}
                 >
                   {cat.label}
                 </button>
@@ -119,124 +121,59 @@ export default function BlogPage() {
         </div>
       </section>
 
-      {/* Blog Cards Grid */}
-      <section className="section section-sage" style={{ paddingTop: '1rem' }}>
+      {/* Articles Grid */}
+      <section className="section section-sage" style={{ paddingTop: '1.5rem' }}>
         <div className="container">
-          {filteredArticles.length === 0 ? (
-            <div style={{
-              textAlign: 'center',
-              padding: '4rem 2rem',
-              backgroundColor: '#FFFFFF',
-              borderRadius: 'var(--radius-xl)',
-              border: '1px solid var(--color-border-card)'
-            }}>
-              <BookOpen size={44} style={{ color: 'var(--color-forest-600)', margin: '0 auto 1rem auto' }} />
-              <h3 style={{ color: 'var(--color-forest-900)', marginBottom: '0.5rem' }}>No articles found</h3>
-              <p style={{ color: 'var(--color-text-muted)', marginBottom: '1.5rem' }}>
-                Try adjusting your search terms or selecting another category.
-              </p>
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() => {
-                  setActiveCategory('All');
-                  setSearchQuery('');
-                }}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
+            gap: '1.75rem'
+          }}>
+            {filteredArticles.map((article) => (
+              <article
+                key={article.id}
+                className="blog-card"
+                onClick={() => setSelectedArticle(article)}
+                style={{ cursor: 'pointer' }}
               >
-                Reset Search
-              </Button>
-            </div>
-          ) : (
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
-              gap: '1.75rem'
-            }}>
-              {filteredArticles.map((article) => (
-                <div
-                  key={article.id}
-                  style={{
-                    backgroundColor: '#FFFFFF',
-                    borderRadius: 'var(--radius-lg)',
-                    overflow: 'hidden',
-                    border: '1px solid var(--color-border-card)',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    cursor: 'pointer',
-                    boxShadow: 'var(--shadow-sm)',
-                    transition: 'transform var(--transition-normal), box-shadow var(--transition-normal)'
-                  }}
-                  onClick={() => setSelectedArticle(article)}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = 'translateY(-6px)';
-                    e.currentTarget.style.boxShadow = 'var(--shadow-md)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = 'translateY(0)';
-                    e.currentTarget.style.boxShadow = 'var(--shadow-sm)';
-                  }}
-                >
-                  <div style={{ height: '220px', overflow: 'hidden' }}>
-                    <img
-                      src={article.image}
-                      alt={article.title}
-                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                      loading="lazy"
-                    />
+                <div className="blog-thumb-wrap">
+                  <img src={article.image} alt={article.title} loading="lazy" />
+                  <span className="blog-category-tag">{article.categoryLabel}</span>
+                </div>
+
+                <div className="blog-card-body">
+                  <div className="blog-meta-row">
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                      <Calendar size={14} />
+                      <span>{article.date}</span>
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                      <Clock size={14} />
+                      <span>{article.readTime}</span>
+                    </div>
                   </div>
 
-                  <div style={{ padding: '1.75rem', display: 'flex', flex: 1, flexDirection: 'column' }}>
-                    <div style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'space-between',
-                      marginBottom: '0.6rem'
-                    }}>
-                      <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--color-forest-600)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
-                        {article.categoryLabel}
-                      </span>
-                      <span style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)', display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
-                        <Clock size={12} />
-                        {article.readTime}
-                      </span>
-                    </div>
+                  <h3 className="blog-card-title">{article.title}</h3>
+                  <p className="blog-card-excerpt">{article.excerpt}</p>
 
-                    <h3 style={{ fontSize: '1.35rem', color: 'var(--color-forest-900)', marginBottom: '0.75rem', lineHeight: '1.3' }}>
-                      {article.title}
-                    </h3>
+                  <div className="blog-tags-row">
+                    {article.tags.slice(0, 2).map((tag, idx) => (
+                      <span key={idx} className="blog-tag">#{tag}</span>
+                    ))}
+                  </div>
 
-                    <p style={{ fontSize: '0.92rem', color: 'var(--color-text-muted)', lineHeight: '1.6', marginBottom: '1.25rem', flex: 1 }}>
-                      {article.excerpt}
-                    </p>
-
-                    <div style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'space-between',
-                      paddingTop: '1rem',
-                      borderTop: '1px solid var(--color-border-subtle)',
-                      fontSize: '0.85rem',
-                      fontWeight: 600,
-                      color: 'var(--color-forest-800)'
-                    }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: 'var(--color-text-muted)', fontSize: '0.8rem' }}>
-                        <Calendar size={13} />
-                        <span>{article.date}</span>
-                      </div>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.3rem', color: 'var(--color-forest-700)' }}>
-                        <span>Read Full Story</span>
-                        <ArrowRight size={15} />
-                      </div>
-                    </div>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: '1rem', borderTop: '1px solid var(--color-border-card)', color: 'var(--color-forest-700)', fontWeight: 600, fontSize: '0.88rem' }}>
+                    <span>{t('blog.readArticle')}</span>
+                    <ArrowRight size={16} />
                   </div>
                 </div>
-              ))}
-            </div>
-          )}
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Blog Article Reader Modal */}
+      {/* Blog Detail Modal */}
       <BlogModal
         article={selectedArticle}
         onClose={() => setSelectedArticle(null)}
@@ -244,4 +181,3 @@ export default function BlogPage() {
     </>
   );
 }
-

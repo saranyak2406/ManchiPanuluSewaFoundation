@@ -1,8 +1,11 @@
 import React, { useEffect } from 'react';
 import { X, MapPin, Users, Target, CheckCircle2, Heart, ArrowRight } from 'lucide-react';
 import Button from './Button';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function ProjectDetailModal({ project, onClose }) {
+  const { t } = useLanguage();
+
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') onClose();
@@ -16,7 +19,7 @@ export default function ProjectDetailModal({ project, onClose }) {
   return (
     <div className="modal-overlay" onClick={onClose} role="dialog" aria-modal="true">
       <div className="modal-card" style={{ maxWidth: '780px', padding: 0 }} onClick={(e) => e.stopPropagation()}>
-        <button className="modal-close-btn" style={{ zIndex: 10 }} onClick={onClose} aria-label="Close modal">
+        <button className="modal-close-btn" style={{ zIndex: 10 }} onClick={onClose} aria-label={t('projects.closeBtn')}>
           <X size={20} />
         </button>
 
@@ -68,7 +71,7 @@ export default function ProjectDetailModal({ project, onClose }) {
           </p>
 
           <h4 style={{ fontSize: '1.15rem', color: 'var(--color-forest-900)', marginBottom: '1rem' }}>
-            Key Strategic Highlights
+            {t('projects.highlightsLabel')}
           </h4>
           <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem', marginBottom: '2rem' }}>
             {project.keyHighlights.map((highlight, idx) => (
@@ -91,22 +94,22 @@ export default function ProjectDetailModal({ project, onClose }) {
             gap: '1rem'
           }}>
             <div>
-              <div style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)', fontWeight: 600 }}>Funding Progress (Placeholder)</div>
+              <div style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)', fontWeight: 600 }}>{t('projects.fundsLabel')}</div>
               <div style={{ fontSize: '1.35rem', fontFamily: 'var(--font-heading)', fontWeight: 800, color: 'var(--color-forest-900)' }}>
                 {project.fundsRaised} <span style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', fontWeight: 400 }}>of {project.fundsTarget}</span>
               </div>
             </div>
             <Button to="/donate" variant="sprout" size="sm" icon={Heart}>
-              Sponsor This Project
+              {t('projects.supportProjectBtn')}
             </Button>
           </div>
 
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'flex-end' }}>
             <Button variant="outline" size="md" onClick={onClose}>
-              Close
+              {t('projects.closeBtn')}
             </Button>
             <Button to="/volunteer" variant="primary" size="md" icon={ArrowRight}>
-              Join as Volunteer
+              {t('projects.joinVolunteerBtn')}
             </Button>
           </div>
         </div>
@@ -114,4 +117,3 @@ export default function ProjectDetailModal({ project, onClose }) {
     </div>
   );
 }
-

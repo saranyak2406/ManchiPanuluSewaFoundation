@@ -20,19 +20,19 @@ import StatsCounter from '../components/StatsCounter';
 import ProjectDetailModal from '../components/ProjectDetailModal';
 import BlogModal from '../components/BlogModal';
 import Button from '../components/Button';
-import { projectsData } from '../data/projectsData';
-import { galleryData } from '../data/galleryData';
-import { blogData } from '../data/blogData';
+import { getProjectsData } from '../data/projectsData';
+import { getGalleryData } from '../data/galleryData';
+import { getBlogData } from '../data/blogData';
 import { useLanguage } from '../context/LanguageContext';
 
 export default function HomePage() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [selectedProject, setSelectedProject] = useState(null);
   const [selectedArticle, setSelectedArticle] = useState(null);
 
-  const featuredProjects = projectsData.slice(0, 3);
-  const previewGallery = galleryData.slice(0, 6);
-  const latestArticles = blogData.slice(0, 3);
+  const featuredProjects = getProjectsData(language).slice(0, 3);
+  const previewGallery = getGalleryData(language).slice(0, 6);
+  const latestArticles = getBlogData(language).slice(0, 3);
 
   return (
     <>
@@ -49,12 +49,7 @@ export default function HomePage() {
       {/* 4. About the Foundation Teaser */}
       <section className="section section-white">
         <div className="container">
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr',
-            gap: '3.5rem',
-            alignItems: 'center'
-          }}>
+          <div className="unboxed-flow-wrapper">
             <div style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
@@ -63,33 +58,35 @@ export default function HomePage() {
             }}>
               <div style={{ position: 'relative' }}>
                 <div style={{
-                  borderRadius: 'var(--radius-2xl)',
+                  borderRadius: 'var(--radius-xl)',
                   overflow: 'hidden',
                   boxShadow: 'var(--shadow-lg)',
                   border: '4px solid #FFFFFF'
                 }}>
                   <img
-                    src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=1000&q=80"
-                    alt="Manchi Panulu Sewa Foundation in Action - Vruksha, Manava, Prakruthi & Aashraya Sewa"
-                    style={{ width: '100%', height: 'auto', minHeight: '280px', maxHeight: '460px', objectFit: 'cover' }}
+                    src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1000&q=80"
+                    alt="Manchi Panulu Sewa Foundation Plantation"
+                    style={{ width: '100%', height: '440px', objectFit: 'cover' }}
                   />
                 </div>
+
+                {/* Floating Ethos Quote Card */}
                 <div style={{
                   position: 'absolute',
-                  bottom: '-1rem',
+                  bottom: '-1.5rem',
                   right: '0.5rem',
                   maxWidth: 'calc(100% - 1rem)',
-                  background: 'var(--color-forest-900)',
+                  backgroundColor: 'var(--color-forest-900)',
                   color: '#FFFFFF',
-                  padding: '1.25rem 1.5rem',
+                  padding: '1.25rem 1.75rem',
                   borderRadius: 'var(--radius-lg)',
                   boxShadow: 'var(--shadow-md)'
                 }}>
                   <div style={{ fontSize: '0.8rem', color: 'var(--color-sprout-light)', fontWeight: 700, textTransform: 'uppercase', marginBottom: '0.25rem' }}>
-                    Grassroots Ethos
+                    {t('home.aboutBadge')}
                   </div>
                   <div style={{ fontFamily: 'var(--font-heading)', fontSize: '1.15rem', fontWeight: 800 }}>
-                    "Every seed planted is a prayer for tomorrow."
+                    "{t('home.quote')}"
                   </div>
                 </div>
               </div>
@@ -148,13 +145,13 @@ export default function HomePage() {
           <div className="section-header" style={{ maxWidth: '720px', margin: '0 auto 3rem auto', textAlign: 'center' }}>
             <div className="eyebrow-badge" style={{ margin: '0 auto 0.85rem auto' }}>
               <Sparkles size={14} />
-              <span>Core Mandate</span>
+              <span>{t('home.pillarsBadge')}</span>
             </div>
             <h2 style={{ color: 'var(--color-forest-900)', marginBottom: '1rem', fontSize: 'clamp(2rem, 3.2vw, 2.6rem)' }}>
-              Four Pillars of Dedicated Sewa
+              {t('home.pillarsTitle')}
             </h2>
             <p style={{ color: 'var(--color-forest-700)', fontSize: '1.05rem', lineHeight: '1.6' }}>
-              Rooted in soil, driven by compassion, and committed to ecological rejuvenation and uplifting every vulnerable life.
+              {t('home.pillarsSubtitle')}
             </p>
           </div>
 
@@ -165,68 +162,68 @@ export default function HomePage() {
           }}>
             {/* Pillar 01 */}
             <div className="pillar-home-card">
-              <div className="pillar-home-badge">PILLAR 01 — TREE & NATURE PROTECTION</div>
+              <div className="pillar-home-badge">{t('home.pillar1Badge')}</div>
               <div className="pillar-home-icon-wrap" style={{ background: 'rgba(27, 77, 52, 0.1)', color: '#1B4D34' }}>
                 <Trees size={26} />
               </div>
-              <h3 className="pillar-home-title">Vruksha Sewa</h3>
-              <div className="pillar-home-tagline">Rooting Hope, Greening Tomorrow</div>
+              <h3 className="pillar-home-title">{t('home.pillar1Title')}</h3>
+              <div className="pillar-home-tagline">{t('home.pillar1Tagline')}</div>
               <p className="pillar-home-desc">
-                Dedicated to afforestation, indigenous tree plantation, sapling distribution, and nurturing green landscapes.
+                {t('home.pillar1Desc')}
               </p>
               <Link to="/services#vrukshasewa" className="pillar-home-link">
-                <span>Explore Pillar</span>
+                <span>{t('home.explorePillar')}</span>
                 <ArrowRight size={15} />
               </Link>
             </div>
 
             {/* Pillar 02 */}
             <div className="pillar-home-card">
-              <div className="pillar-home-badge">PILLAR 02 — HUMANITARIAN & SOCIAL SERVICE</div>
+              <div className="pillar-home-badge">{t('home.pillar2Badge')}</div>
               <div className="pillar-home-icon-wrap" style={{ background: 'rgba(44, 74, 56, 0.1)', color: '#2C4A38' }}>
                 <Heart size={26} />
               </div>
-              <h3 className="pillar-home-title">Manava Sewa</h3>
-              <div className="pillar-home-tagline">Compassion in Action, Humanity at Heart</div>
+              <h3 className="pillar-home-title">{t('home.pillar2Title')}</h3>
+              <div className="pillar-home-tagline">{t('home.pillar2Tagline')}</div>
               <p className="pillar-home-desc">
-                Providing nutritious meals, clothing, educational assistance, disaster relief, and compassionate support for elderly and vulnerable individuals.
+                {t('home.pillar2Desc')}
               </p>
               <Link to="/services#manava-sewa" className="pillar-home-link">
-                <span>Explore Pillar</span>
+                <span>{t('home.explorePillar')}</span>
                 <ArrowRight size={15} />
               </Link>
             </div>
 
             {/* Pillar 03 */}
             <div className="pillar-home-card">
-              <div className="pillar-home-badge">PILLAR 03 — ENVIRONMENTAL CONSERVATION</div>
+              <div className="pillar-home-badge">{t('home.pillar3Badge')}</div>
               <div className="pillar-home-icon-wrap" style={{ background: 'rgba(24, 61, 47, 0.1)', color: '#183D2F' }}>
                 <Globe size={26} />
               </div>
-              <h3 className="pillar-home-title">Prakruthi Sewa</h3>
-              <div className="pillar-home-tagline">Restoring Nature, Sustaining Life</div>
+              <h3 className="pillar-home-title">{t('home.pillar3Title')}</h3>
+              <div className="pillar-home-tagline">{t('home.pillar3Tagline')}</div>
               <p className="pillar-home-desc">
-                Revitalizing water bodies, organizing cleanliness drives, reducing plastic pollution, and promoting sustainable, zero-waste communities.
+                {t('home.pillar3Desc')}
               </p>
               <Link to="/services#prakruthi-sewa" className="pillar-home-link">
-                <span>Explore Pillar</span>
+                <span>{t('home.explorePillar')}</span>
                 <ArrowRight size={15} />
               </Link>
             </div>
 
             {/* Pillar 04 */}
             <div className="pillar-home-card">
-              <div className="pillar-home-badge">PILLAR 04 — POVERTY RELIEF & EMPOWERMENT</div>
+              <div className="pillar-home-badge">{t('home.pillar4Badge')}</div>
               <div className="pillar-home-icon-wrap" style={{ background: 'rgba(30, 59, 47, 0.1)', color: '#1E3B2F' }}>
                 <Users size={26} />
               </div>
-              <h3 className="pillar-home-title">Aashraya Sewa</h3>
-              <div className="pillar-home-tagline">Restoring Dignity, Empowering Lives</div>
+              <h3 className="pillar-home-title">{t('home.pillar4Title')}</h3>
+              <div className="pillar-home-tagline">{t('home.pillar4Tagline')}</div>
               <p className="pillar-home-desc">
-                Supporting economically disadvantaged families through essential supplies, emergency medical assistance, livelihood opportunities, and self-reliance initiatives.
+                {t('home.pillar4Desc')}
               </p>
               <Link to="/services#aashraya-sewa" className="pillar-home-link">
-                <span>Explore Pillar</span>
+                <span>{t('home.explorePillar')}</span>
                 <ArrowRight size={15} />
               </Link>
             </div>
@@ -240,11 +237,11 @@ export default function HomePage() {
           <div className="section-header">
             <div className="eyebrow-badge">
               <Trees size={14} />
-              <span>Ground Action</span>
+              <span>{t('home.projectsBadge')}</span>
             </div>
-            <h2 className="section-title">Our Ongoing & Completed Projects</h2>
+            <h2 className="section-title">{t('home.projectsTitle')}</h2>
             <p className="section-subtitle">
-              From restoring depleted urban water tanks to planting micro-forests, explore how our volunteers turn intention into enduring reality.
+              {t('home.projectsSubtitle')}
             </p>
           </div>
 
@@ -264,7 +261,7 @@ export default function HomePage() {
 
           <div style={{ textAlign: 'center', marginTop: '3.5rem' }}>
             <Button to="/projects" variant="primary" size="lg" icon={ArrowRight}>
-              View All Ongoing & Completed Projects
+              {t('home.viewAllProjects')}
             </Button>
           </div>
         </div>
@@ -276,11 +273,11 @@ export default function HomePage() {
           <div className="section-header">
             <div className="eyebrow-badge">
               <Eye size={14} />
-              <span>Visual Archive</span>
+              <span>{t('home.galleryBadge')}</span>
             </div>
-            <h2 className="section-title">Moments of Sewa in Action</h2>
+            <h2 className="section-title">{t('home.galleryTitle')}</h2>
             <p className="section-subtitle">
-              A glimpse into weekend plantations, community meal circles, lake desilting drives, and environmental youth workshops.
+              {t('home.gallerySubtitle')}
             </p>
           </div>
 
@@ -299,7 +296,7 @@ export default function HomePage() {
 
           <div style={{ textAlign: 'center', marginTop: '3rem' }}>
             <Button to="/gallery" variant="outline" size="md" icon={ArrowRight}>
-              Explore Full Photo & Video Gallery
+              {t('home.exploreGallery')}
             </Button>
           </div>
         </div>
@@ -311,11 +308,11 @@ export default function HomePage() {
           <div className="section-header">
             <div className="eyebrow-badge">
               <Sparkles size={14} />
-              <span>Wisdom & Guides</span>
+              <span>{t('home.blogBadge')}</span>
             </div>
-            <h2 className="section-title">Stories, Perspectives & Eco-Knowledge</h2>
+            <h2 className="section-title">{t('home.blogTitle')}</h2>
             <p className="section-subtitle">
-              Read insights on indigenous tree cultivation, community hunger alleviation models, and practical environmental stewardship.
+              {t('home.blogSubtitle')}
             </p>
           </div>
 
@@ -365,7 +362,7 @@ export default function HomePage() {
                     {article.excerpt}
                   </p>
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: '1rem', borderTop: '1px solid var(--color-border-subtle)', fontSize: '0.85rem', fontWeight: 600, color: 'var(--color-forest-700)' }}>
-                    <span>Read Article</span>
+                    <span>{t('home.readArticle')}</span>
                     <ArrowRight size={16} />
                   </div>
                 </div>
@@ -375,7 +372,7 @@ export default function HomePage() {
 
           <div style={{ textAlign: 'center', marginTop: '3rem' }}>
             <Button to="/blog" variant="outline" size="md" icon={ArrowRight}>
-              Read All Articles
+              {t('home.readAllArticles')}
             </Button>
           </div>
         </div>
@@ -387,20 +384,20 @@ export default function HomePage() {
           <div style={{ maxWidth: '820px', margin: '0 auto', textAlign: 'center' }}>
             <div className="eyebrow-badge">
               <Heart size={14} />
-              <span>Step Forward in Sewa</span>
+              <span>{t('home.ctaBadge')}</span>
             </div>
             <h2 style={{ color: '#FFFFFF', marginBottom: '1.5rem' }}>
-              Your Good Deed Today Can Seed a Flourishing Tomorrow
+              {t('home.ctaTitle')}
             </h2>
             <p style={{ color: 'var(--color-text-light-muted)', fontSize: '1.2rem', lineHeight: '1.7', marginBottom: '2.5rem' }}>
-              Whether you plant a sapling, sponsor wholesome meals for hospital attendants, or lend your voice to environmental conservation — every hand matters.
+              {t('home.ctaDesc')}
             </p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.25rem', justifyContent: 'center' }}>
               <Button to="/volunteer" variant="sprout" size="lg" icon={Users}>
-                Register as a Volunteer
+                {t('home.ctaVolunteerBtn')}
               </Button>
               <Button to="/donate" variant="gold" size="lg" icon={Heart}>
-                Make a Contribution
+                {t('home.ctaDonateBtn')}
               </Button>
             </div>
           </div>
@@ -420,4 +417,3 @@ export default function HomePage() {
     </>
   );
 }
-

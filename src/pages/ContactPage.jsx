@@ -13,11 +13,13 @@ import {
 } from 'lucide-react';
 import Button from '../components/Button';
 import { complianceInfo } from '../data/statsData';
-import { faqData } from '../data/faqData';
+import { getFaqData } from '../data/faqData';
 import { useLanguage } from '../context/LanguageContext';
 
 export default function ContactPage() {
   const { t, language } = useLanguage();
+  const currentFaqs = getFaqData(language);
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -37,14 +39,14 @@ export default function ContactPage() {
   const validate = () => {
     const errs = {};
     if (!formData.name.trim() || formData.name.trim().length < 2) {
-      errs.name = 'Please provide your full name';
+      errs.name = t('contact.errName');
     }
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!formData.email.trim() || !emailRegex.test(formData.email.trim())) {
-      errs.email = 'Please provide a valid email address';
+      errs.email = t('contact.errEmail');
     }
     if (!formData.message.trim() || formData.message.trim().length < 10) {
-      errs.message = 'Please provide a message with at least 10 characters';
+      errs.message = t('contact.errMessage');
     }
     return errs;
   };
@@ -99,13 +101,13 @@ export default function ContactPage() {
             <div>
               <div className="eyebrow-badge">
                 <MessageSquare size={14} />
-                <span>Foundation Coordination Hub</span>
+                <span>{t('contact.hubBadge')}</span>
               </div>
               <h2 style={{ color: 'var(--color-forest-900)', marginBottom: '1.25rem' }}>
-                Connect Directly with Our Sewa Desk
+                {t('contact.hubTitle')}
               </h2>
               <p style={{ lineHeight: '1.7', color: 'var(--color-text-muted)', marginBottom: '2.5rem' }}>
-                Whether you are an individual wanting to volunteer, a school coordinating an environmental rally, or a family sponsoring a meal drive, our dedicated coordinators are ready to support.
+                {t('contact.hubDesc')}
               </p>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', marginBottom: '2.5rem' }}>
@@ -122,7 +124,7 @@ export default function ContactPage() {
                     <MapPin size={22} />
                   </div>
                   <div>
-                    <h4 style={{ fontSize: '1.05rem', color: 'var(--color-forest-900)', marginBottom: '0.25rem' }}>Registered Office Address (Placeholder)</h4>
+                    <h4 style={{ fontSize: '1.05rem', color: 'var(--color-forest-900)', marginBottom: '0.25rem' }}>{t('contact.officeTitle')}</h4>
                     <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', lineHeight: '1.5' }}>
                       {complianceInfo.officeAddress}
                     </p>
@@ -142,7 +144,7 @@ export default function ContactPage() {
                     <Phone size={22} />
                   </div>
                   <div>
-                    <h4 style={{ fontSize: '1.05rem', color: 'var(--color-forest-900)', marginBottom: '0.25rem' }}>Volunteer & Sewa Helpline (Placeholder)</h4>
+                    <h4 style={{ fontSize: '1.05rem', color: 'var(--color-forest-900)', marginBottom: '0.25rem' }}>{t('contact.helplineTitle')}</h4>
                     <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)' }}>
                       {complianceInfo.helplinePhone}
                     </p>
@@ -162,7 +164,7 @@ export default function ContactPage() {
                     <Mail size={22} />
                   </div>
                   <div>
-                    <h4 style={{ fontSize: '1.05rem', color: 'var(--color-forest-900)', marginBottom: '0.25rem' }}>Official Inquiries Email</h4>
+                    <h4 style={{ fontSize: '1.05rem', color: 'var(--color-forest-900)', marginBottom: '0.25rem' }}>{t('contact.emailTitle')}</h4>
                     <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)' }}>
                       {complianceInfo.officialEmail}
                     </p>
@@ -182,7 +184,7 @@ export default function ContactPage() {
                     <Clock size={22} />
                   </div>
                   <div>
-                    <h4 style={{ fontSize: '1.05rem', color: 'var(--color-forest-900)', marginBottom: '0.25rem' }}>Operating Hours</h4>
+                    <h4 style={{ fontSize: '1.05rem', color: 'var(--color-forest-900)', marginBottom: '0.25rem' }}>{t('contact.hoursTitle')}</h4>
                     <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)' }}>
                       {complianceInfo.workingHours}
                     </p>
@@ -216,10 +218,10 @@ export default function ContactPage() {
                       <CheckCircle2 size={36} />
                     </div>
                     <h3 style={{ fontSize: '1.75rem', color: 'var(--color-forest-900)', marginBottom: '0.5rem' }}>
-                      Message Received!
+                      {t('contact.successTitle')}
                     </h3>
                     <p style={{ fontSize: '0.95rem', color: 'var(--color-text-muted)', lineHeight: '1.7', marginBottom: '2rem' }}>
-                      Thank you, <strong>{formData.name}</strong>. Your inquiry regarding "{formData.subject}" has been successfully dispatched to our team. We will get back to you within 24 to 48 hours.
+                      {t('contact.successDesc')}
                     </p>
                     <Button
                       variant="primary"
@@ -235,83 +237,83 @@ export default function ContactPage() {
                         });
                       }}
                     >
-                      Send Another Message
+                      {t('contact.sendAnotherBtn')}
                     </Button>
                   </div>
                 ) : (
                   <>
                     <h3 style={{ fontSize: '1.65rem', color: 'var(--color-forest-900)', marginBottom: '0.4rem' }}>
-                      Send Us a Direct Message
+                      {t('contact.formTitle')}
                     </h3>
                     <p style={{ fontSize: '0.92rem', color: 'var(--color-text-muted)', marginBottom: '1.75rem' }}>
-                      Please fill out this form and our desk will respond promptly.
+                      {t('contact.formSubtitle')}
                     </p>
 
                     <form onSubmit={handleSubmit} noValidate>
                       <div className="form-group">
-                        <label className="form-label">Full Name *</label>
+                        <label className="form-label">{t('contact.formName')}</label>
                         <input
                           type="text"
                           required
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                           className={`form-input ${errors.name ? 'has-error' : ''}`}
-                          placeholder="e.g. Anjali Sharma"
+                          placeholder={t('contact.formNamePlaceholder')}
                         />
                         {errors.name && <span className="form-error-msg">{errors.name}</span>}
                       </div>
 
                       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 180px), 1fr))', gap: '1rem' }}>
                         <div className="form-group">
-                          <label className="form-label">Email Address *</label>
+                          <label className="form-label">{t('contact.formEmail')}</label>
                           <input
                             type="email"
                             required
                             value={formData.email}
                             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                             className={`form-input ${errors.email ? 'has-error' : ''}`}
-                            placeholder="name@example.com"
+                            placeholder={t('contact.formEmailPlaceholder')}
                           />
                           {errors.email && <span className="form-error-msg">{errors.email}</span>}
                         </div>
 
                         <div className="form-group">
-                          <label className="form-label">Mobile Number</label>
+                          <label className="form-label">{t('contact.formPhone')}</label>
                           <input
                             type="tel"
                             value={formData.phone}
                             onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                             className="form-input"
-                            placeholder="+91 98765 XXXXX"
+                            placeholder={t('contact.formPhonePlaceholder')}
                           />
                         </div>
                       </div>
 
                       <div className="form-group">
-                        <label className="form-label">Subject / Purpose of Contact</label>
+                        <label className="form-label">{t('contact.formSubject')}</label>
                         <select
                           value={formData.subject}
                           onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                           className="form-select"
                         >
-                          <option value="General Inquiry">General Inquiry</option>
-                          <option value="Tree Plantation Partnership">Tree Plantation & Afforestation Partnership</option>
-                          <option value="Hospital Food Sewa Sponsorship">Hospital Food Sewa Sponsorship (Annadhanam)</option>
-                          <option value="Lake Cleanup & Water Conservation">Lake Cleanup & Waterbody Initiative</option>
-                          <option value="Volunteer Coordination">Volunteer Coordination</option>
-                          <option value="CSR & Institutional Collaboration">CSR & Institutional Collaboration</option>
+                          <option value="General Inquiry">{t('contact.optGeneral')}</option>
+                          <option value="Tree Plantation Partnership">{t('contact.optTree')}</option>
+                          <option value="Hospital Food Sewa Sponsorship">{t('contact.optFood')}</option>
+                          <option value="Lake Cleanup & Water Conservation">{t('contact.optWater')}</option>
+                          <option value="Volunteer Coordination">{t('contact.optVolunteer')}</option>
+                          <option value="CSR & Institutional Collaboration">{t('contact.optCsr')}</option>
                         </select>
                       </div>
 
                       <div className="form-group">
-                        <label className="form-label">Your Message *</label>
+                        <label className="form-label">{t('contact.formMessage')}</label>
                         <textarea
                           rows="4"
                           required
                           value={formData.message}
                           onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                           className={`form-textarea ${errors.message ? 'has-error' : ''}`}
-                          placeholder="How can we assist you or collaborate with you?"
+                          placeholder={t('contact.formMessagePlaceholder')}
                         ></textarea>
                         {errors.message && <span className="form-error-msg">{errors.message}</span>}
                       </div>
@@ -323,7 +325,7 @@ export default function ContactPage() {
                         icon={Send}
                         style={{ width: '100%', marginTop: '0.75rem' }}
                       >
-                        Send Message
+                        {t('contact.sendBtn')}
                       </Button>
                     </form>
                   </>
@@ -340,16 +342,16 @@ export default function ContactPage() {
           <div className="section-header">
             <div className="eyebrow-badge">
               <HelpCircle size={14} />
-              <span>Common Questions</span>
+              <span>{t('contact.faqBadge')}</span>
             </div>
-            <h2 className="section-title">Frequently Asked Questions</h2>
+            <h2 className="section-title">{t('contact.faqTitle')}</h2>
             <p className="section-subtitle">
-              Clear answers regarding our operations, financial transparency, sapling monitoring, and volunteer commitments.
+              {t('contact.faqSubtitle')}
             </p>
           </div>
 
           <div className="faq-accordion">
-            {faqData.map((faq, idx) => (
+            {currentFaqs.map((faq, idx) => (
               <div
                 key={idx}
                 className={`faq-item ${openFaqIndex === idx ? 'open' : ''}`}
@@ -380,4 +382,3 @@ export default function ContactPage() {
     </>
   );
 }
-

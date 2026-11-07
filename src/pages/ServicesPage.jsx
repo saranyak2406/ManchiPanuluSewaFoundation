@@ -18,7 +18,7 @@ import {
   HelpCircle
 } from 'lucide-react';
 import Button from '../components/Button';
-import { servicesData } from '../data/servicesData';
+import { getServicesData } from '../data/servicesData';
 import { useLanguage } from '../context/LanguageContext';
 
 const iconMap = {
@@ -37,7 +37,9 @@ const iconMap = {
 };
 
 export default function ServicesPage() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const currentServices = getServicesData(language);
+
   const [requestFormOpen, setRequestFormOpen] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formData, setFormData] = useState({
@@ -74,21 +76,21 @@ export default function ServicesPage() {
           <div className="page-hero-inner-unboxed">
             <div className="page-hero-eyebrow">
               <Trees size={16} />
-              <span>{t('nav.services')}</span>
+              <span>{t('services.badge')}</span>
             </div>
             <h1 className="page-hero-title-exact">
-              Four Pillars of<br className="hidden-mobile-br" /> Dedicated Sewa
+              {t('services.heroTitle')}
             </h1>
             <div className="page-hero-accent-line"></div>
             <p className="page-hero-desc-exact">
-              Holistic community action structured across four dedicated pillars: Vruksha Sewa, Manava Sewa, Prakruthi Sewa, and Aashraya Sewa.
+              {t('services.heroDesc')}
             </p>
           </div>
         </div>
       </section>
 
-      {/* Deep-Dive into the 3 Pillars */}
-      {servicesData.map((service, index) => {
+      {/* Deep-Dive into the 4 Pillars */}
+      {currentServices.map((service, index) => {
         const isReversed = index % 2 !== 0;
 
         return (
@@ -121,7 +123,7 @@ export default function ServicesPage() {
                   </p>
                   <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
                     <Button to="/donate" variant="sprout" size="md">
-                      Sponsor This Pillar
+                      {t('donate.badge')}
                     </Button>
                     <button
                       type="button"
@@ -131,7 +133,7 @@ export default function ServicesPage() {
                         setRequestFormOpen(true);
                       }}
                     >
-                      Request In Your Area
+                      {t('services.requestSupportBtn')}
                     </button>
                   </div>
                 </div>
@@ -225,11 +227,11 @@ export default function ServicesPage() {
           <div className="section-header">
             <div className="eyebrow-badge">
               <Sparkles size={14} />
-              <span>How We Execute</span>
+              <span>{t('services.howWeWorkBadge')}</span>
             </div>
-            <h2 className="section-title" style={{ color: '#FFFFFF' }}>Our 4-Stage Grassroots Framework</h2>
+            <h2 className="section-title" style={{ color: '#FFFFFF' }}>{t('services.howWeWorkTitle')}</h2>
             <p className="section-subtitle" style={{ color: 'var(--color-text-light-muted)' }}>
-              From initial need verification to multi-year stewardship, every project follows a disciplined process.
+              {t('services.howWeWorkSubtitle')}
             </p>
           </div>
 
@@ -254,9 +256,9 @@ export default function ServicesPage() {
               }}>
                 01
               </div>
-              <h4 style={{ color: '#FFFFFF', marginBottom: '0.5rem' }}>Need Assessment</h4>
+              <h4 style={{ color: '#FFFFFF', marginBottom: '0.5rem' }}>{t('services.step1Title')}</h4>
               <p style={{ fontSize: '0.88rem', color: 'var(--color-text-light-muted)' }}>
-                Field surveys mapping soil condition, patient queues at hospitals, or waste accumulation along waterbodies.
+                {t('services.step1Desc')}
               </p>
             </div>
 
@@ -276,9 +278,9 @@ export default function ServicesPage() {
               }}>
                 02
               </div>
-              <h4 style={{ color: '#FFFFFF', marginBottom: '0.5rem' }}>Community Mobilization</h4>
+              <h4 style={{ color: '#FFFFFF', marginBottom: '0.5rem' }}>{t('services.step2Title')}</h4>
               <p style={{ fontSize: '0.88rem', color: 'var(--color-text-light-muted)' }}>
-                Engaging local school eco-clubs, neighborhood elders, and passionate volunteers to ensure mutual co-ownership.
+                {t('services.step2Desc')}
               </p>
             </div>
 
@@ -298,9 +300,9 @@ export default function ServicesPage() {
               }}>
                 03
               </div>
-              <h4 style={{ color: '#FFFFFF', marginBottom: '0.5rem' }}>Disciplined Action</h4>
+              <h4 style={{ color: '#FFFFFF', marginBottom: '0.5rem' }}>{t('services.step3Title')}</h4>
               <p style={{ fontSize: '0.88rem', color: 'var(--color-text-light-muted)' }}>
-                Procuring indigenous saplings, hygienic kitchen cooking, and specialized safety gear for systematic execution.
+                {t('services.step3Desc')}
               </p>
             </div>
 
@@ -320,9 +322,9 @@ export default function ServicesPage() {
               }}>
                 04
               </div>
-              <h4 style={{ color: '#FFFFFF', marginBottom: '0.5rem' }}>Long-Term Monitoring</h4>
+              <h4 style={{ color: '#FFFFFF', marginBottom: '0.5rem' }}>{t('services.step4Title')}</h4>
               <p style={{ fontSize: '0.88rem', color: 'var(--color-text-light-muted)' }}>
-                Post-plantation sapling audits for 36 months and consistent water quality tracking with transparent community logs.
+                {t('services.step4Desc')}
               </p>
             </div>
           </div>
@@ -338,10 +340,10 @@ export default function ServicesPage() {
             </button>
 
             <h3 style={{ fontSize: '1.6rem', color: 'var(--color-forest-900)', marginBottom: '0.5rem' }}>
-              Request Sewa in Your Neighborhood
+              {t('services.modalTitle')}
             </h3>
             <p style={{ fontSize: '0.92rem', color: 'var(--color-text-muted)', marginBottom: '1.5rem' }}>
-              Know an area that desperately needs tree plantation, a hospital perimeter requiring food relief, or an abandoned pond needing revival? Tell us!
+              {t('services.modalSubtitle')}
             </p>
 
             {formSubmitted ? (
@@ -354,15 +356,15 @@ export default function ServicesPage() {
                 color: 'var(--color-forest-900)'
               }}>
                 <CheckCircle2 size={42} style={{ color: 'var(--color-forest-700)', marginBottom: '0.75rem' }} />
-                <h4 style={{ marginBottom: '0.5rem' }}>Request Received!</h4>
+                <h4 style={{ marginBottom: '0.5rem' }}>{t('services.modalSuccessTitle')}</h4>
                 <p style={{ fontSize: '0.92rem', color: 'var(--color-text-muted)' }}>
-                  Thank you! Our volunteer field coordinator will review the location details and reach out to you within 48 hours.
+                  {t('services.modalSuccessDesc')}
                 </p>
               </div>
             ) : (
               <form onSubmit={handleRequestSubmit}>
                 <div className="form-group">
-                  <label className="form-label">Your Full Name *</label>
+                  <label className="form-label">{t('services.modalName')}</label>
                   <input
                     type="text"
                     required
@@ -375,7 +377,7 @@ export default function ServicesPage() {
 
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem' }}>
                   <div className="form-group">
-                    <label className="form-label">Phone Number *</label>
+                    <label className="form-label">{t('services.modalPhone')}</label>
                     <input
                       type="tel"
                       required
@@ -386,7 +388,7 @@ export default function ServicesPage() {
                     />
                   </div>
                   <div className="form-group">
-                    <label className="form-label">Email Address</label>
+                    <label className="form-label">{t('services.modalEmail')}</label>
                     <input
                       type="email"
                       value={formData.email}
@@ -398,21 +400,18 @@ export default function ServicesPage() {
                 </div>
 
                 <div className="form-group">
-                  <label className="form-label">Service Domain *</label>
-                  <select
+                  <label className="form-label">{t('services.modalServiceType')}</label>
+                  <input
+                    type="text"
+                    required
                     value={formData.serviceType}
                     onChange={(e) => setFormData({ ...formData, serviceType: e.target.value })}
-                    className="form-select"
-                  >
-                    <option value="VrukshaSewa – Nature Protection">VrukshaSewa – Tree Plantation & Sapling Drive</option>
-                    <option value="Sewa – Social Service">Sewa – Food Relief & Community Support</option>
-                    <option value="Environment Sewa – Environmental Service">Environment Sewa – Lake Cleanup & Waste Reduction</option>
-                    <option value="Poor Sewa – Poverty Relief">Poor Sewa – Grocery Kits, Warmth & Medical Aid for Needy</option>
-                  </select>
+                    className="form-input"
+                  />
                 </div>
 
                 <div className="form-group">
-                  <label className="form-label">Target Location / Area Name *</label>
+                  <label className="form-label">{t('services.modalLocation')}</label>
                   <input
                     type="text"
                     required
@@ -424,7 +423,7 @@ export default function ServicesPage() {
                 </div>
 
                 <div className="form-group">
-                  <label className="form-label">Details of the Need / Observation *</label>
+                  <label className="form-label">{t('services.modalDetails')}</label>
                   <textarea
                     required
                     rows="3"
@@ -437,10 +436,10 @@ export default function ServicesPage() {
 
                 <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '0.75rem', marginTop: '1.5rem' }}>
                   <Button variant="outline" size="md" onClick={() => setRequestFormOpen(false)}>
-                    Cancel
+                    {t('projects.closeBtn')}
                   </Button>
                   <Button type="submit" variant="primary" size="md" icon={Send}>
-                    Submit Request
+                    {t('services.modalSubmit')}
                   </Button>
                 </div>
               </form>
@@ -451,4 +450,3 @@ export default function ServicesPage() {
     </>
   );
 }
-

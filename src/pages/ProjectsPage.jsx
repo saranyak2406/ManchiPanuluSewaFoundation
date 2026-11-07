@@ -4,11 +4,13 @@ import { Trees, Filter, Search, Sparkles } from 'lucide-react';
 import ProjectCard from '../components/ProjectCard';
 import ProjectDetailModal from '../components/ProjectDetailModal';
 import Button from '../components/Button';
-import { projectsData } from '../data/projectsData';
+import { getProjectsData } from '../data/projectsData';
 import { useLanguage } from '../context/LanguageContext';
 
 export default function ProjectsPage() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const currentProjects = getProjectsData(language);
+
   const [searchParams, setSearchParams] = useSearchParams();
   const initialCategory = searchParams.get('category') || 'All';
 
@@ -18,16 +20,21 @@ export default function ProjectsPage() {
   const [selectedProject, setSelectedProject] = useState(null);
 
   const categories = [
-    { label: 'All Disciplines', value: 'All' },
-    { label: 'VrukshaSewa (Trees & Nature)', value: 'VrukshaSewa' },
-    { label: 'Social Sewa', value: 'Sewa' },
-    { label: 'Environmental Service', value: 'Environment' }
+    { label: t('projects.allDisciplines'), value: 'All' },
+    { label: t('projects.filterVruksha'), value: 'VrukshaSewa' },
+    { label: t('projects.filterSewa'), value: 'Sewa' },
+    { label: t('projects.filterEnv'), value: 'Environment' }
   ];
 
-  const statuses = ['All', 'Ongoing', 'Completed', 'Upcoming'];
+  const statuses = [
+    { label: t('projects.allStatus'), value: 'All' },
+    { label: t('projects.ongoing'), value: 'Ongoing' },
+    { label: t('projects.completed'), value: 'Completed' },
+    { label: t('projects.upcoming'), value: 'Upcoming' }
+  ];
 
   const filteredProjects = useMemo(() => {
-    return projectsData.filter((project) => {
+    return currentProjects.filter((project) => {
       const matchesCategory =
         activeCategory === 'All' ||
         project.category === activeCategory ||
@@ -35,7 +42,11 @@ export default function ProjectsPage() {
         (activeCategory === 'Sewa' && project.category === 'Seva') ||
         (activeCategory === 'Seva' && project.category === 'Sewa');
       const matchesStatus =
-        activeStatus === 'All' || project.status === activeStatus;
+        activeStatus === 'All' ||
+        project.status.toLowerCase() === activeStatus.toLowerCase() ||
+        (activeStatus === 'Ongoing' && (project.status === 'Ongoing' || project.status === 'కొనసాగుతోంది' || project.status === 'जारी')) ||
+        (activeStatus === 'Completed' && (project.status === 'Completed' || project.status === 'పూర్తయింది' || project.status === 'पूर्ण')) ||
+        (activeStatus === 'Upcoming' && (project.status === 'Upcoming' || project.status === 'రాబోతోంది' || project.status === 'आगामी'));
       const matchesSearch =
         project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         project.shortDescription.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -43,7 +54,7 @@ export default function ProjectsPage() {
 
       return matchesCategory && matchesStatus && matchesSearch;
     });
-  }, [activeCategory, activeStatus, searchQuery]);
+  }, [currentProjects, activeCategory, activeStatus, searchQuery]);
 
   return (
     <>
@@ -53,14 +64,14 @@ export default function ProjectsPage() {
           <div className="page-hero-inner-unboxed">
             <div className="page-hero-eyebrow">
               <Trees size={16} />
-              <span>{t('home.projectsBadge')}</span>
+              <span>{t('projects.badge')}</span>
             </div>
             <h1 className="page-hero-title-exact">
-              {t('home.projectsTitle')}
+              {t('projects.heroTitle')}
             </h1>
             <div className="page-hero-accent-line"></div>
             <p className="page-hero-desc-exact">
-              {t('home.projectsSubtitle')}
+              {t('projects.heroDesc')}
             </p>
           </div>
         </div>
@@ -91,7 +102,7 @@ export default function ProjectsPage() {
               <Search size={18} style={{ color: 'var(--color-forest-700)' }} />
               <input
                 type="text"
-                placeholder="Search projects by title, location or keywords..."
+                placeholder={t('projects.searchPlaceholder')}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 style={{
@@ -108,7 +119,7 @@ export default function ProjectsPage() {
                   onClick={() => setSearchQuery('')}
                   style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)', fontWeight: 600 }}
                 >
-                  Clear
+                  {t('projects.clear')}
                 </button>
               )}
             </div>
@@ -141,26 +152,26 @@ export default function ProjectsPage() {
               {/* Status Chips */}
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
                 <span style={{ fontSize: '0.82rem', fontWeight: 700, color: 'var(--color-text-muted)', textTransform: 'uppercase', marginRight: '0.35rem' }}>
-                  Status:
+                  {t('projects.statusLabel')}
                 </span>
                 {statuses.map((status) => (
                   <button
-                    key={status}
+                    key={status.value}
                     type="button"
-                    onClick={() => setActiveStatus(status)}
+                    onClick={() => setActiveStatus(status.value)}
                     style={{
                       padding: '0.35rem 0.85rem',
                       borderRadius: 'var(--radius-pill)',
                       fontSize: '0.82rem',
                       fontWeight: 600,
-                      backgroundColor: activeStatus === status ? 'var(--color-forest-900)' : '#FFFFFF',
-                      color: activeStatus === status ? '#FFFFFF' : 'var(--color-text-muted)',
+                      backgroundColor: activeStatus === status.value ? 'var(--color-forest-900)' : '#FFFFFF',
+                      color: activeStatus === status.value ? '#FFFFFF' : 'var(--color-text-muted)',
                       border: '1px solid var(--color-border-card)',
                       cursor: 'pointer',
                       transition: 'all 0.2s ease'
                     }}
                   >
-                    {status}
+                    {status.label}
                   </button>
                 ))}
               </div>
@@ -181,9 +192,9 @@ export default function ProjectsPage() {
               border: '1px solid var(--color-border-card)'
             }}>
               <Trees size={48} style={{ color: 'var(--color-forest-600)', margin: '0 auto 1rem auto' }} />
-              <h3 style={{ color: 'var(--color-forest-900)', marginBottom: '0.5rem' }}>No projects match your filter</h3>
+              <h3 style={{ color: 'var(--color-forest-900)', marginBottom: '0.5rem' }}>{t('projects.noProjects')}</h3>
               <p style={{ color: 'var(--color-text-muted)', marginBottom: '1.5rem' }}>
-                Try adjusting your search criteria or resetting your filters.
+                {t('projects.noProjectsDesc')}
               </p>
               <Button
                 variant="outline"
@@ -194,7 +205,7 @@ export default function ProjectsPage() {
                   setSearchQuery('');
                 }}
               >
-                Reset All Filters
+                {t('projects.resetFilters')}
               </Button>
             </div>
           ) : (
@@ -223,4 +234,3 @@ export default function ProjectsPage() {
     </>
   );
 }
-

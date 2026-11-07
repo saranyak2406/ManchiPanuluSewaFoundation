@@ -31,19 +31,19 @@ export default function VolunteerPage() {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const availableTracks = [
-    { id: 'Vruksha Sewa', label: 'Vruksha Sewa (Tree Planting, Nurseries & Afforestation)' },
-    { id: 'Manava Sewa', label: 'Manava Sewa (Nutritious Meals, Annadhanam & Hospital Relief)' },
-    { id: 'Prakruthi Sewa', label: 'Prakruthi Sewa (Waterbody Revival, Lake Cleanups & Plastic Eradication)' },
-    { id: 'Aashraya Sewa', label: 'Aashraya Sewa (Poverty Relief, Ration Kits, Blankets & Health Aid)' },
-    { id: 'Eco-Education Workshops', label: 'Youth Eco-Clubs (School Workshops & Seed Balls)' },
-    { id: 'Digital & Content Sewa', label: 'Digital, Media & Photography Support' }
+    { id: 'Vruksha Sewa', label: t('volunteer.track1') },
+    { id: 'Manava Sewa', label: t('volunteer.track2') },
+    { id: 'Prakruthi Sewa', label: t('volunteer.track3') },
+    { id: 'Aashraya Sewa', label: t('volunteer.track4') },
+    { id: 'Youth Eco-Clubs', label: t('volunteer.track5') },
+    { id: 'Digital Sewa', label: t('volunteer.track6') }
   ];
 
   const handleTrackToggle = (trackId) => {
     setFormData((prev) => {
       const exists = prev.tracks.includes(trackId);
       if (exists) {
-        if (prev.tracks.length === 1) return prev; // keep at least one
+        if (prev.tracks.length === 1) return prev;
         return { ...prev, tracks: prev.tracks.filter((t) => t !== trackId) };
       } else {
         return { ...prev, tracks: [...prev.tracks, trackId] };
@@ -54,21 +54,21 @@ export default function VolunteerPage() {
   const validate = () => {
     const errs = {};
     if (!formData.fullName.trim() || formData.fullName.trim().length < 3) {
-      errs.fullName = 'Please enter your full name (at least 3 characters)';
+      errs.fullName = t('volunteer.errName');
     }
 
     const phoneRegex = /^[+]?[0-9\s-]{10,14}$/;
     if (!formData.phone.trim() || !phoneRegex.test(formData.phone.trim())) {
-      errs.phone = 'Please provide a valid 10-digit mobile number';
+      errs.phone = t('volunteer.errPhone');
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!formData.email.trim() || !emailRegex.test(formData.email.trim())) {
-      errs.email = 'Please provide a valid email address';
+      errs.email = t('volunteer.errEmail');
     }
 
     if (!formData.city.trim()) {
-      errs.city = 'Please indicate your city or district';
+      errs.city = t('volunteer.errCity');
     }
 
     return errs;
@@ -86,7 +86,6 @@ export default function VolunteerPage() {
     setErrors({});
     setIsSubmitted(true);
 
-    // Fire confetti celebration
     try {
       confetti({
         particleCount: 120,
@@ -95,7 +94,7 @@ export default function VolunteerPage() {
         colors: ['#78C953', '#E2B357', '#123826', '#38A169']
       });
     } catch (err) {
-      // fallback if canvas-confetti is not rendered
+      // fallback
     }
   };
 
@@ -107,14 +106,14 @@ export default function VolunteerPage() {
           <div className="page-hero-inner-unboxed">
             <div className="page-hero-eyebrow">
               <Users size={16} />
-              <span>{t('hero.volunteerBtn')}</span>
+              <span>{t('volunteer.badge')}</span>
             </div>
             <h1 className="page-hero-title-exact">
-              Be the Change: Volunteer in Sewa
+              {t('volunteer.heroTitle')}
             </h1>
             <div className="page-hero-accent-line"></div>
             <p className="page-hero-desc-exact">
-              Nothing matches the fulfillment of digging soil for a future banyan tree or serving warm food to a tired hospital caretaker. Join our family of grassroots volunteers.
+              {t('volunteer.heroDesc')}
             </p>
           </div>
         </div>
@@ -133,13 +132,13 @@ export default function VolunteerPage() {
             <div>
               <div className="eyebrow-badge">
                 <Sparkles size={14} />
-                <span>Why Join Us?</span>
+                <span>{t('volunteer.whyBadge')}</span>
               </div>
               <h2 style={{ color: 'var(--color-forest-900)', marginBottom: '1.25rem' }}>
-                Meaningful Grassroots Action, Zero Bureaucracy
+                {t('volunteer.whyTitle')}
               </h2>
               <p style={{ lineHeight: '1.7', color: 'var(--color-text-muted)', marginBottom: '2rem' }}>
-                At Manchi Panulu Sewa Foundation, volunteers are not observers; they are the heart, hands, and moral compass of every drive. Whether you have 2 hours on a Sunday or want to lead monthly drives in your mandal, you are deeply welcome.
+                {t('volunteer.whyDesc')}
               </p>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', marginBottom: '2.5rem' }}>
@@ -148,8 +147,8 @@ export default function VolunteerPage() {
                     <Trees size={20} />
                   </div>
                   <div>
-                    <h4 style={{ fontSize: '1.1rem', color: 'var(--color-forest-900)', marginBottom: '0.25rem' }}>Direct Environmental Impact</h4>
-                    <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)' }}>Plant indigenous saplings, nurse native seed varieties, and restore depleted green spaces.</p>
+                    <h4 style={{ fontSize: '1.1rem', color: 'var(--color-forest-900)', marginBottom: '0.25rem' }}>{t('volunteer.ben1Title')}</h4>
+                    <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)' }}>{t('volunteer.ben1Desc')}</p>
                   </div>
                 </div>
 
@@ -158,8 +157,8 @@ export default function VolunteerPage() {
                     <Heart size={20} />
                   </div>
                   <div>
-                    <h4 style={{ fontSize: '1.1rem', color: 'var(--color-forest-900)', marginBottom: '0.25rem' }}>Alleviate Human Suffering</h4>
-                    <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)' }}>Serve fresh, hygienic food with love to daily-wage workers and patient attendants outside hospitals.</p>
+                    <h4 style={{ fontSize: '1.1rem', color: 'var(--color-forest-900)', marginBottom: '0.25rem' }}>{t('volunteer.ben2Title')}</h4>
+                    <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)' }}>{t('volunteer.ben2Desc')}</p>
                   </div>
                 </div>
 
@@ -168,8 +167,8 @@ export default function VolunteerPage() {
                     <Award size={20} />
                   </div>
                   <div>
-                    <h4 style={{ fontSize: '1.1rem', color: 'var(--color-forest-900)', marginBottom: '0.25rem' }}>Volunteer Certificate of Honor</h4>
-                    <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)' }}>Receive verified volunteer sewa hours and recognition for civic leadership and college credits.</p>
+                    <h4 style={{ fontSize: '1.1rem', color: 'var(--color-forest-900)', marginBottom: '0.25rem' }}>{t('volunteer.ben3Title')}</h4>
+                    <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)' }}>{t('volunteer.ben3Desc')}</p>
                   </div>
                 </div>
               </div>
@@ -183,13 +182,13 @@ export default function VolunteerPage() {
                 border: '1px solid rgba(255, 255, 255, 0.1)'
               }}>
                 <div style={{ fontSize: '0.8rem', color: 'var(--color-sprout-light)', fontWeight: 700, textTransform: 'uppercase', marginBottom: '0.5rem' }}>
-                  Volunteer Voice
+                  {t('volunteer.quoteBadge')}
                 </div>
                 <blockquote style={{ fontFamily: 'var(--font-heading)', fontSize: '1.15rem', lineHeight: '1.6', marginBottom: '1rem', fontStyle: 'italic' }}>
-                  "Spending Sunday mornings planting trees with Manchi Panulu has given my week real meaning. You go back home tired physically, but deeply at peace inside."
+                  {t('volunteer.quoteText')}
                 </blockquote>
                 <div style={{ fontSize: '0.85rem', color: 'var(--color-text-light-muted)' }}>
-                  — Swathi Rao, Weekend Field Volunteer since 2024
+                  {t('volunteer.quoteAuthor')}
                 </div>
               </div>
             </div>
@@ -220,11 +219,11 @@ export default function VolunteerPage() {
                     </div>
 
                     <h3 style={{ fontSize: '1.8rem', color: 'var(--color-forest-900)', marginBottom: '0.75rem' }}>
-                      Welcome to the Sewa Family!
+                      {t('volunteer.successTitle')}
                     </h3>
 
                     <p style={{ fontSize: '1rem', color: 'var(--color-text-muted)', lineHeight: '1.7', marginBottom: '1.75rem' }}>
-                      Thank you, <strong>{formData.fullName}</strong>. Your volunteer registration has been logged successfully. Our regional volunteer coordinator will contact you via WhatsApp/Phone within 48 hours for onboarding into upcoming weekend drives.
+                      {t('volunteer.successMsg')}
                     </p>
 
                     <div style={{
@@ -235,10 +234,10 @@ export default function VolunteerPage() {
                       textAlign: 'left',
                       fontSize: '0.9rem'
                     }}>
-                      <div style={{ fontWeight: 700, color: 'var(--color-forest-900)', marginBottom: '0.4rem' }}>Registration Summary:</div>
-                      <div><strong>Location:</strong> {formData.city}</div>
-                      <div><strong>Availability:</strong> {formData.availability}</div>
-                      <div><strong>Selected Tracks:</strong> {formData.tracks.join(', ')}</div>
+                      <div style={{ fontWeight: 700, color: 'var(--color-forest-900)', marginBottom: '0.4rem' }}>{t('volunteer.summaryTitle')}</div>
+                      <div><strong>{t('volunteer.sumLocation')}</strong> {formData.city}</div>
+                      <div><strong>{t('volunteer.sumAvail')}</strong> {formData.availability}</div>
+                      <div><strong>{t('volunteer.sumTracks')}</strong> {formData.tracks.join(', ')}</div>
                     </div>
 
                     <Button
@@ -258,55 +257,55 @@ export default function VolunteerPage() {
                         });
                       }}
                     >
-                      Register Another Volunteer
+                      {t('volunteer.regAnotherBtn')}
                     </Button>
                   </div>
                 ) : (
                   <>
                     <h3 style={{ fontSize: '1.65rem', color: 'var(--color-forest-900)', marginBottom: '0.5rem' }}>
-                      Volunteer Registration Form
+                      {t('volunteer.formTitle')}
                     </h3>
                     <p style={{ fontSize: '0.92rem', color: 'var(--color-text-muted)', marginBottom: '1.75rem' }}>
-                      Fill in your details to get enrolled in our volunteer coordination group.
+                      {t('volunteer.formSubtitle')}
                     </p>
 
                     <form onSubmit={handleSubmit} noValidate>
                       <div className="form-group">
-                        <label className="form-label">Full Name *</label>
+                        <label className="form-label">{t('volunteer.fullName')}</label>
                         <input
                           type="text"
                           required
                           value={formData.fullName}
                           onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                           className={`form-input ${errors.fullName ? 'has-error' : ''}`}
-                          placeholder="e.g. Sravanthi Reddy"
+                          placeholder={t('volunteer.fullNamePlaceholder')}
                         />
                         {errors.fullName && <span className="form-error-msg">{errors.fullName}</span>}
                       </div>
 
                       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
                         <div className="form-group">
-                          <label className="form-label">Mobile Number (WhatsApp) *</label>
+                          <label className="form-label">{t('volunteer.phone')}</label>
                           <input
                             type="tel"
                             required
                             value={formData.phone}
                             onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                             className={`form-input ${errors.phone ? 'has-error' : ''}`}
-                            placeholder="e.g. 9876543210"
+                            placeholder={t('volunteer.phonePlaceholder')}
                           />
                           {errors.phone && <span className="form-error-msg">{errors.phone}</span>}
                         </div>
 
                         <div className="form-group">
-                          <label className="form-label">Email Address *</label>
+                          <label className="form-label">{t('volunteer.email')}</label>
                           <input
                             type="email"
                             required
                             value={formData.email}
                             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                             className={`form-input ${errors.email ? 'has-error' : ''}`}
-                            placeholder="name@example.com"
+                            placeholder={t('volunteer.emailPlaceholder')}
                           />
                           {errors.email && <span className="form-error-msg">{errors.email}</span>}
                         </div>
@@ -314,46 +313,46 @@ export default function VolunteerPage() {
 
                       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
                         <div className="form-group">
-                          <label className="form-label">City / Town / Mandal *</label>
+                          <label className="form-label">{t('volunteer.city')}</label>
                           <input
                             type="text"
                             required
                             value={formData.city}
                             onChange={(e) => setFormData({ ...formData, city: e.target.value })}
                             className={`form-input ${errors.city ? 'has-error' : ''}`}
-                            placeholder="e.g. Hyderabad, Secunderabad, Vizag"
+                            placeholder={t('volunteer.cityPlaceholder')}
                           />
                           {errors.city && <span className="form-error-msg">{errors.city}</span>}
                         </div>
 
                         <div className="form-group">
-                          <label className="form-label">Profession / Student</label>
+                          <label className="form-label">{t('volunteer.occupation')}</label>
                           <input
                             type="text"
                             value={formData.occupation}
                             onChange={(e) => setFormData({ ...formData, occupation: e.target.value })}
                             className="form-input"
-                            placeholder="e.g. Software Engineer / Student"
+                            placeholder={t('volunteer.occupationPlaceholder')}
                           />
                         </div>
                       </div>
 
                       <div className="form-group">
-                        <label className="form-label">Availability</label>
+                        <label className="form-label">{t('volunteer.availabilityLabel')}</label>
                         <select
                           value={formData.availability}
                           onChange={(e) => setFormData({ ...formData, availability: e.target.value })}
                           className="form-select"
                         >
-                          <option value="Weekends (Saturday & Sunday)">Weekends (Saturday & Sunday)</option>
-                          <option value="Weekday Mornings">Weekday Mornings</option>
-                          <option value="Flexible / As Needed">Flexible / As Needed</option>
-                          <option value="Remote Digital Support">Remote Digital Support</option>
+                          <option value="Weekends (Saturday & Sunday)">{t('volunteer.optWeekends')}</option>
+                          <option value="Weekday Mornings">{t('volunteer.optWeekdays')}</option>
+                          <option value="Flexible / As Needed">{t('volunteer.optFlexible')}</option>
+                          <option value="Remote Digital Support">{t('volunteer.optRemote')}</option>
                         </select>
                       </div>
 
                       <div className="form-group">
-                        <label className="form-label">Areas of Interest (Select all that apply) *</label>
+                        <label className="form-label">{t('volunteer.tracksLabel')}</label>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem', marginTop: '0.35rem' }}>
                           {availableTracks.map((track) => (
                             <label
@@ -384,13 +383,13 @@ export default function VolunteerPage() {
                       </div>
 
                       <div className="form-group">
-                        <label className="form-label">Short Note or Prior Volunteering Experience</label>
+                        <label className="form-label">{t('volunteer.noteLabel')}</label>
                         <textarea
                           rows="3"
                           value={formData.message}
                           onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                           className="form-textarea"
-                          placeholder="Tell us what excites you about volunteering with us..."
+                          placeholder={t('volunteer.notePlaceholder')}
                         ></textarea>
                       </div>
 
@@ -401,7 +400,7 @@ export default function VolunteerPage() {
                         icon={Send}
                         style={{ width: '100%', marginTop: '1rem' }}
                       >
-                        Submit Volunteer Registration
+                        {t('volunteer.submitBtn')}
                       </Button>
                     </form>
                   </>
@@ -414,4 +413,3 @@ export default function VolunteerPage() {
     </>
   );
 }
-

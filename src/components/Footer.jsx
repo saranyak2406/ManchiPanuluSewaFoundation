@@ -40,7 +40,7 @@ export default function Footer() {
             <h3 className="footer-brand-title">{t('nav.brandTitle')}</h3>
             <div className="footer-tagline">{t('footer.quote')}</div>
             <p className="footer-desc">
-              Dedicated to serving humanity, protecting nature, and building a sustainable future through grassroots community action across India.
+              {t('footer.brandDesc')}
             </p>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem', marginBottom: '1.5rem', fontSize: '0.88rem' }}>
@@ -93,41 +93,41 @@ export default function Footer() {
 
           {/* Column 2: Four Core Pillars */}
           <div>
-            <h4 className="footer-heading">Four Core Pillars</h4>
+            <h4 className="footer-heading">{t('footer.pillarsTitle')}</h4>
             <ul className="footer-links-list">
               <li>
                 <Link to="/services#vrukshasewa" className="footer-link">
-                  Vruksha Sewa – Tree & Nature Protection
+                  {t('footer.p1')}
                 </Link>
               </li>
               <li>
                 <Link to="/services#manava-sewa" className="footer-link">
-                  Manava Sewa – Humanitarian Service
+                  {t('footer.p2')}
                 </Link>
               </li>
               <li>
                 <Link to="/services#prakruthi-sewa" className="footer-link">
-                  Prakruthi Sewa – Conservation
+                  {t('footer.p3')}
                 </Link>
               </li>
               <li>
                 <Link to="/services#aashraya-sewa" className="footer-link">
-                  Aashraya Sewa – Poverty Relief
+                  {t('footer.p4')}
                 </Link>
               </li>
               <li>
                 <Link to="/projects?category=VrukshaSewa" className="footer-link">
-                  Miyawaki Tree Drives
+                  {t('footer.treeDrivesLink')}
                 </Link>
               </li>
               <li>
                 <Link to="/projects?category=Sewa" className="footer-link">
-                  Daily Food Relief (Annadhanam)
+                  {t('footer.foodReliefLink')}
                 </Link>
               </li>
               <li>
                 <Link to="/projects?category=Environment" className="footer-link">
-                  Lake & Waterbody Revival
+                  {t('footer.lakeRevivalLink')}
                 </Link>
               </li>
             </ul>
@@ -150,9 +150,9 @@ export default function Footer() {
 
           {/* Column 4: Newsletter & Direct Impact */}
           <div>
-            <h4 className="footer-heading">Stay Connected</h4>
+            <h4 className="footer-heading">{t('footer.stayConnectedTitle')}</h4>
             <p className="footer-desc">
-              Subscribe to our monthly newsletter for stories of impact, upcoming volunteer plantation drives, and transparent project updates.
+              {t('footer.stayConnectedDesc')}
             </p>
 
             <form onSubmit={handleSubscribe} className="newsletter-form">
@@ -161,11 +161,11 @@ export default function Footer() {
                   type="email"
                   value={emailInput}
                   onChange={(e) => setEmailInput(e.target.value)}
-                  placeholder="Enter your email address"
+                  placeholder={t('footer.emailPlaceholder')}
                   className="newsletter-input"
                   required
                 />
-                <button type="submit" className="btn btn-sprout btn-sm" aria-label="Subscribe to newsletter">
+                <button type="submit" className="btn btn-sprout btn-sm" aria-label={t('footer.subscribeBtn')}>
                   <Send size={15} />
                 </button>
               </div>
@@ -173,14 +173,14 @@ export default function Footer() {
               {subscribed && (
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--color-sprout-light)', fontSize: '0.85rem' }}>
                   <CheckCircle2 size={16} />
-                  <span>Thank you! You are subscribed to updates.</span>
+                  <span>{t('footer.subscribedMsg')}</span>
                 </div>
               )}
             </form>
 
             <div style={{ marginTop: '1.75rem' }}>
               <Button to="/donate" variant="gold" size="sm" icon={ArrowRight}>
-                Support A Cause
+                {t('footer.supportCauseBtn')}
               </Button>
             </div>
           </div>
@@ -191,7 +191,7 @@ export default function Footer() {
           <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
             <ShieldCheck size={22} style={{ color: 'var(--color-gold)', flexShrink: 0, marginTop: '2px' }} />
             <div className="compliance-text">
-              <strong>Statutory & Transparency Notice:</strong> {complianceInfo.foundationName} is a community-driven initiative. {complianceInfo.registeredType}. {complianceInfo.registrationPlaceholder}. Indian donors receive donation receipts ({complianceInfo.taxDeduction80G}). <strong>International Visitors Note:</strong> {complianceInfo.fcraStatus}
+              {t('footer.complianceNotice')}
             </div>
           </div>
         </div>
@@ -199,16 +199,16 @@ export default function Footer() {
         {/* Footer Bottom Line */}
         <div className="footer-bottom">
           <div>
-            © {new Date().getFullYear()} Manchi Panulu Sewa Foundation. All rights reserved.
+            © {new Date().getFullYear()} {t('nav.brandTitle')} {t('nav.brandSubtitle')}. {t('footer.rights')}
           </div>
           <div style={{ display: 'flex', gap: '1.25rem', fontSize: '0.82rem', flexWrap: 'wrap' }}>
-            <span>Protect Nature</span>
+            <span>{t('footer.mandateP1')}</span>
             <span>•</span>
-            <span>Serve Humanity</span>
+            <span>{t('footer.mandateP2')}</span>
             <span>•</span>
-            <span>Preserve Environment</span>
+            <span>{t('footer.mandateP3')}</span>
             <span>•</span>
-            <span>Uplift the Poor</span>
+            <span>{t('footer.mandateP4')}</span>
           </div>
         </div>
       </div>
