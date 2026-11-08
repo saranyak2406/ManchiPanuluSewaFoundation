@@ -13,7 +13,7 @@ export const projectsData = [
     volunteersCount: "420+ Volunteers",
     shortDescription: "Transforming 4 acres of barren, degraded municipal land into a dense, multi-tiered native forest using the high-density Miyawaki methodology.",
     fullDescription: "Haritha Sankalpam is an urban afforestation initiative aimed at restoring degraded land. By planting 40+ native tree varieties including Neem, Peepal, Banyan, and Jamun in multi-tier density, the forest absorbs 30x more carbon dioxide and develops 10x faster than traditional monoculture plantations.",
-    image: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1000&q=80",
+    image: "/gallery/miyawaki-plantation.jpg",
     keyHighlights: [
       "40+ indigenous species carefully selected for drought resistance",
       "Drip irrigation and organic mulching to ensure >92% survival rate",
@@ -37,7 +37,7 @@ export const projectsData = [
     volunteersCount: "350+ Volunteers",
     shortDescription: "Serving wholesome, nutritious, freshly prepared hot vegetarian meals to patient attendants, daily wage earners, and elderly individuals.",
     fullDescription: "When families travel hundreds of kilometers to seek care at government hospitals, attendants frequently skip meals due to severe financial distress. Amrutha Aahaaram deploys mobile kitchen vans delivering hot, freshly cooked khichdi, sambar rice, and nutrition packs with uncompromised hygiene.",
-    image: "https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?auto=format&fit=crop&w=1000&q=80",
+    image: "/gallery/food-sewa-hospital.jpg",
     keyHighlights: [
       "Centralized hygienic cloud kitchen with food safety protocols",
       "Zero food waste policy – surplus delivered to verified night shelters",
@@ -61,7 +61,7 @@ export const projectsData = [
     volunteersCount: "580+ Volunteers",
     shortDescription: "Restoring silted community ponds, removing invasive hyacinth and plastic debris, and building natural filtration channels.",
     fullDescription: "Water scarcity directly threatens agricultural vitality and community health. The Jal Punarjeevana initiative combines volunteer lake cleanups with mechanical desilting, deep contour bunding, and vetiver grass stabilization to restore natural aquifers and rainwater percolation.",
-    image: "https://images.unsplash.com/photo-1707463798972-463fa40afa00?auto=format&fit=crop&w=1000&q=80",
+    image: "/gallery/lake-cleanup.jpg",
     keyHighlights: [
       "Extracted over 35 metric tons of plastic waste and invasive weeds",
       "Constructed bio-swales and stone riprap bunds along lake perimeter",
@@ -85,7 +85,7 @@ export const projectsData = [
     volunteersCount: "210 Volunteers",
     shortDescription: "Providing educational backpacks, solar study lamps, reusable water bottles, and setting up eco-awareness library corners in rural schools.",
     fullDescription: "Vidya Deepam bridged the educational resource gap for underprivileged students while embedding environmental consciousness from an early age. Each kit included eco-friendly stationary, seed-embedded pencils, notebooks, and a stainless steel water canteen.",
-    image: "https://images.unsplash.com/photo-1476254592636-2a8e23b256fe?auto=format&fit=crop&w=1000&q=80",
+    image: "/gallery/education-kits.jpg",
     keyHighlights: [
       "100% plastic-free student kit materials",
       "Delivered 24 environmental audio-visual interactive sessions",
@@ -109,7 +109,7 @@ export const projectsData = [
     volunteersCount: "640 Volunteers",
     shortDescription: "Eliminating disposable single-use polythene bags by distributing 45,000 stitched cotton bags and establishing segregation bins.",
     fullDescription: "High-footfall pilgrimage and traditional weekly market zones generate overwhelming plastic litter that chokes cattle and drains. Swachh Parisaram replaced single-use bags with free reusable cloth bags made by women's self-help groups.",
-    image: "https://images.unsplash.com/photo-1566552881560-0be862a7c445?auto=format&fit=crop&w=1000&q=80",
+    image: "/gallery/cloth-bag-campaign.jpg",
     keyHighlights: [
       "Distributed 45,000 reusable tote bags hand-stitched by local women SHGs",
       "Installed 80 color-coded segregation bins at prime market corners",
@@ -133,7 +133,7 @@ export const projectsData = [
     volunteersCount: "Enrollment Open",
     shortDescription: "Assisting marginal farmers in planting multi-tier fruit and timber saplings to replenish depleted soils and create sustainable alternate incomes.",
     fullDescription: "Vanam Manadhe addresses rural climate vulnerability by empowering marginal farmers with free organic saplings of Teak, Mango, Guava, Drumstick (Moringa), and Sandalwood. This initiative enhances groundwater recharge while insulating farm income.",
-    image: "https://images.unsplash.com/photo-1530587191325-3db32d826c18?auto=format&fit=crop&w=1000&q=80",
+    image: "/gallery/sapling-nursery.jpg",
     keyHighlights: [
       "Partnering with organic farming scientists for soil mapping",
       "Direct nursery distribution with zero middlemen",
