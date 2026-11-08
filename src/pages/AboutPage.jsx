@@ -130,6 +130,35 @@ export default function AboutPage() {
                   style={{ width: '100%', height: '420px', objectFit: 'cover' }}
                 />
               </div>
+
+              {/* Official Trust Emblem Seal */}
+              <div style={{
+                position: 'absolute',
+                bottom: '-20px',
+                right: '16px',
+                backgroundColor: '#FFFFFF',
+                borderRadius: '999px',
+                padding: '0.45rem 1rem 0.45rem 0.5rem',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.65rem',
+                boxShadow: '0 8px 24px rgba(12, 38, 26, 0.18)',
+                border: '1.5px solid rgba(27, 77, 52, 0.15)'
+              }}>
+                <img
+                  src="/logo.jpg"
+                  alt="Official Trust Emblem"
+                  style={{ width: '44px', height: '44px', borderRadius: '50%', objectFit: 'cover' }}
+                />
+                <div>
+                  <div style={{ fontSize: '0.74rem', fontWeight: 800, color: 'var(--color-forest-900)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                    Official Trust Emblem
+                  </div>
+                  <div style={{ fontSize: '0.68rem', color: '#2E7D32', fontWeight: 600 }}>
+                    మంచి పనులు మన బాధ్యత
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

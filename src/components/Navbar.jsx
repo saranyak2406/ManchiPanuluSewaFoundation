@@ -68,15 +68,11 @@ export default function Navbar() {
               aria-label="Manchi Panulu Sewa Foundation"
               onClick={() => handleLinkClick('/')}
             >
-              <div className="brand-icon-wrapper">
-                {/* Sprout emblem inside curved badge */}
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 21V10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                  <path d="M12 14C8.5 14 6 11.5 6 8C9.5 8 12 10.5 12 14Z" fill="currentColor" />
-                  <path d="M12 16C15.5 16 18 13.5 18 10C14.5 10 12 12.5 12 16Z" fill="currentColor" />
-                  <path d="M12 9C10.5 6.5 12 3 12 3C12 3 13.5 6.5 12 9Z" fill="currentColor" />
-                </svg>
-              </div>
+              <img
+                src="/logo.jpg"
+                alt="Manchi Panulu Sewa Foundation Logo"
+                className="brand-logo-img"
+              />
               <div className="brand-text">
                 <span className="brand-title">{t('nav.brandTitle')}</span>
                 <span className="brand-subtitle">{t('nav.brandSubtitle')}</span>
@@ -187,14 +183,11 @@ export default function Navbar() {
           <aside className="mobile-drawer" onClick={(e) => e.stopPropagation()}>
             <div className="drawer-header">
               <Link to="/" className="brand-logo" onClick={() => handleLinkClick('/')}>
-                <div className="brand-icon-wrapper" style={{ width: 38, height: 38 }}>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                    <path d="M12 21V10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                    <path d="M12 14C8.5 14 6 11.5 6 8C9.5 8 12 10.5 12 14Z" fill="currentColor" />
-                    <path d="M12 16C15.5 16 18 13.5 18 10C14.5 10 12 12.5 12 16Z" fill="currentColor" />
-                    <path d="M12 9C10.5 6.5 12 3 12 3C12 3 13.5 6.5 12 9Z" fill="currentColor" />
-                  </svg>
-                </div>
+                <img
+                  src="/logo.jpg"
+                  alt="Manchi Panulu Sewa Foundation Logo"
+                  className="brand-logo-img mobile-drawer-logo"
+                />
                 <div className="brand-text">
                   <span className="brand-title" style={{ fontSize: '1.05rem' }}>{t('nav.brandTitle')}</span>
                   <span className="brand-subtitle" style={{ fontSize: '0.62rem' }}>{t('nav.brandSubtitle')}</span>

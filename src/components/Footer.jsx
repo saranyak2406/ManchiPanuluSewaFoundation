@@ -37,7 +37,30 @@ export default function Footer() {
         <div className="footer-main-grid">
           {/* Column 1: Brand & Ethos */}
           <div className="footer-brand-col">
-            <h3 className="footer-brand-title">{t('nav.brandTitle')}</h3>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.9rem', marginBottom: '1.25rem' }}>
+              <img
+                src="/logo.jpg"
+                alt="Manchi Panulu Sewa Foundation Logo"
+                style={{
+                  width: '56px',
+                  height: '56px',
+                  borderRadius: '50%',
+                  objectFit: 'cover',
+                  backgroundColor: '#FFFFFF',
+                  border: '2px solid rgba(120, 201, 83, 0.4)',
+                  boxShadow: '0 4px 14px rgba(0, 0, 0, 0.25)',
+                  flexShrink: 0
+                }}
+              />
+              <div>
+                <h3 className="footer-brand-title" style={{ marginBottom: '0.2rem', lineHeight: '1.15' }}>
+                  {t('nav.brandTitle')}
+                </h3>
+                <div style={{ fontSize: '0.72rem', color: 'var(--color-sprout-light)', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase' }}>
+                  {t('nav.brandSubtitle')}
+                </div>
+              </div>
+            </div>
             <div className="footer-tagline">{t('footer.quote')}</div>
             <p className="footer-desc">
               {t('footer.brandDesc')}

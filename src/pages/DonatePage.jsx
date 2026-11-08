@@ -162,10 +162,10 @@ export default function DonatePage() {
             <div className="donation-grid">
               {/* Left Column: Preset Selector and Form */}
               <div className="donation-card-main">
-                <h3 style={{ fontSize: '1.65rem', color: 'var(--color-forest-900)', marginBottom: '0.4rem' }}>
+                <h3 style={{ fontSize: 'clamp(1.35rem, 4.5vw, 1.65rem)', color: 'var(--color-forest-900)', marginBottom: '0.4rem', lineHeight: '1.2' }}>
                   {t('donate.chooseTitle')}
                 </h3>
-                <p style={{ fontSize: '0.92rem', color: 'var(--color-text-muted)', marginBottom: '1.75rem' }}>
+                <p style={{ fontSize: '0.92rem', color: 'var(--color-text-muted)', marginBottom: '1.75rem', lineHeight: '1.55' }}>
                   {t('donate.chooseDesc')}
                 </p>
 
@@ -375,23 +375,23 @@ export default function DonatePage() {
                   </div>
 
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', fontSize: '0.9rem' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: '0.5rem', borderBottom: '1px solid var(--color-border-subtle)' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.35rem', paddingBottom: '0.5rem', borderBottom: '1px solid var(--color-border-subtle)' }}>
                       <span style={{ color: 'var(--color-text-muted)' }}>Beneficiary:</span>
-                      <strong style={{ color: 'var(--color-forest-900)' }}>Manchi Panulu Sewa Foundation</strong>
+                      <strong style={{ color: 'var(--color-forest-900)', wordBreak: 'break-word', textAlign: 'right' }}>Manchi Panulu Sewa Foundation</strong>
                     </div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: '0.5rem', borderBottom: '1px solid var(--color-border-subtle)' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.35rem', paddingBottom: '0.5rem', borderBottom: '1px solid var(--color-border-subtle)' }}>
                       <span style={{ color: 'var(--color-text-muted)' }}>Bank:</span>
                       <strong style={{ color: 'var(--color-forest-900)' }}>State Bank of India (SBI)</strong>
                     </div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: '0.5rem', borderBottom: '1px solid var(--color-border-subtle)' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.35rem', paddingBottom: '0.5rem', borderBottom: '1px solid var(--color-border-subtle)' }}>
                       <span style={{ color: 'var(--color-text-muted)' }}>Account Number:</span>
                       <strong style={{ fontFamily: 'monospace', color: 'var(--color-forest-900)' }}>41234567890</strong>
                     </div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: '0.5rem', borderBottom: '1px solid var(--color-border-subtle)' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.35rem', paddingBottom: '0.5rem', borderBottom: '1px solid var(--color-border-subtle)' }}>
                       <span style={{ color: 'var(--color-text-muted)' }}>IFSC Code:</span>
                       <strong style={{ fontFamily: 'monospace', color: 'var(--color-forest-900)' }}>SBIN0012345</strong>
                     </div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.35rem' }}>
                       <span style={{ color: 'var(--color-text-muted)' }}>Account Type:</span>
                       <strong style={{ color: 'var(--color-forest-900)' }}>Current / Trust Account</strong>
                     </div>

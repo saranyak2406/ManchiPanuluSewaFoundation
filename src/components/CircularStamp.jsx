@@ -54,28 +54,31 @@ export default function CircularStamp({
         </text>
       </svg>
 
-      {/* Center Sprout Emblem */}
+      {/* Center Official Foundation Emblem */}
       <div
         style={{
           position: 'absolute',
           top: '50%',
           left: '50%',
           transform: 'translate(-50%, -50%)',
+          width: `${size * 0.44}px`,
+          height: `${size * 0.44}px`,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center'
         }}
       >
-        <svg width={size * 0.28} height={size * 0.28} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          {/* Central Stem */}
-          <path d="M12 21V9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-          {/* Left Leaf */}
-          <path d="M12 13C8.5 13 6 10.5 6 7C9.5 7 12 9.5 12 13Z" fill="currentColor" />
-          {/* Right Leaf */}
-          <path d="M12 16C15.5 16 18 13.5 18 10C14.5 10 12 12.5 12 16Z" fill="currentColor" />
-          {/* Top Seed Sprout */}
-          <path d="M12 9C10.5 6.5 12 3 12 3C12 3 13.5 6.5 12 9Z" fill="currentColor" opacity="0.75" />
-        </svg>
+        <img
+          src="/logo.jpg"
+          alt="Manchi Panulu Sewa Foundation Emblem"
+          style={{
+            width: '100%',
+            height: '100%',
+            borderRadius: '50%',
+            objectFit: 'cover',
+            boxShadow: '0 2px 8px rgba(0,0,0,0.2)'
+          }}
+        />
       </div>
     </div>
   );
