@@ -12,7 +12,8 @@ import {
   Compass,
   CheckCircle2,
   Calendar,
-  Eye
+  Eye,
+  X
 } from 'lucide-react';
 import Hero from '../components/Hero';
 import ProjectCard from '../components/ProjectCard';
@@ -29,6 +30,7 @@ export default function HomePage() {
   const { t, language } = useLanguage();
   const [selectedProject, setSelectedProject] = useState(null);
   const [selectedArticle, setSelectedArticle] = useState(null);
+  const [bannerModalOpen, setBannerModalOpen] = useState(false);
 
   const featuredProjects = getProjectsData(language).slice(0, 3);
   const previewGallery = getGalleryData(language).slice(0, 6);
@@ -43,6 +45,24 @@ export default function HomePage() {
       <section className="section" style={{ paddingTop: '1rem', paddingBottom: '3.5rem' }}>
         <div className="container">
           <StatsCounter />
+        </div>
+      </section>
+
+      {/* 3. Official Foundation Charter & Registration Banner */}
+      <section className="section charter-banner-section">
+        <div className="container">
+          <div
+            className="charter-banner-card"
+            onClick={() => setBannerModalOpen(true)}
+            title={language === 'te' ? 'పూర్తి బ్యానర్ చూడటానికి క్లిక్ చేయండి' : language === 'hi' ? 'पूरा बैनर देखने के लिए क्लिक करें' : 'Click to view full foundation banner'}
+          >
+            <img
+              src="/foundation-banner.jpg"
+              alt="Manchi Panulu Sewa Foundation - Reg No 420/2026 - Service to Humanity Our Motto"
+              className="charter-banner-image"
+              loading="eager"
+            />
+          </div>
         </div>
       </section>
 
@@ -414,6 +434,37 @@ export default function HomePage() {
         article={selectedArticle}
         onClose={() => setSelectedArticle(null)}
       />
+
+      {/* Official Foundation Charter Banner Modal */}
+      {bannerModalOpen && (
+        <div
+          className="modal-overlay"
+          onClick={() => setBannerModalOpen(false)}
+          role="dialog"
+          aria-modal="true"
+        >
+          <div
+            className="modal-card"
+            style={{ maxWidth: '1100px', width: '96%', padding: '1.25rem', position: 'relative' }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              className="modal-close-btn"
+              onClick={() => setBannerModalOpen(false)}
+              aria-label="Close modal"
+              style={{ top: '0.75rem', right: '0.75rem', zIndex: 10 }}
+            >
+              <X size={20} />
+            </button>
+            <img
+              src="/foundation-banner.jpg"
+              alt="Manchi Panulu Sewa Foundation - Reg No 420/2026 - Official Charter Banner"
+              style={{ width: '100%', height: 'auto', borderRadius: 'var(--radius-md)', display: 'block' }}
+            />
+          </div>
+        </div>
+      )}
     </>
   );
 }

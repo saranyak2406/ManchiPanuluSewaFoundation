@@ -133,8 +133,8 @@ export function getStatsData(lang = 'en') {
 
 export const complianceInfo = {
   foundationName: "Manchi Panulu Sewa Foundation",
-  registeredType: "Non-Governmental Non-Profit Organization (Registered Trust / Section 8 Placeholder)",
-  registrationPlaceholder: "Reg. No. MPSF/AP-TS/2024/XXXX (Placeholder)",
+  registeredType: "Registered Public Charitable Trust (Govt. Reg. No. 420/2026)",
+  registrationPlaceholder: "Reg. No. 420/2026",
   panPlaceholder: "AAATM0000A (Placeholder)",
   taxDeduction80G: "80G Tax Exemption Certificate under Indian Income Tax Act (Pending / In-Process Placeholder)",
   fcraStatus: "FCRA (Foreign Contribution Regulation Act) registration is in-process/compliance. Currently accepting domestic contributions only; international donors can register interest for authorized foreign routing channels.",
