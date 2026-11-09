@@ -101,7 +101,7 @@ export default function AboutPage() {
                 border: '4px solid #FFFFFF'
               }}>
                 <img
-                  src="https://images.unsplash.com/photo-1617854818583-09e7f077a156?auto=format&fit=crop&w=1000&q=80"
+                  src="/hero-foundation-action.jpg"
                   alt="Manchi Panulu Sewa Foundation Nature Protection"
                   style={{ width: '100%', height: '420px', objectFit: 'cover' }}
                 />
