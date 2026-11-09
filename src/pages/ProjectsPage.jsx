@@ -78,7 +78,7 @@ export default function ProjectsPage() {
       </section>
 
       {/* Filter and Search Bar */}
-      <section className="section section-white" style={{ paddingTop: '2.5rem', paddingBottom: '2rem' }}>
+      <section className="section section-white">
         <div className="container">
           <div style={{
             display: 'flex',
@@ -181,7 +181,7 @@ export default function ProjectsPage() {
       </section>
 
       {/* Projects Grid */}
-      <section className="section section-sage" style={{ paddingTop: '1rem' }}>
+      <section className="section section-sage">
         <div className="container">
           {filteredProjects.length === 0 ? (
             <div style={{

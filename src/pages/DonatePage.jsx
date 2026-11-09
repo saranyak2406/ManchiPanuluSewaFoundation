@@ -18,7 +18,6 @@ export default function DonatePage() {
   const { t, language } = useLanguage();
   const [donorTab, setDonorTab] = useState('domestic'); // 'domestic' | 'international'
   const [selectedCurrency, setSelectedCurrency] = useState('USD');
-  const [selectedAmount, setSelectedAmount] = useState(1200);
   const [customAmount, setCustomAmount] = useState('');
   const [allocatedCause, setAllocatedCause] = useState('Where Most Needed (General Sewa)');
   const [copiedUpi, setCopiedUpi] = useState(false);
@@ -33,36 +32,6 @@ export default function DonatePage() {
   // Donation Receipt Simulation
   const [receiptData, setReceiptData] = useState(null);
 
-  const domesticPresets = [
-    { amount: 500, label: t('donate.preset1Label') },
-    { amount: 1200, label: t('donate.preset2Label') },
-    { amount: 2500, label: t('donate.preset3Label') },
-    { amount: 5000, label: t('donate.preset4Label') }
-  ];
-
-  const internationalPresets = {
-    USD: [
-      { amount: 25, label: t('donate.preset1Label') },
-      { amount: 50, label: t('donate.preset2Label') },
-      { amount: 100, label: t('donate.preset3Label') },
-      { amount: 250, label: t('donate.preset4Label') }
-    ],
-    EUR: [
-      { amount: 20, label: t('donate.preset1Label') },
-      { amount: 45, label: t('donate.preset2Label') },
-      { amount: 90, label: t('donate.preset3Label') },
-      { amount: 220, label: t('donate.preset4Label') }
-    ],
-    GBP: [
-      { amount: 20, label: t('donate.preset1Label') },
-      { amount: 40, label: t('donate.preset2Label') },
-      { amount: 80, label: t('donate.preset3Label') },
-      { amount: 200, label: t('donate.preset4Label') }
-    ]
-  };
-
-  const currentIntlPresets = internationalPresets[selectedCurrency] || internationalPresets.USD;
-
   const handleCopyUpi = () => {
     navigator.clipboard.writeText('manchipanulu.sewa@upi');
     setCopiedUpi(true);
@@ -71,7 +40,12 @@ export default function DonatePage() {
 
   const handleSimulateDonation = (e) => {
     e.preventDefault();
-    const finalAmount = customAmount ? parseFloat(customAmount) : selectedAmount;
+    const finalAmount = parseFloat(customAmount);
+
+    if (!finalAmount || isNaN(finalAmount) || finalAmount <= 0) {
+      alert(language === 'te' ? 'దయచేసి సరైన విరాళం మొత్తాన్ని నమోదు చేయండి' : language === 'hi' ? 'कृपया एक वैध दान राशि दर्ज करें' : 'Please enter a valid contribution amount');
+      return;
+    }
 
     const receipt = {
       receiptNo: `MPSF-REC-${Math.floor(100000 + Math.random() * 900000)}`,
@@ -122,7 +96,7 @@ export default function DonatePage() {
       </section>
 
       {/* Main Donation Container */}
-      <section className="section section-sage" style={{ paddingTop: '2rem' }}>
+      <section className="section section-sage">
         <div className="container">
           {/* Domestic vs International Tabs */}
           <div className="donation-tabs-wrapper">
@@ -132,7 +106,6 @@ export default function DonatePage() {
                 className={`donate-tab-btn ${donorTab === 'domestic' ? 'active' : ''}`}
                 onClick={() => {
                   setDonorTab('domestic');
-                  setSelectedAmount(1200);
                   setCustomAmount('');
                 }}
               >
@@ -143,7 +116,6 @@ export default function DonatePage() {
                 className={`donate-tab-btn ${donorTab === 'international' ? 'active' : ''}`}
                 onClick={() => {
                   setDonorTab('international');
-                  setSelectedAmount(50);
                   setCustomAmount('');
                 }}
               >
@@ -155,52 +127,60 @@ export default function DonatePage() {
           {/* TAB 1: DOMESTIC INDIAN DONORS */}
           {donorTab === 'domestic' && (
             <div className="donation-grid">
-              {/* Left Column: Preset Selector and Form */}
+              {/* Left Column: Contribution Amount and Form */}
               <div className="donation-card-main">
                 <h3 style={{ fontSize: 'clamp(1.35rem, 4.5vw, 1.65rem)', color: 'var(--color-forest-900)', marginBottom: '0.4rem', lineHeight: '1.2' }}>
-                  {t('donate.chooseTitle')}
+                  {language === 'te' ? 'మీ విరాళం మొత్తాన్ని నమోదు చేయండి' : language === 'hi' ? 'अपनी दान राशि दर्ज करें' : 'Enter Your Contribution Amount'}
                 </h3>
-                <p style={{ fontSize: '0.92rem', color: 'var(--color-text-muted)', marginBottom: '1.75rem', lineHeight: '1.55' }}>
+                <p style={{ fontSize: '0.92rem', color: 'var(--color-text-muted)', marginBottom: '1.5rem', lineHeight: '1.55' }}>
                   {t('donate.chooseDesc')}
                 </p>
 
-                {/* Preset Amounts */}
-                <div className="preset-amounts-grid">
-                  {domesticPresets.map((preset) => (
-                    <button
-                      key={preset.amount}
-                      type="button"
-                      className={`preset-amount-btn ${selectedAmount === preset.amount && !customAmount ? 'active' : ''}`}
-                      onClick={() => {
-                        setSelectedAmount(preset.amount);
-                        setCustomAmount('');
-                      }}
-                    >
-                      <span className="preset-val">₹{preset.amount.toLocaleString('en-IN')}</span>
-                      <span className="preset-impact">{preset.label}</span>
-                    </button>
-                  ))}
-                </div>
-
-                {/* Custom Amount Input */}
+                {/* Direct Amount Input Field */}
                 <div className="form-group" style={{ marginBottom: '1.75rem' }}>
-                  <label className="form-label">{t('donate.customAmountLabel')}</label>
+                  <label className="form-label" style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--color-forest-900)', marginBottom: '0.5rem' }}>
+                    {language === 'te' ? 'విరాళం మొత్తం (INR ₹) *' : language === 'hi' ? 'दान राशि (INR ₹) *' : 'Contribution Amount (INR ₹) *'}
+                  </label>
                   <div style={{ position: 'relative' }}>
-                    <span style={{ position: 'absolute', left: '1rem', top: '50%', transform: 'translateY(-50%)', fontWeight: 700, color: 'var(--color-forest-700)' }}>
+                    <span style={{
+                      position: 'absolute',
+                      left: '1.1rem',
+                      top: '50%',
+                      transform: 'translateY(-50%)',
+                      fontWeight: 800,
+                      fontSize: '1.25rem',
+                      color: 'var(--color-forest-700)',
+                      pointerEvents: 'none'
+                    }}>
                       ₹
                     </span>
                     <input
                       type="number"
-                      min="100"
+                      min="1"
+                      step="any"
+                      required
                       value={customAmount}
-                      onChange={(e) => {
-                        setCustomAmount(e.target.value);
-                        setSelectedAmount(0);
-                      }}
+                      onChange={(e) => setCustomAmount(e.target.value)}
                       className="form-input"
                       placeholder={t('donate.customAmountPlaceholder')}
-                      style={{ paddingLeft: '2.4rem' }}
+                      style={{
+                        paddingLeft: '2.6rem',
+                        fontSize: '1.2rem',
+                        fontWeight: 700,
+                        color: 'var(--color-forest-900)',
+                        height: '52px',
+                        backgroundColor: '#FFFFFF',
+                        border: '2px solid rgba(27, 77, 52, 0.25)'
+                      }}
                     />
+                  </div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '0.45rem', fontSize: '0.82rem', color: 'var(--color-text-muted)' }}>
+                    <span>{language === 'te' ? 'మీ స్వంత మొత్తాన్ని నమోదు చేయండి (కనిష్ట ₹1)' : language === 'hi' ? 'अपनी इच्छानुसार राशि दर्ज करें (न्यूनतम ₹1)' : 'Type your own contribution amount (min ₹1)'}</span>
+                    {customAmount && !isNaN(customAmount) && Number(customAmount) > 0 && (
+                      <strong style={{ color: 'var(--color-forest-700)' }}>
+                        ₹{Number(customAmount).toLocaleString('en-IN')}
+                      </strong>
+                    )}
                   </div>
                 </div>
 
@@ -425,10 +405,7 @@ export default function DonatePage() {
                       <button
                         key={curr}
                         type="button"
-                        onClick={() => {
-                          setSelectedCurrency(curr);
-                          setSelectedAmount(curr === 'USD' ? 50 : 40);
-                        }}
+                        onClick={() => setSelectedCurrency(curr)}
                         style={{
                           padding: '0.45rem 1.1rem',
                           borderRadius: 'var(--radius-pill)',
@@ -445,28 +422,52 @@ export default function DonatePage() {
                   </div>
                 </div>
 
-                {/* International Presets */}
-                <h4 style={{ fontSize: '1.2rem', color: 'var(--color-forest-900)', marginBottom: '1rem' }}>
-                  {t('donate.chooseTitle')}
-                </h4>
-                <div className="preset-amounts-grid" style={{ marginBottom: '2rem' }}>
-                  {currentIntlPresets.map((preset) => {
-                    const symbol = selectedCurrency === 'USD' ? '$' : selectedCurrency === 'EUR' ? '€' : '£';
-                    return (
-                      <button
-                        key={preset.amount}
-                        type="button"
-                        className={`preset-amount-btn ${selectedAmount === preset.amount && !customAmount ? 'active' : ''}`}
-                        onClick={() => {
-                          setSelectedAmount(preset.amount);
-                          setCustomAmount('');
-                        }}
-                      >
-                        <span className="preset-val">{symbol}{preset.amount}</span>
-                        <span className="preset-impact">{preset.label}</span>
-                      </button>
-                    );
-                  })}
+                {/* International Amount Input Field */}
+                <div className="form-group" style={{ marginBottom: '2rem' }}>
+                  <label className="form-label" style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--color-forest-900)', marginBottom: '0.5rem' }}>
+                    {language === 'te' ? `విరాళం మొత్తం (${selectedCurrency}) *` : language === 'hi' ? `दान राशि (${selectedCurrency}) *` : `Enter Contribution Amount (${selectedCurrency}) *`}
+                  </label>
+                  <div style={{ position: 'relative' }}>
+                    <span style={{
+                      position: 'absolute',
+                      left: '1.1rem',
+                      top: '50%',
+                      transform: 'translateY(-50%)',
+                      fontWeight: 800,
+                      fontSize: '1.25rem',
+                      color: 'var(--color-forest-700)',
+                      pointerEvents: 'none'
+                    }}>
+                      {selectedCurrency === 'USD' ? '$' : selectedCurrency === 'EUR' ? '€' : '£'}
+                    </span>
+                    <input
+                      type="number"
+                      min="1"
+                      step="any"
+                      required
+                      value={customAmount}
+                      onChange={(e) => setCustomAmount(e.target.value)}
+                      className="form-input"
+                      placeholder={selectedCurrency === 'USD' ? 'e.g. 50' : selectedCurrency === 'EUR' ? 'e.g. 45' : 'e.g. 40'}
+                      style={{
+                        paddingLeft: '2.5rem',
+                        fontSize: '1.2rem',
+                        fontWeight: 700,
+                        color: 'var(--color-forest-900)',
+                        height: '52px',
+                        backgroundColor: '#FFFFFF',
+                        border: '2px solid rgba(27, 77, 52, 0.25)'
+                      }}
+                    />
+                  </div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '0.45rem', fontSize: '0.82rem', color: 'var(--color-text-muted)' }}>
+                    <span>{language === 'te' ? 'మీ స్వంత మొత్తాన్ని నమోదు చేయండి' : language === 'hi' ? 'अपनी इच्छानुसार राशि दर्ज करें' : 'Type your own contribution amount'}</span>
+                    {customAmount && !isNaN(customAmount) && Number(customAmount) > 0 && (
+                      <strong style={{ color: 'var(--color-forest-700)' }}>
+                        {selectedCurrency === 'USD' ? '$' : selectedCurrency === 'EUR' ? '€' : '£'}{Number(customAmount).toLocaleString()}
+                      </strong>
+                    )}
+                  </div>
                 </div>
 
                 {/* International Inquiry Form */}

@@ -42,7 +42,7 @@ export default function HomePage() {
       <Hero />
 
       {/* 2. Impact Counters Banner */}
-      <section className="section" style={{ paddingTop: '1rem', paddingBottom: '3.5rem' }}>
+      <section className="section" style={{ paddingTop: '1rem', paddingBottom: '1rem' }}>
         <div className="container">
           <StatsCounter />
         </div>
@@ -160,9 +160,9 @@ export default function HomePage() {
       </section>
 
       {/* 4.5. Four Core Pillars of Sewa Showcase */}
-      <section className="section section-sage" style={{ paddingTop: '3.5rem', paddingBottom: '4rem' }}>
+      <section className="section section-sage">
         <div className="container">
-          <div className="section-header" style={{ maxWidth: '720px', margin: '0 auto 3rem auto', textAlign: 'center' }}>
+          <div className="section-header" style={{ maxWidth: '720px', margin: '0 auto 1.25rem auto', textAlign: 'center' }}>
             <div className="eyebrow-badge" style={{ margin: '0 auto 0.85rem auto' }}>
               <Sparkles size={14} />
               <span>{t('home.pillarsBadge')}</span>

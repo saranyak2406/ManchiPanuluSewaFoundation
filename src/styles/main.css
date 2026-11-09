@@ -134,17 +134,17 @@ main.main-content {
   }
 }
 
-/* Section Spacing */
+/* Section Spacing - Reduced by 75% for modern, clean, compact layout across the project */
 .section {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
   position: relative;
 }
 
 @media (min-width: 768px) {
   .section {
-    padding-top: 6.5rem;
-    padding-bottom: 6.5rem;
+    padding-top: 1.625rem;
+    padding-bottom: 1.625rem;
   }
 }
 
@@ -204,7 +204,7 @@ p {
 .section-header {
   text-align: center;
   max-width: 780px;
-  margin: 0 auto 3.5rem auto;
+  margin: 0 auto 1.25rem auto;
 }
 
 .section-header.text-left {
@@ -222,7 +222,7 @@ p {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.75rem;
   background-color: rgba(34, 100, 70, 0.12);
   color: var(--color-forest-700);
   border: 1px solid rgba(34, 100, 70, 0.18);
@@ -235,7 +235,7 @@ p {
 }
 
 .section-title {
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.75rem;
 }
 
 .section-subtitle {

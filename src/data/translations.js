@@ -300,7 +300,7 @@ export const translations = {
       badge: "Contribute to Sewa",
       heroTitle: "Every Rupee Protects a Tree, Feeds a Soul",
       heroDesc: "100% of your public contributions go straight to saplings, organic manure, clean meal ingredients, and water revival equipment.",
-      domesticTab: "Domestic Donors (Indian INR ₹)",
+      domesticTab: "Domestic Donors (INR ₹)",
       intlTab: "International Supporters & Diaspora",
       chooseTitle: "Choose Your Contribution",
       chooseDesc: "Select an impact amount or specify your own custom gift in Indian Rupees (₹).",

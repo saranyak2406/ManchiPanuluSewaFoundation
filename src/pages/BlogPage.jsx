@@ -58,7 +58,7 @@ export default function BlogPage() {
       </section>
 
       {/* Filter and Search Bar */}
-      <section className="section section-white" style={{ paddingTop: '2.5rem', paddingBottom: '1.5rem' }}>
+      <section className="section section-white">
         <div className="container">
           <div style={{
             display: 'flex',
@@ -122,7 +122,7 @@ export default function BlogPage() {
       </section>
 
       {/* Articles Grid */}
-      <section className="section section-sage" style={{ paddingTop: '1.5rem' }}>
+      <section className="section section-sage">
         <div className="container">
           <div style={{
             display: 'grid',
