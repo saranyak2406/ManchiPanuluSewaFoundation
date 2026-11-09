@@ -198,6 +198,17 @@ export default function DonatePage() {
       {/* Main Donation Container */}
       <section className="section section-sage">
         <div className="container">
+          {/* Six Pillars Banner - Exact Width of Tab Bar */}
+          <div className="donate-pillars-banner-wrapper">
+            <div className="donate-pillars-banner-card">
+              <img
+                src="/6pillars.png"
+                alt="Six Pillars of Dedicated Sewa - Tree Plantation, Education Support, Medical Help, Annadanam, Free Funeral Services, Orphan Children Care"
+                className="donate-pillars-banner-img"
+              />
+            </div>
+          </div>
+
           {/* Domestic vs International Tabs */}
           <div className="donation-tabs-wrapper">
             <div className="donation-tabs-switch">
