@@ -316,8 +316,8 @@ export const translations = {
     },
     donate: {
       badge: "Contribute to Sewa",
-      heroTitle: "Every Rupee Protects a Tree, Feeds a Soul",
-      heroDesc: "100% of your public contributions go straight to saplings, organic manure, clean meal ingredients, and water revival equipment.",
+      heroTitle: "Your Contribution Powers Six Dedicated Pillars of Sewa",
+      heroDesc: "Directing 100% of your support into Tree Plantation, Education Aid, and Medical Relief.\nSustaining daily Annadanam, dignified Free Funeral Services, and loving Orphan Children Care.",
       domesticTab: "Domestic Donors (INR ₹)",
       intlTab: "International Supporters & Diaspora",
       chooseTitle: "Choose Your Contribution",
@@ -756,8 +756,8 @@ export const translations = {
     },
     donate: {
       badge: "సేవకు చేయూత",
-      heroTitle: "ప్రతి రూపాయి ఒక చెట్టును కాపాడుతుంది, ఒక జీవికి ఆకలి తీరుస్తుంది",
-      heroDesc: "మీరు అందించే విరాళాలలో 100% నేరుగా మొక్కలు, సహజ ఎరువులు, పరిశుభ్రమైన ఆహార పదార్థాలు మరియు చెరువుల పునరుద్ధరణ పరికరాలకే వెచ్చిస్తాము.",
+      heroTitle: "మీ ప్రతి విరాళం ఆరు పవిత్ర సేవా స్తంభాలకు ప్రాణం పోస్తుంది",
+      heroDesc: "మీ సహాయం నేరుగా వృక్షారోపణ, నిరుపేదల విద్యా సహాయం మరియు అత్యవసర వైద్య సేవలకు చేరుతుంది.\nనిరంతర అన్నదానం, గౌరవప్రదమైన ఉచిత అంత్యక్రియలు మరియు అనాథ పిల్లల సంరక్షణకు పూర్తి భరోసా.",
       domesticTab: "భారతీయ దాతలు (INR ₹)",
       intlTab: "అంతర్జాతీయ దాతలు & ప్రవాసులు",
       chooseTitle: "మీ విరాళం మొత్తాన్ని ఎంచుకోండి",
@@ -1196,8 +1196,8 @@ export const translations = {
     },
     donate: {
       badge: "सेवा में योगदान",
-      heroTitle: "आपका हर रुपया एक पेड़ को जीवन और एक भूखे को भोजन देता है",
-      heroDesc: "आपके दान का 100% हिस्सा सीधे पौधों, जैविक खाद, पौष्टिक भोजन सामग्री और जल संरक्षण उपकरणों में लगाया जाता है।",
+      heroTitle: "आपका हर योगदान छह समर्पित सेवा स्तंभों को शक्ति देता है",
+      heroDesc: "आपका सहयोग सीधे वृक्षारोपण, विद्यार्थियों के शिक्षा सहयोग और जीवनरक्षक चिकित्सा सहायता में लगता है।\nदैनिक भूख मिटाता अन्नदान, सम्मानजनक निःशुल्क अंतिम संस्कार और अनाथ बच्चों का स्नेहपूर्ण संबल।",
       domesticTab: "भारतीय दानदाता (INR ₹)",
       intlTab: "अंतर्राष्ट्रीय दानदाता एवं प्रवासी",
       chooseTitle: "अपनी सहयोग राशि चुनें",

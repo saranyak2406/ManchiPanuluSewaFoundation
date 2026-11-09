@@ -188,9 +188,37 @@ export default function DonatePage() {
               {t('donate.heroTitle')}
             </h1>
             <div className="page-hero-accent-line"></div>
-            <p className="page-hero-desc-exact">
+            <p className="page-hero-desc-exact" style={{ whiteSpace: 'pre-line', maxWidth: '640px' }}>
               {t('donate.heroDesc')}
             </p>
+
+            {/* 6 Pillars Overview Strip inside Hero */}
+            <div className="hero-pillars-pill-row" style={{ marginTop: '1.1rem', display: 'flex', flexWrap: 'wrap', gap: '0.45rem' }}>
+              <span className="hero-pillar-chip" title={t('hero.chip1')}>
+                <span className="pillar-chip-dot dot-tree"></span>
+                <span>{t('hero.chip1')}</span>
+              </span>
+              <span className="hero-pillar-chip" title={t('hero.chip2')}>
+                <span className="pillar-chip-dot dot-education"></span>
+                <span>{t('hero.chip2')}</span>
+              </span>
+              <span className="hero-pillar-chip" title={t('hero.chip3')}>
+                <span className="pillar-chip-dot dot-medical"></span>
+                <span>{t('hero.chip3')}</span>
+              </span>
+              <span className="hero-pillar-chip" title={t('hero.chip4')}>
+                <span className="pillar-chip-dot dot-annadanam"></span>
+                <span>{t('hero.chip4')}</span>
+              </span>
+              <span className="hero-pillar-chip" title={t('hero.chip5')}>
+                <span className="pillar-chip-dot dot-funeral"></span>
+                <span>{t('hero.chip5')}</span>
+              </span>
+              <span className="hero-pillar-chip" title={t('hero.chip6')}>
+                <span className="pillar-chip-dot dot-orphan"></span>
+                <span>{t('hero.chip6')}</span>
+              </span>
+            </div>
           </div>
         </div>
       </section>
