@@ -162,7 +162,7 @@ export default function BlogPage() {
                     ))}
                   </div>
 
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: '1rem', borderTop: '1px solid var(--color-border-card)', color: 'var(--color-forest-700)', fontWeight: 600, fontSize: '0.88rem' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: '1rem', borderTop: '1px solid var(--color-border-card)', color: 'var(--color-forest-700)', fontWeight: 600, fontSize: '0.88rem', marginTop: 'auto' }}>
                     <span>{t('blog.readArticle')}</span>
                     <ArrowRight size={16} />
                   </div>

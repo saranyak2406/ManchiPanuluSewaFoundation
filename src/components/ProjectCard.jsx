@@ -52,10 +52,14 @@ export default function ProjectCard({ project, onSelect }) {
           gap: '0.5rem',
           fontSize: '0.82rem',
           color: 'var(--color-forest-800)',
-          fontWeight: '600'
+          fontWeight: '600',
+          minWidth: 0,
+          boxSizing: 'border-box',
+          overflowWrap: 'break-word',
+          wordBreak: 'break-word'
         }}>
           <Target size={16} style={{ color: 'var(--color-forest-700)', flexShrink: 0 }} />
-          <span>{achievedMetric}</span>
+          <span style={{ minWidth: 0, flex: 1, overflowWrap: 'break-word', wordBreak: 'break-word' }}>{achievedMetric}</span>
         </div>
 
         <Button

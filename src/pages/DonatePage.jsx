@@ -545,13 +545,7 @@ export default function DonatePage() {
                 </div>
 
                 {/* Bank Account Details Card */}
-                <div style={{
-                  backgroundColor: '#FFFFFF',
-                  borderRadius: 'var(--radius-xl)',
-                  padding: '2rem',
-                  border: '1px solid var(--color-border-card)',
-                  boxShadow: 'var(--shadow-sm)'
-                }}>
+                <div className="bank-details-card">
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', marginBottom: '1.25rem' }}>
                     <Building size={22} style={{ color: 'var(--color-forest-700)' }} />
                     <h4 style={{ color: 'var(--color-forest-900)' }}>{t('donate.bankTitle')}</h4>

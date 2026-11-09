@@ -29,7 +29,7 @@ export default function ServiceCard({ service }) {
           ))}
         </ul>
 
-        <div style={{ marginTop: 'auto', display: 'flex', gap: '0.75rem' }}>
+        <div style={{ marginTop: 'auto', display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}>
           <Button to={`/services#${id}`} variant="outline" size="sm" icon={ArrowRight}>
             Explore Programs
           </Button>

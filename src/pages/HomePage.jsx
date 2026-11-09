@@ -393,44 +393,30 @@ export default function HomePage() {
             {latestArticles.map((article) => (
               <div
                 key={article.id}
-                style={{
-                  backgroundColor: '#FFFFFF',
-                  borderRadius: 'var(--radius-lg)',
-                  overflow: 'hidden',
-                  border: '1px solid var(--color-border-card)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  cursor: 'pointer',
-                  transition: 'transform var(--transition-normal), box-shadow var(--transition-normal)'
-                }}
+                className="blog-card"
                 onClick={() => setSelectedArticle(article)}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-6px)';
-                  e.currentTarget.style.boxShadow = 'var(--shadow-md)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = 'var(--shadow-sm)';
-                }}
               >
-                <div style={{ height: '210px', overflow: 'hidden' }}>
+                <div className="blog-thumb-wrap">
                   <img
                     src={article.image}
                     alt={article.title}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    loading="lazy"
                   />
+                  <span className="blog-category-tag">{article.categoryLabel}</span>
                 </div>
-                <div style={{ padding: '1.75rem', display: 'flex', flexDirection: 'column', flex: 1 }}>
-                  <div style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--color-forest-600)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '0.4rem' }}>
-                    {article.categoryLabel} • {article.readTime}
+                <div className="blog-card-body">
+                  <div className="blog-meta-row">
+                    <span>{article.categoryLabel}</span>
+                    <span>•</span>
+                    <span>{article.readTime}</span>
                   </div>
-                  <h4 style={{ fontSize: '1.25rem', color: 'var(--color-forest-900)', marginBottom: '0.75rem', lineHeight: '1.3' }}>
+                  <h4 className="blog-card-title">
                     {article.title}
                   </h4>
-                  <p style={{ fontSize: '0.92rem', color: 'var(--color-text-muted)', lineHeight: '1.6', marginBottom: '1.25rem', flex: 1 }}>
+                  <p className="blog-card-excerpt">
                     {article.excerpt}
                   </p>
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: '1rem', borderTop: '1px solid var(--color-border-subtle)', fontSize: '0.85rem', fontWeight: 600, color: 'var(--color-forest-700)' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: '1rem', borderTop: '1px solid var(--color-border-subtle)', fontSize: '0.85rem', fontWeight: 600, color: 'var(--color-forest-700)', marginTop: 'auto' }}>
                     <span>{t('home.readArticle')}</span>
                     <ArrowRight size={16} />
                   </div>

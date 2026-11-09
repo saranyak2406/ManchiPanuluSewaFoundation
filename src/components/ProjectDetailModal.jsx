@@ -23,7 +23,7 @@ export default function ProjectDetailModal({ project, onClose }) {
           <X size={20} />
         </button>
 
-        <div style={{ height: '300px', width: '100%', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ height: 'clamp(200px, 35vw, 300px)', width: '100%', position: 'relative', overflow: 'hidden' }}>
           <img
             src={project.image}
             alt={project.title}
@@ -46,22 +46,22 @@ export default function ProjectDetailModal({ project, onClose }) {
           </div>
         </div>
 
-        <div style={{ padding: '2rem 2.25rem' }}>
-          <h2 style={{ fontSize: '1.8rem', color: 'var(--color-forest-900)', marginBottom: '0.75rem' }}>
+        <div className="modal-inner-body">
+          <h2 style={{ fontSize: 'clamp(1.35rem, 3.5vw, 1.8rem)', color: 'var(--color-forest-900)', marginBottom: '0.75rem', lineHeight: '1.25' }}>
             {project.title}
           </h2>
 
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem', marginBottom: '1.5rem', fontSize: '0.9rem', color: 'var(--color-text-muted)' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.25rem', marginBottom: '1.5rem', fontSize: '0.9rem', color: 'var(--color-text-muted)' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-              <MapPin size={16} style={{ color: 'var(--color-forest-700)' }} />
+              <MapPin size={16} style={{ color: 'var(--color-forest-700)', flexShrink: 0 }} />
               <span>{project.location}</span>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-              <Users size={16} style={{ color: 'var(--color-forest-700)' }} />
+              <Users size={16} style={{ color: 'var(--color-forest-700)', flexShrink: 0 }} />
               <span>{project.volunteersCount}</span>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-              <Target size={16} style={{ color: 'var(--color-forest-700)' }} />
+              <Target size={16} style={{ color: 'var(--color-forest-700)', flexShrink: 0 }} />
               <span>{project.targetMetric}</span>
             </div>
           </div>
@@ -75,9 +75,9 @@ export default function ProjectDetailModal({ project, onClose }) {
           </h4>
           <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem', marginBottom: '2rem' }}>
             {project.keyHighlights.map((highlight, idx) => (
-              <li key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', fontSize: '0.95rem', color: 'var(--color-text-main)' }}>
+              <li key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', fontSize: '0.95rem', color: 'var(--color-text-main)', minWidth: 0 }}>
                 <CheckCircle2 size={18} style={{ color: 'var(--color-forest-600)', flexShrink: 0, marginTop: '2px' }} />
-                <span>{highlight}</span>
+                <span style={{ minWidth: 0, flex: 1, overflowWrap: 'break-word', wordBreak: 'break-word' }}>{highlight}</span>
               </li>
             ))}
           </ul>

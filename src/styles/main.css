@@ -50,6 +50,26 @@ p, h1, h2, h3, h4, h5, h6 {
   word-wrap: break-word;
 }
 
+/* Universal Card & Content Wrapping Protection Across All Viewports */
+[class*="-card"],
+[class*="-box"],
+[class*="-item"],
+.card,
+article {
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+[class*="-card"] h1, [class*="-card"] h2, [class*="-card"] h3, [class*="-card"] h4, [class*="-card"] h5, [class*="-card"] h6,
+[class*="-card"] p, [class*="-card"] span, [class*="-card"] li, [class*="-card"] a, [class*="-card"] strong, [class*="-card"] div,
+.card h1, .card h2, .card h3, .card h4, .card h5, .card h6,
+.card p, .card span, .card li, .card a, .card strong, .card div,
+article h1, article h2, article h3, article h4, article h5, article h6,
+article p, article span, article li, article a, article strong {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
 /* Multilingual Native Font Encodings for Telugu & Hindi */
 body.lang-te {
   font-family: 'Noto Sans Telugu', var(--font-body);

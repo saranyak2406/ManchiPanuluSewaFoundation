@@ -23,7 +23,7 @@ export default function BlogModal({ article, onClose }) {
           <X size={20} />
         </button>
 
-        <div style={{ height: '320px', width: '100%', position: 'relative' }}>
+        <div style={{ height: 'clamp(200px, 35vw, 320px)', width: '100%', position: 'relative', overflow: 'hidden' }}>
           <img
             src={article.image}
             alt={article.title}
@@ -46,8 +46,8 @@ export default function BlogModal({ article, onClose }) {
           </div>
         </div>
 
-        <div style={{ padding: '2.25rem' }}>
-          <h2 style={{ fontSize: '1.85rem', color: 'var(--color-forest-900)', marginBottom: '1rem', lineHeight: '1.25' }}>
+        <div className="modal-inner-body">
+          <h2 style={{ fontSize: 'clamp(1.35rem, 3.5vw, 1.85rem)', color: 'var(--color-forest-900)', marginBottom: '1rem', lineHeight: '1.25' }}>
             {article.title}
           </h2>
 

@@ -206,15 +206,7 @@ export default function ServicesPage() {
                   return (
                     <div
                       key={pIdx}
-                      style={{
-                        backgroundColor: '#FFFFFF',
-                        borderRadius: 'var(--radius-lg)',
-                        padding: '2rem',
-                        border: '1px solid var(--color-border-card)',
-                        boxShadow: 'var(--shadow-sm)',
-                        display: 'flex',
-                        flexDirection: 'column'
-                      }}
+                      className="service-detail-program-card"
                     >
                       <div style={{
                         width: '52px',
@@ -225,27 +217,19 @@ export default function ServicesPage() {
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        marginBottom: '1.25rem'
+                        marginBottom: '1.25rem',
+                        flexShrink: 0
                       }}>
                         <IconComp size={26} />
                       </div>
-                      <h4 style={{ fontSize: '1.25rem', color: 'var(--color-forest-900)', marginBottom: '0.75rem' }}>
+                      <h4 className="service-detail-program-title">
                         {prog.title}
                       </h4>
-                      <p style={{ fontSize: '0.92rem', color: 'var(--color-text-muted)', lineHeight: '1.65', marginBottom: '1.25rem', flex: 1 }}>
+                      <p className="service-detail-program-desc">
                         {prog.description}
                       </p>
-                      <div style={{
-                        fontSize: '0.8rem',
-                        fontWeight: 600,
-                        color: 'var(--color-forest-700)',
-                        paddingTop: '0.85rem',
-                        borderTop: '1px solid var(--color-border-subtle)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '0.4rem'
-                      }}>
-                        <CheckCircle2 size={14} />
+                      <div className="service-detail-program-metrics">
+                        <CheckCircle2 size={14} style={{ flexShrink: 0 }} />
                         <span>{prog.metrics}</span>
                       </div>
                     </div>
@@ -276,13 +260,7 @@ export default function ServicesPage() {
             gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 240px), 1fr))',
             gap: '1.5rem'
           }}>
-            <div style={{
-              backgroundColor: 'rgba(255, 255, 255, 0.05)',
-              border: '1px solid rgba(255, 255, 255, 0.1)',
-              borderRadius: 'var(--radius-lg)',
-              padding: '2rem',
-              textAlign: 'center'
-            }}>
+            <div className="service-step-card">
               <div style={{
                 fontFamily: 'var(--font-heading)',
                 fontSize: '2.5rem',
@@ -292,19 +270,13 @@ export default function ServicesPage() {
               }}>
                 01
               </div>
-              <h4 style={{ color: '#FFFFFF', marginBottom: '0.5rem' }}>{t('services.step1Title')}</h4>
-              <p style={{ fontSize: '0.88rem', color: 'var(--color-text-light-muted)' }}>
+              <h4 style={{ color: '#FFFFFF', marginBottom: '0.5rem', overflowWrap: 'break-word', wordBreak: 'break-word' }}>{t('services.step1Title')}</h4>
+              <p style={{ fontSize: '0.88rem', color: 'var(--color-text-light-muted)', overflowWrap: 'break-word', wordBreak: 'break-word' }}>
                 {t('services.step1Desc')}
               </p>
             </div>
 
-            <div style={{
-              backgroundColor: 'rgba(255, 255, 255, 0.05)',
-              border: '1px solid rgba(255, 255, 255, 0.1)',
-              borderRadius: 'var(--radius-lg)',
-              padding: '2rem',
-              textAlign: 'center'
-            }}>
+            <div className="service-step-card">
               <div style={{
                 fontFamily: 'var(--font-heading)',
                 fontSize: '2.5rem',
@@ -314,19 +286,13 @@ export default function ServicesPage() {
               }}>
                 02
               </div>
-              <h4 style={{ color: '#FFFFFF', marginBottom: '0.5rem' }}>{t('services.step2Title')}</h4>
-              <p style={{ fontSize: '0.88rem', color: 'var(--color-text-light-muted)' }}>
+              <h4 style={{ color: '#FFFFFF', marginBottom: '0.5rem', overflowWrap: 'break-word', wordBreak: 'break-word' }}>{t('services.step2Title')}</h4>
+              <p style={{ fontSize: '0.88rem', color: 'var(--color-text-light-muted)', overflowWrap: 'break-word', wordBreak: 'break-word' }}>
                 {t('services.step2Desc')}
               </p>
             </div>
 
-            <div style={{
-              backgroundColor: 'rgba(255, 255, 255, 0.05)',
-              border: '1px solid rgba(255, 255, 255, 0.1)',
-              borderRadius: 'var(--radius-lg)',
-              padding: '2rem',
-              textAlign: 'center'
-            }}>
+            <div className="service-step-card">
               <div style={{
                 fontFamily: 'var(--font-heading)',
                 fontSize: '2.5rem',
@@ -336,19 +302,13 @@ export default function ServicesPage() {
               }}>
                 03
               </div>
-              <h4 style={{ color: '#FFFFFF', marginBottom: '0.5rem' }}>{t('services.step3Title')}</h4>
-              <p style={{ fontSize: '0.88rem', color: 'var(--color-text-light-muted)' }}>
+              <h4 style={{ color: '#FFFFFF', marginBottom: '0.5rem', overflowWrap: 'break-word', wordBreak: 'break-word' }}>{t('services.step3Title')}</h4>
+              <p style={{ fontSize: '0.88rem', color: 'var(--color-text-light-muted)', overflowWrap: 'break-word', wordBreak: 'break-word' }}>
                 {t('services.step3Desc')}
               </p>
             </div>
 
-            <div style={{
-              backgroundColor: 'rgba(255, 255, 255, 0.05)',
-              border: '1px solid rgba(255, 255, 255, 0.1)',
-              borderRadius: 'var(--radius-lg)',
-              padding: '2rem',
-              textAlign: 'center'
-            }}>
+            <div className="service-step-card">
               <div style={{
                 fontFamily: 'var(--font-heading)',
                 fontSize: '2.5rem',
@@ -358,8 +318,8 @@ export default function ServicesPage() {
               }}>
                 04
               </div>
-              <h4 style={{ color: '#FFFFFF', marginBottom: '0.5rem' }}>{t('services.step4Title')}</h4>
-              <p style={{ fontSize: '0.88rem', color: 'var(--color-text-light-muted)' }}>
+              <h4 style={{ color: '#FFFFFF', marginBottom: '0.5rem', overflowWrap: 'break-word', wordBreak: 'break-word' }}>{t('services.step4Title')}</h4>
+              <p style={{ fontSize: '0.88rem', color: 'var(--color-text-light-muted)', overflowWrap: 'break-word', wordBreak: 'break-word' }}>
                 {t('services.step4Desc')}
               </p>
             </div>
@@ -411,7 +371,7 @@ export default function ServicesPage() {
                   />
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))', gap: '1rem' }}>
                   <div className="form-group">
                     <label className="form-label">{t('services.modalPhone')}</label>
                     <input

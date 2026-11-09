@@ -174,20 +174,14 @@ export default function VolunteerPage() {
               </div>
 
               {/* Quotes Card */}
-              <div style={{
-                backgroundColor: 'var(--color-forest-900)',
-                color: '#FFFFFF',
-                borderRadius: 'var(--radius-xl)',
-                padding: '2rem',
-                border: '1px solid rgba(255, 255, 255, 0.1)'
-              }}>
-                <div style={{ fontSize: '0.8rem', color: 'var(--color-sprout-light)', fontWeight: 700, textTransform: 'uppercase', marginBottom: '0.5rem' }}>
+              <div className="volunteer-quote-card">
+                <div style={{ fontSize: '0.8rem', color: 'var(--color-sprout-light)', fontWeight: 700, textTransform: 'uppercase', marginBottom: '0.5rem', letterSpacing: '0.08em' }}>
                   {t('volunteer.quoteBadge')}
                 </div>
-                <blockquote style={{ fontFamily: 'var(--font-heading)', fontSize: '1.15rem', lineHeight: '1.6', marginBottom: '1rem', fontStyle: 'italic' }}>
+                <blockquote style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1rem, 2.5vw, 1.15rem)', lineHeight: '1.6', marginBottom: '1rem', fontStyle: 'italic', overflowWrap: 'break-word', wordBreak: 'break-word' }}>
                   {t('volunteer.quoteText')}
                 </blockquote>
-                <div style={{ fontSize: '0.85rem', color: 'var(--color-text-light-muted)' }}>
+                <div style={{ fontSize: '0.85rem', color: 'var(--color-text-light-muted)', overflowWrap: 'break-word', wordBreak: 'break-word' }}>
                   {t('volunteer.quoteAuthor')}
                 </div>
               </div>
@@ -195,13 +189,7 @@ export default function VolunteerPage() {
 
             {/* Right Column: Registration Form or Success Screen */}
             <div>
-              <div style={{
-                backgroundColor: '#FFFFFF',
-                borderRadius: 'var(--radius-xl)',
-                padding: '2.5rem',
-                border: '1px solid var(--color-border-card)',
-                boxShadow: 'var(--shadow-md)'
-              }}>
+              <div className="volunteer-form-card">
                 {isSubmitted ? (
                   <div style={{ textAlign: 'center', padding: '2rem 1rem' }}>
                     <div style={{

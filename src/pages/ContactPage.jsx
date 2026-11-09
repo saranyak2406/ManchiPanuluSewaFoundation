@@ -112,80 +112,52 @@ export default function ContactPage() {
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', marginBottom: '2.5rem' }}>
                 {/* Office Address */}
-                <div style={{
-                  display: 'flex',
-                  gap: '1rem',
-                  padding: '1.25rem',
-                  borderRadius: 'var(--radius-lg)',
-                  backgroundColor: 'var(--color-sage-100)',
-                  border: '1px solid var(--color-border-card)'
-                }}>
+                <div className="contact-info-card">
                   <div style={{ width: '44px', height: '44px', borderRadius: '12px', backgroundColor: '#FFFFFF', color: 'var(--color-forest-700)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                     <MapPin size={22} />
                   </div>
-                  <div>
-                    <h4 style={{ fontSize: '1.05rem', color: 'var(--color-forest-900)', marginBottom: '0.25rem' }}>{t('contact.officeTitle')}</h4>
-                    <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', lineHeight: '1.5' }}>
+                  <div style={{ minWidth: 0, flex: 1 }}>
+                    <h4 style={{ fontSize: '1.05rem', color: 'var(--color-forest-900)', marginBottom: '0.25rem', overflowWrap: 'break-word', wordBreak: 'break-word' }}>{t('contact.officeTitle')}</h4>
+                    <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', lineHeight: '1.5', overflowWrap: 'break-word', wordBreak: 'break-word' }}>
                       {complianceInfo.officeAddress}
                     </p>
                   </div>
                 </div>
 
                 {/* Helpline Phone */}
-                <div style={{
-                  display: 'flex',
-                  gap: '1rem',
-                  padding: '1.25rem',
-                  borderRadius: 'var(--radius-lg)',
-                  backgroundColor: 'var(--color-sage-100)',
-                  border: '1px solid var(--color-border-card)'
-                }}>
+                <div className="contact-info-card">
                   <div style={{ width: '44px', height: '44px', borderRadius: '12px', backgroundColor: '#FFFFFF', color: 'var(--color-forest-700)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                     <Phone size={22} />
                   </div>
-                  <div>
-                    <h4 style={{ fontSize: '1.05rem', color: 'var(--color-forest-900)', marginBottom: '0.25rem' }}>{t('contact.helplineTitle')}</h4>
-                    <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)' }}>
+                  <div style={{ minWidth: 0, flex: 1 }}>
+                    <h4 style={{ fontSize: '1.05rem', color: 'var(--color-forest-900)', marginBottom: '0.25rem', overflowWrap: 'break-word', wordBreak: 'break-word' }}>{t('contact.helplineTitle')}</h4>
+                    <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', overflowWrap: 'break-word', wordBreak: 'break-word' }}>
                       {complianceInfo.helplinePhone}
                     </p>
                   </div>
                 </div>
 
                 {/* Official Email */}
-                <div style={{
-                  display: 'flex',
-                  gap: '1rem',
-                  padding: '1.25rem',
-                  borderRadius: 'var(--radius-lg)',
-                  backgroundColor: 'var(--color-sage-100)',
-                  border: '1px solid var(--color-border-card)'
-                }}>
+                <div className="contact-info-card">
                   <div style={{ width: '44px', height: '44px', borderRadius: '12px', backgroundColor: '#FFFFFF', color: 'var(--color-forest-700)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                     <Mail size={22} />
                   </div>
-                  <div>
-                    <h4 style={{ fontSize: '1.05rem', color: 'var(--color-forest-900)', marginBottom: '0.25rem' }}>{t('contact.emailTitle')}</h4>
-                    <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)' }}>
+                  <div style={{ minWidth: 0, flex: 1 }}>
+                    <h4 style={{ fontSize: '1.05rem', color: 'var(--color-forest-900)', marginBottom: '0.25rem', overflowWrap: 'break-word', wordBreak: 'break-word' }}>{t('contact.emailTitle')}</h4>
+                    <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', overflowWrap: 'break-word', wordBreak: 'break-all' }}>
                       {complianceInfo.officialEmail}
                     </p>
                   </div>
                 </div>
 
                 {/* Working Hours */}
-                <div style={{
-                  display: 'flex',
-                  gap: '1rem',
-                  padding: '1.25rem',
-                  borderRadius: 'var(--radius-lg)',
-                  backgroundColor: 'var(--color-sage-100)',
-                  border: '1px solid var(--color-border-card)'
-                }}>
+                <div className="contact-info-card">
                   <div style={{ width: '44px', height: '44px', borderRadius: '12px', backgroundColor: '#FFFFFF', color: 'var(--color-forest-700)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                     <Clock size={22} />
                   </div>
-                  <div>
-                    <h4 style={{ fontSize: '1.05rem', color: 'var(--color-forest-900)', marginBottom: '0.25rem' }}>{t('contact.hoursTitle')}</h4>
-                    <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)' }}>
+                  <div style={{ minWidth: 0, flex: 1 }}>
+                    <h4 style={{ fontSize: '1.05rem', color: 'var(--color-forest-900)', marginBottom: '0.25rem', overflowWrap: 'break-word', wordBreak: 'break-word' }}>{t('contact.hoursTitle')}</h4>
+                    <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', overflowWrap: 'break-word', wordBreak: 'break-word' }}>
                       {complianceInfo.workingHours}
                     </p>
                   </div>
@@ -195,13 +167,7 @@ export default function ContactPage() {
 
             {/* Right Column: Interactive Form */}
             <div>
-              <div style={{
-                backgroundColor: '#FFFFFF',
-                borderRadius: 'var(--radius-xl)',
-                padding: '2.5rem',
-                border: '1px solid var(--color-border-card)',
-                boxShadow: 'var(--shadow-md)'
-              }}>
+              <div className="contact-form-card">
                 {isSubmitted ? (
                   <div style={{ textAlign: 'center', padding: '2rem 1rem' }}>
                     <div style={{

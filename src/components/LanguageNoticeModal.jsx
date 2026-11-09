@@ -47,8 +47,8 @@ export default function LanguageNoticeModal({ isOpen, onClose, selectedLang }) {
           }}>
             <Globe size={32} />
           </div>
-          <h3 style={{ marginBottom: '0.35rem', color: 'var(--color-forest-900)' }}>{current.title}</h3>
-          <p style={{ fontWeight: '700', color: 'var(--color-forest-600)', fontSize: '0.95rem' }}>{current.subtitle}</p>
+          <h3 style={{ fontSize: 'clamp(1.15rem, 3.5vw, 1.4rem)', marginBottom: '0.35rem', color: 'var(--color-forest-900)', lineHeight: '1.3', overflowWrap: 'break-word', wordBreak: 'break-word' }}>{current.title}</h3>
+          <p style={{ fontWeight: '700', color: 'var(--color-forest-600)', fontSize: '0.95rem', overflowWrap: 'break-word', wordBreak: 'break-word' }}>{current.subtitle}</p>
         </div>
 
         <div style={{
@@ -56,7 +56,11 @@ export default function LanguageNoticeModal({ isOpen, onClose, selectedLang }) {
           borderRadius: 'var(--radius-md)',
           padding: '1.25rem 1.5rem',
           marginBottom: '1.5rem',
-          borderLeft: '4px solid var(--color-forest-700)'
+          borderLeft: '4px solid var(--color-forest-700)',
+          minWidth: 0,
+          boxSizing: 'border-box',
+          overflowWrap: 'break-word',
+          wordBreak: 'break-word'
         }}>
           <p style={{ fontWeight: '700', color: 'var(--color-forest-900)', marginBottom: '0.5rem' }}>{current.greeting}</p>
           <p style={{ fontSize: '0.95rem', color: 'var(--color-text-main)', lineHeight: '1.6', marginBottom: '0.75rem' }}>

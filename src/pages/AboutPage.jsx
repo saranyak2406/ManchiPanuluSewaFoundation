@@ -160,13 +160,7 @@ export default function AboutPage() {
             gap: '1.75rem'
           }}>
             {/* Mission Card */}
-            <div style={{
-              backgroundColor: '#FFFFFF',
-              borderRadius: 'var(--radius-xl)',
-              padding: '2.5rem',
-              border: '1px solid var(--color-border-card)',
-              boxShadow: 'var(--shadow-sm)'
-            }}>
+            <div className="mission-vision-card">
               <div style={{
                 width: '56px',
                 height: '56px',
@@ -176,11 +170,12 @@ export default function AboutPage() {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                marginBottom: '1.5rem'
+                marginBottom: '1.5rem',
+                flexShrink: 0
               }}>
                 <Compass size={28} />
               </div>
-              <h3 style={{ fontSize: '1.75rem', color: 'var(--color-forest-900)', marginBottom: '1rem' }}>
+              <h3 style={{ fontSize: 'clamp(1.35rem, 3vw, 1.75rem)', color: 'var(--color-forest-900)', marginBottom: '1rem', lineHeight: '1.25' }}>
                 {t('about.missionTitle')}
               </h3>
               <p style={{ lineHeight: '1.8', color: 'var(--color-text-muted)', marginBottom: '1.5rem' }}>
@@ -188,28 +183,22 @@ export default function AboutPage() {
               </p>
               <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.6rem', fontSize: '0.92rem', color: 'var(--color-forest-800)', fontWeight: 600 }}>
                 <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <CheckCircle2 size={16} style={{ color: 'var(--color-forest-600)' }} />
+                  <CheckCircle2 size={16} style={{ color: 'var(--color-forest-600)', flexShrink: 0 }} />
                   <span>{t('about.missionB1')}</span>
                 </li>
                 <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <CheckCircle2 size={16} style={{ color: 'var(--color-forest-600)' }} />
+                  <CheckCircle2 size={16} style={{ color: 'var(--color-forest-600)', flexShrink: 0 }} />
                   <span>{t('about.missionB2')}</span>
                 </li>
                 <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <CheckCircle2 size={16} style={{ color: 'var(--color-forest-600)' }} />
+                  <CheckCircle2 size={16} style={{ color: 'var(--color-forest-600)', flexShrink: 0 }} />
                   <span>{t('about.missionB3')}</span>
                 </li>
               </ul>
             </div>
 
             {/* Vision Card */}
-            <div style={{
-              backgroundColor: '#FFFFFF',
-              borderRadius: 'var(--radius-xl)',
-              padding: '2.5rem',
-              border: '1px solid var(--color-border-card)',
-              boxShadow: 'var(--shadow-sm)'
-            }}>
+            <div className="mission-vision-card">
               <div style={{
                 width: '56px',
                 height: '56px',
@@ -219,11 +208,12 @@ export default function AboutPage() {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                marginBottom: '1.5rem'
+                marginBottom: '1.5rem',
+                flexShrink: 0
               }}>
                 <Sparkles size={28} />
               </div>
-              <h3 style={{ fontSize: '1.75rem', color: 'var(--color-forest-900)', marginBottom: '1rem' }}>
+              <h3 style={{ fontSize: 'clamp(1.35rem, 3vw, 1.75rem)', color: 'var(--color-forest-900)', marginBottom: '1rem', lineHeight: '1.25' }}>
                 {t('about.visionTitle')}
               </h3>
               <p style={{ lineHeight: '1.8', color: 'var(--color-text-muted)', marginBottom: '1.5rem' }}>
@@ -231,15 +221,15 @@ export default function AboutPage() {
               </p>
               <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.6rem', fontSize: '0.92rem', color: 'var(--color-forest-800)', fontWeight: 600 }}>
                 <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <CheckCircle2 size={16} style={{ color: 'var(--color-gold)' }} />
+                  <CheckCircle2 size={16} style={{ color: 'var(--color-forest-600)', flexShrink: 0 }} />
                   <span>{t('about.visionB1')}</span>
                 </li>
                 <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <CheckCircle2 size={16} style={{ color: 'var(--color-gold)' }} />
+                  <CheckCircle2 size={16} style={{ color: 'var(--color-forest-600)', flexShrink: 0 }} />
                   <span>{t('about.visionB2')}</span>
                 </li>
                 <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <CheckCircle2 size={16} style={{ color: 'var(--color-gold)' }} />
+                  <CheckCircle2 size={16} style={{ color: 'var(--color-forest-600)', flexShrink: 0 }} />
                   <span>{t('about.visionB3')}</span>
                 </li>
               </ul>
@@ -322,15 +312,7 @@ export default function AboutPage() {
 
           <div style={{ maxWidth: '780px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '1.75rem' }}>
             {milestones.map((m, idx) => (
-              <div key={idx} style={{
-                display: 'flex',
-                gap: '1.5rem',
-                backgroundColor: '#FFFFFF',
-                padding: '1.75rem',
-                borderRadius: 'var(--radius-lg)',
-                borderLeft: '5px solid var(--color-forest-700)',
-                boxShadow: 'var(--shadow-sm)'
-              }}>
+              <div key={idx} className="milestone-item-card">
                 <div style={{
                   fontFamily: 'var(--font-heading)',
                   fontSize: '1.6rem',
@@ -340,9 +322,9 @@ export default function AboutPage() {
                 }}>
                   {m.year}
                 </div>
-                <div>
-                  <h4 style={{ color: 'var(--color-forest-900)', marginBottom: '0.4rem' }}>{m.title}</h4>
-                  <p style={{ fontSize: '0.95rem', color: 'var(--color-text-muted)', lineHeight: '1.6' }}>{m.desc}</p>
+                <div style={{ minWidth: 0, flex: 1 }}>
+                  <h4 style={{ color: 'var(--color-forest-900)', marginBottom: '0.4rem', overflowWrap: 'break-word', wordBreak: 'break-word' }}>{m.title}</h4>
+                  <p style={{ fontSize: '0.95rem', color: 'var(--color-text-muted)', lineHeight: '1.6', overflowWrap: 'break-word', wordBreak: 'break-word' }}>{m.desc}</p>
                 </div>
               </div>
             ))}
