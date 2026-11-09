@@ -2,8 +2,8 @@ export const galleryData = [
   {
     id: "gal-1",
     title: "Miyawaki Forest Plantation Drive",
-    category: "VrukshaSewa",
-    categoryLabel: "VrukshaSewa (Afforestation)",
+    category: "TreePlantation",
+    categoryLabel: "Tree Plantation",
     date: "October 2025",
     location: "Green Belt Zone, Medchal",
     image: "/gallery/miyawaki-plantation.jpg",
@@ -13,8 +13,8 @@ export const galleryData = [
   {
     id: "gal-2",
     title: "Nutritious Food Sewa at Hospital Shelter",
-    category: "Sewa",
-    categoryLabel: "Social Sewa",
+    category: "Annadanam",
+    categoryLabel: "Annadanam",
     date: "November 2025",
     location: "Gandhi Hospital Shelter Outpost",
     image: "/gallery/food-sewa-hospital.jpg",
@@ -25,7 +25,7 @@ export const galleryData = [
     id: "gal-3",
     title: "Community Lake Bed Clean-up & Desilting",
     category: "Environment",
-    categoryLabel: "Environmental Service",
+    categoryLabel: "Environmental Care",
     date: "December 2025",
     location: "Pedda Cheruvu Lakefront",
     image: "/gallery/lake-cleanup.jpg",
@@ -35,8 +35,8 @@ export const galleryData = [
   {
     id: "gal-4",
     title: "Seed Ball Preparation Workshop with Children",
-    category: "VrukshaSewa",
-    categoryLabel: "VrukshaSewa (Afforestation)",
+    category: "TreePlantation",
+    categoryLabel: "Tree Plantation",
     date: "August 2025",
     location: "Zilla Parishad High School",
     image: "/gallery/seed-balls-workshop.jpg",
@@ -46,7 +46,7 @@ export const galleryData = [
   {
     id: "gal-5",
     title: "Warm Blanket & Winter Relief Distribution",
-    category: "Sewa",
+    category: "Annadanam",
     categoryLabel: "Social Sewa",
     date: "January 2026",
     location: "Old City Night Corridors",
@@ -58,7 +58,7 @@ export const galleryData = [
     id: "gal-6",
     title: "Plastic-Free Cloth Bag Campaign",
     category: "Environment",
-    categoryLabel: "Environmental Service",
+    categoryLabel: "Environmental Care",
     date: "February 2026",
     location: "Rythu Bazaar & Weekly Market",
     image: "/gallery/cloth-bag-campaign.jpg",
@@ -68,8 +68,8 @@ export const galleryData = [
   {
     id: "gal-7",
     title: "Indigenous Sapling Nursery Management",
-    category: "VrukshaSewa",
-    categoryLabel: "VrukshaSewa (Afforestation)",
+    category: "TreePlantation",
+    categoryLabel: "Tree Plantation",
     date: "March 2026",
     location: "Foundation Central Nursery",
     image: "/gallery/sapling-nursery.jpg",
@@ -79,8 +79,8 @@ export const galleryData = [
   {
     id: "gal-8",
     title: "Educational Kits Distribution Drive",
-    category: "Sewa",
-    categoryLabel: "Social Sewa",
+    category: "Education",
+    categoryLabel: "Education Support",
     date: "June 2025",
     location: "Tribal Welfare School, Araku Valley",
     image: "/gallery/education-kits.jpg",
@@ -91,7 +91,7 @@ export const galleryData = [
     id: "gal-9",
     title: "Wetland & Riverbank Eco-Restoration",
     category: "Environment",
-    categoryLabel: "Environmental Service",
+    categoryLabel: "Environmental Care",
     date: "September 2025",
     location: "Musi River Tributary Buffer",
     image: "/gallery/riverbank-restoration.jpg",
@@ -99,9 +99,42 @@ export const galleryData = [
     type: "photo"
   },
   {
+    id: "gal-10",
+    title: "Aarogya Raksha Free Health & Medical Camps",
+    category: "Medical",
+    categoryLabel: "Medical Help",
+    date: "January 2026",
+    location: "Tribal Hamlets & Slum Enclaves",
+    image: "/pillars/medical-help.jpg",
+    description: "Conducting free diagnostic screenings, ECG checkups, and distributing prescription medicines to underserved communities.",
+    type: "photo"
+  },
+  {
+    id: "gal-11",
+    title: "Dignified Antim Sanskar Final Rites Sewa",
+    category: "Funeral",
+    categoryLabel: "Free Funeral Services",
+    date: "February 2026",
+    location: "District Crematoriums",
+    image: "/pillars/funeral-services.jpg",
+    description: "Performing respectful Vedic cremation rites and complete funeral services free of charge for destitute and unclaimed souls.",
+    type: "photo"
+  },
+  {
+    id: "gal-12",
+    title: "Vatsalya Kutumb Learning & Nurturing Haven",
+    category: "Orphan",
+    categoryLabel: "Orphan Children Care",
+    date: "March 2026",
+    location: "Kutumb Children Shelter",
+    image: "/pillars/orphan-care.jpg",
+    description: "Providing loving residential care, modern computer learning, wholesome nutrition, and creative arts mentoring to parentless children.",
+    type: "photo"
+  },
+  {
     id: "gal-video-1",
     title: "Story of Hope: The Haritha Forest Journey",
-    category: "VrukshaSewa",
+    category: "TreePlantation",
     categoryLabel: "Documentary Highlight",
     date: "Short Film Series",
     location: "Telangana Forest Strip",
@@ -113,11 +146,11 @@ export const galleryData = [
   {
     id: "gal-video-2",
     title: "A Day in Amrutha Aahaaram Kitchen",
-    category: "Sewa",
+    category: "Annadanam",
     categoryLabel: "Documentary Highlight",
     date: "Short Film Series",
     location: "Central Kitchen Hub",
-    image: "https://images.unsplash.com/photo-1574484284002-952d92456975?auto=format&fit=crop&w=1200&q=80",
+    image: "/pillars/annadanam.jpg",
     description: "Step inside our volunteer-operated kitchen where 500+ fresh, wholesome meals are lovingly cooked and packaged every dawn.",
     type: "video",
     videoDuration: "3:40 min"
@@ -192,15 +225,36 @@ export function getGalleryData(lang = 'en') {
       },
       {
         ...galleryData[9],
+        title: "ఆరోగ్య రక్ష ఉచిత వైద్య & పరీక్షా శిబిరాలు",
+        categoryLabel: "వైద్య సాయం",
+        location: "గిరిజన గ్రామాలు & మురికివాడలు",
+        description: "మారుమూల ప్రాంతాల ప్రజలకు ఈసీజీ, ఉచిత రక్త పరీక్షలు మరియు అవసరమైన మందుల పంపిణీ."
+      },
+      {
+        ...galleryData[10],
+        title: "గౌరవప్రదమైన అంతిమ సంస్కార సేవ",
+        categoryLabel: "ఉచిత అంత్యక్రియలు",
+        location: "జిల్లా శ్మశానవాటికలు",
+        description: "అనాథ మరియు నిరుపేద మృతదేహాలకు శాస్త్రోక్తంగా, గౌరవంగా ఉచిత అంత్యక్రియల నిర్వహణ."
+      },
+      {
+        ...galleryData[11],
+        title: "వాత్సల్య కుటుంబం బాలల ఆశ్రమం & విద్యా కేంద్రం",
+        categoryLabel: "అనాథ పిల్లల సంరక్షణ",
+        location: "కుటుంబం బాలల ఆశ్రమం",
+        description: "తల్లిదండ్రులు లేని పిల్లలకు సురక్షిత ఆవాసం, పౌష్టికాహారం, నాణ్యమైన విద్య మరియు మానసిక ఆలంబన."
+      },
+      {
+        ...galleryData[12],
         title: "ఆశల కథ: హరిత అడవి ప్రయాణం",
-        categoryLabel: "డాక్యుమెంటరీ విశేషం",
+        categoryLabel: "వీడియో కథనం",
         location: "తెలంగాణ అటవీ ప్రాంతం",
         description: "200 మంది వాలంటీర్లు రాతి భూమిని పచ్చని నందనవనంగా ఎలా మార్చారో చూపించే లఘు డాక్యుమెంటరీ."
       },
       {
-        ...galleryData[10],
+        ...galleryData[13],
         title: "అమృత ఆహారం వంటశాలలో ఒక రోజు",
-        categoryLabel: "డాక్యుమెంటరీ విశేషం",
+        categoryLabel: "వీడియో కథనం",
         location: "కేంద్ర వంటశాల",
         description: "రోజూ వేకువజామునే 500 మందికి పైగా రోగుల సహాయకుల కోసం ప్రేమతో వంటచేసే వాలంటీర్ల సేవా దృశ్యాలు."
       }
@@ -212,14 +266,14 @@ export function getGalleryData(lang = 'en') {
       {
         ...galleryData[0],
         title: "मियावाकी सघन वन पौधरोपण अभियान",
-        categoryLabel: "वृक्ष सेवा (वनीकरण)",
+        categoryLabel: "वृक्षारोपण",
         location: "ग्रीन बेल्ट जोन, मेडचल",
         description: "रविवार के अभियान में 1,500 से अधिक देसी पौधे लगाते स्कूली बच्चे और स्वयंसेवक।"
       },
       {
         ...galleryData[1],
         title: "अस्पताल में पौष्टिक अन्नदान सेवा",
-        categoryLabel: "सामाजिक सेवा",
+        categoryLabel: "अन्नदान",
         location: "गांधी अस्पताल सेवा शिविर",
         description: "मरीजों के तीमारदारों और असहायों को घर जैसा स्वच्छ, ताजा व गर्म भोजन परोसने की दैनिक सेवा।"
       },
@@ -233,14 +287,14 @@ export function getGalleryData(lang = 'en') {
       {
         ...galleryData[3],
         title: "बच्चों के साथ बीज-गोला (सीड बॉल) निर्माण",
-        categoryLabel: "वृक्ष सेवा (वनीकरण)",
+        categoryLabel: "वृक्षारोपण",
         location: "जिला परिषद उच्च विद्यालय",
         description: "बारिश में बिखेरने हेतु स्कूली बच्चों ने मिट्टी और जैविक खाद से 10,000 बीज-गोले तैयार किए।"
       },
       {
         ...galleryData[4],
         title: "कड़ाके की ठंड में गर्म कंबल वितरण",
-        categoryLabel: "सामाजिक सेवा",
+        categoryLabel: "अन्नदान",
         location: "रैन बसेरे व खुले गलियारे",
         description: "शीत लहर के दौरान खुले आसमान के नीचे सो रहे बेघरों और मजदूरों को कंबल व राहत सामग्री का वितरण।"
       },
@@ -254,14 +308,14 @@ export function getGalleryData(lang = 'en') {
       {
         ...galleryData[6],
         title: "देसी पौध नर्सरी का संवर्धन",
-        categoryLabel: "वृक्ष सेवा (वनीकरण)",
+        categoryLabel: "वृक्षारोपण",
         location: "फाउंडेशन केंद्रीय नर्सरी",
         description: "किसानों व गांवों में निःशुल्क वितरण हेतु हजारों देसी पौधों की देखरेख व संवर्धन।"
       },
       {
         ...galleryData[7],
         title: "विद्यार्थियों को शैक्षिक किट वितरण",
-        categoryLabel: "सामाजिक सेवा",
+        categoryLabel: "शिक्षा सहयोग",
         location: "जनजातीय कल्याण विद्यालय, अराकू घाटी",
         description: "वंचित छात्रों को बैग, सोलर स्टडी लैंप और पर्यावरण अनुकूल कॉपियों का वितरण।"
       },
@@ -274,15 +328,36 @@ export function getGalleryData(lang = 'en') {
       },
       {
         ...galleryData[9],
+        title: "आरोग्य रक्षा निःशुल्क स्वास्थ्य व निदान शिविर",
+        categoryLabel: "चिकित्सा सहायता",
+        location: "जनजातीय गांव व मलिन बस्तियां",
+        description: "वंचित बस्तियों में ईसीजी, मौके पर रक्त जांच और जरूरतमंदों को निःशुल्क दवा वितरण।"
+      },
+      {
+        ...galleryData[10],
+        title: "गरिमापूर्ण अंतिम संस्कार सेवा",
+        categoryLabel: "निःशुल्क अंतिम संस्कार",
+        location: "जिला श्मशान घाट",
+        description: "वारिसहीन व निर्धन मृतकों का वैदिक रीति-रिवाज से पूर्णतः निःशुल्क व सम्मानजनक दाह-संस्कार।"
+      },
+      {
+        ...galleryData[11],
+        title: "वात्सल्य कुटुंब अनाथ बालगृह व संस्कार केंद्र",
+        categoryLabel: "अनाथ बाल देखरेख",
+        location: "कुटुंब बालगृह परिसर",
+        description: "अनाथ बच्चों को सुरक्षित आश्रय, चार समय का पौष्टिक आहार, आधुनिक शिक्षा और उज्ज्वल भविष्य।"
+      },
+      {
+        ...galleryData[12],
         title: "उम्मीद की कहानी: हरित वन यात्रा",
-        categoryLabel: "वृत्तचित्र झलक",
+        categoryLabel: "वीडियो कहानी",
         location: "तेलंगाना वन क्षेत्र",
         description: "200 स्वयंसेवकों ने बंजर पथरीली जमीन को कैसे हरे-भरे वन में बदला, इस पर एक प्रेरणादायक लघु फिल्म।"
       },
       {
-        ...galleryData[10],
+        ...galleryData[13],
         title: "अमृत आहारम रसोई में एक दिन",
-        categoryLabel: "वृत्तचित्र झलक",
+        categoryLabel: "वीडियो कहानी",
         location: "केंद्रीय रसोई केंद्र",
         description: "प्रतिदिन भोर में 500 से अधिक लोगों के लिए प्रेम व सेवाभाव से भोजन तैयार करती स्वयंसेवक टीम।"
       }

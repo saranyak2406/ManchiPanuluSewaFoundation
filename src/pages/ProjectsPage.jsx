@@ -21,8 +21,12 @@ export default function ProjectsPage() {
 
   const categories = [
     { label: t('projects.allDisciplines'), value: 'All' },
-    { label: t('projects.filterVruksha'), value: 'VrukshaSewa' },
-    { label: t('projects.filterSewa'), value: 'Sewa' },
+    { label: t('projects.filterVruksha'), value: 'TreePlantation' },
+    { label: t('projects.filterEducation'), value: 'Education' },
+    { label: t('projects.filterMedical'), value: 'Medical' },
+    { label: t('projects.filterAnnadanam'), value: 'Annadanam' },
+    { label: t('projects.filterFuneral'), value: 'Funeral' },
+    { label: t('projects.filterOrphan'), value: 'Orphan' },
     { label: t('projects.filterEnv'), value: 'Environment' }
   ];
 
@@ -38,9 +42,10 @@ export default function ProjectsPage() {
       const matchesCategory =
         activeCategory === 'All' ||
         project.category === activeCategory ||
-        ((activeCategory === 'VrukshaSewa' || activeCategory === 'Plants') && (project.category === 'VrukshaSewa' || project.category === 'Plants')) ||
-        (activeCategory === 'Sewa' && project.category === 'Seva') ||
-        (activeCategory === 'Seva' && project.category === 'Sewa');
+        ((activeCategory === 'TreePlantation' || activeCategory === 'VrukshaSewa') &&
+          (project.category === 'TreePlantation' || project.category === 'VrukshaSewa')) ||
+        ((activeCategory === 'Annadanam' || activeCategory === 'Sewa') &&
+          (project.category === 'Annadanam' || project.category === 'Sewa'));
       const matchesStatus =
         activeStatus === 'All' ||
         project.status.toLowerCase() === activeStatus.toLowerCase() ||

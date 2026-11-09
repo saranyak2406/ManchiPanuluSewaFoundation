@@ -13,8 +13,12 @@ export default function GalleryPage() {
 
   const categories = [
     { label: t('gallery.allMoments'), value: 'All' },
-    { label: t('gallery.catVruksha'), value: 'VrukshaSewa' },
-    { label: t('gallery.catSewa'), value: 'Sewa' },
+    { label: t('gallery.catVruksha'), value: 'TreePlantation' },
+    { label: t('gallery.catEducation'), value: 'Education' },
+    { label: t('gallery.catMedical'), value: 'Medical' },
+    { label: t('gallery.catAnnadanam'), value: 'Annadanam' },
+    { label: t('gallery.catFuneral'), value: 'Funeral' },
+    { label: t('gallery.catOrphan'), value: 'Orphan' },
     { label: t('gallery.catEnv'), value: 'Environment' },
     { label: t('gallery.catVideo'), value: 'video' }
   ];
@@ -24,8 +28,10 @@ export default function GalleryPage() {
     if (activeCategory === 'video') return item.type === 'video';
     return (
       item.category === activeCategory ||
-      ((activeCategory === 'VrukshaSewa' || activeCategory === 'Plants') && (item.category === 'VrukshaSewa' || item.category === 'Plants')) ||
-      (activeCategory === 'Sewa' && item.category === 'Seva')
+      ((activeCategory === 'TreePlantation' || activeCategory === 'VrukshaSewa') &&
+        (item.category === 'TreePlantation' || item.category === 'VrukshaSewa')) ||
+      ((activeCategory === 'Annadanam' || activeCategory === 'Sewa') &&
+        (item.category === 'Annadanam' || item.category === 'Sewa'))
     );
   });
 

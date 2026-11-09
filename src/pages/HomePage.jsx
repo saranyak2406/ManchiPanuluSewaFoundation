@@ -31,6 +31,7 @@ export default function HomePage() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [selectedArticle, setSelectedArticle] = useState(null);
   const [bannerModalOpen, setBannerModalOpen] = useState(false);
+  const [dreamModalOpen, setDreamModalOpen] = useState(false);
 
   const featuredProjects = getProjectsData(language).slice(0, 3);
   const previewGallery = getGalleryData(language).slice(0, 6);
@@ -61,6 +62,24 @@ export default function HomePage() {
               alt="Manchi Panulu Sewa Foundation - Reg No 420/2026 - Service to Humanity Our Motto"
               className="charter-banner-image"
               loading="eager"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* 3.5. Foundation Vision & Dream Banner (public/dream.png) */}
+      <section className="section dream-banner-section">
+        <div className="container">
+          <div
+            className="dream-banner-card"
+            onClick={() => setDreamModalOpen(true)}
+            title={language === 'te' ? 'చిత్రం పెద్దదిగా చూడటానికి క్లిక్ చేయండి' : language === 'hi' ? 'बड़ी तस्वीर देखने के लिए क्लिक करें' : 'Click to view full size image'}
+          >
+            <img
+              src="/dream.png"
+              alt="Manchi Panulu Sewa Foundation - Our Dream & Vision"
+              className="dream-banner-image"
+              loading="lazy"
             />
           </div>
         </div>
@@ -491,6 +510,37 @@ export default function HomePage() {
               src="/foundation-banner.jpg"
               alt="Manchi Panulu Sewa Foundation - Reg No 420/2026 - Official Charter Banner"
               style={{ width: '100%', height: 'auto', borderRadius: 'var(--radius-md)', display: 'block' }}
+            />
+          </div>
+        </div>
+      )}
+
+      {/* Foundation Vision & Dream Modal (Full High-Res View) */}
+      {dreamModalOpen && (
+        <div
+          className="modal-overlay"
+          onClick={() => setDreamModalOpen(false)}
+          role="dialog"
+          aria-modal="true"
+        >
+          <div
+            className="modal-card"
+            style={{ maxWidth: '1200px', width: '96%', padding: '1.25rem', position: 'relative' }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              className="modal-close-btn"
+              onClick={() => setDreamModalOpen(false)}
+              aria-label="Close modal"
+              style={{ top: '0.75rem', right: '0.75rem', zIndex: 10 }}
+            >
+              <X size={20} />
+            </button>
+            <img
+              src="/dream.png"
+              alt="Manchi Panulu Sewa Foundation - Our Dream & Vision"
+              style={{ width: '100%', height: 'auto', borderRadius: 'var(--radius-md)', display: 'block', objectFit: 'contain' }}
             />
           </div>
         </div>
