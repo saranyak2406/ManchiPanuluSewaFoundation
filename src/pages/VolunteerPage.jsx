@@ -23,7 +23,7 @@ export default function VolunteerPage() {
     city: '',
     occupation: '',
     availability: 'Weekends (Saturday & Sunday)',
-    tracks: ['Vruksha Sewa'],
+    tracks: ['Tree Plantation'],
     message: ''
   });
 
@@ -31,12 +31,12 @@ export default function VolunteerPage() {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const availableTracks = [
-    { id: 'Vruksha Sewa', label: t('volunteer.track1') },
-    { id: 'Manava Sewa', label: t('volunteer.track2') },
-    { id: 'Prakruthi Sewa', label: t('volunteer.track3') },
-    { id: 'Aashraya Sewa', label: t('volunteer.track4') },
-    { id: 'Youth Eco-Clubs', label: t('volunteer.track5') },
-    { id: 'Digital Sewa', label: t('volunteer.track6') }
+    { id: 'Tree Plantation', label: t('volunteer.track1') },
+    { id: 'Education Support', label: t('volunteer.track2') },
+    { id: 'Medical Help', label: t('volunteer.track3') },
+    { id: 'Annadanam', label: t('volunteer.track4') },
+    { id: 'Free Funeral Services', label: t('volunteer.track5') },
+    { id: 'Orphan Children Care', label: t('volunteer.track6') }
   ];
 
   const handleTrackToggle = (trackId) => {
@@ -252,7 +252,7 @@ export default function VolunteerPage() {
                           city: '',
                           occupation: '',
                           availability: 'Weekends (Saturday & Sunday)',
-                          tracks: ['Vruksha Sewa'],
+                          tracks: ['Tree Plantation'],
                           message: ''
                         });
                       }}

@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import {
   Trees,
   Sprout,
@@ -12,10 +13,13 @@ import {
   Trash2,
   Droplets,
   Megaphone,
-  ArrowRight,
+  BookOpen,
+  HeartPulse,
+  Activity,
+  Flame,
+  ShieldAlert,
   CheckCircle2,
-  Send,
-  HelpCircle
+  Send
 } from 'lucide-react';
 import Button from '../components/Button';
 import { getServicesData } from '../data/servicesData';
@@ -33,12 +37,44 @@ const iconMap = {
   Globe,
   Trash2,
   Droplets,
-  Megaphone
+  Megaphone,
+  BookOpen,
+  HeartPulse,
+  Activity,
+  Flame,
+  ShieldAlert
 };
 
 export default function ServicesPage() {
   const { t, language } = useLanguage();
+  const location = useLocation();
   const currentServices = getServicesData(language);
+
+  // Auto-scroll to specific pillar if URL contains a hash (e.g. /services#tree-plantation)
+  useEffect(() => {
+    if (location.hash) {
+      const targetId = location.hash.replace('#', '');
+      const scrollToPillar = () => {
+        const el = document.getElementById(targetId);
+        if (el) {
+          const headerOffset = 115;
+          const elementPosition = el.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+          return true;
+        }
+        return false;
+      };
+
+      // Execute on next tick once DOM elements are rendered
+      const timer = setTimeout(scrollToPillar, 120);
+      return () => clearTimeout(timer);
+    }
+  }, [location.hash, location.pathname, currentServices]);
 
   const [requestFormOpen, setRequestFormOpen] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -47,7 +83,7 @@ export default function ServicesPage() {
     phone: '',
     email: '',
     location: '',
-    serviceType: 'VrukshaSewa – Nature Protection',
+    serviceType: 'Tree Plantation – Green Earth & Afforestation',
     details: ''
   });
 
@@ -62,7 +98,7 @@ export default function ServicesPage() {
         phone: '',
         email: '',
         location: '',
-        serviceType: 'VrukshaSewa – Nature Protection',
+        serviceType: 'Tree Plantation – Green Earth & Afforestation',
         details: ''
       });
     }, 4000);

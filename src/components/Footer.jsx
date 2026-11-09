@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
-  Trees,
-  Heart,
-  Globe,
   Mail,
   Phone,
   MapPin,
@@ -114,43 +111,38 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 2: Four Core Pillars */}
+          {/* Column 2: Six Core Pillars */}
           <div>
             <h4 className="footer-heading">{t('footer.pillarsTitle')}</h4>
             <ul className="footer-links-list">
               <li>
-                <Link to="/services#vrukshasewa" className="footer-link">
+                <Link to="/services#tree-plantation" className="footer-link">
                   {t('footer.p1')}
                 </Link>
               </li>
               <li>
-                <Link to="/services#manava-sewa" className="footer-link">
+                <Link to="/services#education-support" className="footer-link">
                   {t('footer.p2')}
                 </Link>
               </li>
               <li>
-                <Link to="/services#prakruthi-sewa" className="footer-link">
+                <Link to="/services#medical-help" className="footer-link">
                   {t('footer.p3')}
                 </Link>
               </li>
               <li>
-                <Link to="/services#aashraya-sewa" className="footer-link">
+                <Link to="/services#annadanam" className="footer-link">
                   {t('footer.p4')}
                 </Link>
               </li>
               <li>
-                <Link to="/projects?category=VrukshaSewa" className="footer-link">
-                  {t('footer.treeDrivesLink')}
+                <Link to="/services#funeral-services" className="footer-link">
+                  {t('footer.p5')}
                 </Link>
               </li>
               <li>
-                <Link to="/projects?category=Sewa" className="footer-link">
-                  {t('footer.foodReliefLink')}
-                </Link>
-              </li>
-              <li>
-                <Link to="/projects?category=Environment" className="footer-link">
-                  {t('footer.lakeRevivalLink')}
+                <Link to="/services#orphan-care" className="footer-link">
+                  {t('footer.p6')}
                 </Link>
               </li>
             </ul>
@@ -224,7 +216,7 @@ export default function Footer() {
           <div>
             © {new Date().getFullYear()} {t('nav.brandTitle')} {t('nav.brandSubtitle')}. {t('footer.rights')}
           </div>
-          <div style={{ display: 'flex', gap: '1.25rem', fontSize: '0.82rem', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: '0.85rem', fontSize: '0.82rem', flexWrap: 'wrap', alignItems: 'center' }}>
             <span>{t('footer.mandateP1')}</span>
             <span>•</span>
             <span>{t('footer.mandateP2')}</span>
@@ -232,6 +224,10 @@ export default function Footer() {
             <span>{t('footer.mandateP3')}</span>
             <span>•</span>
             <span>{t('footer.mandateP4')}</span>
+            <span>•</span>
+            <span>{t('footer.mandateP5')}</span>
+            <span>•</span>
+            <span>{t('footer.mandateP6')}</span>
           </div>
         </div>
       </div>

@@ -17,27 +17,37 @@ The website implements an **Envarn-inspired aesthetic**:
 
 ---
 
-## 🏛️ Four Core Pillars of Service
+## 🏛️ Six Core Pillars of Dedicated Sewa
 
-1. **PILLAR 01 — TREE & NATURE PROTECTION: Vruksha Sewa**
+1. **PILLAR 01 — TREE PLANTATION**
    - *Rooting Hope, Greening Tomorrow*
-   - Dedicated to afforestation, indigenous tree plantation, sapling distribution, and nurturing green landscapes.
-   - High-density Miyawaki urban forestation & native species conservation.
+   - Dedicated to indigenous afforestation, native sapling plantations, seedling nurseries, and ecological stewardship.
+   - High-density Miyawaki urban forestation, native tree guardian programs, and school eco-drives.
 
-2. **PILLAR 02 — HUMANITARIAN & SOCIAL SERVICE: Manava Sewa**
-   - *Compassion in Action, Humanity at Heart*
-   - Providing nutritious meals, clothing, educational assistance, disaster relief, and compassionate support for elderly and vulnerable individuals.
-   - Daily wholesome food relief (*Annadhanam*) outside public hospitals.
+2. **PILLAR 02 — EDUCATION SUPPORT**
+   - *Igniting Minds, Uplifting Generations*
+   - Providing quality educational materials, school kits, tuition scholarships, and volunteer mentors for underprivileged children.
+   - Smart village classrooms, digital literacy camps, and back-to-school drives.
 
-3. **PILLAR 03 — ENVIRONMENTAL CONSERVATION: Prakruthi Sewa**
-   - *Restoring Nature, Sustaining Life*
-   - Revitalizing water bodies, organizing cleanliness drives, reducing plastic pollution, and promoting sustainable, zero-waste communities.
-   - Urban lake revival (*Jal Punarjeevana*) & community plog runs.
+3. **PILLAR 03 — MEDICAL HELP**
+   - *Healing the Needy, Preserving Precious Lives*
+   - Delivering essential medicines, health checkup camps, emergency surgical aid, and mobile clinic diagnostics to marginalized rural and slum communities.
+   - Rural mobile medical units, maternal & child nutrition camps, and chronic patient medicines.
 
-4. **PILLAR 04 — POVERTY RELIEF & EMPOWERMENT: Aashraya Sewa**
-   - *Restoring Dignity, Empowering Lives*
-   - Supporting economically disadvantaged families through essential supplies, emergency medical assistance, livelihood opportunities, and self-reliance initiatives.
-   - Monthly dry ration kits, thermal winter blankets, and vocational tool donations.
+4. **PILLAR 04 — ANNADANAM**
+   - *Nourishing Souls, Eradicating Daily Hunger*
+   - Distributing fresh, warm, wholesome meals daily to weary patient attendants, migrant laborers, and homeless families.
+   - Community meal distribution outside government hospital emergency wards and monthly family dry ration kits.
+
+5. **PILLAR 05 — FREE FUNERAL SERVICES**
+   - *Respectful Farewell with Utmost Reverence*
+   - Conducting respectful, traditional funeral services and cremation rites free of cost for destitute individuals, unclaimed bodies, and families in severe distress.
+   - Complete sacred rites materials, ambulance transport, and dedicated volunteer support.
+
+6. **PILLAR 06 — ORPHAN CHILDREN CARE**
+   - *A Loving Home for Every Abandoned Soul*
+   - Providing safe, loving shelter, balanced nutrition, emotional counseling, healthcare, and parental care for parentless, abandoned, and vulnerable children.
+   - Loving shelter homes, joyful weekend learning & arts, and holistic life mentorship.
 
 ---
 

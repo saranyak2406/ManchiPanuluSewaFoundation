@@ -109,23 +109,31 @@ export default function Hero() {
               </Link>
             </div>
 
-            {/* Four Pillars Quick Navigation Badges */}
+            {/* Six Pillars Quick Navigation Badges */}
             <div className="hero-pillars-pill-row">
-              <Link to="/services#vrukshasewa" className="hero-pillar-chip">
-                <span className="pillar-chip-dot dot-vruksha"></span>
-                <span>{t('hero.chipVruksha')}</span>
+              <Link to="/services#tree-plantation" className="hero-pillar-chip">
+                <span className="pillar-chip-dot dot-tree"></span>
+                <span>{t('hero.chip1')}</span>
               </Link>
-              <Link to="/services#manava-sewa" className="hero-pillar-chip">
-                <span className="pillar-chip-dot dot-manava"></span>
-                <span>{t('hero.chipManava')}</span>
+              <Link to="/services#education-support" className="hero-pillar-chip">
+                <span className="pillar-chip-dot dot-education"></span>
+                <span>{t('hero.chip2')}</span>
               </Link>
-              <Link to="/services#prakruthi-sewa" className="hero-pillar-chip">
-                <span className="pillar-chip-dot dot-prakruthi"></span>
-                <span>{t('hero.chipPrakruthi')}</span>
+              <Link to="/services#medical-help" className="hero-pillar-chip">
+                <span className="pillar-chip-dot dot-medical"></span>
+                <span>{t('hero.chip3')}</span>
               </Link>
-              <Link to="/services#aashraya-sewa" className="hero-pillar-chip">
-                <span className="pillar-chip-dot dot-aashraya"></span>
-                <span>{t('hero.chipAashraya')}</span>
+              <Link to="/services#annadanam" className="hero-pillar-chip">
+                <span className="pillar-chip-dot dot-annadanam"></span>
+                <span>{t('hero.chip4')}</span>
+              </Link>
+              <Link to="/services#funeral-services" className="hero-pillar-chip">
+                <span className="pillar-chip-dot dot-funeral"></span>
+                <span>{t('hero.chip5')}</span>
+              </Link>
+              <Link to="/services#orphan-care" className="hero-pillar-chip">
+                <span className="pillar-chip-dot dot-orphan"></span>
+                <span>{t('hero.chip6')}</span>
               </Link>
             </div>
           </div>

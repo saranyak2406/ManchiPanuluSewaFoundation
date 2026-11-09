@@ -3,17 +3,17 @@ import { Link } from 'react-router-dom';
 import {
   Trees,
   Heart,
-  Globe,
   ArrowRight,
-  ShieldCheck,
-  Award,
-  Sparkles,
   Users,
   Compass,
   CheckCircle2,
-  Calendar,
   Eye,
-  X
+  X,
+  BookOpen,
+  HeartPulse,
+  Utensils,
+  Flame,
+  Sparkles
 } from 'lucide-react';
 import Hero from '../components/Hero';
 import ProjectCard from '../components/ProjectCard';
@@ -159,10 +159,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4.5. Four Core Pillars of Sewa Showcase */}
+      {/* 4.5. Six Core Pillars of Sewa Showcase */}
       <section className="section section-sage">
         <div className="container">
-          <div className="section-header" style={{ maxWidth: '720px', margin: '0 auto 1.25rem auto', textAlign: 'center' }}>
+          <div className="section-header" style={{ maxWidth: '780px', margin: '0 auto 1.25rem auto', textAlign: 'center' }}>
             <div className="eyebrow-badge" style={{ margin: '0 auto 0.85rem auto' }}>
               <Sparkles size={14} />
               <span>{t('home.pillarsBadge')}</span>
@@ -175,15 +175,11 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))',
-            gap: '1.5rem'
-          }}>
+          <div className="pillars-home-grid">
             {/* Pillar 01 */}
             <div className="pillar-home-card">
               <div className="pillar-home-badge">{t('home.pillar1Badge')}</div>
-              <div className="pillar-home-icon-wrap" style={{ background: 'rgba(27, 77, 52, 0.1)', color: '#1B4D34' }}>
+              <div className="pillar-home-icon-wrap" style={{ background: 'rgba(27, 77, 52, 0.12)', color: '#1B4D34' }}>
                 <Trees size={26} />
               </div>
               <h3 className="pillar-home-title">{t('home.pillar1Title')}</h3>
@@ -191,7 +187,7 @@ export default function HomePage() {
               <p className="pillar-home-desc">
                 {t('home.pillar1Desc')}
               </p>
-              <Link to="/services#vrukshasewa" className="pillar-home-link">
+              <Link to="/services#tree-plantation" className="pillar-home-link">
                 <span>{t('home.explorePillar')}</span>
                 <ArrowRight size={15} />
               </Link>
@@ -200,15 +196,15 @@ export default function HomePage() {
             {/* Pillar 02 */}
             <div className="pillar-home-card">
               <div className="pillar-home-badge">{t('home.pillar2Badge')}</div>
-              <div className="pillar-home-icon-wrap" style={{ background: 'rgba(44, 74, 56, 0.1)', color: '#2C4A38' }}>
-                <Heart size={26} />
+              <div className="pillar-home-icon-wrap" style={{ background: 'rgba(30, 64, 175, 0.12)', color: '#1E40AF' }}>
+                <BookOpen size={26} />
               </div>
               <h3 className="pillar-home-title">{t('home.pillar2Title')}</h3>
               <div className="pillar-home-tagline">{t('home.pillar2Tagline')}</div>
               <p className="pillar-home-desc">
                 {t('home.pillar2Desc')}
               </p>
-              <Link to="/services#manava-sewa" className="pillar-home-link">
+              <Link to="/services#education-support" className="pillar-home-link">
                 <span>{t('home.explorePillar')}</span>
                 <ArrowRight size={15} />
               </Link>
@@ -217,15 +213,15 @@ export default function HomePage() {
             {/* Pillar 03 */}
             <div className="pillar-home-card">
               <div className="pillar-home-badge">{t('home.pillar3Badge')}</div>
-              <div className="pillar-home-icon-wrap" style={{ background: 'rgba(24, 61, 47, 0.1)', color: '#183D2F' }}>
-                <Globe size={26} />
+              <div className="pillar-home-icon-wrap" style={{ background: 'rgba(185, 28, 28, 0.12)', color: '#B91C1C' }}>
+                <HeartPulse size={26} />
               </div>
               <h3 className="pillar-home-title">{t('home.pillar3Title')}</h3>
               <div className="pillar-home-tagline">{t('home.pillar3Tagline')}</div>
               <p className="pillar-home-desc">
                 {t('home.pillar3Desc')}
               </p>
-              <Link to="/services#prakruthi-sewa" className="pillar-home-link">
+              <Link to="/services#medical-help" className="pillar-home-link">
                 <span>{t('home.explorePillar')}</span>
                 <ArrowRight size={15} />
               </Link>
@@ -234,15 +230,49 @@ export default function HomePage() {
             {/* Pillar 04 */}
             <div className="pillar-home-card">
               <div className="pillar-home-badge">{t('home.pillar4Badge')}</div>
-              <div className="pillar-home-icon-wrap" style={{ background: 'rgba(30, 59, 47, 0.1)', color: '#1E3B2F' }}>
-                <Users size={26} />
+              <div className="pillar-home-icon-wrap" style={{ background: 'rgba(180, 83, 9, 0.12)', color: '#B45309' }}>
+                <Utensils size={26} />
               </div>
               <h3 className="pillar-home-title">{t('home.pillar4Title')}</h3>
               <div className="pillar-home-tagline">{t('home.pillar4Tagline')}</div>
               <p className="pillar-home-desc">
                 {t('home.pillar4Desc')}
               </p>
-              <Link to="/services#aashraya-sewa" className="pillar-home-link">
+              <Link to="/services#annadanam" className="pillar-home-link">
+                <span>{t('home.explorePillar')}</span>
+                <ArrowRight size={15} />
+              </Link>
+            </div>
+
+            {/* Pillar 05 */}
+            <div className="pillar-home-card">
+              <div className="pillar-home-badge">{t('home.pillar5Badge')}</div>
+              <div className="pillar-home-icon-wrap" style={{ background: 'rgba(55, 65, 81, 0.12)', color: '#374151' }}>
+                <Flame size={26} />
+              </div>
+              <h3 className="pillar-home-title">{t('home.pillar5Title')}</h3>
+              <div className="pillar-home-tagline">{t('home.pillar5Tagline')}</div>
+              <p className="pillar-home-desc">
+                {t('home.pillar5Desc')}
+              </p>
+              <Link to="/services#funeral-services" className="pillar-home-link">
+                <span>{t('home.explorePillar')}</span>
+                <ArrowRight size={15} />
+              </Link>
+            </div>
+
+            {/* Pillar 06 */}
+            <div className="pillar-home-card">
+              <div className="pillar-home-badge">{t('home.pillar6Badge')}</div>
+              <div className="pillar-home-icon-wrap" style={{ background: 'rgba(109, 40, 217, 0.12)', color: '#6D28D9' }}>
+                <Users size={26} />
+              </div>
+              <h3 className="pillar-home-title">{t('home.pillar6Title')}</h3>
+              <div className="pillar-home-tagline">{t('home.pillar6Tagline')}</div>
+              <p className="pillar-home-desc">
+                {t('home.pillar6Desc')}
+              </p>
+              <Link to="/services#orphan-care" className="pillar-home-link">
                 <span>{t('home.explorePillar')}</span>
                 <ArrowRight size={15} />
               </Link>

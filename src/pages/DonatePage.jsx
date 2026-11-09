@@ -197,6 +197,8 @@ export default function DonatePage() {
                     <option value={t('donate.optPillar2')}>{t('donate.optPillar2')}</option>
                     <option value={t('donate.optPillar3')}>{t('donate.optPillar3')}</option>
                     <option value={t('donate.optPillar4')}>{t('donate.optPillar4')}</option>
+                    <option value={t('donate.optPillar5')}>{t('donate.optPillar5')}</option>
+                    <option value={t('donate.optPillar6')}>{t('donate.optPillar6')}</option>
                   </select>
                 </div>
 

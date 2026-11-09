@@ -1,170 +1,254 @@
 export const servicesData = [
   {
-    id: "vrukshasewa",
-    pillar: "Vruksha Sewa",
-    subtitle: "Tree & Nature Protection",
-    tagline: "Rooting Hope, Greening Tomorrow",
-    summary: "Dedicated to afforestation, indigenous tree plantation, sapling distribution, and nurturing green landscapes.",
+    id: "tree-plantation",
+    pillar: "Tree Plantation",
+    subtitle: "Green Earth & Afforestation",
+    tagline: "Planting Hope for Future Generations",
+    summary: "Dedicated to massive indigenous tree plantation drives, urban Miyawaki forests, free sapling distribution, and 3-year nurturing to ensure healthy survival.",
     color: "#1B4D34",
     accentColor: "#88C057",
-    badge: "PILLAR 01 — TREE & NATURE PROTECTION",
-    heroImage: "https://images.unsplash.com/photo-1605000797499-95a51c5269ae?auto=format&fit=crop&w=1200&q=80",
+    badge: "PILLAR 01 — TREE PLANTATION",
+    heroImage: "/pillars/tree-plantation.jpg",
     programs: [
       {
-        title: "Tree Plantation Programs",
-        description: "Executing large-scale afforestation drives, Miyawaki dense forest plantations in urban degraded spaces, and highway green corridors using native, climate-resilient tree species.",
+        title: "Native Tree Plantation Drives",
+        description: "Executing large-scale afforestation drives, Miyawaki dense micro-forests in degraded urban zones, and highway green corridors using indigenous, climate-resilient trees.",
         icon: "Trees",
         metrics: "Native Species Focus: Neem, Peepal, Banyan, Jamun, Pongamia"
       },
       {
-        title: "Plant & Sapling Distribution",
+        title: "Free Plant & Sapling Distribution",
         description: "Distributing fruit-bearing, medicinal, and shade-giving saplings to farmers, schools, residential communities, and rural households free of charge with complete care guidance.",
         icon: "Sprout",
-        metrics: "Equipping communities with compost, sapling guards & organic manure"
+        metrics: "Equipping communities with compost, tree guards & organic manure"
       },
       {
-        title: "Nature & Biodiversity Conservation",
-        description: "Preserving sacred groves, safeguarding bird habitats, developing botanical micro-habitats, and supporting natural pollination corridors in peri-urban zones.",
+        title: "Biodiversity & Sacred Groves Care",
+        description: "Preserving sacred groves, safeguarding natural bird habitats, developing pollination corridors, and protecting ancient heritage trees.",
         icon: "ShieldCheck",
         metrics: "Monitoring plant survival rates for 36 months post-plantation"
       },
       {
-        title: "Green Environment Awareness",
-        description: "Organizing interactive workshops, seed ball making workshops for school children, community seminars, and youth eco-clubs to cultivate environmental stewardship.",
+        title: "Green Environmental Awareness",
+        description: "Conducting seed ball making workshops for school children, community eco-seminars, and environmental stewardship training for village youth.",
         icon: "GraduationCap",
         metrics: "Inspiring the next generation of eco-ambassadors and soil stewards"
       }
     ],
     gallery: [
+      "https://images.unsplash.com/photo-1605000797499-95a51c5269ae?auto=format&fit=crop&w=800&q=80",
       "https://images.unsplash.com/photo-1622383563227-04401ab4e5ea?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1609766857041-ed402ea8069a?auto=format&fit=crop&w=800&q=80",
       "https://images.unsplash.com/photo-1604537466158-719b1972feb8?auto=format&fit=crop&w=800&q=80"
     ]
   },
   {
-    id: "manava-sewa",
-    pillar: "Manava Sewa",
-    subtitle: "Humanitarian & Social Service",
-    tagline: "Compassion in Action, Humanity at Heart",
-    summary: "Providing nutritious meals, clothing, educational assistance, disaster relief, and compassionate support for elderly and vulnerable individuals.",
-    color: "#2C4A38",
-    accentColor: "#E3B873",
-    badge: "PILLAR 02 — HUMANITARIAN & SOCIAL SERVICE",
-    heroImage: "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=1200&q=80",
+    id: "education-support",
+    pillar: "Education Support",
+    subtitle: "Empowering Underprivileged Minds",
+    tagline: "Breaking Poverty Through Knowledge",
+    summary: "Sponsoring school fees, textbooks, notebooks, school bags, uniforms, and mentorship for destitute and slum children to ensure uninterrupted learning.",
+    color: "#1E40AF",
+    accentColor: "#60A5FA",
+    badge: "PILLAR 02 — EDUCATION SUPPORT",
+    heroImage: "/pillars/education-support.jpg",
     programs: [
       {
-        title: "Helping Poor & Needy People",
-        description: "Extending direct humanitarian aid, essential grocery kits, healthcare emergency assistance, and dignity kits to marginalized families, daily-wage workers, and underprivileged communities.",
-        icon: "HeartHandshake",
-        metrics: "Direct doorstep assistance reaching remote settlements"
+        title: "School Kits & Uniform Distribution",
+        description: "Supplying comprehensive annual education kits comprising high-grade backpacks, notebooks, geometry sets, raincoats, and stitched school uniforms to needy students.",
+        icon: "BookOpen",
+        metrics: "Equipping children across rural and government municipal schools"
       },
       {
-        title: "Food Distribution (Annadhanam)",
-        description: "Conducting regular nutritious meal distribution drives outside government hospitals, shelters, railway stations, and urban slums to ensure no one goes to bed hungry.",
-        icon: "Utensils",
-        metrics: "Wholesome, hygienic, freshly prepared warm meals"
+        title: "Fee Sponsorship & Scholarship Aid",
+        description: "Covering tuition fees, exam fees, and coaching charges for brilliant underprivileged students and single-parent wards at risk of dropping out.",
+        icon: "GraduationCap",
+        metrics: "Zero dropout target for financially vulnerable students"
       },
       {
-        title: "Community & Disaster Support",
-        description: "Mobilizing rapid volunteer relief teams during floods, severe heatwaves, and seasonal emergencies, providing blankets, dry rations, and clean drinking water.",
+        title: "After-School Community Learning Hubs",
+        description: "Conducting free evening tuition centers, doubt-clearing sessions, and value-based moral education inside urban slums and remote village centers.",
         icon: "Users",
-        metrics: "Trained neighborhood volunteer networks ready to respond"
+        metrics: "Dedicated volunteer mentors fostering academic confidence"
       },
       {
-        title: "Human Welfare & Youth Empowerment",
-        description: "Supporting school students with notebooks, uniforms, and backpacks, while coordinating medical check-up camps and health awareness drives in underserved areas.",
+        title: "Digital Literacy & Skills Development",
+        description: "Providing refurbished computers, basic IT training, and career counseling to empower first-generation learners toward self-reliant livelihoods.",
         icon: "Sparkles",
-        metrics: "Nurturing dignity, education, and health equity"
+        metrics: "Bridging the digital divide for marginalized youth"
       }
     ],
     gallery: [
-      "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1574484284002-952d92456975?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1544027993-37dbfe43562a?auto=format&fit=crop&w=800&q=80"
+      "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=800&q=80"
     ]
   },
   {
-    id: "prakruthi-sewa",
-    pillar: "Prakruthi Sewa",
-    subtitle: "Environmental Conservation",
-    tagline: "Restoring Nature, Sustaining Life",
-    summary: "Revitalizing water bodies, organizing cleanliness drives, reducing plastic pollution, and promoting sustainable, zero-waste communities.",
-    color: "#183D2F",
-    accentColor: "#38A169",
-    badge: "PILLAR 03 — ENVIRONMENTAL CONSERVATION",
-    heroImage: "https://images.unsplash.com/photo-1622036572682-909022b7b7a5?auto=format&fit=crop&w=1200&q=80",
+    id: "medical-help",
+    pillar: "Medical Help",
+    subtitle: "Life-Saving Healthcare & Care",
+    tagline: "Healing with Compassion, Saving Lives",
+    summary: "Providing life-saving emergency medical funds, free prescription medicines, mobile health screening camps, diagnostic tests, and mobility aids for poor patients.",
+    color: "#B91C1C",
+    accentColor: "#F87171",
+    badge: "PILLAR 03 — MEDICAL HELP",
+    heroImage: "/pillars/medical-help.jpg",
     programs: [
       {
-        title: "Environmental Protection Drives",
-        description: "Holistic initiatives targeting soil health, urban biodiversity conservation, and neighborhood zero-waste drives to minimize carbon footprints and ecological strain.",
-        icon: "Globe",
-        metrics: "Community-driven eco-audits and local green policies"
-      },
-      {
-        title: "Cleaning Campaigns & Plog Runs",
-        description: "Regular volunteer-led cleanliness drives across riverbanks, lakeshores, public parks, temple premises, and street corridors, followed by segregated waste recycling.",
-        icon: "Trash2",
-        metrics: "Diverting metric tons of non-biodegradable waste from landfills"
-      },
-      {
-        title: "Water Conservation & Lake Revitalization",
-        description: "Restoring village ponds and stepwells, desilting inlets, constructing rainwater harvesting pits, and planting vetiver grass along bunds to check erosion.",
-        icon: "Droplets",
-        metrics: "Recharging depleted aquifers and reviving historic waterbodies"
-      },
-      {
-        title: "Environmental Awareness Programs",
-        description: "Conducting anti-plastic street plays, distributing cloth bags, running composting masterclasses, and leading educational nature trails for citizens.",
-        icon: "Megaphone",
-        metrics: "Transforming civic mindsets through grassroots advocacy"
-      }
-    ],
-    gallery: [
-      "https://images.unsplash.com/photo-1593693397690-362cb9666fc2?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1567157577867-05ccb1388e66?auto=format&fit=crop&w=800&q=80"
-    ]
-  },
-  {
-    id: "aashraya-sewa",
-    pillar: "Aashraya Sewa",
-    subtitle: "Poverty Relief & Empowerment",
-    tagline: "Restoring Dignity, Empowering Lives",
-    summary: "Supporting economically disadvantaged families through essential supplies, emergency medical assistance, livelihood opportunities, and self-reliance initiatives.",
-    color: "#1E3B2F",
-    accentColor: "#DDA853",
-    badge: "PILLAR 04 — POVERTY RELIEF & EMPOWERMENT",
-    heroImage: "https://images.unsplash.com/photo-1743090834072-4f70339bc917?auto=format&fit=crop&w=1200&q=80",
-    programs: [
-      {
-        title: "Essential Grocery & Ration Kits",
-        description: "Delivering monthly dry ration kits (rice, dal, cooking oil, spices, and hygiene essentials) directly to single-parent households, elderly destitute, and disabled individuals with no breadwinner.",
+        title: "Emergency Medical Relief Funds",
+        description: "Disbursing immediate direct financial support for urgent surgeries, trauma treatments, and post-operative intensive care for patients without health insurance.",
         icon: "HeartHandshake",
-        metrics: "Monthly doorstep nutrition kits reaching vulnerable families"
+        metrics: "Doorstep emergency aid directly liaised with hospital desks"
       },
       {
-        title: "Winter Warmth & Shelter Relief",
-        description: "Distributing thermal blankets, sweaters, tarpaulins, and floor mats to street dwellers, homeless families outside hospitals, and rural settlements during cold waves and monsoon rains.",
+        title: "Free Lifesaving Prescription Medicines",
+        description: "Supplying monthly critical medicines for chronic conditions (diabetes, hypertension, cardiac care, oncology) to destitute elderly and poor families.",
+        icon: "HeartPulse",
+        metrics: "Ensuring life-saving medications never stop due to poverty"
+      },
+      {
+        title: "Free Preventive Medical Screening Camps",
+        description: "Organizing general health check-ups, eye examinations, cancer screenings, and blood donation drives with qualified voluntary doctors in remote settlements.",
+        icon: "Activity",
+        metrics: "Early diagnosis and free specialist consultations for thousands"
+      },
+      {
+        title: "Mobility & Assistive Devices Aid",
+        description: "Gifting wheelchairs, adjustable crutches, walking aids, and hearing aids to differently-abled poor individuals to restore their dignity and independence.",
         icon: "ShieldCheck",
-        metrics: "Thousands of blankets & weatherproofing kits distributed"
-      },
-      {
-        title: "Emergency Healthcare & Medicine Aid",
-        description: "Assisting poor families with essential prescription medicines, diagnostic scans, post-operative care nutrition, and mobility aids (wheelchairs, crutches) for needy patients.",
-        icon: "Sparkles",
-        metrics: "Direct financial & medicine aid for emergency treatments"
-      },
-      {
-        title: "Livelihood & Self-Reliance Support",
-        description: "Donating sewing machines, toolkits, seed capital for micro-vendors, and educational stationery to help destitute families generate dignified, independent income.",
-        icon: "Users",
-        metrics: "Empowering families to break the cycle of poverty"
+        metrics: "Empowering disabled citizens with freedom of movement"
       }
     ],
     gallery: [
-      "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1778148046782-2b5c2ce37612?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1609137144813-7d9921338f24?auto=format&fit=crop&w=800&q=80"
+      "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1584467735871-8e85353a8413?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=800&q=80"
+    ]
+  },
+  {
+    id: "annadanam",
+    pillar: "Annadanam",
+    subtitle: "Sacred Daily Hunger Relief",
+    tagline: "No Hungry Belly Under Our Watch",
+    summary: "Serving daily fresh, wholesome, warm nutritious meals outside government hospitals, shelters, railway stations, and destitute settlements with unconditional love.",
+    color: "#B45309",
+    accentColor: "#FBBF24",
+    badge: "PILLAR 04 — ANNADANAM",
+    heroImage: "/pillars/annadanam.jpg",
+    programs: [
+      {
+        title: "Daily Hospital Patient Attendant Meals",
+        description: "Distributing freshly cooked, hygienic, and warm meals outside government hospitals where poor families camp day and night tending to critically ill relatives.",
+        icon: "Utensils",
+        metrics: "Nourishing wholesome vegetarian meals served twice daily"
+      },
+      {
+        title: "Slum & Street Destitute Feeding Drives",
+        description: "Delivering hot meals to homeless elders, street dwellers, daily-wage laborers, and wandering destitute on footpaths, railway terminals, and bus stations.",
+        icon: "HeartHandshake",
+        metrics: "Direct doorstep feeding reaching unreached corners"
+      },
+      {
+        title: "Monthly Dry Grocery & Ration Kits",
+        description: "Delivering monthly packages of rice, lentils, wheat flour, cooking oil, and basic spices to elderly destitute, widows, and disabled heads of household.",
+        icon: "ShieldCheck",
+        metrics: "Monthly pantry security protecting vulnerable households"
+      },
+      {
+        title: "Emergency Food Logistics During Calamities",
+        description: "Mobilizing rapid community kitchens, water tankers, and ready-to-eat packets during floods, heatwaves, and seasonal disasters.",
+        icon: "Sparkles",
+        metrics: "Trained volunteer relief force standing ready 24/7"
+      }
+    ],
+    gallery: [
+      "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1574484284002-952d92456975?auto=format&fit=crop&w=800&q=80"
+    ]
+  },
+  {
+    id: "funeral-services",
+    pillar: "Free Funeral Services",
+    subtitle: "Dignity in the Final Journey",
+    tagline: "Respectful Farewell with Utmost Reverence",
+    summary: "Conducting respectful, traditional funeral services and cremation rites free of cost for destitute individuals, unclaimed bodies, and families who cannot afford funeral costs.",
+    color: "#374151",
+    accentColor: "#9CA3AF",
+    badge: "PILLAR 05 — FREE FUNERAL SERVICES",
+    heroImage: "/pillars/funeral-services.jpg",
+    programs: [
+      {
+        title: "Dignified Cremation & Burial Rites",
+        description: "Arranging complete funeral ceremonies with firewood, ritual samagri, cremation ground charges, and priest coordination with absolute dignity and zero charges.",
+        icon: "Flame",
+        metrics: "Respecting every departed soul irrespective of caste, creed, or status"
+      },
+      {
+        title: "Unclaimed Bodies Reverent Last Rites",
+        description: "Coordinating with police and government morgues to perform reverent final rites for unclaimed, unidentified, and destitute deceased persons.",
+        icon: "ShieldAlert",
+        metrics: "Ensuring no human being leaves this world unattended"
+      },
+      {
+        title: "Free Hearse Van (Swargapuri Vahanam)",
+        description: "Providing 24/7 free hearse vehicle transportation to transfer deceased bodies from hospitals or homes to cremation grounds and burial sites.",
+        icon: "ShieldCheck",
+        metrics: "Equipped vehicle service relieving impoverished grieving families"
+      },
+      {
+        title: "Bereavement Solace & Family Support",
+        description: "Extending emotional counseling, essential groceries, and temporary relief to destitute families who have lost their sole breadwinner.",
+        icon: "HeartHandshake",
+        metrics: "Standing beside grieving families during their darkest hour"
+      }
+    ],
+    gallery: [
+      "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80"
+    ]
+  },
+  {
+    id: "orphan-care",
+    pillar: "Orphan Children Care",
+    subtitle: "Safe Shelter, Warmth & Nurturing",
+    tagline: "A Loving Home for Every Abandoned Soul",
+    summary: "Providing safe, loving shelter, balanced nutrition, emotional counseling, healthcare, and parental care for parentless, abandoned, and vulnerable children.",
+    color: "#6D28D9",
+    accentColor: "#A78BFA",
+    badge: "PILLAR 06 — ORPHAN CHILDREN CARE",
+    heroImage: "/pillars/orphan-care.jpg",
+    programs: [
+      {
+        title: "Loving Shelter & Wholesome Nutrition",
+        description: "Maintaining secure, hygienic, homelike living spaces where parentless children receive four nutritious, balanced meals a day and warm clothing.",
+        icon: "Users",
+        metrics: "Nurturing environment with round-the-clock loving care"
+      },
+      {
+        title: "Quality Schooling & Higher Education",
+        description: "Enrolling every child in reputed English-medium schools, with dedicated tutors for academic excellence and career development.",
+        icon: "GraduationCap",
+        metrics: "Paving paths to college degrees and professional independence"
+      },
+      {
+        title: "Holistic Health, Pediatric Care & Therapy",
+        description: "Regular medical check-ups, dental camps, trauma-informed psychological counseling, and emotional therapy for healing and wellness.",
+        icon: "HeartPulse",
+        metrics: "Comprehensive medical files and continuous mental wellness support"
+      },
+      {
+        title: "Life Skills, Arts, Music & Sports",
+        description: "Encouraging sports, music, painting, karate, and vocational skill training to cultivate self-esteem, teamwork, and bright creative personalities.",
+        icon: "Sparkles",
+        metrics: "Shaping confident, compassionate citizens of tomorrow"
+      }
+    ],
+    gallery: [
+      "https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1473649085228-583485e6e4d7?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80"
     ]
   }
 ];
@@ -173,14 +257,14 @@ export function getServicesData(lang = 'en') {
   if (lang === 'te') {
     return [
       {
-        id: "vrukshasewa",
-        pillar: "వృక్ష సేవ",
-        subtitle: "చెట్లు & ప్రకృతి రక్షణ",
-        tagline: "హరిత ఆశల చిగురు, రేపటి పచ్చదనం",
-        summary: "అటవీ విస్తరణ, దేశీయ మొక్కల పెంపకం, ఉచిత మొక్కల పంపిణీ మరియు హరిత వనాల పోషణకు అంకితమైన సేవ.",
+        id: "tree-plantation",
+        pillar: "వృక్షారోపణ",
+        subtitle: "హరిత భూమి & అటవీ విస్తరణ",
+        tagline: "భవిష్యత్ తరాల కోసం ప్రాణవాయువు",
+        summary: "భారీ దేశీయ వృక్షారోపణ కార్యక్రమాలు, నగరాల్లో మియావాకి చిట్టడవులు, ఉచిత మొక్కల పంపిణీ మరియు మొక్కలను 3 సంవత్సరాలు సంరక్షించి పెంచే దీక్ష.",
         color: "#1B4D34",
         accentColor: "#88C057",
-        badge: "స్తంభం 01 — వృక్ష & ప్రకృతి రక్షణ",
+        badge: "స్తంభం 01 — వృక్షారోపణ",
         heroImage: servicesData[0].heroImage,
         programs: [
           {
@@ -196,133 +280,209 @@ export function getServicesData(lang = 'en') {
             metrics: "సేంద్రీయ ఎరువులు, ట్రీ గార్డులతో కూడిన పూర్తి కిట్ పంపిణీ"
           },
           {
-            title: "జీవవైవిధ్య సంరక్షణ",
+            title: "జీవవైవిధ్య సంరక్షణ & పురాతన వనాలు",
             description: "పురాతన పవిత్ర వనాల రక్షణ, పక్షుల ఆవాసాల భద్రత, సహజ పరాగసంపర్క కారిడార్ల నిర్మాణం మరియు పర్యావరణ సమతుల్యత.",
             icon: "ShieldCheck",
-            metrics: "నాటిన ప్రతి మొక్కను 36 నెలల పాటు క్షేత్రస్థాయిలో పర్యవేక్షించడం"
+            metrics: "నాటిన ప్రతి మొక్కను 36 నెలల పాటు క్షేత్రస్థాయిలో సంరక్షించడం"
           },
           {
-            title: "పర్యావరణ చైతన్య సదస్సులు",
-            description: "పాఠశాల విద్యార్థులకు సీడ్ బాల్స్ (విత్తన బంతులు) తయారీ వర్క్‌షాప్‌లు, యువతలో ఎకో క్లబ్‌ల ఏర్పాటు మరియు పర్యావరణ నాయకత్వ శిక్షణ.",
+            title: "హరిత పర్యావరణ చైతన్యం",
+            description: "విద్యార్థులకు సీడ్ బాల్ తయారీ వర్క్‌షాప్‌లు, పర్యావరణ క్లబ్‌ల ఏర్పాటు మరియు గ్రామీణ యువతకు ప్రకృతి సంరక్షణపై శిక్షణ.",
             icon: "GraduationCap",
-            metrics: "భవిష్యత్ తరాల కోసం ప్రకృతి పరిరక్షకులను తీర్చిదిద్దడం"
+            metrics: "భావి తరాలను పర్యావరణ సారథులుగా తీర్చిదిద్దడం"
           }
         ],
         gallery: servicesData[0].gallery
       },
       {
-        id: "manava-sewa",
-        pillar: "మానవ సేవ",
-        subtitle: "మానవతా & సామాజిక సేవ",
-        tagline: "చేతల్లో కరుణ, హృదయంలో మానవత్వం",
-        summary: "ఆకలి తీర్చే పౌష్టికాహారం, వస్త్రాలు, విద్యా సహాయం, విపత్తు సహాయక చర్యలు మరియు వృద్ధులకు ఆప్యాయతతో కూడిన సేవ.",
-        color: "#2C4A38",
-        accentColor: "#E3B873",
-        badge: "స్తంభం 02 — మానవతా & సామాజిక సేవ",
+        id: "education-support",
+        pillar: "విద్యా సహాయం",
+        subtitle: "నిరుపేద విద్యార్థుల బంగారు భవిష్యత్తు",
+        tagline: "జ్ఞానంతో పేదరికంపై శాశ్వత విజయం",
+        summary: "నిరుపేద, మురికివాడల పిల్లలకు స్కూల్ ఫీజులు, పుస్తకాలు, బ్యాగులు, యూనిఫారాలు మరియు వ్యక్తిగత మార్గదర్శకత్వం అందించి వారి చదువు ఆగిపోకుండా చూడటం.",
+        color: "#1E40AF",
+        accentColor: "#60A5FA",
+        badge: "స్తంభం 02 — విద్యా సహాయం",
         heroImage: servicesData[1].heroImage,
         programs: [
           {
-            title: "నిరుపేదలకు ప్రత్యక్ష చేయూత",
-            description: "అట్టడుగు వర్గాలు, దినసరి కూలీలు మరియు ఆపదలో ఉన్న కుటుంబాలకు నేరుగా రేషన్ కిట్లు, నిత్యావసరాలు మరియు అత్యవసర వైద్య ఖర్చుల సహాయం.",
-            icon: "HeartHandshake",
-            metrics: "మారుమూల గ్రామాల గడప వరకు నేరుగా చేరే సహాయం"
+            title: "స్కూల్ కిట్లు & యూనిఫారాల పంపిణీ",
+            description: "ప్రభుత్వ, గ్రామీణ పాఠశాలల విద్యార్థులకు బ్యాగులు, నోట్‌బుక్స్, జామెట్రీ బాక్సులు మరియు యూనిఫారాలను ఉచితంగా అందజేయడం.",
+            icon: "BookOpen",
+            metrics: "ప్రతి ఏటా వేలాది మంది నిరుపేద విద్యార్థులకు విద్యా సామాగ్రి"
           },
           {
-            title: "నిరంతర అన్నదానం",
-            description: "ప్రభుత్వ ఆసుపత్రులు, రాత్రి బసలు మరియు నిరుపేద ప్రాంతాల వద్ద ఆకలితో అలమటించే రోగుల సహాయకులకు వేడి, తాజా పౌష్టికాహార పంపిణీ.",
-            icon: "Utensils",
-            metrics: "పరిశుభ్రమైన, రుచికరమైన వేడి శాఖాహార భోజనం"
+            title: "ఫీజు స్పాన్సర్‌షిప్ & స్కాలర్‌షిప్‌లు",
+            description: "ఫీజులు కట్టలేక చదువు మానేసే పరిస్థితిలో ఉన్న పేద, అనాథ విద్యార్థులకు స్కూల్, కాలేజీ ఫీజుల పూర్తి భరోసా.",
+            icon: "GraduationCap",
+            metrics: "ఆర్థిక కారణాల వల్ల ఏ ఒక్క చిన్నారి చదువు ఆగకూడదనే లక్ష్యం"
           },
           {
-            title: "విపత్తు సహాయక బృందాలు",
-            description: "వరదలు, తీవ్ర ఎండలు మరియు ప్రకృతి విపత్తుల సమయంలో బాధితులకు దుప్పట్లు, పొడి ఆహారం, సురక్షిత తాగునీరు అందించే అత్యవసర స్పందన.",
+            title: "ఉచిత సాయంత్రపు ట్యూషన్ కేంద్రాలు",
+            description: "బస్తీలు, గ్రామీణ ప్రాంతాల్లో ఉచిత సాయంత్రపు స్టడీ సెంటర్లు నిర్వహించి విద్యార్థులకు సబ్జెక్టులపై పట్టు, నైతిక విలువలు నేర్పడం.",
             icon: "Users",
-            metrics: "క్షణాల్లో స్పందించే విధంగా శిక్షణ పొందిన వాలంటీర్ నెట్‌వర్క్"
+            metrics: "అంకితభావం గల వాలంటీర్లతో రోజువారీ మార్గదర్శకత్వం"
           },
           {
-            title: "మానవ సంక్షేమం & విద్యా ప్రోత్సాహం",
-            description: "నిరుపేద విద్యార్థులకు పుస్తకాలు, యూనిఫాంలు, స్కూల్ బ్యాగులు అందించడంతో పాటు ఉచిత వైద్య పరీక్షల శిబిరాల నిర్వహణ.",
+            title: "డిజిటల్ అక్షరాస్యత & నైపుణ్య శిక్షణ",
+            description: "నిరుపేద యువతకు కంప్యూటర్ పరిజ్ఞానం, ఆంగ్ల సంభాషణ మరియు ఉపాధి నైపుణ్యాలలో శిక్షణ ఇచ్చి స్వయం ఉపాధి కల్పించడం.",
             icon: "Sparkles",
-            metrics: "ఆత్మగౌరవం, ఆరోగ్యం మరియు విద్యలో సమానత్వ స్థాపన"
+            metrics: "ఆధునిక సాంకేతికతతో నిరుపేద యువతకు బంగారు బాట"
           }
         ],
         gallery: servicesData[1].gallery
       },
       {
-        id: "prakruthi-sewa",
-        pillar: "ప్రకృతి సేవ",
-        subtitle: "పర్యావరణ పరిరక్షణ",
-        tagline: "ప్రకృతి పునరుజ్జీవనం, జీవకోటి మనుగడ",
-        summary: "చెరువులు మరియు బావుల పునరుద్ధరణ, పరిశుభ్రతా కార్యక్రమాలు, ప్లాస్టిక్ రహిత సమాజ నిర్మాణం మరియు జీరో-వేస్ట్ విధానాలు.",
-        color: "#183D2F",
-        accentColor: "#38A169",
-        badge: "స్తంభం 03 — పర్యావరణ పరిరక్షణ",
+        id: "medical-help",
+        pillar: "వైద్య సహాయం",
+        subtitle: "ప్రాణరక్షణ వైద్యం & ఆరోగ్య భరోసా",
+        tagline: "కరుణతో కూడిన స్వస్థత, ప్రతి ప్రాణానికీ రక్షణ",
+        summary: "పేద రోగులకు అత్యవసర శస్త్రచికిత్సల ఖర్చులు, ఉచిత మందులు, ఉచిత వైద్య శిబిరాలు, రోగ నిర్ధారణ పరీక్షలు మరియు సహాయక ఉపకరణాల పంపిణీ.",
+        color: "#B91C1C",
+        accentColor: "#F87171",
+        badge: "స్తంభం 03 — వైద్య సహాయం",
         heroImage: servicesData[2].heroImage,
         programs: [
           {
-            title: "పర్యావరణ పరిరక్షణ డ్రైవ్‌లు",
-            description: "మట్టి సారం పెంపు, జీవవైవిధ్య సంరక్షణ మరియు స్థానిక ప్రాంతాలలో కార్బన్ పాదముద్రను తగ్గించే సమగ్ర పర్యావరణ కార్యక్రమాలు.",
-            icon: "Globe",
-            metrics: "ప్రజల భాగస్వామ్యంతో స్థానిక హరిత విధానాల అమలు"
+            title: "అత్యవసర చికిత్సలకు ప్రత్యక్ష ఆర్థిక సహాయం",
+            description: "ఆసుపత్రి బిల్లులు చెల్లించలేని పేద రోగులకు శస్త్రచికిత్సలు, ఐసీయూ చికిత్సల కోసం తక్షణ సహాయం అందించడం.",
+            icon: "HeartHandshake",
+            metrics: "ఆసుపత్రి డెస్కులతో సమన్వయం చేసుకుంటూ తక్షణ ప్రాణరక్షణ సాయం"
           },
           {
-            title: "పరిసరాల పరిశుభ్రత & ప్లోగ్ రన్స్",
-            description: "నదీ తీరాలు, సరస్సుల ఒడ్డులు, ఆలయ ప్రాంగణాలు మరియు ఉద్యానవనాలలో ప్లాస్టిక్ వ్యర్థాల ఏరివేత మరియు రీసైక్లింగ్ ప్రక్రియ.",
-            icon: "Trash2",
-            metrics: "టన్నుల కొద్దీ ప్లాస్టిక్ వ్యర్థాలను భూమిలో కలవకుండా నివారించడం"
+            title: "దీర్ఘకాలిక రోగులకు ఉచిత మందులు",
+            description: "డయాబెటిస్, బీపీ, గుండె జబ్బులు, క్యాన్సర్ వంటి వ్యాధులతో బాధపడుతున్న నిరుపేద వృద్ధులకు నెలవారీ మందుల ఉచిత పంపిణీ.",
+            icon: "HeartPulse",
+            metrics: "డబ్బు లేక మందులు ఆగిపోకుండా నిరంతర ఆరోగ్య రక్షణ"
           },
           {
-            title: "జల సంరక్షణ & సరస్సుల పునరుద్ధరణ",
-            description: "గ్రామీణ చెరువులు, చారిత్రక మెట్లబావుల పూడికతీత, ఇంకుడు గుంతల నిర్మాణం మరియు గట్ల వెంట కోతను నివారించే గడ్డి నాటడం.",
-            icon: "Droplets",
-            metrics: "భూగర్భ జలాల పెంపు మరియు జలాశయాల జీవకళ పునరుద్ధరణ"
+            title: "గ్రామీణ ఉచిత వైద్య పరీక్షల శిబిరాలు",
+            description: "నిపుణులైన వైద్యులతో బస్తీలు, గ్రామాల్లో ఉచిత జనరల్ హెల్త్, కంటి పరీక్షలు మరియు క్యాన్సర్ స్క్రీనింగ్ శిబిరాలు.",
+            icon: "Activity",
+            metrics: "ముందస్తు వ్యాధి నిర్ధారణ మరియు ఉచిత నిపుణుల సలహాలు"
           },
           {
-            title: "ప్లాస్టిక్ రహిత చైతన్య ప్రచారం",
-            description: "వీధి నాటకాలు, పత్తి సంచుల పంపిణీ, గృహ వ్యర్థాల కంపోస్టింగ్ వర్క్‌షాప్‌లు మరియు ప్రకృతి పర్యటనల ద్వారా పౌర సమాజంలో మార్పు.",
-            icon: "Megaphone",
-            metrics: "ప్రజా చైతన్యం ద్వారా జీవనశైలిలో శాశ్వత హరిత మార్పు"
+            title: "వీల్‌చైర్లు & సహాయక పరికరాల వితరణ",
+            description: "దివ్యాంగులకు వీల్‌చైర్లు, వాకింగ్ స్టిక్స్, క్రచెస్ మరియు వినికిడి యంత్రాలను ఉచితంగా అందించి వారి ఆత్మగౌరవాన్ని నిలబెట్టడం.",
+            icon: "ShieldCheck",
+            metrics: "శారీరక వైకల్యం ఉన్నవారికి స్వతంత్ర జీవన భరోసా"
           }
         ],
         gallery: servicesData[2].gallery
       },
       {
-        id: "aashraya-sewa",
-        pillar: "ఆశ్రయ సేవ",
-        subtitle: "పేదరిక నిర్మూలన & సాధికారత",
-        tagline: "ఆత్మగౌరవ పునరుద్ధరణ, జీవితాల సాధికారత",
-        summary: "నిరుపేద కుటుంబాలకు నిత్యావసర సరుకులు, అత్యవసర వైద్య ఖర్చులు, స్వయం ఉపాధి సాధనాలు మరియు గౌరవప్రదమైన జీవనోపాధి.",
-        color: "#1E3B2F",
-        accentColor: "#DDA853",
-        badge: "స్తంభం 04 — పేదరిక నిర్మూలన & సాధికారత",
+        id: "annadanam",
+        pillar: "అన్నదానం",
+        subtitle: "నిత్యాన్నదాన సేవ & ఆకలి నివారణ",
+        tagline: "ఆకలి లేని సమాజమే మా ఆశయం",
+        summary: "ప్రభుత్వ ఆసుపత్రులు, రైల్వే స్టేషన్లు, నిరాశ్రయుల శిబిరాల వద్ద నిరుపేదలకు, రోగుల సహాయకులకు ప్రతిరోజూ స్వచ్ఛమైన, వేడి పౌష్టికాహార వితరణ.",
+        color: "#B45309",
+        accentColor: "#FBBF24",
+        badge: "స్తంభం 04 — అన్నదానం",
         heroImage: servicesData[3].heroImage,
         programs: [
           {
-            title: "నిత్యావసర రేషన్ కిట్ల పంపిణీ",
-            description: "ఆధారం లేని వృద్ధులు, వికలాంగులు మరియు ఒంటరి మహిళలకు నెలవారీ పోషకాహార కిట్లు (బియ్యం, పప్పులు, నూనె, సబ్బులు) గడప వద్దకే అందజేయడం.",
+            title: "ఆసుపత్రుల వద్ద నిత్య భోజన వితరణ",
+            description: "ప్రభుత్వ ఆసుపత్రుల వెలుపల రోగుల సహాయకులకు ప్రతిరోజూ స్వచ్ఛమైన, వేడి భోజనాన్ని గౌరవంతో వడ్డించడం.",
+            icon: "Utensils",
+            metrics: "రోజూ రెండు పూటలా రుచికరమైన, పరిశుభ్రమైన శాకాహార భోజనం"
+          },
+          {
+            title: "నిరాశ్రయులకు వీధి అన్నదానం",
+            description: "రహదారుల పక్కన, వంతెనల కింద ఆకలితో అలమటించే వృద్ధులు, అభాగ్యులను వెతికి మరీ భోజన పొట్లాలు అందజేయడం.",
             icon: "HeartHandshake",
-            metrics: "ప్రతినెలా నిరుపేద కుటుంబాలకు అందే సంపూర్ణ పోషణ"
+            metrics: "రాత్రి పూట ఏ ఒక్కరూ ఆకలితో నిద్రపోకూడదనే దీక్ష"
           },
           {
-            title: "చలికాలపు రక్షణ & ఆశ్రయ సామాగ్రి",
-            description: "రోడ్ల పక్కన, ఆసుపత్రుల వెలుపల నివసించే నిరాశ్రయులకు వెచ్చని దుప్పట్లు, స్వెటర్లు, టార్పాలిన్లు మరియు నేల చాపల పంపిణీ.",
+            title: "నెలావారీ నిత్యావసర సరుకుల కిట్లు",
+            description: "ఆధారం లేని వితంతువులు, వృద్ధులు, దివ్యాంగుల కుటుంబాలకు బియ్యం, పప్పులు, నూనెతో కూడిన నెలవారీ రేషన్ కిట్ల అందజేత.",
             icon: "ShieldCheck",
-            metrics: "వేలాది మంది నిరాశ్రయులకు వాతావరణ రక్షణ కవచాలు"
+            metrics: "నిరుపేద గడపల వద్దకే నేరుగా అందే సంపూర్ణ పోషకాహారం"
           },
           {
-            title: "అత్యవసర వైద్యం & మందుల సహాయం",
-            description: "పేద రోగులకు ప్రిస్క్రిప్షన్ మందులు, డయాగ్నస్టిక్ పరీక్షలు, వీల్‌చైర్లు మరియు శస్త్రచికిత్సానంతర పోషకాహార ఖర్చుల భరోసా.",
+            title: "విపత్తుల వేళ తక్షణ ఆహార సహాయం",
+            description: "వరదలు, విపత్తుల సమయంలో మొబైల్ కిచెన్లు ఏర్పాటు చేసి బాధితులకు తాగునీరు, వేడి ఆహారం చేరవేయడం.",
             icon: "Sparkles",
-            metrics: "అత్యవసర చికిత్సలకు తక్షణ ప్రత్యక్ష ఆర్థిక సహాయం"
-          },
-          {
-            title: "జీవనోపాధి & స్వయం ఉపాధి కల్పన",
-            description: "కుట్టు మిషన్లు, చిన్న వ్యాపారాల కోసం పరికరాలు మరియు సాధనాలను అందజేసి కుటుంబాలు పేదరికం నుండి స్వతంత్రంగా ఎదిగేలా చేయడం.",
-            icon: "Users",
-            metrics: "గౌరవప్రదమైన స్వయం ఉపాధితో పేదరికంపై శాశ్వత విజయం"
+            metrics: "24 గంటలూ సిద్ధంగా ఉండే సేవా వాలంటీర్ల నెట్‌వర్క్"
           }
         ],
         gallery: servicesData[3].gallery
+      },
+      {
+        id: "funeral-services",
+        pillar: "ఉచిత అంత్యక్రియల సేవ",
+        subtitle: "చివరి ప్రయాణంలో గౌరవం & ఆఖరి వీడ్కోలు",
+        tagline: "గౌరవప్రదమైన అంతిమ సంస్కారం",
+        summary: "అనాథ శవాలకు, దిక్కుతోచని పేద కుటుంబాలకు ఉచితంగా అంత్యక్రియలు, దహన సంస్కారాలు మరియు స్వర్గపురి వాహనం సేవలను గౌరవప్రదంగా నిర్వహించడం.",
+        color: "#374151",
+        accentColor: "#9CA3AF",
+        badge: "స్తంభం 05 — ఉచిత అంత్యక్రియల సేవ",
+        heroImage: servicesData[4].heroImage,
+        programs: [
+          {
+            title: "గౌరవప్రదమైన దహన & ఖనన సంస్కారాలు",
+            description: "అంత్యక్రియల ఖర్చులు భరించలేని నిరుపేద కుటుంబాలకు కట్టెలు, పూజా సామాగ్రి, శ్మశాన వాటిక ఖర్చులతో సంప్రదాయబద్ధంగా ఉచిత అంత్యక్రియలు.",
+            icon: "Flame",
+            metrics: "కులాలు, మతాలకు అతీతంగా ప్రతి ఆత్మకూ పవిత్ర వీడ్కోలు"
+          },
+          {
+            title: "అనాథ మృతదేహాలకు అంతిమ సంస్కారాలు",
+            description: "ఆసుపత్రులు, రోడ్లపై చనిపోయిన గుర్తుతెలియని, అనాథ శవాలకు పోలీసులతో సమన్వయం చేసుకుంటూ గౌరవప్రదంగా అంతిమ సంస్కారాలు చేయడం.",
+            icon: "ShieldAlert",
+            metrics: "ఈ లోకం నుండి వీడ్కోలు తీసుకునే ఏ ప్రాణీ దిక్కులేనిదిగా మిగలరాదు"
+          },
+          {
+            title: "ఉచిత స్వర్గపురి వాహనం (Hearse Van)",
+            description: "మృతదేహాలను ఆసుపత్రులు, ఇళ్ల నుండి శ్మశాన వాటికలకు చేర్చడానికి 24 గంటలు అందుబాటులో ఉండే ఉచిత శవవాహక వాహన సేవ.",
+            icon: "ShieldCheck",
+            metrics: "శోకంలో మునిగిన పేద కుటుంబాలకు ఉచిత రవాణా భరోసా"
+          },
+          {
+            title: "ఆధారం కోల్పోయిన కుటుంబాలకు సాంత్వన",
+            description: "ఇంటి పెద్దను కోల్పోయి వీధిన పడ్డ నిరుపేద కుటుంబాలకు నిత్యావసర సరుకులు మరియు తాత్కాలిక ఆర్థిక సాంత్వన అందించడం.",
+            icon: "HeartHandshake",
+            metrics: "కష్ట సమయంలో వెన్నంటే నిలిచే సేవా హస్తం"
+          }
+        ],
+        gallery: servicesData[4].gallery
+      },
+      {
+        id: "orphan-care",
+        pillar: "అనాథ పిల్లల సంరక్షణ",
+        subtitle: "సురక్షిత ఆశ్రయం, ప్రేమ & ఆప్యాయత",
+        tagline: "ప్రతి అనాథ చిన్నారికి ప్రేమతో కూడిన నీడ",
+        summary: "తల్లిదండ్రులు లేని, నిరాదరణకు గురైన చిన్నారులకు సురక్షితమైన ఆశ్రయం, పోషకాహారం, నాణ్యమైన చదువు, సంస్కారం మరియు మానసిక సాంత్వన కల్పించడం.",
+        color: "#6D28D9",
+        accentColor: "#A78BFA",
+        badge: "స్తంభం 06 — అనాథ పిల్లల సంరక్షణ",
+        heroImage: servicesData[5].heroImage,
+        programs: [
+          {
+            title: "ప్రేమతో కూడిన ఆశ్రయం & సమతుల్య పోషణ",
+            description: "కుటుంబ వాతావరణాన్ని తలపించే పరిశుభ్రమైన నివాసం, రోజువారీ సమతుల్య పోషకాహారం మరియు వెచ్చని దుస్తుల సౌకర్యం.",
+            icon: "Users",
+            metrics: "తల్లిదండ్రుల లోటు తెలియనివ్వని నిరంతర ఆప్యాయత"
+          },
+          {
+            title: "ఉత్తమ పాఠశాలల్లో నాణ్యమైన విద్య",
+            description: "ప్రముఖ ఇంగ్లీష్ మీడియం స్కూళ్లలో అడ్మిషన్లు, ప్రత్యేక ట్యూటర్ల ద్వారా విద్యార్థులను ఉన్నత చదువులకు సిద్ధం చేయడం.",
+            icon: "GraduationCap",
+            metrics: "డిగ్రీలు, ఉన్నత ఉద్యోగాల దిశగా చిన్నారుల ప్రయాణం"
+          },
+          {
+            title: "ఆరోగ్య రక్షణ, టీకాలు & మానసిక కౌన్సిలింగ్",
+            description: "రెగ్యులర్ పీడియాట్రిక్ వైద్య పరీక్షలు, సమయానికి టీకాలు మరియు మానసిక సాంత్వన కోసం నిపుణులతో కౌన్సిలింగ్ సెషన్లు.",
+            icon: "HeartPulse",
+            metrics: "చిన్నారుల సంపూర్ణ శారీరక, మానసిక వికాస భరోసా"
+          },
+          {
+            title: "క్రీడలు, సంగీతం, నైతిక విలువల సాధన",
+            description: "సంగీతం, చిత్రలేఖనం, కరాటే మరియు క్రీడలలో ప్రోత్సాహం అందిస్తూ చిన్నారులను బాధ్యతాయుత పౌరులుగా తీర్చిదిద్దడం.",
+            icon: "Sparkles",
+            metrics: "ఆత్మవిశ్వాసంతో సమాజంలో తలెత్తుకుని జీవించేలా సాధికారత"
+          }
+        ],
+        gallery: servicesData[5].gallery
       }
     ];
   }
@@ -330,18 +490,18 @@ export function getServicesData(lang = 'en') {
   if (lang === 'hi') {
     return [
       {
-        id: "vrukshasewa",
-        pillar: "वृक्ष सेवा",
-        subtitle: "वनस्पति एवं प्रकृति संरक्षण",
-        tagline: "आशा की जड़ें, हरियाली से संवरता कल",
-        summary: "वृक्षारोपण, देसी पौधों का संवर्धन, निःशुल्क पौध वितरण एवं हरित परिदृश्य के संरक्षण हेतु समर्पित सेवा।",
+        id: "tree-plantation",
+        pillar: "वृक्षारोपण",
+        subtitle: "हरित धरा एवं सघन पौधारोपण",
+        tagline: "भावी पीढ़ियों के लिए प्राणवायु का सृजन",
+        summary: "व्यापक देसी वृक्षारोपण अभियान, शहरी मियावाकी वन, निःशुल्क पौधा वितरण और 3 वर्ष तक नियमित देखभाल कर पौधों का जीवन सुनिश्चित करना।",
         color: "#1B4D34",
         accentColor: "#88C057",
-        badge: "स्तंभ 01 — वृक्ष एवं प्रकृति संरक्षण",
+        badge: "स्तंभ 01 — वृक्षारोपण",
         heroImage: servicesData[0].heroImage,
         programs: [
           {
-            title: "सघन वृक्षारोपण अभियान",
+            title: "सघन देसी वृक्षारोपण अभियान",
             description: "शहरी बंजर स्थलों पर मियावाकी सघन वनों का निर्माण, राजमार्ग हरित गलियारे और जलवायु-अनुकूल देसी प्रजातियों का रोपण।",
             icon: "Trees",
             metrics: "देसी प्रजातियों की प्रधानता: नीम, पीपल, बरगद, जामुन, करंज"
@@ -368,118 +528,194 @@ export function getServicesData(lang = 'en') {
         gallery: servicesData[0].gallery
       },
       {
-        id: "manava-sewa",
-        pillar: "मानव सेवा",
-        subtitle: "मानवीय एवं सामाजिक सेवा",
-        tagline: "कर्म में करुणा, हृदय में मानवता",
-        summary: "पौष्टिक भोजन वितरण, वस्त्र, शैक्षिक सहायता, आपदा राहत एवं वृद्धजनों व असहायों को अपनत्व भरी सेवा।",
-        color: "#2C4A38",
-        accentColor: "#E3B873",
-        badge: "स्तंभ 02 — मानवीय एवं सामाजिक सेवा",
+        id: "education-support",
+        pillar: "शिक्षा सहायता",
+        subtitle: "वंचित नौनिहालों का उज्ज्वल भविष्य",
+        tagline: "शिक्षा से सशक्तिकरण, ज्ञान से नवजीवन",
+        summary: "गरीब और झुग्गी-झोपड़ियों के बच्चों की स्कूल फीस, किताबें, बैग, गणवेश और निरंतर मार्गदर्शन की व्यवस्था कर शिक्षा की अखंडता सुनिश्चित करना।",
+        color: "#1E40AF",
+        accentColor: "#60A5FA",
+        badge: "स्तंभ 02 — शिक्षा सहायता",
         heroImage: servicesData[1].heroImage,
         programs: [
           {
-            title: "दीन-दुखियों को सीधी सहायता",
-            description: "हाशिए पर स्थित परिवारों, दिहाड़ी मजदूरों और असहायों को सीधे राशन किट, स्वास्थ्य आपातकालीन सहायता और गरिमा किट।",
-            icon: "HeartHandshake",
-            metrics: "दूरदराज की बस्तियों तक सीधे घर-घर पहुंचने वाली सहायता"
+            title: "स्कूल किट एवं गणवेश वितरण",
+            description: "सरकारी और ग्रामीण स्कूलों के जरूरतमंद छात्रों को स्कूल बैग, कॉपियां, ज्यामिति बॉक्स और सिले हुए गणवेश का वितरण।",
+            icon: "BookOpen",
+            metrics: "हर वर्ष हजारों वंचित विद्यार्थियों तक शिक्षा सामग्री का संबल"
           },
           {
-            title: "नियमित अन्नदान सेवा",
-            description: "सरकारी अस्पतालों, रैन बसेरों और झुग्गियों के बाहर भूखे तीमारदारों व असहायों को ताजा, गर्म व पौष्टिक भोजन परोसना।",
-            icon: "Utensils",
-            metrics: "पवित्र, स्वच्छ व पौष्टिक गर्म शाकाहारी भोजन"
+            title: "फीस प्रायोजन एवं छात्रवृत्ति सहायता",
+            description: "आर्थिक तंगी से जूझ रहे मेधावी और अनाथ बच्चों की ट्यूशन व परीक्षा फीस का पूरा वहन ताकि पढ़ाई बीच में न छूटे।",
+            icon: "GraduationCap",
+            metrics: "धन के अभाव में किसी भी बच्चे की पढ़ाई न रुकने का लक्ष्य"
           },
           {
-            title: "आपदा राहत एवं सामुदायिक सहयोग",
-            description: "बाढ़, भीषण लू और शीत लहर के दौरान कंबल, सूखा राशन और स्वच्छ पेयजल उपलब्ध कराने वाली त्वरित स्वयंसेवक टीम।",
+            title: "सामुदायिक निःशुल्क शिक्षण केंद्र",
+            description: "बस्तियों में शाम के समय निःशुल्क ट्यूशन कक्षाएं चलाकर बच्चों की नींव मजबूत करना और नैतिक संस्कार प्रदान करना।",
             icon: "Users",
-            metrics: "आपातकाल में तुरंत राहत पहुंचाने हेतु प्रशिक्षित स्वयंसेवक दल"
+            metrics: "समर्पित स्वयंसेवी शिक्षकों द्वारा व्यक्तिगत मार्गदर्शन"
           },
           {
-            title: "मानव कल्याण व शिक्षा प्रोत्साहन",
-            description: "विद्यार्थियों को कॉपियां, स्कूल बैग और गणवेश उपलब्ध कराना तथा बस्तियों में निःशुल्क स्वास्थ्य शिविर लगाना।",
+            title: "डिजिटल साक्षरता एवं कौशल विकास",
+            description: "वंचित युवाओं को बुनियादी कंप्यूटर शिक्षा, संवाद कौशल और रोजगारोन्मुख प्रशिक्षण देकर आत्मनिर्भर बनाना।",
             icon: "Sparkles",
-            metrics: "गरिमा, शिक्षा और स्वास्थ्य समानता का संवर्धन"
+            metrics: "डिजिटल खाई को पाटकर युवाओं को स्वावलंबी बनाना"
           }
         ],
         gallery: servicesData[1].gallery
       },
       {
-        id: "prakruthi-sewa",
-        pillar: "प्रकृति सेवा",
-        subtitle: "पर्यावरण एवं जल संरक्षण",
-        tagline: "प्रकृति का पुनरुद्धार, जीवन का संवर्धन",
-        summary: "झीलों, बावडियों एवं पोखरों का जीर्णोद्धार, स्वच्छता अभियान, प्लास्टिक प्रदूषण मुक्ति एवं शून्य-अपशिष्ट जीवनशैली।",
-        color: "#183D2F",
-        accentColor: "#38A169",
-        badge: "स्तंभ 03 — पर्यावरण एवं जल संरक्षण",
+        id: "medical-help",
+        pillar: "चिकित्सा सहायता",
+        subtitle: "जीवनरक्षक स्वास्थ्य सेवा एवं उपचार",
+        tagline: "करुणा से आरोग्य, हर पीड़ित को नया जीवन",
+        summary: "निर्धन मरीजों को आपातकालीन शल्यक्रिया सहायता, निःशुल्क दवाइयां, स्वास्थ्य जांच शिविर, जांच शुल्क और दिव्यांगों को सहायक उपकरण।",
+        color: "#B91C1C",
+        accentColor: "#F87171",
+        badge: "स्तंभ 03 — चिकित्सा सहायता",
         heroImage: servicesData[2].heroImage,
         programs: [
           {
-            title: "पर्यावरण संरक्षण अभियान",
-            description: "मृदा स्वास्थ्य संवर्धन, जैवविविधता संरक्षण और कार्बन उत्सर्जन को न्यूनतम करने हेतु मोहल्ला-स्तरीय हरित नीतियां।",
-            icon: "Globe",
-            metrics: "जनसहभागिता से संचालित स्थानीय पर्यावरण नीतियां"
+            title: "आपातकालीन चिकित्सा राहत कोष",
+            description: "गंभीर रोगों व दुर्घटनाओं में अस्पताल का बिल न चुका पाने वाले निर्धन मरीजों को तुरंत प्रत्यक्ष आर्थिक उपचार सहायता।",
+            icon: "HeartHandshake",
+            metrics: "अस्पताल डेस्कों से समन्वय कर जीवनरक्षक त्वरित सहायता"
           },
           {
-            title: "सफाई अभियान और प्लॉग रन",
-            description: "नदी तटों, झीलों, पार्कों और मंदिर परिसरों से नियमित कचरा व प्लास्टिक हटाकर उसका सुरक्षित पुनर्चक्रण।",
-            icon: "Trash2",
-            metrics: "मीट्रिक टन गैर-अपघटनीय कचरे का सुरक्षित निस्तारण"
+            title: "निःशुल्क नियमित जीवनरक्षक दवाइयां",
+            description: "मधुमेह, उच्च रक्तचाप, हृदय व कैंसर जैसी बीमारियों से पीड़ित बेसहारा बुजुर्गों को मासिक दवाइयों की निरंतर आपूर्ति।",
+            icon: "HeartPulse",
+            metrics: "पैसे की कमी से किसी मरीज का इलाज न रुकने की गारंटी"
           },
           {
-            title: "जल संरक्षण एवं बावड़ी पुनरुद्धार",
-            description: "ग्रामीण तालाबों व ऐतिहासिक बावडियों की गाद निकालना, वर्षा जल संचयन गड्ढे बनाना और तटबंधों पर घास लगाना।",
-            icon: "Droplets",
-            metrics: "भूजल स्तर में सुधार और जलस्रोतों को नया जीवन"
+            title: "ग्रामीण निःशुल्क स्वास्थ्य जांच शिविर",
+            description: "विशेषज्ञ डॉक्टरों की टीम द्वारा बस्तियों में निःशुल्क स्वास्थ्य परीक्षण, नेत्र जांच और रक्तदान शिविरों का आयोजन।",
+            icon: "Activity",
+            metrics: "रोगों की समय पर पहचान और विशेषज्ञ डॉक्टरों का परामर्श"
           },
           {
-            title: "प्लास्टिक मुक्ति जनजागरूकता",
-            description: "नुक्कड़ नाटक, सूती थैलों का वितरण, कंपोस्टिंग कार्यशालाएं और नागरिकों के लिए पर्यावरण भ्रमण।",
-            icon: "Megaphone",
-            metrics: "जनमानस में जागरूकता लाकर हरित जीवनशैली का निर्माण"
+            title: "व्हीलचेयर व सहायक उपकरण वितरण",
+            description: "दिव्यांग बंधुओं को व्हीलचेयर, बैसाखियां, वॉकर और श्रवण यंत्र निःशुल्क भेंट कर उनके स्वाभिमान की रक्षा करना।",
+            icon: "ShieldCheck",
+            metrics: "दिव्यांगजनों को स्वतंत्र आवागमन और आत्मविश्वास की सौगात"
           }
         ],
         gallery: servicesData[2].gallery
       },
       {
-        id: "aashraya-sewa",
-        pillar: "आश्रय सेवा",
-        subtitle: "निर्धनता निवारण एवं सशक्तिकरण",
-        tagline: "आत्मसम्मान की बहाली, जीवन का सशक्तिकरण",
-        summary: "निर्धन परिवारों को आवश्यक राशन किट, आपातकालीन चिकित्सा सहायता, स्वरोजगार साधन एवं आत्मनिर्भरता के अवसर।",
-        color: "#1E3B2F",
-        accentColor: "#DDA853",
-        badge: "स्तंभ 04 — निर्धनता निवारण एवं सशक्तिकरण",
+        id: "annadanam",
+        pillar: "अन्नदान",
+        subtitle: "दैनिक अन्नदान एवं क्षुधा निवारण",
+        tagline: "कोई भूखा न सोए, यही हमारा संकल्प",
+        summary: "सरकारी अस्पतालों, रैन बसेरों, रेलवे स्टेशनों और झुग्गियों के बाहर भूखे असहायों और मरीजों के तीमारदारों को प्रतिदिन ताजा व पौष्टिक भोजन।",
+        color: "#B45309",
+        accentColor: "#FBBF24",
+        badge: "स्तंभ 04 — अन्नदान",
         heroImage: servicesData[3].heroImage,
         programs: [
           {
-            title: "मासिक राशन एवं पोषण किट",
-            description: "निराश्रित वृद्धों, दिव्यांगों और एकल माताओं को मासिक सूखा राशन (चावल, दाल, तेल, मसाले और स्वच्छता सामग्री) सीधे घर पहुंचाना।",
+            title: "अस्पताल तीमारदारों को दैनिक भोजन सेवा",
+            description: "सरकारी अस्पतालों के बाहर दिन-रात सेवा में जुटे गरीब तीमारदारों को शुद्ध, ताजा और गर्म सात्विक भोजन का वितरण।",
+            icon: "Utensils",
+            metrics: "प्रतिदिन दो समय प्रेम व सम्मान से परोसा जाने वाला भोजन"
+          },
+          {
+            title: "सड़क व झुग्गी-झोपड़ी अन्नदान अभियान",
+            description: "फुटपाथों, पुलों के नीचे और रेलवे स्टेशनों पर भूखे बुजुर्गों और निराश्रितों को गरमा-गरम भोजन पैकेट पहुंचाना।",
             icon: "HeartHandshake",
-            metrics: "हर माह निर्धन परिवारों के द्वार तक पोषण सुरक्षा"
+            metrics: "रात के समय कोई भी व्यक्ति भूखे पेट न सोए"
           },
           {
-            title: "शीतकालीन राहत व आश्रय सामग्री",
-            description: "सड़कों पर रहने वाले बेघर परिवारों और खुले आसमान के नीचे सो रहे तीमारदारों को गर्म कंबल, स्वेटर और तिरपाल का वितरण।",
+            title: "मासिक सूखा राशन किट वितरण",
+            description: "बेसहारा बुजुर्गों, विधवाओं और दिव्यांग परिवारों को चावल, दाल, तेल, आटा और मसालों से युक्त मासिक राशन किट।",
             icon: "ShieldCheck",
-            metrics: "हजारों बेघरों को कड़ाके की ठंड और बारिश से सुरक्षा"
+            metrics: "अभावग्रस्त परिवारों के घर तक संपूर्ण पोषण की गारंटी"
           },
           {
-            title: "आपातकालीन चिकित्सा व दवा सहायता",
-            description: "निर्धन मरीजों को जरूरी दवाएं, जांच शुल्क, व्हीलचेयर और ऑपरेशन के बाद का पौष्टिक आहार उपलब्ध कराना।",
+            title: "आपदा राहत के समय आपातकालीन भोजन",
+            description: "बाढ़, भीषण गर्मी अथवा किसी भी प्राकृतिक आपदा के समय तुरंत सामुदायिक रसोई शुरू कर स्वच्छ भोजन व जल पहुंचाना।",
             icon: "Sparkles",
-            metrics: "गंभीर रोगों के इलाज हेतु प्रत्यक्ष आर्थिक व चिकित्सीय सहयोग"
-          },
-          {
-            title: "आजीविका व स्वरोजगार प्रोत्साहन",
-            description: "सिलाई मशीन, रेहड़ी-पटरी वालों को शुरुआती साधन और औजार देकर निर्धन परिवारों को स्वावलंबी बनाना।",
-            icon: "Users",
-            metrics: "सम्मानजनक आजीविका द्वारा गरीबी के चक्र को तोड़ना"
+            metrics: "24 घंटे तत्पर रहने वाली समर्पित स्वयंसेवक टीम"
           }
         ],
         gallery: servicesData[3].gallery
+      },
+      {
+        id: "funeral-services",
+        pillar: "निःशुल्क अंतिम संस्कार सेवा",
+        subtitle: "अंतिम यात्रा में गरिमा एवं मोक्ष सेवा",
+        tagline: "हर आत्मा को आदरपूर्ण अंतिम विदाई",
+        summary: "लावारिस शवों, बेसहारा व्यक्तियों और अत्यंत निर्धन परिवारों के लिए पूर्ण गरिमा के साथ निःशुल्क दाह संस्कार और स्वर्गपुरी वाहन सेवा।",
+        color: "#374151",
+        accentColor: "#9CA3AF",
+        badge: "स्तंभ 05 — निःशुल्क अंतिम संस्कार सेवा",
+        heroImage: servicesData[4].heroImage,
+        programs: [
+          {
+            title: "सम्मानजनक दाह संस्कार एवं अंतिम क्रिया",
+            description: "आर्थिक तंगी से जूझ रहे परिवारों के लिए लकड़ी, पूजा सामग्री, श्मशान घाट शुल्क आदि का पूर्ण वहन कर शास्त्रोक्त अंतिम संस्कार।",
+            icon: "Flame",
+            metrics: "जाति-धर्म से परे हर मृत आत्मा को परम आदर से अंतिम विदाई"
+          },
+          {
+            title: "लावारिस मृत शरीरों का आदरपूर्ण संस्कार",
+            description: "अस्पतालों व दुर्घटनाओं में लावारिस पड़े शवों का पुलिस प्रशासन के साथ विधिवत समन्वय कर सम्मानपूर्वक अंतिम संस्कार।",
+            icon: "ShieldAlert",
+            metrics: "इस संसार से जाने वाले किसी भी प्राणी का तिरस्कार न होने पाए"
+          },
+          {
+            title: "निःशुल्क शव वाहन सेवा (स्वर्गपुरी वाहन)",
+            description: "अस्पताल अथवा घर से श्मशान घाट तक पार्थिव शरीर को ले जाने हेतु 24 घंटे निःशुल्क विशेष शव वाहन की उपलब्धता।",
+            icon: "ShieldCheck",
+            metrics: "शोकग्रस्त परिवारों को संकट के समय त्वरित वाहन संबल"
+          },
+          {
+            title: "शोक संतप्त परिवारों को संबल व सहायता",
+            description: "घर के कमाऊ सदस्य को खो चुके बेसहारा परिवारों को सांत्वना, राशन सामग्री और तात्कालिक आर्थिक सहायता।",
+            icon: "HeartHandshake",
+            metrics: "दुख की घड़ी में परिवार के साथ आत्मीयता से खड़े रहना"
+          }
+        ],
+        gallery: servicesData[4].gallery
+      },
+      {
+        id: "orphan-care",
+        pillar: "अनाथ बाल देखभाल",
+        subtitle: "सुरक्षित आश्रय, वात्सल्य एवं संरक्षण",
+        tagline: "हर अनाथ बच्चे को परिवार का दुलार",
+        summary: "माता-पिता विहीन, परित्यक्त एवं असहाय बच्चों को सुरक्षित आश्रय, पौष्टिक आहार, उत्तम शिक्षा, नैतिक संस्कार और वात्सल्यपूर्ण परवरिश।",
+        color: "#6D28D9",
+        accentColor: "#A78BFA",
+        badge: "स्तंभ 06 — अनाथ बाल देखभाल",
+        heroImage: servicesData[5].heroImage,
+        programs: [
+          {
+            title: "स्नेहमयी आश्रय एवं संतुलित पोषण",
+            description: "पारिवारिक माहौल जैसा स्वच्छ, सुरक्षित घर जहां बच्चों को चारों समय पौष्टिक भोजन, दूध, फल और वस्त्र उपलब्ध कराए जाते हैं।",
+            icon: "Users",
+            metrics: "माता-पिता के अभाव को वात्सल्य और सुरक्षा से भरने का प्रयास"
+          },
+          {
+            title: "प्रतिष्ठित विद्यालयों में गुणवत्तापूर्ण शिक्षा",
+            description: "उत्कृष्ट अंग्रेजी माध्यम विद्यालयों में प्रवेश, विशेष ट्यूटर्स और बच्चों को उच्च शिक्षा व करियर हेतु मार्गदर्शन।",
+            icon: "GraduationCap",
+            metrics: "डिग्री व आत्मनिर्भर पेशेवर बनने तक निरंतर सहयोग"
+          },
+          {
+            title: "बाल स्वास्थ्य, टीकाकरण व मनोचिकित्सा",
+            description: "नियमित बाल रोग विशेषज्ञ जांच, संपूर्ण टीकाकरण और आघात से उबारने हेतु संवेदनशील परामर्श एवं मनोचिकित्सा।",
+            icon: "HeartPulse",
+            metrics: "बच्चों का संपूर्ण शारीरिक, मानसिक एवं भावनात्मक विकास"
+          },
+          {
+            title: "खेलकूद, संगीत, कला व जीवन कौशल",
+            description: "संगीत, पेंटिंग, कराटे और खेलों के माध्यम से बच्चों में आत्मविश्वास, नेतृत्व क्षमता और रचनात्मक प्रतिभा का विकास।",
+            icon: "Sparkles",
+            metrics: "सशक्त, आत्मविश्वासी और संवेदनशील भावी नागरिक का निर्माण"
+          }
+        ],
+        gallery: servicesData[5].gallery
       }
     ];
   }
