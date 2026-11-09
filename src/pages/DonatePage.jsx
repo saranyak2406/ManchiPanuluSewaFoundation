@@ -9,7 +9,14 @@ import {
   Globe,
   Info,
   Download,
-  CheckCircle2
+  CheckCircle2,
+  Trees,
+  GraduationCap,
+  HeartPulse,
+  Utensils,
+  Flame,
+  HeartHandshake,
+  Sparkles
 } from 'lucide-react';
 import Button from '../components/Button';
 import { useLanguage } from '../context/LanguageContext';
@@ -19,8 +26,101 @@ export default function DonatePage() {
   const [donorTab, setDonorTab] = useState('domestic'); // 'domestic' | 'international'
   const [selectedCurrency, setSelectedCurrency] = useState('USD');
   const [customAmount, setCustomAmount] = useState('');
-  const [allocatedCause, setAllocatedCause] = useState('Where Most Needed (General Sewa)');
   const [copiedUpi, setCopiedUpi] = useState(false);
+
+  // 6 Dedicated Sewa Pillars for Multi-Selection Choice Chips
+  const pillarsList = [
+    {
+      id: 'tree-plantation',
+      num: '01',
+      label: language === 'te' ? 'వృక్షారోపణ' : language === 'hi' ? 'वृक्षारोपण' : 'Tree Plantation',
+      icon: Trees,
+      color: '#1B4D34',
+      lightBg: '#EBF6EE',
+      borderColor: '#1B4D34'
+    },
+    {
+      id: 'education-support',
+      num: '02',
+      label: language === 'te' ? 'విద్యా సహాయం' : language === 'hi' ? 'शिक्षा सहायता' : 'Education Support',
+      icon: GraduationCap,
+      color: '#1E40AF',
+      lightBg: '#EFF6FF',
+      borderColor: '#1E40AF'
+    },
+    {
+      id: 'medical-help',
+      num: '03',
+      label: language === 'te' ? 'వైద్య సహాయం' : language === 'hi' ? 'चिकित्सा सहायता' : 'Medical Help',
+      icon: HeartPulse,
+      color: '#DC2626',
+      lightBg: '#FEF2F2',
+      borderColor: '#DC2626'
+    },
+    {
+      id: 'annadanam',
+      num: '04',
+      label: language === 'te' ? 'అన్నదానం' : language === 'hi' ? 'अन्नदान' : 'Annadanam',
+      icon: Utensils,
+      color: '#D97706',
+      lightBg: '#FFFBEB',
+      borderColor: '#D97706'
+    },
+    {
+      id: 'funeral-services',
+      num: '05',
+      label: language === 'te' ? 'ఉచిత అంత్యక్రియలు' : language === 'hi' ? 'निःशुल्क अंतिम संस्कार' : 'Free Funeral Services',
+      icon: Flame,
+      color: '#4B5563',
+      lightBg: '#F3F4F6',
+      borderColor: '#4B5563'
+    },
+    {
+      id: 'orphan-care',
+      num: '06',
+      label: language === 'te' ? 'అనాథ పిల్లల సంరక్షణ' : language === 'hi' ? 'अनाथ बाल देखभाल' : 'Orphan Children Care',
+      icon: HeartHandshake,
+      color: '#9333EA',
+      lightBg: '#FAF5FF',
+      borderColor: '#9333EA'
+    }
+  ];
+
+  const [selectedPillars, setSelectedPillars] = useState([
+    'tree-plantation',
+    'education-support',
+    'medical-help',
+    'annadanam',
+    'funeral-services',
+    'orphan-care'
+  ]);
+
+  const handleTogglePillar = (id) => {
+    setSelectedPillars((prev) => {
+      if (prev.includes(id)) {
+        if (prev.length === 1) return prev; // Keep at least one pillar selected
+        return prev.filter((p) => p !== id);
+      } else {
+        return [...prev, id];
+      }
+    });
+  };
+
+  const handleToggleAllPillars = () => {
+    if (selectedPillars.length === pillarsList.length) {
+      setSelectedPillars([pillarsList[0].id]);
+    } else {
+      setSelectedPillars(pillarsList.map((p) => p.id));
+    }
+  };
+
+  const activeAllocatedCause =
+    selectedPillars.length === pillarsList.length
+      ? t('donate.allPillarsSelected')
+      : pillarsList
+          .filter((p) => selectedPillars.includes(p.id))
+          .map((p) => p.label)
+          .join(', ');
 
   // Form State
   const [donorName, setDonorName] = useState('');
@@ -56,7 +156,7 @@ export default function DonatePage() {
       donorPan: donorPan || 'N/A',
       amount: finalAmount,
       currency: donorTab === 'domestic' ? 'INR' : selectedCurrency,
-      cause: allocatedCause,
+      cause: activeAllocatedCause,
       type: donorTab
     };
 
@@ -136,6 +236,91 @@ export default function DonatePage() {
                   {t('donate.chooseDesc')}
                 </p>
 
+                {/* Multi-Selection Choice Chips: Select Your Contribution For */}
+                <div className="donate-choice-chips-wrapper">
+                  <div className="donate-choice-chips-header">
+                    <div className="donate-choice-chips-title-group">
+                      <div className="donate-choice-chips-title">
+                        <Sparkles size={16} style={{ color: 'var(--color-sprout-dark, #2E7D32)' }} />
+                        <span>{t('donate.selectContributionFor')}</span>
+                      </div>
+                      <span className="donate-choice-chips-sub">{t('donate.selectPillarsSub')}</span>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={handleToggleAllPillars}
+                      className="donate-choice-chips-toggle-btn"
+                    >
+                      {selectedPillars.length === pillarsList.length ? t('donate.deselectAll') : t('donate.selectAll')}
+                    </button>
+                  </div>
+
+                  <div className="donate-choice-chips-grid">
+                    {pillarsList.map((pillar) => {
+                      const isSelected = selectedPillars.includes(pillar.id);
+                      const IconComp = pillar.icon;
+                      return (
+                        <div
+                          key={pillar.id}
+                          role="checkbox"
+                          aria-checked={isSelected}
+                          tabIndex={0}
+                          onClick={() => handleTogglePillar(pillar.id)}
+                          onKeyDown={(e) => {
+                            if (e.key === ' ' || e.key === 'Enter') {
+                              e.preventDefault();
+                              handleTogglePillar(pillar.id);
+                            }
+                          }}
+                          className={`donate-choice-chip ${isSelected ? 'selected' : ''}`}
+                          style={{
+                            borderColor: isSelected ? pillar.borderColor : '#E2E8F0',
+                            backgroundColor: isSelected ? pillar.lightBg : '#FFFFFF'
+                          }}
+                        >
+                          <div
+                            className="donate-chip-checkbox"
+                            style={{
+                              backgroundColor: isSelected ? pillar.color : '#FFFFFF',
+                              borderColor: isSelected ? pillar.color : '#CBD5E1'
+                            }}
+                          >
+                            {isSelected && <Check size={13} color="#FFFFFF" strokeWidth={3} />}
+                          </div>
+
+                          <div
+                            className="donate-chip-icon-wrap"
+                            style={{
+                              backgroundColor: isSelected ? '#FFFFFF' : pillar.lightBg,
+                              color: pillar.color
+                            }}
+                          >
+                            <IconComp size={16} />
+                          </div>
+
+                          <div className="donate-chip-content">
+                            <span className="donate-chip-number" style={{ color: pillar.color }}>
+                              Pillar {pillar.num}
+                            </span>
+                            <span className="donate-chip-label" title={pillar.label}>
+                              {pillar.label}
+                            </span>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+
+                  <div className="donate-choice-chips-summary">
+                    <span>
+                      <strong>{selectedPillars.length}</strong> / 6 {t('donate.selectedCount')}:
+                      <span style={{ marginLeft: '0.4rem', color: 'var(--color-forest-900)', fontWeight: 600 }}>
+                        {activeAllocatedCause}
+                      </span>
+                    </span>
+                  </div>
+                </div>
+
                 {/* Direct Amount Input Field */}
                 <div className="form-group" style={{ marginBottom: '1.75rem' }}>
                   <label className="form-label" style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--color-forest-900)', marginBottom: '0.5rem' }}>
@@ -182,24 +367,6 @@ export default function DonatePage() {
                       </strong>
                     )}
                   </div>
-                </div>
-
-                {/* Allocation Selector */}
-                <div className="form-group" style={{ marginBottom: '2rem' }}>
-                  <label className="form-label">{t('donate.allocateLabel')}</label>
-                  <select
-                    value={allocatedCause}
-                    onChange={(e) => setAllocatedCause(e.target.value)}
-                    className="form-select"
-                  >
-                    <option value={t('donate.optGeneral')}>{t('donate.optGeneral')}</option>
-                    <option value={t('donate.optPillar1')}>{t('donate.optPillar1')}</option>
-                    <option value={t('donate.optPillar2')}>{t('donate.optPillar2')}</option>
-                    <option value={t('donate.optPillar3')}>{t('donate.optPillar3')}</option>
-                    <option value={t('donate.optPillar4')}>{t('donate.optPillar4')}</option>
-                    <option value={t('donate.optPillar5')}>{t('donate.optPillar5')}</option>
-                    <option value={t('donate.optPillar6')}>{t('donate.optPillar6')}</option>
-                  </select>
                 </div>
 
                 {/* Donor Details for Receipt */}
@@ -424,6 +591,91 @@ export default function DonatePage() {
                   </div>
                 </div>
 
+                {/* Multi-Selection Choice Chips: Select Your Contribution For */}
+                <div className="donate-choice-chips-wrapper">
+                  <div className="donate-choice-chips-header">
+                    <div className="donate-choice-chips-title-group">
+                      <div className="donate-choice-chips-title">
+                        <Sparkles size={16} style={{ color: 'var(--color-sprout-dark, #2E7D32)' }} />
+                        <span>{t('donate.selectContributionFor')}</span>
+                      </div>
+                      <span className="donate-choice-chips-sub">{t('donate.selectPillarsSub')}</span>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={handleToggleAllPillars}
+                      className="donate-choice-chips-toggle-btn"
+                    >
+                      {selectedPillars.length === pillarsList.length ? t('donate.deselectAll') : t('donate.selectAll')}
+                    </button>
+                  </div>
+
+                  <div className="donate-choice-chips-grid">
+                    {pillarsList.map((pillar) => {
+                      const isSelected = selectedPillars.includes(pillar.id);
+                      const IconComp = pillar.icon;
+                      return (
+                        <div
+                          key={pillar.id}
+                          role="checkbox"
+                          aria-checked={isSelected}
+                          tabIndex={0}
+                          onClick={() => handleTogglePillar(pillar.id)}
+                          onKeyDown={(e) => {
+                            if (e.key === ' ' || e.key === 'Enter') {
+                              e.preventDefault();
+                              handleTogglePillar(pillar.id);
+                            }
+                          }}
+                          className={`donate-choice-chip ${isSelected ? 'selected' : ''}`}
+                          style={{
+                            borderColor: isSelected ? pillar.borderColor : '#E2E8F0',
+                            backgroundColor: isSelected ? pillar.lightBg : '#FFFFFF'
+                          }}
+                        >
+                          <div
+                            className="donate-chip-checkbox"
+                            style={{
+                              backgroundColor: isSelected ? pillar.color : '#FFFFFF',
+                              borderColor: isSelected ? pillar.color : '#CBD5E1'
+                            }}
+                          >
+                            {isSelected && <Check size={13} color="#FFFFFF" strokeWidth={3} />}
+                          </div>
+
+                          <div
+                            className="donate-chip-icon-wrap"
+                            style={{
+                              backgroundColor: isSelected ? '#FFFFFF' : pillar.lightBg,
+                              color: pillar.color
+                            }}
+                          >
+                            <IconComp size={16} />
+                          </div>
+
+                          <div className="donate-chip-content">
+                            <span className="donate-chip-number" style={{ color: pillar.color }}>
+                              Pillar {pillar.num}
+                            </span>
+                            <span className="donate-chip-label" title={pillar.label}>
+                              {pillar.label}
+                            </span>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+
+                  <div className="donate-choice-chips-summary">
+                    <span>
+                      <strong>{selectedPillars.length}</strong> / 6 {t('donate.selectedCount')}:
+                      <span style={{ marginLeft: '0.4rem', color: 'var(--color-forest-900)', fontWeight: 600 }}>
+                        {activeAllocatedCause}
+                      </span>
+                    </span>
+                  </div>
+                </div>
+
                 {/* International Amount Input Field */}
                 <div className="form-group" style={{ marginBottom: '2rem' }}>
                   <label className="form-label" style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--color-forest-900)', marginBottom: '0.5rem' }}>
@@ -525,20 +777,6 @@ export default function DonatePage() {
                         placeholder="Individual / Diaspora Foundation / Corporate CSR"
                       />
                     </div>
-                  </div>
-
-                  <div className="form-group">
-                    <label className="form-label">{t('donate.allocateLabel')}</label>
-                    <select
-                      value={allocatedCause}
-                      onChange={(e) => setAllocatedCause(e.target.value)}
-                      className="form-select"
-                    >
-                      <option value={t('donate.optPillar1')}>{t('donate.optPillar1')}</option>
-                      <option value={t('donate.optPillar2')}>{t('donate.optPillar2')}</option>
-                      <option value={t('donate.optPillar3')}>{t('donate.optPillar3')}</option>
-                      <option value={t('donate.optPillar4')}>{t('donate.optPillar4')}</option>
-                    </select>
                   </div>
 
                   <Button
