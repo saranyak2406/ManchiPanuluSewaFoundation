@@ -2,21 +2,16 @@ import React, { useState } from 'react';
 import confetti from 'canvas-confetti';
 import {
   Heart,
-  QrCode,
   Copy,
   Check,
   ShieldCheck,
   Building,
-  CreditCard,
   Globe,
   Info,
   Download,
-  CheckCircle2,
-  Lock,
-  ArrowRight
+  CheckCircle2
 } from 'lucide-react';
 import Button from '../components/Button';
-import { complianceInfo } from '../data/statsData';
 import { useLanguage } from '../context/LanguageContext';
 
 export default function DonatePage() {
@@ -127,7 +122,7 @@ export default function DonatePage() {
       </section>
 
       {/* Main Donation Container */}
-      <section className="section section-sage">
+      <section className="section section-sage" style={{ paddingTop: '2rem' }}>
         <div className="container">
           {/* Domestic vs International Tabs */}
           <div className="donation-tabs-wrapper">

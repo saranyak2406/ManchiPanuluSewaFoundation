@@ -191,7 +191,7 @@
    ========================================================================== */
 .envarn-hero-fullscreen-3d {
   position: relative;
-  min-height: calc(100vh - 82px);
+  min-height: calc(100vh - 110px);
   width: 100%;
   overflow: hidden;
   perspective: 1400px;
@@ -794,43 +794,48 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 82px;
+  min-height: 110px;
+  padding: 0.5rem 0;
 }
 
 /* Brand Logo */
 .brand-logo {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
+  gap: 0.95rem;
   text-decoration: none;
   color: var(--color-forest-900);
 }
 
 .brand-logo-img {
-  width: 48px;
-  height: 48px;
+  width: 96px;
+  height: 96px;
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 3px 10px rgba(12, 38, 26, 0.22);
-  border: 2px solid rgba(27, 77, 52, 0.28);
+  box-shadow: 0 4px 14px rgba(12, 38, 26, 0.24);
+  border: 3px solid rgba(27, 77, 52, 0.28);
   background-color: #FFFFFF;
   flex-shrink: 0;
   transition: transform var(--transition-normal);
 }
 
 .brand-logo:hover .brand-logo-img {
-  transform: rotate(4deg) scale(1.06);
+  transform: rotate(4deg) scale(1.05);
 }
 
 .mobile-drawer-logo {
-  width: 42px;
-  height: 42px;
+  width: 80px;
+  height: 80px;
 }
 
 @media (max-width: 480px) {
+  .navbar-inner {
+    min-height: 86px;
+  }
+
   .brand-logo-img {
-    width: 38px;
-    height: 38px;
+    width: 72px;
+    height: 72px;
   }
   .brand-logo {
     gap: 0.65rem;

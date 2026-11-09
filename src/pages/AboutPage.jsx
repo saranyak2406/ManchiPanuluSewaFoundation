@@ -4,42 +4,18 @@ import {
   Award,
   Trees,
   Heart,
-  Globe,
   Sparkles,
   Users,
   Compass,
   CheckCircle2,
-  FileText,
   Target,
   ArrowRight
 } from 'lucide-react';
 import Button from '../components/Button';
-import { complianceInfo } from '../data/statsData';
 import { useLanguage } from '../context/LanguageContext';
 
 export default function AboutPage() {
   const { t, language } = useLanguage();
-
-  const leadershipTeam = [
-    {
-      name: "Dr. K. Ramachandra Rao",
-      role: t('about.member1Role'),
-      bio: t('about.member1Bio'),
-      image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=600&q=80"
-    },
-    {
-      name: "Smt. V. Annapurna",
-      role: t('about.member2Role'),
-      bio: t('about.member2Bio'),
-      image: "https://images.unsplash.com/photo-1753981031189-27bb7bd1c079?auto=format&fit=crop&w=600&q=80"
-    },
-    {
-      name: "Sri Ananth Narayanan",
-      role: t('about.member3Role'),
-      bio: t('about.member3Bio'),
-      image: "https://images.unsplash.com/photo-1628272107134-c66c4b580952?auto=format&fit=crop&w=600&q=80"
-    }
-  ];
 
   const milestones = [
     {
@@ -330,39 +306,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Leadership & Advisory Board */}
-      <section className="section section-sage">
-        <div className="container">
-          <div className="section-header">
-            <div className="eyebrow-badge">
-              <Users size={14} />
-              <span>{t('about.teamBadge')}</span>
-            </div>
-            <h2 className="section-title">{t('about.teamTitle')}</h2>
-            <p className="section-subtitle">
-              {t('about.teamSubtitle')}
-            </p>
-          </div>
-
-          <div className="team-grid">
-            {leadershipTeam.map((member, idx) => (
-              <div key={idx} className="team-card">
-                <div className="team-avatar-wrap">
-                  <img src={member.image} alt={member.name} loading="lazy" />
-                </div>
-                <div className="team-card-body">
-                  <h4 className="team-member-name">{member.name}</h4>
-                  <div className="team-member-role">{member.role}</div>
-                  <p className="team-member-bio">{member.bio}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Journey Timeline */}
-      <section className="section section-white">
+      <section className="section section-sage">
         <div className="container">
           <div className="section-header">
             <div className="eyebrow-badge">
@@ -380,10 +325,11 @@ export default function AboutPage() {
               <div key={idx} style={{
                 display: 'flex',
                 gap: '1.5rem',
-                backgroundColor: 'var(--color-sage-100)',
+                backgroundColor: '#FFFFFF',
                 padding: '1.75rem',
                 borderRadius: 'var(--radius-lg)',
-                borderLeft: '5px solid var(--color-forest-700)'
+                borderLeft: '5px solid var(--color-forest-700)',
+                boxShadow: 'var(--shadow-sm)'
               }}>
                 <div style={{
                   fontFamily: 'var(--font-heading)',
