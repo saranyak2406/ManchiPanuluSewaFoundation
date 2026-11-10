@@ -36,9 +36,9 @@ export const servicesData = [
       }
     ],
     gallery: [
-      "https://images.unsplash.com/photo-1605000797499-95a51c5269ae?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1622383563227-04401ab4e5ea?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1604537466158-719b1972feb8?auto=format&fit=crop&w=800&q=80"
+      "/pillars/tree-plantation.jpg",
+      "/gallery/miyawaki-plantation.jpg",
+      "/gallery/sapling-nursery.jpg"
     ]
   },
   {
@@ -78,9 +78,8 @@ export const servicesData = [
       }
     ],
     gallery: [
-      "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=800&q=80"
+      "/pillars/education-support.jpg",
+      "/gallery/education-kits.jpg"
     ]
   },
   {
@@ -120,9 +119,7 @@ export const servicesData = [
       }
     ],
     gallery: [
-      "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1584467735871-8e85353a8413?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=800&q=80"
+      "/pillars/medical-help.jpg"
     ]
   },
   {
@@ -162,9 +159,8 @@ export const servicesData = [
       }
     ],
     gallery: [
-      "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1574484284002-952d92456975?auto=format&fit=crop&w=800&q=80"
+      "/pillars/annadanam.jpg",
+      "/gallery/food-sewa-hospital.jpg"
     ]
   },
   {
@@ -204,9 +200,7 @@ export const servicesData = [
       }
     ],
     gallery: [
-      "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80"
+      "/pillars/funeral-services.jpg"
     ]
   },
   {
@@ -246,9 +240,7 @@ export const servicesData = [
       }
     ],
     gallery: [
-      "https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1473649085228-583485e6e4d7?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80"
+      "/pillars/orphan-care.jpg"
     ]
   }
 ];

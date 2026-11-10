@@ -103,7 +103,7 @@ export default function HomePage() {
                   border: '4px solid #FFFFFF'
                 }}>
                   <img
-                    src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1000&q=80"
+                    src="/pillars/tree-plantation.jpg"
                     alt="Manchi Panulu Sewa Foundation Plantation"
                     style={{ width: '100%', height: '440px', objectFit: 'cover' }}
                   />

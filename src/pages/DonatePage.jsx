@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import confetti from 'canvas-confetti';
 import {
   Heart,
@@ -16,16 +16,29 @@ import {
   Utensils,
   Flame,
   HeartHandshake,
-  Sparkles
+  Sparkles,
+  Receipt,
+  Eye,
+  Trash2,
+  Clock
 } from 'lucide-react';
 import Button from '../components/Button';
+import { complianceInfo } from '../data/statsData';
 import { useLanguage } from '../context/LanguageContext';
+import {
+  preloadFoundationLogo,
+  generateDonationReceiptPdf,
+  triggerUrlDownload
+} from '../utils/receiptGenerator';
+
+const TRANSACTIONS_STORAGE_KEY = 'mpsf_donation_transactions';
 
 export default function DonatePage() {
   const { t, language } = useLanguage();
   const [donorTab, setDonorTab] = useState('domestic'); // 'domestic' | 'international'
   const [selectedCurrency, setSelectedCurrency] = useState('USD');
   const [customAmount, setCustomAmount] = useState('');
+  const [amountError, setAmountError] = useState('');
   const [copiedUpi, setCopiedUpi] = useState(false);
 
   // 6 Dedicated Sewa Pillars for Multi-Selection Choice Chips
@@ -100,9 +113,8 @@ export default function DonatePage() {
       if (prev.includes(id)) {
         if (prev.length === 1) return prev; // Keep at least one pillar selected
         return prev.filter((p) => p !== id);
-      } else {
-        return [...prev, id];
       }
+      return [...prev, id];
     });
   };
 
@@ -114,13 +126,35 @@ export default function DonatePage() {
     }
   };
 
-  const activeAllocatedCause =
-    selectedPillars.length === pillarsList.length
-      ? t('donate.allPillarsSelected')
-      : pillarsList
-          .filter((p) => selectedPillars.includes(p.id))
-          .map((p) => p.label)
-          .join(', ');
+  const resolveAllocatedCause = (txOrPillars) => {
+    if (!txOrPillars) return '';
+    if (Array.isArray(txOrPillars)) {
+      if (txOrPillars.length === pillarsList.length) {
+        return t('donate.allPillarsSelected');
+      }
+      return pillarsList
+        .filter((p) => txOrPillars.includes(p.id))
+        .map((p) => p.label)
+        .join(', ');
+    }
+    if (Array.isArray(txOrPillars.pillarIds) && txOrPillars.pillarIds.length > 0) {
+      if (txOrPillars.pillarIds.length === pillarsList.length) {
+        return t('donate.allPillarsSelected');
+      }
+      const matched = pillarsList
+        .filter((p) => txOrPillars.pillarIds.includes(p.id))
+        .map((p) => p.label);
+      if (matched.length > 0) {
+        return matched.join(', ');
+      }
+    }
+    if (txOrPillars.causeKey) {
+      return t(`donate.${txOrPillars.causeKey}`);
+    }
+    return txOrPillars.cause || t('donate.allPillarsSelected');
+  };
+
+  const activeAllocatedCause = resolveAllocatedCause(selectedPillars);
 
   // Form State
   const [donorName, setDonorName] = useState('');
@@ -129,8 +163,117 @@ export default function DonatePage() {
   const [donorPan, setDonorPan] = useState('');
   const [internationalCountry, setInternationalCountry] = useState('United States');
 
-  // Donation Receipt Simulation
+  // Persisted Donation Transactions State
+  const [transactions, setTransactions] = useState(() => {
+    try {
+      const saved = localStorage.getItem(TRANSACTIONS_STORAGE_KEY);
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        return Array.isArray(parsed) ? parsed : [];
+      }
+    } catch {
+      // ignore storage read errors
+    }
+    return [];
+  });
+  const [downloadingTxId, setDownloadingTxId] = useState(null);
+
+  // Donation Receipt State & Generated PDF State
   const [receiptData, setReceiptData] = useState(null);
+  const [receiptPdf, setReceiptPdf] = useState({
+    url: null,
+    filename: '',
+    generating: false,
+    downloaded: false,
+    error: ''
+  });
+  const extraUrlsRef = useRef([]);
+  const txSectionRef = useRef(null);
+  const justSubmittedRef = useRef(false);
+  const amountInputRef = useRef(null);
+
+  useEffect(() => {
+    preloadFoundationLogo();
+    return () => {
+      extraUrlsRef.current.forEach((u) => URL.revokeObjectURL(u));
+      extraUrlsRef.current = [];
+    };
+  }, []);
+
+  const receiptTitleText = t('donate.receiptTitle');
+
+  const closeReceiptModal = useCallback(() => {
+    setReceiptData(null);
+    setReceiptPdf({ url: null, filename: '', generating: false, downloaded: false, error: '' });
+    if (justSubmittedRef.current) {
+      justSubmittedRef.current = false;
+      setTimeout(() => {
+        txSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 120);
+    }
+  }, []);
+
+  // Dynamically resolve allocated cause in current UI language for modal preview & PDF generation
+  const resolvedReceiptCause = resolveAllocatedCause(receiptData);
+
+  // Pre-build the official PDF receipt when receiptData opens so clicking Download triggers synchronously
+  useEffect(() => {
+    if (!receiptData) return;
+
+    let cancelled = false;
+    let createdUrl = null;
+
+    const localizedReceipt = resolvedReceiptCause
+      ? { ...receiptData, cause: resolvedReceiptCause }
+      : receiptData;
+
+    generateDonationReceiptPdf(localizedReceipt, {
+      subtitle: receiptTitleText
+    })
+      .then(({ blob, filename }) => {
+        createdUrl = URL.createObjectURL(blob);
+        if (cancelled) {
+          URL.revokeObjectURL(createdUrl);
+          return;
+        }
+        setReceiptPdf((prev) => ({
+          ...prev,
+          url: createdUrl,
+          filename,
+          generating: false,
+          error: ''
+        }));
+      })
+      .catch((err) => {
+        console.error('Failed to pre-generate receipt PDF:', err);
+        if (!cancelled) {
+          setReceiptPdf((prev) => ({
+            ...prev,
+            url: null,
+            generating: false
+          }));
+        }
+      });
+
+    return () => {
+      cancelled = true;
+      if (createdUrl) {
+        URL.revokeObjectURL(createdUrl);
+      }
+    };
+  }, [receiptData, receiptTitleText, resolvedReceiptCause]);
+
+  // Allow Escape key to close the receipt modal
+  useEffect(() => {
+    if (!receiptData) return;
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        closeReceiptModal();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [receiptData, closeReceiptModal]);
 
   const handleCopyUpi = () => {
     navigator.clipboard.writeText('manchipanulu.sewa@upi');
@@ -138,28 +281,51 @@ export default function DonatePage() {
     setTimeout(() => setCopiedUpi(false), 3000);
   };
 
+  const persistTransactions = (nextList) => {
+    setTransactions(nextList);
+    try {
+      localStorage.setItem(TRANSACTIONS_STORAGE_KEY, JSON.stringify(nextList));
+    } catch {
+      // ignore storage quota errors
+    }
+  };
+
   const handleSimulateDonation = (e) => {
     e.preventDefault();
     const finalAmount = parseFloat(customAmount);
 
-    if (!finalAmount || isNaN(finalAmount) || finalAmount <= 0) {
-      alert(language === 'te' ? 'దయచేసి సరైన విరాళం మొత్తాన్ని నమోదు చేయండి' : language === 'hi' ? 'कृपया एक वैध दान राशि दर्ज करें' : 'Please enter a valid contribution amount');
+    if (!finalAmount || Number.isNaN(finalAmount) || finalAmount <= 0) {
+      setAmountError(t('donate.errInvalidAmount'));
+      amountInputRef.current?.focus();
       return;
     }
 
+    setAmountError('');
+    const now = new Date();
+    const locale = language === 'te' ? 'te-IN' : language === 'hi' ? 'hi-IN' : 'en-IN';
+
     const receipt = {
       receiptNo: `MPSF-REC-${Math.floor(100000 + Math.random() * 900000)}`,
-      date: new Date().toLocaleDateString(language === 'te' ? 'te-IN' : language === 'hi' ? 'hi-IN' : 'en-IN', { year: 'numeric', month: 'long', day: 'numeric' }),
+      date: now.toLocaleDateString(locale, { year: 'numeric', month: 'long', day: 'numeric' }),
+      time: now.toLocaleTimeString(locale, { hour: '2-digit', minute: '2-digit' }),
+      createdAt: now.getTime(),
       donorName: donorName || (language === 'te' ? 'దయగల దాత' : language === 'hi' ? 'उदार दानदाता' : 'Kind Benefactor'),
       donorEmail: donorEmail || 'donor@example.com',
-      donorPhone: donorPhone || 'N/A',
+      donorPhone: donorTab === 'domestic' ? (donorPhone || 'N/A') : 'International',
       donorPan: donorPan || 'N/A',
+      country: donorTab === 'international' ? (internationalCountry || 'International') : 'India',
       amount: finalAmount,
       currency: donorTab === 'domestic' ? 'INR' : selectedCurrency,
+      pillarIds: [...selectedPillars],
       cause: activeAllocatedCause,
       type: donorTab
     };
 
+    const updatedTransactions = [receipt, ...transactions].slice(0, 25);
+    persistTransactions(updatedTransactions);
+
+    justSubmittedRef.current = true;
+    setReceiptPdf({ url: null, filename: '', generating: true, downloaded: false, error: '' });
     setReceiptData(receipt);
 
     try {
@@ -169,9 +335,71 @@ export default function DonatePage() {
         origin: { y: 0.5 },
         colors: ['#78C953', '#E2B357', '#0C261A', '#38A169']
       });
-    } catch (err) {
-      // ignore
+    } catch {
+      // ignore confetti failures
     }
+  };
+
+  const handleDownloadReceipt = async () => {
+    if (!receiptData) return;
+
+    // Synchronous download using pre-generated Object URL so desktop & mobile browsers never block it
+    if (receiptPdf?.url) {
+      triggerUrlDownload(receiptPdf.url, receiptPdf.filename);
+      setReceiptPdf((prev) => ({ ...prev, downloaded: true, error: '' }));
+      return;
+    }
+
+    // Fallback async build if user clicked instantaneously before background build completed
+    setReceiptPdf((prev) => ({ ...prev, generating: true, error: '' }));
+    try {
+      const localizedReceipt = resolvedReceiptCause
+        ? { ...receiptData, cause: resolvedReceiptCause }
+        : receiptData;
+      const { blob, filename } = await generateDonationReceiptPdf(localizedReceipt, {
+        subtitle: t('donate.receiptTitle')
+      });
+      const url = URL.createObjectURL(blob);
+      extraUrlsRef.current.push(url);
+      triggerUrlDownload(url, filename);
+      setReceiptPdf({ url, filename, generating: false, downloaded: true, error: '' });
+    } catch (err) {
+      console.error('Receipt generation failed:', err);
+      setReceiptPdf((prev) => ({
+        ...prev,
+        generating: false,
+        error: 'Unable to generate PDF receipt. Please try again.'
+      }));
+    }
+  };
+
+  const handleDownloadTransactionPdf = async (tx) => {
+    if (!tx) return;
+    setDownloadingTxId(tx.receiptNo);
+    try {
+      const displayCause = resolveAllocatedCause(tx);
+      const localizedTx = displayCause ? { ...tx, cause: displayCause } : tx;
+      const { blob, filename } = await generateDonationReceiptPdf(localizedTx, {
+        subtitle: t('donate.receiptTitle')
+      });
+      const url = URL.createObjectURL(blob);
+      extraUrlsRef.current.push(url);
+      triggerUrlDownload(url, filename);
+    } catch (err) {
+      console.error('Transaction PDF generation failed:', err);
+    } finally {
+      setTimeout(() => setDownloadingTxId(null), 500);
+    }
+  };
+
+  const handleViewTransactionReceipt = (tx) => {
+    justSubmittedRef.current = false;
+    setReceiptPdf({ url: null, filename: '', generating: true, downloaded: false, error: '' });
+    setReceiptData(tx);
+  };
+
+  const handleClearTransactions = () => {
+    persistTransactions([]);
   };
 
   return (
@@ -246,6 +474,7 @@ export default function DonatePage() {
                 onClick={() => {
                   setDonorTab('domestic');
                   setCustomAmount('');
+                  setAmountError('');
                 }}
               >
                 🇮🇳 {t('donate.domesticTab')}
@@ -256,6 +485,7 @@ export default function DonatePage() {
                 onClick={() => {
                   setDonorTab('international');
                   setCustomAmount('');
+                  setAmountError('');
                 }}
               >
                 🌐 {t('donate.intlTab')}
@@ -379,12 +609,16 @@ export default function DonatePage() {
                       ₹
                     </span>
                     <input
+                      ref={amountInputRef}
                       type="number"
                       min="1"
                       step="any"
                       required
                       value={customAmount}
-                      onChange={(e) => setCustomAmount(e.target.value)}
+                      onChange={(e) => {
+                        setCustomAmount(e.target.value);
+                        if (amountError) setAmountError('');
+                      }}
                       className="form-input"
                       placeholder={t('donate.customAmountPlaceholder')}
                       style={{
@@ -394,13 +628,13 @@ export default function DonatePage() {
                         color: 'var(--color-forest-900)',
                         height: '52px',
                         backgroundColor: '#FFFFFF',
-                        border: '2px solid rgba(27, 77, 52, 0.25)'
+                        border: amountError ? '2px solid #DC2626' : '2px solid rgba(27, 77, 52, 0.25)'
                       }}
                     />
                   </div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '0.45rem', fontSize: '0.82rem', color: 'var(--color-text-muted)' }}>
-                    <span>{language === 'te' ? 'మీ స్వంత మొత్తాన్ని నమోదు చేయండి (కనిష్ట ₹1)' : language === 'hi' ? 'अपनी इच्छानुसार राशि दर्ज करें (न्यूनतम ₹1)' : 'Type your own contribution amount (min ₹1)'}</span>
-                    {customAmount && !isNaN(customAmount) && Number(customAmount) > 0 && (
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.35rem', marginTop: '0.45rem', fontSize: '0.82rem', color: amountError ? '#DC2626' : 'var(--color-text-muted)' }}>
+                    <span>{amountError || (language === 'te' ? 'మీ స్వంత మొత్తాన్ని నమోదు చేయండి (కనిష్ట ₹1)' : language === 'hi' ? 'अपनी इच्छानुसार राशि दर्ज करें (न्यूनतम ₹1)' : 'Type your own contribution amount (min ₹1)')}</span>
+                    {customAmount && !Number.isNaN(Number(customAmount)) && Number(customAmount) > 0 && (
                       <strong style={{ color: 'var(--color-forest-700)' }}>
                         ₹{Number(customAmount).toLocaleString('en-IN')}
                       </strong>
@@ -598,11 +832,11 @@ export default function DonatePage() {
                 </div>
 
                 {/* Currency Switcher */}
-                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '2rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', marginBottom: '2rem' }}>
                   <span style={{ fontSize: '0.92rem', fontWeight: 700, color: 'var(--color-forest-900)' }}>
                     Preferred Global Currency:
                   </span>
-                  <div style={{ display: 'flex', gap: '0.5rem' }}>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
                     {['USD', 'EUR', 'GBP'].map((curr) => (
                       <button
                         key={curr}
@@ -728,12 +962,16 @@ export default function DonatePage() {
                       {selectedCurrency === 'USD' ? '$' : selectedCurrency === 'EUR' ? '€' : '£'}
                     </span>
                     <input
+                      ref={amountInputRef}
                       type="number"
                       min="1"
                       step="any"
                       required
                       value={customAmount}
-                      onChange={(e) => setCustomAmount(e.target.value)}
+                      onChange={(e) => {
+                        setCustomAmount(e.target.value);
+                        if (amountError) setAmountError('');
+                      }}
                       className="form-input"
                       placeholder={selectedCurrency === 'USD' ? 'e.g. 50' : selectedCurrency === 'EUR' ? 'e.g. 45' : 'e.g. 40'}
                       style={{
@@ -743,13 +981,13 @@ export default function DonatePage() {
                         color: 'var(--color-forest-900)',
                         height: '52px',
                         backgroundColor: '#FFFFFF',
-                        border: '2px solid rgba(27, 77, 52, 0.25)'
+                        border: amountError ? '2px solid #DC2626' : '2px solid rgba(27, 77, 52, 0.25)'
                       }}
                     />
                   </div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '0.45rem', fontSize: '0.82rem', color: 'var(--color-text-muted)' }}>
-                    <span>{language === 'te' ? 'మీ స్వంత మొత్తాన్ని నమోదు చేయండి' : language === 'hi' ? 'अपनी इच्छानुसार राशि दर्ज करें' : 'Type your own contribution amount'}</span>
-                    {customAmount && !isNaN(customAmount) && Number(customAmount) > 0 && (
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.35rem', marginTop: '0.45rem', fontSize: '0.82rem', color: amountError ? '#DC2626' : 'var(--color-text-muted)' }}>
+                    <span>{amountError || (language === 'te' ? 'మీ స్వంత మొత్తాన్ని నమోదు చేయండి' : language === 'hi' ? 'अपनी इच्छानुसार राशि दर्ज करें' : 'Type your own contribution amount')}</span>
+                    {customAmount && !Number.isNaN(Number(customAmount)) && Number(customAmount) > 0 && (
                       <strong style={{ color: 'var(--color-forest-700)' }}>
                         {selectedCurrency === 'USD' ? '$' : selectedCurrency === 'EUR' ? '€' : '£'}{Number(customAmount).toLocaleString()}
                       </strong>
@@ -828,15 +1066,168 @@ export default function DonatePage() {
         </div>
       </section>
 
-      {/* Simulated Receipt Modal */}
+      {/* Transaction History Section (Shown Below Donation Section After Donations) */}
+      {transactions.length > 0 && (
+        <section
+          ref={txSectionRef}
+          id="donation-transactions"
+          className="section donation-transactions-section"
+          aria-labelledby="tx-history-heading"
+        >
+          <div className="container">
+            <div className="tx-history-header">
+              <div>
+                <div className="badge" style={{ marginBottom: '0.65rem', display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}>
+                  <Receipt size={15} />
+                  <span>{t('donate.txBadge')}</span>
+                </div>
+                <h2 id="tx-history-heading" style={{ fontSize: 'clamp(1.5rem, 3.8vw, 2.15rem)', color: 'var(--color-forest-900)', marginBottom: '0.35rem' }}>
+                  {t('donate.txTitle')}
+                </h2>
+                <p style={{ fontSize: '0.95rem', color: 'var(--color-text-muted)', maxWidth: '640px' }}>
+                  {t('donate.txSubtitle')}
+                </p>
+              </div>
+
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
+                <span style={{
+                  fontSize: '0.85rem',
+                  fontWeight: 700,
+                  color: 'var(--color-forest-900)',
+                  backgroundColor: 'var(--color-sage-100)',
+                  padding: '0.45rem 0.9rem',
+                  borderRadius: 'var(--radius-pill)',
+                  border: '1px solid var(--color-border-card)'
+                }}>
+                  {transactions.length}{' '}
+                  {transactions.length === 1 ? t('donate.txTotalCountSingle') : t('donate.txTotalCount')}
+                </span>
+                <button
+                  type="button"
+                  onClick={handleClearTransactions}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '0.35rem',
+                    fontSize: '0.82rem',
+                    fontWeight: 600,
+                    color: 'var(--color-text-muted)',
+                    background: 'transparent',
+                    border: '1px solid var(--color-border-card)',
+                    borderRadius: 'var(--radius-pill)',
+                    padding: '0.42rem 0.85rem',
+                    cursor: 'pointer'
+                  }}
+                >
+                  <Trash2 size={14} />
+                  <span>{t('donate.txClearHistory')}</span>
+                </button>
+              </div>
+            </div>
+
+            <div className="tx-list">
+              {transactions.map((tx, idx) => {
+                const isLatest = idx === 0;
+                const isDomesticTx = tx.type === 'domestic';
+                const formattedAmount =
+                  tx.currency === 'INR'
+                    ? `₹${Number(tx.amount).toLocaleString('en-IN')}`
+                    : `${tx.currency} ${tx.amount}`;
+                const displayCause = resolveAllocatedCause(tx);
+
+                return (
+                  <div
+                    key={tx.receiptNo}
+                    className={`tx-card ${isLatest ? 'tx-card--latest' : ''}`}
+                    data-receipt-no={tx.receiptNo}
+                  >
+                    <div className="tx-card-top">
+                      <div className="tx-receipt-id-group">
+                        <span className="tx-receipt-code">{tx.receiptNo}</span>
+                        {isLatest && (
+                          <span className="tx-badge-latest">{t('donate.txLatestBadge')}</span>
+                        )}
+                        <span className="tx-badge-status">
+                          <CheckCircle2 size={13} />
+                          <span>
+                            {isDomesticTx
+                              ? t('donate.txStatusVerified')
+                              : t('donate.txStatusInternational')}
+                          </span>
+                        </span>
+                      </div>
+
+                      <div className="tx-date-text" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}>
+                        <Clock size={14} />
+                        <span>{tx.date}{tx.time ? ` • ${tx.time}` : ''}</span>
+                      </div>
+                    </div>
+
+                    <div className="tx-body-grid">
+                      <div>
+                        <span className="tx-field-label">{t('donate.donorLabel').replace(':', '')}</span>
+                        <div className="tx-field-primary">{tx.donorName}</div>
+                        <div className="tx-field-secondary">
+                          {tx.donorEmail}
+                          {tx.donorPan && tx.donorPan !== 'N/A' ? ` • ${isDomesticTx ? 'PAN' : 'Org'}: ${tx.donorPan}` : ''}
+                        </div>
+                      </div>
+
+                      <div>
+                        <span className="tx-field-label">{t('donate.causeLabel').replace(':', '')}</span>
+                        <div className="tx-field-primary" style={{ fontSize: '0.94rem' }}>{displayCause}</div>
+                        <div className="tx-field-secondary">
+                          {t('donate.txMethodLabel')}{' '}
+                          {isDomesticTx ? t('donate.txMethodDomestic') : `${t('donate.txMethodIntl')} (${tx.country || tx.currency})`}
+                        </div>
+                      </div>
+
+                      <div>
+                        <span className="tx-field-label">{t('donate.amountLabel').replace(':', '')}</span>
+                        <div className="tx-amount-display">{formattedAmount}</div>
+                      </div>
+
+                      <div className="tx-actions-group">
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          icon={Eye}
+                          iconPosition="left"
+                          onClick={() => handleViewTransactionReceipt(tx)}
+                        >
+                          {t('donate.txViewReceipt')}
+                        </Button>
+                        <Button
+                          variant="sprout"
+                          size="sm"
+                          icon={Download}
+                          iconPosition="left"
+                          disabled={downloadingTxId === tx.receiptNo}
+                          onClick={() => handleDownloadTransactionPdf(tx)}
+                        >
+                          {downloadingTxId === tx.receiptNo
+                            ? t('donate.txDownloading')
+                            : t('donate.txDownloadPdf')}
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Official Receipt Modal */}
       {receiptData && (
-        <div className="modal-overlay" onClick={() => setReceiptData(null)} role="dialog" aria-modal="true">
+        <div className="modal-overlay" onClick={closeReceiptModal} role="dialog" aria-modal="true">
           <div className="modal-card" style={{ maxWidth: '620px' }} onClick={(e) => e.stopPropagation()}>
-            <button className="modal-close-btn" onClick={() => setReceiptData(null)} aria-label={t('donate.closeBtn')}>
+            <button className="modal-close-btn" onClick={closeReceiptModal} aria-label={t('donate.closeBtn')}>
               ×
             </button>
 
-            <div style={{ textAlign: 'center', marginBottom: '1.75rem' }}>
+            <div style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
               <div style={{
                 width: '64px',
                 height: '64px',
@@ -846,67 +1237,134 @@ export default function DonatePage() {
                 display: 'inline-flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                marginBottom: '1rem'
+                marginBottom: '0.85rem'
               }}>
                 <CheckCircle2 size={36} />
               </div>
-              <h3 style={{ fontSize: '1.75rem', color: 'var(--color-forest-900)', marginBottom: '0.25rem' }}>
+              <h3 style={{ fontSize: 'clamp(1.35rem, 4.5vw, 1.7rem)', color: 'var(--color-forest-900)', marginBottom: '0.25rem', lineHeight: '1.25' }}>
                 {t('donate.receiptTitle')}
               </h3>
-              <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)' }}>
-                {t('stats.transparencyBadge')}
+              <p style={{ fontSize: '0.88rem', color: 'var(--color-text-muted)' }}>
+                {t('stats.transparencyBadge')} • {complianceInfo.registrationPlaceholder}
               </p>
             </div>
 
             <div style={{
               backgroundColor: 'var(--color-sage-100)',
               borderRadius: 'var(--radius-lg)',
-              padding: '1.75rem',
-              marginBottom: '1.75rem',
+              padding: 'clamp(1rem, 3.5vw, 1.65rem)',
+              marginBottom: '1.5rem',
               border: '1px dashed var(--color-forest-700)',
               fontSize: '0.92rem'
             }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.75rem' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.25rem 0.75rem', marginBottom: '0.75rem' }}>
                 <span style={{ color: 'var(--color-text-muted)' }}>{t('donate.receiptNo')}</span>
                 <strong style={{ fontFamily: 'monospace', color: 'var(--color-forest-900)' }}>{receiptData.receiptNo}</strong>
               </div>
-              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.75rem' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.25rem 0.75rem', marginBottom: '0.75rem' }}>
                 <span style={{ color: 'var(--color-text-muted)' }}>{t('donate.receiptDate')}</span>
                 <span>{receiptData.date}</span>
               </div>
-              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.75rem' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.25rem 0.75rem', marginBottom: '0.75rem' }}>
                 <span style={{ color: 'var(--color-text-muted)' }}>{t('donate.donorLabel')}</span>
-                <strong>{receiptData.donorName}</strong>
+                <strong style={{ wordBreak: 'break-word' }}>{receiptData.donorName}</strong>
               </div>
-              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.75rem' }}>
+              {receiptData.donorEmail && (
+                <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.25rem 0.75rem', marginBottom: '0.75rem' }}>
+                  <span style={{ color: 'var(--color-text-muted)' }}>Email:</span>
+                  <span style={{ wordBreak: 'break-all' }}>{receiptData.donorEmail}</span>
+                </div>
+              )}
+              {receiptData.donorPan && receiptData.donorPan !== 'N/A' && (
+                <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.25rem 0.75rem', marginBottom: '0.75rem' }}>
+                  <span style={{ color: 'var(--color-text-muted)' }}>{receiptData.type === 'domestic' ? 'PAN (80G):' : 'Organization:'}</span>
+                  <strong style={{ fontFamily: 'monospace' }}>{receiptData.donorPan}</strong>
+                </div>
+              )}
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.25rem 0.75rem', marginBottom: '0.75rem', paddingTop: '0.4rem', borderTop: '1px solid rgba(27, 77, 52, 0.14)' }}>
                 <span style={{ color: 'var(--color-text-muted)' }}>{t('donate.amountLabel')}</span>
-                <strong style={{ fontSize: '1.2rem', color: 'var(--color-forest-900)' }}>
-                  {receiptData.currency === 'INR' ? `₹${receiptData.amount.toLocaleString('en-IN')}` : `${receiptData.currency} ${receiptData.amount}`}
+                <strong style={{ fontSize: '1.25rem', color: 'var(--color-forest-900)' }}>
+                  {receiptData.currency === 'INR'
+                    ? `₹${Number(receiptData.amount).toLocaleString('en-IN')}`
+                    : `${receiptData.currency} ${receiptData.amount}`}
                 </strong>
               </div>
-              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.75rem' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.25rem 0.75rem' }}>
                 <span style={{ color: 'var(--color-text-muted)' }}>{t('donate.causeLabel')}</span>
-                <span style={{ textAlign: 'right', maxWidth: '60%', fontWeight: 600 }}>{receiptData.cause}</span>
+                <span style={{ textAlign: 'right', fontWeight: 600 }}>
+                  {resolvedReceiptCause}
+                </span>
               </div>
             </div>
 
-            <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
+            <div style={{ display: 'flex', gap: '0.85rem', justifyContent: 'center', flexWrap: 'wrap' }}>
               <Button
                 variant="sprout"
                 size="md"
-                icon={Download}
-                onClick={() => alert(`Receipt ${receiptData.receiptNo} downloaded!`)}
+                icon={receiptPdf.downloaded ? Check : Download}
+                onClick={handleDownloadReceipt}
+                disabled={receiptPdf.generating && !receiptPdf.url}
               >
-                {t('donate.downloadBtn')}
+                {receiptPdf.generating && !receiptPdf.url
+                  ? t('donate.preparingBtn')
+                  : receiptPdf.downloaded
+                    ? t('donate.downloadedBtn')
+                    : t('donate.downloadBtn')}
               </Button>
               <Button
                 variant="outline"
                 size="md"
-                onClick={() => setReceiptData(null)}
+                onClick={closeReceiptModal}
               >
                 {t('donate.closeBtn')}
               </Button>
             </div>
+
+            {receiptPdf.downloaded && receiptPdf.url && (
+              <div style={{
+                marginTop: '1rem',
+                padding: '0.75rem 1rem',
+                borderRadius: 'var(--radius-md)',
+                backgroundColor: 'rgba(120, 201, 83, 0.14)',
+                border: '1px solid rgba(27, 77, 52, 0.2)',
+                textAlign: 'center',
+                fontSize: '0.85rem',
+                color: 'var(--color-forest-900)'
+              }}>
+                <div>
+                  <strong>✓ {t('donate.downloadSuccessMsg')}</strong>{' '}
+                  <span style={{ fontFamily: 'monospace', fontSize: '0.8rem', whiteSpace: 'nowrap', display: 'inline-block' }}>({receiptPdf.filename})</span>
+                </div>
+                <div style={{ marginTop: '0.3rem' }}>
+                  <a
+                    href={receiptPdf.url}
+                    download={receiptPdf.filename}
+                    style={{
+                      color: 'var(--color-forest-700)',
+                      fontWeight: 700,
+                      textDecoration: 'underline'
+                    }}
+                  >
+                    {t('donate.saveManuallyLink')}
+                  </a>
+                </div>
+              </div>
+            )}
+
+            {receiptPdf.error && (
+              <div style={{
+                marginTop: '1rem',
+                padding: '0.75rem 1rem',
+                borderRadius: 'var(--radius-md)',
+                backgroundColor: '#FEF2F2',
+                border: '1px solid #FECACA',
+                textAlign: 'center',
+                fontSize: '0.85rem',
+                color: '#991B1B'
+              }}>
+                {receiptPdf.error}
+              </div>
+            )}
           </div>
         </div>
       )}
