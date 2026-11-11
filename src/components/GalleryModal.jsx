@@ -31,8 +31,9 @@ export default function GalleryModal({ item, onClose, onPrev, onNext }) {
           {item.type === 'video' && (
             <div style={{
               position: 'absolute',
-              bottom: '1.5rem',
-              left: '1.5rem',
+              bottom: '1rem',
+              left: '1rem',
+              maxWidth: 'calc(100% - 2rem)',
               backgroundColor: 'rgba(12, 38, 26, 0.85)',
               backdropFilter: 'blur(8px)',
               color: '#FFFFFF',
@@ -41,9 +42,10 @@ export default function GalleryModal({ item, onClose, onPrev, onNext }) {
               display: 'flex',
               alignItems: 'center',
               gap: '0.5rem',
-              fontSize: '0.85rem'
+              fontSize: '0.82rem',
+              boxSizing: 'border-box'
             }}>
-              <Film size={16} />
+              <Film size={16} style={{ flexShrink: 0 }} />
               <span>{t('gallery.videoDuration')} ({item.videoDuration})</span>
             </div>
           )}
@@ -111,7 +113,7 @@ export default function GalleryModal({ item, onClose, onPrev, onNext }) {
             {item.categoryLabel}
           </div>
 
-          <h3 style={{ fontSize: '1.5rem', color: 'var(--color-forest-900)', marginBottom: '0.75rem' }}>
+          <h3 style={{ fontSize: 'clamp(1.18rem, 3.5vw, 1.5rem)', color: 'var(--color-forest-900)', marginBottom: '0.75rem', lineHeight: '1.25' }}>
             {item.title}
           </h3>
 

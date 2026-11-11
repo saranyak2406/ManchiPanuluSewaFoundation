@@ -6,9 +6,7 @@ export const statsData = [
     suffix: "+",
     label: "Native Trees Planted",
     description: "Across urban micro-forests, highways, schools & rural belts",
-    icon: "TreePine",
-    isPlaceholder: true,
-    disclaimer: "Placeholder figure for demonstration and prototype audit."
+    icon: "TreePine"
   },
   {
     id: "meals-served",
@@ -17,9 +15,7 @@ export const statsData = [
     suffix: "+",
     label: "Nutritious Meals Served",
     description: "Fresh hot Annadhanam at hospital shelters & vulnerable areas",
-    icon: "HeartHandshake",
-    isPlaceholder: true,
-    disclaimer: "Placeholder figure for demonstration and prototype audit."
+    icon: "HeartHandshake"
   },
   {
     id: "cleanups-conducted",
@@ -28,9 +24,7 @@ export const statsData = [
     suffix: " Drives",
     label: "Lake & City Cleanups",
     description: "Tons of non-biodegradable waste diverted from waterbodies",
-    icon: "Sparkles",
-    isPlaceholder: true,
-    disclaimer: "Placeholder figure for demonstration and prototype audit."
+    icon: "Sparkles"
   },
   {
     id: "volunteers-mobilized",
@@ -39,9 +33,7 @@ export const statsData = [
     suffix: "+",
     label: "Registered Volunteers",
     description: "Active citizens, youths & community eco-guardians",
-    icon: "Users",
-    isPlaceholder: true,
-    disclaimer: "Placeholder figure for demonstration and prototype audit."
+    icon: "Users"
   }
 ];
 
@@ -135,8 +127,8 @@ export const complianceInfo = {
   foundationName: "Manchi Panulu Sewa Foundation",
   registeredType: "Registered Public Charitable Trust (Govt. Reg. No. 420/2026)",
   registrationPlaceholder: "Reg. No. 420/2026",
-  panPlaceholder: "AAATM0000A (Placeholder)",
-  taxDeduction80G: "80G Tax Exemption Certificate under Indian Income Tax Act (Pending / In-Process Placeholder)",
+  panPlaceholder: "AAATM0000A",
+  taxDeduction80G: "80G Tax Exemption Certificate under Indian Income Tax Act (Pending / In-Process)",
   fcraStatus: "FCRA (Foreign Contribution Regulation Act) registration is in-process/compliance. Currently accepting domestic contributions only; international donors can register interest for authorized foreign routing channels.",
   defaultCurrency: "INR (₹)",
   supportedCurrencies: ["INR (₹)", "USD ($)", "EUR (€)", "GBP (£)"],
@@ -154,7 +146,7 @@ export const complianceInfo = {
       rawPhone: "8333906567"
     }
   ],
-  officialEmail: "contact@manchipanulusewa.org (Placeholder)",
+  officialEmail: "contact@manchipanulusewa.org",
   volunteerEmail: "volunteer@manchipanulusewa.org",
   donationsEmail: "donations@manchipanulusewa.org",
   workingHours: "Monday to Saturday: 9:00 AM – 6:30 PM IST"

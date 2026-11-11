@@ -39,6 +39,7 @@ export default function DonatePage() {
   const [selectedCurrency, setSelectedCurrency] = useState('USD');
   const [customAmount, setCustomAmount] = useState('');
   const [amountError, setAmountError] = useState('');
+  const [formErrors, setFormErrors] = useState({});
   const [copiedUpi, setCopiedUpi] = useState(false);
 
   // 6 Dedicated Sewa Pillars for Multi-Selection Choice Chips
@@ -161,6 +162,7 @@ export default function DonatePage() {
   const [donorEmail, setDonorEmail] = useState('');
   const [donorPhone, setDonorPhone] = useState('');
   const [donorPan, setDonorPan] = useState('');
+  const [donorOrg, setDonorOrg] = useState('');
   const [internationalCountry, setInternationalCountry] = useState('United States');
 
   // Persisted Donation Transactions State
@@ -191,6 +193,20 @@ export default function DonatePage() {
   const txSectionRef = useRef(null);
   const justSubmittedRef = useRef(false);
   const amountInputRef = useRef(null);
+  const nameInputRef = useRef(null);
+  const emailInputRef = useRef(null);
+  const phoneInputRef = useRef(null);
+  const panInputRef = useRef(null);
+  const countryInputRef = useRef(null);
+
+  const clearFieldError = (field) => {
+    setFormErrors((prev) => {
+      if (!prev[field]) return prev;
+      const next = { ...prev };
+      delete next[field];
+      return next;
+    });
+  };
 
   useEffect(() => {
     preloadFoundationLogo();
@@ -290,30 +306,87 @@ export default function DonatePage() {
     }
   };
 
+  const validateDonationForm = () => {
+    const errs = {};
+    let firstInvalidRef = null;
+
+    const trimmedAmount = String(customAmount ?? '').trim();
+    const finalAmount = Number(trimmedAmount);
+    if (!trimmedAmount || !Number.isFinite(finalAmount) || finalAmount < 1) {
+      errs.amount = t('donate.errInvalidAmount');
+      if (!firstInvalidRef) firstInvalidRef = amountInputRef;
+    }
+
+    const trimmedName = donorName.trim();
+    if (trimmedName.length < 3 || !/\p{L}/u.test(trimmedName)) {
+      errs.donorName = t('donate.errName');
+      if (!firstInvalidRef) firstInvalidRef = nameInputRef;
+    }
+
+    const trimmedEmail = donorEmail.trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+    if (!trimmedEmail || !emailRegex.test(trimmedEmail)) {
+      errs.donorEmail = t('donate.errEmail');
+      if (!firstInvalidRef) firstInvalidRef = emailInputRef;
+    }
+
+    if (donorTab === 'domestic') {
+      const normalizedPhone = donorPhone.trim().replace(/[\s()-]/g, '');
+      const indianMobileRegex = /^(?:\+?91|0)?[6-9]\d{9}$/;
+      if (!normalizedPhone || !indianMobileRegex.test(normalizedPhone)) {
+        errs.donorPhone = t('donate.errPhone');
+        if (!firstInvalidRef) firstInvalidRef = phoneInputRef;
+      }
+
+      const upperPan = donorPan.trim().toUpperCase();
+      if (upperPan && !/^[A-Z]{5}[0-9]{4}[A-Z]$/.test(upperPan)) {
+        errs.donorPan = t('donate.errPan');
+        if (!firstInvalidRef) firstInvalidRef = panInputRef;
+      }
+    } else {
+      const trimmedCountry = internationalCountry.trim();
+      if (trimmedCountry.length < 2 || !/\p{L}/u.test(trimmedCountry)) {
+        errs.internationalCountry = t('donate.errCountry');
+        if (!firstInvalidRef) firstInvalidRef = countryInputRef;
+      }
+
+      const trimmedOrg = donorOrg.trim();
+      if (trimmedOrg && trimmedOrg.length < 2) {
+        errs.donorOrg = t('donate.errOrg');
+        if (!firstInvalidRef) firstInvalidRef = panInputRef;
+      }
+    }
+
+    return { errs, finalAmount, firstInvalidRef };
+  };
+
   const handleSimulateDonation = (e) => {
     e.preventDefault();
-    const finalAmount = parseFloat(customAmount);
+    const { errs, finalAmount, firstInvalidRef } = validateDonationForm();
 
-    if (!finalAmount || Number.isNaN(finalAmount) || finalAmount <= 0) {
-      setAmountError(t('donate.errInvalidAmount'));
-      amountInputRef.current?.focus();
+    if (Object.keys(errs).length > 0) {
+      setFormErrors(errs);
+      setAmountError(errs.amount || '');
+      firstInvalidRef?.current?.focus();
       return;
     }
 
     setAmountError('');
+    setFormErrors({});
     const now = new Date();
     const locale = language === 'te' ? 'te-IN' : language === 'hi' ? 'hi-IN' : 'en-IN';
+    const sanitizedPan = donorTab === 'domestic' ? donorPan.trim().toUpperCase() : donorOrg.trim();
 
     const receipt = {
       receiptNo: `MPSF-REC-${Math.floor(100000 + Math.random() * 900000)}`,
       date: now.toLocaleDateString(locale, { year: 'numeric', month: 'long', day: 'numeric' }),
       time: now.toLocaleTimeString(locale, { hour: '2-digit', minute: '2-digit' }),
       createdAt: now.getTime(),
-      donorName: donorName || (language === 'te' ? 'దయగల దాత' : language === 'hi' ? 'उदार दानदाता' : 'Kind Benefactor'),
-      donorEmail: donorEmail || 'donor@example.com',
-      donorPhone: donorTab === 'domestic' ? (donorPhone || 'N/A') : 'International',
-      donorPan: donorPan || 'N/A',
-      country: donorTab === 'international' ? (internationalCountry || 'International') : 'India',
+      donorName: donorName.trim(),
+      donorEmail: donorEmail.trim(),
+      donorPhone: donorTab === 'domestic' ? donorPhone.trim() : 'International',
+      donorPan: sanitizedPan || 'N/A',
+      country: donorTab === 'international' ? internationalCountry.trim() : 'India',
       amount: finalAmount,
       currency: donorTab === 'domestic' ? 'INR' : selectedCurrency,
       pillarIds: [...selectedPillars],
@@ -475,6 +548,7 @@ export default function DonatePage() {
                   setDonorTab('domestic');
                   setCustomAmount('');
                   setAmountError('');
+                  setFormErrors({});
                 }}
               >
                 🇮🇳 {t('donate.domesticTab')}
@@ -486,6 +560,7 @@ export default function DonatePage() {
                   setDonorTab('international');
                   setCustomAmount('');
                   setAmountError('');
+                  setFormErrors({});
                 }}
               >
                 🌐 {t('donate.intlTab')}
@@ -615,11 +690,13 @@ export default function DonatePage() {
                       step="any"
                       required
                       value={customAmount}
+                      aria-invalid={Boolean(amountError)}
                       onChange={(e) => {
                         setCustomAmount(e.target.value);
                         if (amountError) setAmountError('');
+                        clearFieldError('amount');
                       }}
-                      className="form-input"
+                      className={`form-input ${amountError ? 'has-error' : ''}`}
                       placeholder={t('donate.customAmountPlaceholder')}
                       style={{
                         paddingLeft: '2.6rem',
@@ -633,7 +710,7 @@ export default function DonatePage() {
                     />
                   </div>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.35rem', marginTop: '0.45rem', fontSize: '0.82rem', color: amountError ? '#DC2626' : 'var(--color-text-muted)' }}>
-                    <span>{amountError || (language === 'te' ? 'మీ స్వంత మొత్తాన్ని నమోదు చేయండి (కనిష్ట ₹1)' : language === 'hi' ? 'अपनी इच्छानुसार राशि दर्ज करें (न्यूनतम ₹1)' : 'Type your own contribution amount (min ₹1)')}</span>
+                    <span className={amountError ? 'form-error-msg' : undefined} role={amountError ? 'alert' : undefined}>{amountError || (language === 'te' ? 'మీ స్వంత మొత్తాన్ని నమోదు చేయండి (కనిష్ట ₹1)' : language === 'hi' ? 'अपनी इच्छानुसार राशि दर्ज करें (न्यूनतम ₹1)' : 'Type your own contribution amount (min ₹1)')}</span>
                     {customAmount && !Number.isNaN(Number(customAmount)) && Number(customAmount) > 0 && (
                       <strong style={{ color: 'var(--color-forest-700)' }}>
                         ₹{Number(customAmount).toLocaleString('en-IN')}
@@ -647,54 +724,78 @@ export default function DonatePage() {
                   {t('donate.donorInfoTitle')}
                 </h4>
 
-                <form onSubmit={handleSimulateDonation}>
+                <form onSubmit={handleSimulateDonation} noValidate>
                   <div className="form-group">
                     <label className="form-label">{t('donate.fullName')}</label>
                     <input
+                      ref={nameInputRef}
                       type="text"
                       required
                       value={donorName}
-                      onChange={(e) => setDonorName(e.target.value)}
-                      className="form-input"
+                      onChange={(e) => {
+                        setDonorName(e.target.value);
+                        clearFieldError('donorName');
+                      }}
+                      className={`form-input ${formErrors.donorName ? 'has-error' : ''}`}
+                      aria-invalid={Boolean(formErrors.donorName)}
                       placeholder={t('donate.fullNamePlaceholder')}
                     />
+                    {formErrors.donorName && <span className="form-error-msg" role="alert">{formErrors.donorName}</span>}
                   </div>
 
                   <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 180px), 1fr))', gap: '1rem' }}>
                     <div className="form-group">
                       <label className="form-label">{t('donate.email')}</label>
                       <input
+                        ref={emailInputRef}
                         type="email"
                         required
                         value={donorEmail}
-                        onChange={(e) => setDonorEmail(e.target.value)}
-                        className="form-input"
+                        onChange={(e) => {
+                          setDonorEmail(e.target.value);
+                          clearFieldError('donorEmail');
+                        }}
+                        className={`form-input ${formErrors.donorEmail ? 'has-error' : ''}`}
+                        aria-invalid={Boolean(formErrors.donorEmail)}
                         placeholder={t('donate.emailPlaceholder')}
                       />
+                      {formErrors.donorEmail && <span className="form-error-msg" role="alert">{formErrors.donorEmail}</span>}
                     </div>
                     <div className="form-group">
                       <label className="form-label">{t('donate.phone')}</label>
                       <input
+                        ref={phoneInputRef}
                         type="tel"
                         required
                         value={donorPhone}
-                        onChange={(e) => setDonorPhone(e.target.value)}
-                        className="form-input"
+                        onChange={(e) => {
+                          setDonorPhone(e.target.value);
+                          clearFieldError('donorPhone');
+                        }}
+                        className={`form-input ${formErrors.donorPhone ? 'has-error' : ''}`}
+                        aria-invalid={Boolean(formErrors.donorPhone)}
                         placeholder={t('donate.phonePlaceholder')}
                       />
+                      {formErrors.donorPhone && <span className="form-error-msg" role="alert">{formErrors.donorPhone}</span>}
                     </div>
                   </div>
 
                   <div className="form-group">
                     <label className="form-label">{t('donate.panLabel')}</label>
                     <input
+                      ref={panInputRef}
                       type="text"
                       maxLength="10"
                       value={donorPan}
-                      onChange={(e) => setDonorPan(e.target.value.toUpperCase())}
-                      className="form-input"
+                      onChange={(e) => {
+                        setDonorPan(e.target.value.toUpperCase());
+                        clearFieldError('donorPan');
+                      }}
+                      className={`form-input ${formErrors.donorPan ? 'has-error' : ''}`}
+                      aria-invalid={Boolean(formErrors.donorPan)}
                       placeholder={t('donate.panPlaceholder')}
                     />
+                    {formErrors.donorPan && <span className="form-error-msg" role="alert">{formErrors.donorPan}</span>}
                   </div>
 
                   <Button
@@ -844,6 +945,7 @@ export default function DonatePage() {
                         onClick={() => setSelectedCurrency(curr)}
                         style={{
                           padding: '0.45rem 1.1rem',
+                          minHeight: '40px',
                           borderRadius: 'var(--radius-pill)',
                           border: '1.5px solid var(--color-border-card)',
                           backgroundColor: selectedCurrency === curr ? 'var(--color-forest-900)' : '#FFFFFF',
@@ -968,11 +1070,13 @@ export default function DonatePage() {
                       step="any"
                       required
                       value={customAmount}
+                      aria-invalid={Boolean(amountError)}
                       onChange={(e) => {
                         setCustomAmount(e.target.value);
                         if (amountError) setAmountError('');
+                        clearFieldError('amount');
                       }}
-                      className="form-input"
+                      className={`form-input ${amountError ? 'has-error' : ''}`}
                       placeholder={selectedCurrency === 'USD' ? 'e.g. 50' : selectedCurrency === 'EUR' ? 'e.g. 45' : 'e.g. 40'}
                       style={{
                         paddingLeft: '2.5rem',
@@ -986,7 +1090,7 @@ export default function DonatePage() {
                     />
                   </div>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.35rem', marginTop: '0.45rem', fontSize: '0.82rem', color: amountError ? '#DC2626' : 'var(--color-text-muted)' }}>
-                    <span>{amountError || (language === 'te' ? 'మీ స్వంత మొత్తాన్ని నమోదు చేయండి' : language === 'hi' ? 'अपनी इच्छानुसार राशि दर्ज करें' : 'Type your own contribution amount')}</span>
+                    <span className={amountError ? 'form-error-msg' : undefined} role={amountError ? 'alert' : undefined}>{amountError || (language === 'te' ? 'మీ స్వంత మొత్తాన్ని నమోదు చేయండి' : language === 'hi' ? 'अपनी इच्छानुसार राशि दर्ज करें' : 'Type your own contribution amount')}</span>
                     {customAmount && !Number.isNaN(Number(customAmount)) && Number(customAmount) > 0 && (
                       <strong style={{ color: 'var(--color-forest-700)' }}>
                         {selectedCurrency === 'USD' ? '$' : selectedCurrency === 'EUR' ? '€' : '£'}{Number(customAmount).toLocaleString()}
@@ -1000,29 +1104,41 @@ export default function DonatePage() {
                   {t('donate.intlRegInterest')}
                 </h4>
 
-                <form onSubmit={handleSimulateDonation}>
+                <form onSubmit={handleSimulateDonation} noValidate>
                   <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))', gap: '1rem' }}>
                     <div className="form-group">
                       <label className="form-label">{t('donate.fullName')}</label>
                       <input
+                        ref={nameInputRef}
                         type="text"
                         required
                         value={donorName}
-                        onChange={(e) => setDonorName(e.target.value)}
-                        className="form-input"
+                        onChange={(e) => {
+                          setDonorName(e.target.value);
+                          clearFieldError('donorName');
+                        }}
+                        className={`form-input ${formErrors.donorName ? 'has-error' : ''}`}
+                        aria-invalid={Boolean(formErrors.donorName)}
                         placeholder={t('donate.fullNamePlaceholder')}
                       />
+                      {formErrors.donorName && <span className="form-error-msg" role="alert">{formErrors.donorName}</span>}
                     </div>
                     <div className="form-group">
                       <label className="form-label">{t('donate.email')}</label>
                       <input
+                        ref={emailInputRef}
                         type="email"
                         required
                         value={donorEmail}
-                        onChange={(e) => setDonorEmail(e.target.value)}
-                        className="form-input"
+                        onChange={(e) => {
+                          setDonorEmail(e.target.value);
+                          clearFieldError('donorEmail');
+                        }}
+                        className={`form-input ${formErrors.donorEmail ? 'has-error' : ''}`}
+                        aria-invalid={Boolean(formErrors.donorEmail)}
                         placeholder={t('donate.emailPlaceholder')}
                       />
+                      {formErrors.donorEmail && <span className="form-error-msg" role="alert">{formErrors.donorEmail}</span>}
                     </div>
                   </div>
 
@@ -1030,23 +1146,35 @@ export default function DonatePage() {
                     <div className="form-group">
                       <label className="form-label">Country of Residence *</label>
                       <input
+                        ref={countryInputRef}
                         type="text"
                         required
                         value={internationalCountry}
-                        onChange={(e) => setInternationalCountry(e.target.value)}
-                        className="form-input"
+                        onChange={(e) => {
+                          setInternationalCountry(e.target.value);
+                          clearFieldError('internationalCountry');
+                        }}
+                        className={`form-input ${formErrors.internationalCountry ? 'has-error' : ''}`}
+                        aria-invalid={Boolean(formErrors.internationalCountry)}
                         placeholder="e.g. United States, United Kingdom, UAE, Germany"
                       />
+                      {formErrors.internationalCountry && <span className="form-error-msg" role="alert">{formErrors.internationalCountry}</span>}
                     </div>
                     <div className="form-group">
                       <label className="form-label">Organization / Individual</label>
                       <input
+                        ref={panInputRef}
                         type="text"
-                        value={donorPan}
-                        onChange={(e) => setDonorPan(e.target.value)}
-                        className="form-input"
+                        value={donorOrg}
+                        onChange={(e) => {
+                          setDonorOrg(e.target.value);
+                          clearFieldError('donorOrg');
+                        }}
+                        className={`form-input ${formErrors.donorOrg ? 'has-error' : ''}`}
+                        aria-invalid={Boolean(formErrors.donorOrg)}
                         placeholder="Individual / Diaspora Foundation / Corporate CSR"
                       />
+                      {formErrors.donorOrg && <span className="form-error-msg" role="alert">{formErrors.donorOrg}</span>}
                     </div>
                   </div>
 
@@ -1333,7 +1461,7 @@ export default function DonatePage() {
               }}>
                 <div>
                   <strong>✓ {t('donate.downloadSuccessMsg')}</strong>{' '}
-                  <span style={{ fontFamily: 'monospace', fontSize: '0.8rem', whiteSpace: 'nowrap', display: 'inline-block' }}>({receiptPdf.filename})</span>
+                  <span style={{ fontFamily: 'monospace', fontSize: '0.8rem', display: 'inline-block', maxWidth: '100%', overflowWrap: 'anywhere', wordBreak: 'break-all' }}>({receiptPdf.filename})</span>
                 </div>
                 <div style={{ marginTop: '0.3rem' }}>
                   <a

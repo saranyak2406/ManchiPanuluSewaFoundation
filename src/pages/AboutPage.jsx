@@ -94,25 +94,17 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div style={{ position: 'relative' }}>
-              <div style={{
-                borderRadius: 'var(--radius-xl)',
-                overflow: 'hidden',
-                boxShadow: 'var(--shadow-lg)',
-                border: '4px solid #FFFFFF'
-              }}>
+            <div className="teaser-visual-col">
+              <div className="teaser-image-frame">
                 <img
                   src="/hero-foundation-action.jpg"
                   alt="Manchi Panulu Sewa Foundation Nature Protection"
-                  style={{ width: '100%', height: '420px', objectFit: 'cover' }}
+                  style={{ height: 'clamp(220px, 50vw, 420px)' }}
                 />
               </div>
 
               {/* Official Trust Emblem Seal */}
-              <div style={{
-                position: 'absolute',
-                bottom: '-20px',
-                right: '16px',
+              <div className="teaser-floating-card about-emblem-pill" style={{
                 backgroundColor: '#FFFFFF',
                 borderRadius: '999px',
                 padding: '0.45rem 1rem 0.45rem 0.5rem',
@@ -125,9 +117,9 @@ export default function AboutPage() {
                 <img
                   src="/logo.jpg"
                   alt="Official Trust Emblem"
-                  style={{ width: '44px', height: '44px', borderRadius: '50%', objectFit: 'cover' }}
+                  style={{ width: '44px', height: '44px', borderRadius: '50%', objectFit: 'cover', flexShrink: 0 }}
                 />
-                <div>
+                <div style={{ minWidth: 0 }}>
                   <div style={{ fontSize: '0.74rem', fontWeight: 800, color: 'var(--color-forest-900)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
                     Official Trust Emblem
                   </div>

@@ -32,15 +32,17 @@ export default function ProjectDetailModal({ project, onClose }) {
           <div style={{
             position: 'absolute',
             bottom: '1rem',
-            left: '1.5rem',
+            left: '1rem',
+            maxWidth: 'calc(100% - 2rem)',
             background: 'rgba(12, 38, 26, 0.9)',
             backdropFilter: 'blur(8px)',
             color: '#FFFFFF',
-            padding: '0.4rem 1rem',
+            padding: '0.4rem 0.9rem',
             borderRadius: 'var(--radius-pill)',
-            fontSize: '0.78rem',
+            fontSize: '0.76rem',
             fontWeight: 700,
-            textTransform: 'uppercase'
+            textTransform: 'uppercase',
+            boxSizing: 'border-box'
           }}>
             {project.status} • {project.categoryLabel}
           </div>
@@ -104,7 +106,7 @@ export default function ProjectDetailModal({ project, onClose }) {
             </Button>
           </div>
 
-          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'flex-end' }}>
+          <div style={{ display: 'flex', gap: '0.75rem', justifyContent: 'flex-end', flexWrap: 'wrap' }}>
             <Button variant="outline" size="md" onClick={onClose}>
               {t('projects.closeBtn')}
             </Button>

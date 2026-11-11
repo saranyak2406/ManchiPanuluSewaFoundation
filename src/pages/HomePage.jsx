@@ -95,29 +95,20 @@ export default function HomePage() {
               gap: 'clamp(1.5rem, 3vw, 3.5rem)',
               alignItems: 'center'
             }}>
-              <div style={{ position: 'relative' }}>
-                <div style={{
-                  borderRadius: 'var(--radius-xl)',
-                  overflow: 'hidden',
-                  boxShadow: 'var(--shadow-lg)',
-                  border: '4px solid #FFFFFF'
-                }}>
+              <div className="teaser-visual-col">
+                <div className="teaser-image-frame">
                   <img
                     src="/pillars/tree-plantation.jpg"
                     alt="Manchi Panulu Sewa Foundation Plantation"
-                    style={{ width: '100%', height: '440px', objectFit: 'cover' }}
+                    style={{ height: 'clamp(230px, 52vw, 440px)' }}
                   />
                 </div>
 
                 {/* Floating Ethos Quote Card */}
-                <div style={{
-                  position: 'absolute',
-                  bottom: '-1.5rem',
-                  right: '0.5rem',
-                  maxWidth: 'calc(100% - 1rem)',
+                <div className="teaser-floating-card" style={{
                   backgroundColor: 'var(--color-forest-900)',
                   color: '#FFFFFF',
-                  padding: '1.25rem 1.75rem',
+                  padding: 'clamp(0.95rem, 2.5vw, 1.25rem) clamp(1.1rem, 3vw, 1.75rem)',
                   borderRadius: 'var(--radius-lg)',
                   boxShadow: 'var(--shadow-md)'
                 }}>
@@ -145,21 +136,21 @@ export default function HomePage() {
                   {t('home.aboutP2')}
                 </p>
 
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem', marginBottom: '2rem' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.92rem', fontWeight: 600, color: 'var(--color-forest-800)' }}>
-                    <CheckCircle2 size={18} style={{ color: 'var(--color-forest-600)' }} />
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 175px), 1fr))', gap: '0.85rem 1rem', marginBottom: '2rem' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.92rem', fontWeight: 600, color: 'var(--color-forest-800)', minWidth: 0 }}>
+                    <CheckCircle2 size={18} style={{ color: 'var(--color-forest-600)', flexShrink: 0 }} />
                     <span>{t('home.governance')}</span>
                   </div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.92rem', fontWeight: 600, color: 'var(--color-forest-800)' }}>
-                    <CheckCircle2 size={18} style={{ color: 'var(--color-forest-600)' }} />
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.92rem', fontWeight: 600, color: 'var(--color-forest-800)', minWidth: 0 }}>
+                    <CheckCircle2 size={18} style={{ color: 'var(--color-forest-600)', flexShrink: 0 }} />
                     <span>{t('home.nativePolicy')}</span>
                   </div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.92rem', fontWeight: 600, color: 'var(--color-forest-800)' }}>
-                    <CheckCircle2 size={18} style={{ color: 'var(--color-forest-600)' }} />
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.92rem', fontWeight: 600, color: 'var(--color-forest-800)', minWidth: 0 }}>
+                    <CheckCircle2 size={18} style={{ color: 'var(--color-forest-600)', flexShrink: 0 }} />
                     <span>{t('home.hygienicFood')}</span>
                   </div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.92rem', fontWeight: 600, color: 'var(--color-forest-800)' }}>
-                    <CheckCircle2 size={18} style={{ color: 'var(--color-forest-600)' }} />
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.92rem', fontWeight: 600, color: 'var(--color-forest-800)', minWidth: 0 }}>
+                    <CheckCircle2 size={18} style={{ color: 'var(--color-forest-600)', flexShrink: 0 }} />
                     <span>{t('home.zeroWaste')}</span>
                   </div>
                 </div>
@@ -444,7 +435,7 @@ export default function HomePage() {
             <h2 style={{ color: '#FFFFFF', marginBottom: '1.5rem' }}>
               {t('home.ctaTitle')}
             </h2>
-            <p style={{ color: 'var(--color-text-light-muted)', fontSize: '1.2rem', lineHeight: '1.7', marginBottom: '2.5rem' }}>
+            <p style={{ color: 'var(--color-text-light-muted)', fontSize: 'clamp(0.98rem, 2.2vw, 1.2rem)', lineHeight: '1.7', marginBottom: '2.5rem' }}>
               {t('home.ctaDesc')}
             </p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.25rem', justifyContent: 'center' }}>

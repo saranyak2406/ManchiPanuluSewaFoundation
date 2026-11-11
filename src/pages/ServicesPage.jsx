@@ -144,20 +144,20 @@ export default function ServicesPage() {
                 alignItems: 'center',
                 marginBottom: 'clamp(2rem, 4vw, 3.5rem)'
               }}>
-                <div style={{ order: isReversed ? 2 : 1 }}>
+                <div className={isReversed ? 'service-pillar-text--reversed' : ''} style={{ minWidth: 0 }}>
                   <div className="eyebrow-badge" style={{ color: service.color, borderColor: service.color }}>
                     <span>{service.badge}</span>
                   </div>
-                  <h2 style={{ fontSize: 'clamp(2.2rem, 3.5vw, 3.2rem)', color: 'var(--color-forest-900)', marginBottom: '0.5rem' }}>
+                  <h2 style={{ fontSize: 'clamp(1.55rem, 3.6vw, 3.2rem)', color: 'var(--color-forest-900)', marginBottom: '0.5rem' }}>
                     {service.pillar}
                   </h2>
-                  <div style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--color-forest-600)', marginBottom: '1.25rem' }}>
+                  <div style={{ fontSize: 'clamp(1.02rem, 2.2vw, 1.25rem)', fontWeight: 700, color: 'var(--color-forest-600)', marginBottom: '1.25rem' }}>
                     {service.subtitle} — <em>{service.tagline}</em>
                   </div>
-                  <p style={{ fontSize: '1.1rem', lineHeight: '1.8', color: 'var(--color-text-muted)', marginBottom: '2rem' }}>
+                  <p style={{ fontSize: 'clamp(0.95rem, 2vw, 1.1rem)', lineHeight: '1.8', color: 'var(--color-text-muted)', marginBottom: '2rem' }}>
                     {service.summary}
                   </p>
-                  <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+                  <div style={{ display: 'flex', gap: '0.85rem', flexWrap: 'wrap' }}>
                     <Button to="/donate" variant="sprout" size="md">
                       {t('donate.badge')}
                     </Button>
@@ -174,20 +174,20 @@ export default function ServicesPage() {
                   </div>
                 </div>
 
-                <div style={{ order: isReversed ? 1 : 2 }}>
+                <div className={isReversed ? 'service-pillar-media--reversed' : ''} style={{ minWidth: 0 }}>
                   <div style={{
-                    borderRadius: 'var(--radius-2xl)',
+                    borderRadius: 'var(--radius-xl)',
                     overflow: 'hidden',
                     boxShadow: 'var(--shadow-lg)',
                     border: '4px solid #FFFFFF',
                     height: 'auto',
-                    minHeight: '260px',
+                    minHeight: 'clamp(190px, 44vw, 260px)',
                     maxHeight: '420px'
                   }}>
                     <img
                       src={service.heroImage}
                       alt={`${service.pillar} - ${service.subtitle}`}
-                      style={{ width: '100%', height: '100%', maxHeight: '420px', objectFit: 'cover' }}
+                      style={{ width: '100%', height: 'clamp(190px, 44vw, 380px)', objectFit: 'cover' }}
                       loading="lazy"
                     />
                   </div>
@@ -335,7 +335,7 @@ export default function ServicesPage() {
               ×
             </button>
 
-            <h3 style={{ fontSize: '1.6rem', color: 'var(--color-forest-900)', marginBottom: '0.5rem' }}>
+            <h3 style={{ fontSize: 'clamp(1.25rem, 3.5vw, 1.6rem)', color: 'var(--color-forest-900)', marginBottom: '0.5rem', paddingRight: '2.25rem' }}>
               {t('services.modalTitle')}
             </h3>
             <p style={{ fontSize: '0.92rem', color: 'var(--color-text-muted)', marginBottom: '1.5rem' }}>
@@ -430,7 +430,7 @@ export default function ServicesPage() {
                   ></textarea>
                 </div>
 
-                <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '0.75rem', marginTop: '1.5rem' }}>
+                <div style={{ display: 'flex', justifyContent: 'flex-end', flexWrap: 'wrap', gap: '0.75rem', marginTop: '1.5rem' }}>
                   <Button variant="outline" size="md" onClick={() => setRequestFormOpen(false)}>
                     {t('projects.closeBtn')}
                   </Button>

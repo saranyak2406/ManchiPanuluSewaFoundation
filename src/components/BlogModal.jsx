@@ -32,15 +32,17 @@ export default function BlogModal({ article, onClose }) {
           <div style={{
             position: 'absolute',
             bottom: '1rem',
-            left: '1.5rem',
+            left: '1rem',
+            maxWidth: 'calc(100% - 2rem)',
             background: 'rgba(12, 38, 26, 0.9)',
             backdropFilter: 'blur(8px)',
             color: '#FFFFFF',
-            padding: '0.4rem 1rem',
+            padding: '0.4rem 0.9rem',
             borderRadius: 'var(--radius-pill)',
-            fontSize: '0.78rem',
+            fontSize: '0.76rem',
             fontWeight: 700,
-            textTransform: 'uppercase'
+            textTransform: 'uppercase',
+            boxSizing: 'border-box'
           }}>
             {article.categoryLabel}
           </div>
@@ -112,7 +114,7 @@ export default function BlogModal({ article, onClose }) {
             ))}
           </div>
 
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.75rem' }}>
             <Button variant="outline" size="sm" onClick={onClose} icon={ArrowLeft} iconPosition="left">
               {t('blog.backToArticles')}
             </Button>

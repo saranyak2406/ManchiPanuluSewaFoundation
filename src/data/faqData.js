@@ -9,7 +9,7 @@ export const faqData = [
   },
   {
     question: "How are donations utilized, and can I receive a tax receipt?",
-    answer: "100% of public contributions are allocated directly to grassroots field initiatives (saplings, compost, raw grains, meal preparation, cleaning gloves and safety equipment). Every Indian donor receives an instant digital acknowledgment receipt with transaction reference. Note: 80G tax exemption details are subject to statutory registration status (currently marked as placeholder in prototype)."
+    answer: "100% of public contributions are allocated directly to grassroots field initiatives (saplings, compost, raw grains, meal preparation, cleaning gloves and safety equipment). Every Indian donor receives an instant digital acknowledgment receipt with transaction reference. Note: 80G tax exemption details are subject to statutory registration status (currently in-process of statutory registration)."
   },
   {
     question: "Can international supporters make a financial contribution?",

@@ -206,7 +206,7 @@ export default function VolunteerPage() {
                       <CheckCircle2 size={40} />
                     </div>
 
-                    <h3 style={{ fontSize: '1.8rem', color: 'var(--color-forest-900)', marginBottom: '0.75rem' }}>
+                    <h3 style={{ fontSize: 'clamp(1.3rem, 3.8vw, 1.8rem)', color: 'var(--color-forest-900)', marginBottom: '0.75rem' }}>
                       {t('volunteer.successTitle')}
                     </h3>
 
@@ -250,7 +250,7 @@ export default function VolunteerPage() {
                   </div>
                 ) : (
                   <>
-                    <h3 style={{ fontSize: '1.65rem', color: 'var(--color-forest-900)', marginBottom: '0.5rem' }}>
+                    <h3 style={{ fontSize: 'clamp(1.25rem, 3.5vw, 1.65rem)', color: 'var(--color-forest-900)', marginBottom: '0.5rem' }}>
                       {t('volunteer.formTitle')}
                     </h3>
                     <p style={{ fontSize: '0.92rem', color: 'var(--color-text-muted)', marginBottom: '1.75rem' }}>
@@ -271,7 +271,7 @@ export default function VolunteerPage() {
                         {errors.fullName && <span className="form-error-msg">{errors.fullName}</span>}
                       </div>
 
-                      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
+                      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))', gap: '1rem' }}>
                         <div className="form-group">
                           <label className="form-label">{t('volunteer.phone')}</label>
                           <input
@@ -299,7 +299,7 @@ export default function VolunteerPage() {
                         </div>
                       </div>
 
-                      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
+                      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))', gap: '1rem' }}>
                         <div className="form-group">
                           <label className="form-label">{t('volunteer.city')}</label>
                           <input
@@ -352,7 +352,8 @@ export default function VolunteerPage() {
                                 fontSize: '0.9rem',
                                 color: 'var(--color-text-main)',
                                 cursor: 'pointer',
-                                padding: '0.5rem 0.75rem',
+                                padding: '0.55rem 0.75rem',
+                                minHeight: '44px',
                                 borderRadius: 'var(--radius-sm)',
                                 backgroundColor: formData.tracks.includes(track.id) ? 'var(--color-sage-100)' : 'transparent',
                                 border: `1px solid ${formData.tracks.includes(track.id) ? 'var(--color-forest-700)' : 'transparent'}`
@@ -362,7 +363,7 @@ export default function VolunteerPage() {
                                 type="checkbox"
                                 checked={formData.tracks.includes(track.id)}
                                 onChange={() => handleTrackToggle(track.id)}
-                                style={{ accentColor: 'var(--color-forest-700)', width: '16px', height: '16px' }}
+                                style={{ accentColor: 'var(--color-forest-700)', width: '16px', height: '16px', flexShrink: 0 }}
                               />
                               <span>{track.label}</span>
                             </label>

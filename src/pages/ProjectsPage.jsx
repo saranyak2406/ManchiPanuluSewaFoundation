@@ -135,7 +135,7 @@ export default function ProjectsPage() {
             </div>
 
             {/* Category & Status Filter Pills */}
-            <div style={{
+            <div className="projects-filter-controls" style={{
               display: 'flex',
               flexWrap: 'wrap',
               justifyContent: 'space-between',
@@ -144,7 +144,7 @@ export default function ProjectsPage() {
               minWidth: 0
             }}>
               {/* Category Pills */}
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', minWidth: 0 }}>
+              <div className="projects-filter-pills" style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', minWidth: 0 }}>
                 {categories.map((cat) => (
                   <button
                     key={cat.value}
@@ -161,30 +161,22 @@ export default function ProjectsPage() {
               </div>
 
               {/* Status Chips */}
-              <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '0.4rem', minWidth: 0 }}>
+              <div className="projects-status-group" style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '0.4rem', minWidth: 0 }}>
                 <span style={{ fontSize: '0.82rem', fontWeight: 700, color: 'var(--color-text-muted)', textTransform: 'uppercase', marginRight: '0.35rem' }}>
                   {t('projects.statusLabel')}
                 </span>
-                {statuses.map((status) => (
-                  <button
-                    key={status.value}
-                    type="button"
-                    onClick={() => setActiveStatus(status.value)}
-                    style={{
-                      padding: '0.35rem 0.85rem',
-                      borderRadius: 'var(--radius-pill)',
-                      fontSize: '0.82rem',
-                      fontWeight: 600,
-                      backgroundColor: activeStatus === status.value ? 'var(--color-forest-900)' : '#FFFFFF',
-                      color: activeStatus === status.value ? '#FFFFFF' : 'var(--color-text-muted)',
-                      border: '1px solid var(--color-border-card)',
-                      cursor: 'pointer',
-                      transition: 'all 0.2s ease'
-                    }}
-                  >
-                    {status.label}
-                  </button>
-                ))}
+                <div className="projects-status-pills">
+                  {statuses.map((status) => (
+                    <button
+                      key={status.value}
+                      type="button"
+                      onClick={() => setActiveStatus(status.value)}
+                      className={`project-status-pill ${activeStatus === status.value ? 'active' : ''}`}
+                    >
+                      {status.label}
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -197,7 +189,7 @@ export default function ProjectsPage() {
           {filteredProjects.length === 0 ? (
             <div style={{
               textAlign: 'center',
-              padding: '4rem 2rem',
+              padding: 'clamp(2.25rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem)',
               backgroundColor: '#FFFFFF',
               borderRadius: 'var(--radius-xl)',
               border: '1px solid var(--color-border-card)'

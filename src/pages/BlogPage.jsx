@@ -65,9 +65,11 @@ export default function BlogPage() {
             flexDirection: 'column',
             gap: '1.25rem',
             backgroundColor: 'var(--color-sage-100)',
-            padding: '1.5rem',
+            padding: 'clamp(1rem, 2.5vw, 1.5rem)',
             borderRadius: 'var(--radius-xl)',
-            border: '1px solid var(--color-border-card)'
+            border: '1px solid var(--color-border-card)',
+            minWidth: 0,
+            boxSizing: 'border-box'
           }}>
             {/* Search Bar */}
             <div style={{
@@ -76,10 +78,12 @@ export default function BlogPage() {
               backgroundColor: '#FFFFFF',
               borderRadius: 'var(--radius-pill)',
               border: '1.5px solid var(--color-border-card)',
-              padding: '0.4rem 1.25rem',
-              gap: '0.6rem'
+              padding: '0.4rem 1.15rem',
+              gap: '0.6rem',
+              minWidth: 0,
+              boxSizing: 'border-box'
             }}>
-              <Search size={18} style={{ color: 'var(--color-forest-700)' }} />
+              <Search size={18} style={{ color: 'var(--color-forest-700)', flexShrink: 0 }} />
               <input
                 type="text"
                 placeholder={t('blog.searchPlaceholder')}
@@ -89,6 +93,7 @@ export default function BlogPage() {
                   border: 'none',
                   outline: 'none',
                   width: '100%',
+                  minWidth: 0,
                   fontSize: '0.95rem',
                   fontFamily: 'inherit',
                   color: 'var(--color-text-main)'
@@ -96,8 +101,9 @@ export default function BlogPage() {
               />
               {searchQuery && (
                 <button
+                  type="button"
                   onClick={() => setSearchQuery('')}
-                  style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)', fontWeight: 600 }}
+                  style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)', fontWeight: 600, flexShrink: 0 }}
                 >
                   {t('projects.clear')}
                 </button>
@@ -105,7 +111,7 @@ export default function BlogPage() {
             </div>
 
             {/* Category Filter Pills */}
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+            <div className="blog-filter-pills" style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', minWidth: 0 }}>
               {categories.map((cat) => (
                 <button
                   key={cat.value}

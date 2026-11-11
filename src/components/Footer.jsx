@@ -64,9 +64,9 @@ export default function Footer() {
             </p>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem', marginBottom: '1.5rem', fontSize: '0.88rem' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: 'var(--color-text-light-muted)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: 'var(--color-text-light-muted)', minWidth: 0 }}>
                 <MapPin size={16} style={{ color: 'var(--color-sprout-light)', flexShrink: 0, alignSelf: 'flex-start', marginTop: '3px' }} />
-                <span>{complianceInfo.officeAddress}</span>
+                <span style={{ minWidth: 0, overflowWrap: 'break-word' }}>{complianceInfo.officeAddress}</span>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: 'var(--color-text-light-muted)' }}>
                 <Phone size={16} style={{ color: 'var(--color-sprout-light)', flexShrink: 0, alignSelf: 'flex-start', marginTop: '3px' }} />
@@ -87,9 +87,9 @@ export default function Footer() {
                   )}
                 </span>
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: 'var(--color-text-light-muted)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: 'var(--color-text-light-muted)', minWidth: 0 }}>
                 <Mail size={16} style={{ color: 'var(--color-sprout-light)', flexShrink: 0 }} />
-                <span>{complianceInfo.officialEmail}</span>
+                <span style={{ minWidth: 0, overflowWrap: 'anywhere', wordBreak: 'break-all' }}>{complianceInfo.officialEmail}</span>
               </div>
             </div>
 
@@ -231,7 +231,7 @@ export default function Footer() {
           <div>
             © {new Date().getFullYear()} {t('nav.brandTitle')} {t('nav.brandSubtitle')}. {t('footer.rights')}
           </div>
-          <div style={{ display: 'flex', gap: '0.85rem', fontSize: '0.82rem', flexWrap: 'wrap', alignItems: 'center' }}>
+          <div style={{ display: 'flex', gap: '0.55rem 0.85rem', fontSize: '0.82rem', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center' }}>
             <span>{t('footer.mandateP1')}</span>
             <span>•</span>
             <span>{t('footer.mandateP2')}</span>
