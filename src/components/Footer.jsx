@@ -76,10 +76,9 @@ export default function Footer() {
                       <a
                         key={contact.rawPhone}
                         href={`tel:+91${contact.rawPhone}`}
-                        style={{ color: 'inherit', textDecoration: 'none', display: 'flex', flexWrap: 'wrap', gap: '0.3rem' }}
+                        style={{ color: 'inherit', textDecoration: 'none' }}
                       >
-                        <strong style={{ color: '#FFFFFF', fontWeight: 600 }}>{contact.name}:</strong>
-                        <span>{contact.phone}</span>
+                        {contact.phone}
                       </a>
                     ))
                   ) : (

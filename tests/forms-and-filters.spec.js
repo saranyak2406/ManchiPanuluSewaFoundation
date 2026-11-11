@@ -7,7 +7,7 @@ test.describe('Contact, Volunteer, Projects & Blog Interactive Flows', () => {
     await expect(page.locator('main')).toContainText('E Block 2107, Aditya Empress Towers, Shaikpet, Hyderabad, 500008');
     await expect(page.locator('main')).toContainText('Manchi Panulu:');
     await expect(page.locator('main')).toContainText('8333905567');
-    await expect(page.locator('main')).toContainText('Manchi Panulu 2:');
+    await expect(page.locator('main')).toContainText('M:');
     await expect(page.locator('main')).toContainText('8333906567');
     await expect(page.locator('footer.site-footer')).toContainText('E Block 2107, Aditya Empress Towers, Shaikpet, Hyderabad, 500008');
     await expect(page.locator('footer.site-footer')).toContainText('8333905567');

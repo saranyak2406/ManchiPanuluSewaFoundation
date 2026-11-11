@@ -131,32 +131,21 @@ export default function ContactPage() {
                   </div>
                   <div style={{ minWidth: 0, flex: 1 }}>
                     <h4 style={{ fontSize: '1.05rem', color: 'var(--color-forest-900)', marginBottom: '0.25rem', overflowWrap: 'break-word', wordBreak: 'break-word' }}>{t('contact.helplineTitle')}</h4>
-                    <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', overflowWrap: 'break-word', wordBreak: 'break-word' }}>
+                    <div style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', display: 'flex', flexDirection: 'column', gap: '0.3rem', marginTop: '0.15rem' }}>
                       {complianceInfo.helplineContacts?.length ? (
-                        complianceInfo.helplineContacts.map((contact, idx) => (
-                          <span
+                        complianceInfo.helplineContacts.map((contact) => (
+                          <a
                             key={contact.rawPhone}
-                            style={{
-                              display: 'flex',
-                              flexWrap: 'wrap',
-                              gap: '0.35rem',
-                              alignItems: 'baseline',
-                              marginTop: idx === 0 ? '0.1rem' : '0.3rem'
-                            }}
+                            href={`tel:+91${contact.rawPhone}`}
+                            style={{ color: 'var(--color-forest-700)', fontWeight: 600, textDecoration: 'none', width: 'fit-content' }}
                           >
-                            <strong style={{ color: 'var(--color-forest-900)', fontWeight: 600 }}>{contact.name}:</strong>
-                            <a
-                              href={`tel:+91${contact.rawPhone}`}
-                              style={{ color: 'var(--color-forest-700)', fontWeight: 600, textDecoration: 'none' }}
-                            >
-                              {contact.phone}
-                            </a>
-                          </span>
+                            {contact.phone}
+                          </a>
                         ))
                       ) : (
                         complianceInfo.helplinePhone
                       )}
-                    </p>
+                    </div>
                   </div>
                 </div>
 

@@ -136,12 +136,10 @@ export const complianceInfo = {
   helplinePhone: "+91 8333905567 / +91 8333906567",
   helplineContacts: [
     {
-      name: "Manchi Panulu",
       phone: "+91 8333905567",
       rawPhone: "8333905567"
     },
     {
-      name: "Manchi Panulu 2",
       phone: "+91 8333906567",
       rawPhone: "8333906567"
     }
