@@ -1011,3 +1011,427 @@
     font-size: 0.84rem;
   }
 }
+
+
+/* ==========================================================================
+   ABOUT PAGE: ANIMATED SERPENTINE MILESTONES TIMELINE
+   ========================================================================== */
+.milestones-serpentine-root {
+  width: 100%;
+  max-width: 980px;
+  margin: 1.75rem auto 0;
+  position: relative;
+}
+
+.milestones-serp-desktop {
+  display: block;
+  padding: 20px 0 24px;
+}
+
+.milestones-serp-mobile {
+  display: none;
+}
+
+@media (max-width: 719px) {
+  .milestones-serp-desktop {
+    display: none;
+  }
+  .milestones-serp-mobile {
+    display: block;
+    position: relative;
+    padding-left: 26px;
+  }
+}
+
+.milestones-serp-stage {
+  position: relative;
+  padding: 0;
+  width: 100%;
+}
+
+.milestones-serp-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100% !important;
+  max-width: none !important;
+  overflow: visible !important;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.milestones-serp-path {
+  fill: none;
+  stroke-linecap: butt;
+  stroke-linejoin: round;
+  stroke-dasharray: 1002;
+  stroke-dashoffset: 1002;
+  transition: stroke-width 0.28s ease;
+}
+
+.milestones-serpentine-root.is-visible .milestones-serp-path {
+  animation: milestonesDrawPath 0.62s cubic-bezier(0.45, 0.05, 0.55, 0.95) var(--step-delay, 0s) both;
+}
+
+.milestones-serp-step-group.is-active .milestones-serp-path--outer {
+  filter: drop-shadow(0 0 10px var(--step-glow, rgba(22, 69, 44, 0.35)));
+}
+
+.milestones-serp-anchor-node,
+.milestones-serp-end-node {
+  transform-origin: 0px 0px;
+  opacity: 0;
+}
+
+.milestones-serpentine-root.is-visible .milestones-serp-anchor-node {
+  animation: milestonesNodePop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) 0.02s both;
+}
+
+.milestones-serpentine-root.is-visible .milestones-serp-end-node {
+  animation: milestonesNodePop 0.48s cubic-bezier(0.34, 1.56, 0.64, 1) var(--end-delay, 2.45s) both;
+}
+
+.milestones-serp-traveler {
+  opacity: 0;
+}
+
+.milestones-serpentine-root.is-visible .milestones-serp-traveler {
+  animation: fadeIn 0.6s ease 2.45s both;
+}
+
+.milestones-serp-rows {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+}
+
+.milestones-serp-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  min-height: 192px;
+  position: relative;
+  outline: none;
+  cursor: default;
+}
+
+.milestones-serp-bay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.35rem 1.5rem;
+  min-width: 0;
+  opacity: 0;
+  transform: scale(0.86);
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+}
+
+.milestones-serp-bay--left {
+  padding-left: clamp(2.5rem, 6vw, 4.75rem);
+  padding-right: 1.5rem;
+}
+
+.milestones-serp-bay--right {
+  padding-left: 1.5rem;
+  padding-right: clamp(2.5rem, 6vw, 4.75rem);
+}
+
+.milestones-serpentine-root.is-visible .milestones-serp-bay {
+  animation: milestonesYearReveal 0.6s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0.2s) both;
+}
+
+.milestones-serp-row.is-active .milestones-serp-year {
+  transform: scale(1.06);
+}
+
+.milestones-serp-year {
+  font-family: var(--font-heading);
+  font-size: clamp(1.45rem, 2.5vw, 2.35rem);
+  font-weight: 800;
+  line-height: 1.15;
+  text-align: center;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+  overflow-wrap: break-word;
+}
+
+.milestones-serp-content {
+  padding: 2.1rem 1.65rem;
+  margin: 16px 12px;
+  border-radius: var(--radius-lg);
+  border: 1px solid transparent;
+  min-width: 0;
+  opacity: 0;
+  transition:
+    background-color 0.28s ease,
+    border-color 0.28s ease,
+    transform 0.28s ease,
+    box-shadow 0.28s ease;
+}
+
+.milestones-serp-content--right {
+  padding-left: clamp(1.35rem, 3vw, 2.15rem);
+  padding-right: 1.25rem;
+}
+
+.milestones-serp-content--left {
+  padding-left: 1.25rem;
+  padding-right: clamp(1.35rem, 3vw, 2.15rem);
+}
+
+.milestones-serpentine-root.is-visible .milestones-serp-content--right {
+  animation: milestonesSlideFromLeft 0.6s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0.3s) both;
+}
+
+.milestones-serpentine-root.is-visible .milestones-serp-content--left {
+  animation: milestonesSlideFromRight 0.6s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0.3s) both;
+}
+
+.milestones-serp-row.is-active .milestones-serp-content {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 26px rgba(16, 36, 22, 0.08);
+}
+
+.milestones-serp-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.08rem, 1.6vw, 1.32rem);
+  font-weight: 800;
+  line-height: 1.28;
+  margin-bottom: 0.55rem;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.milestones-serp-desc {
+  font-size: clamp(0.88rem, 1.05vw, 0.96rem);
+  color: var(--color-text-main);
+  opacity: 0.86;
+  line-height: 1.62;
+  margin: 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+@media (max-width: 900px) and (min-width: 720px) {
+  .milestones-serp-row {
+    min-height: 174px;
+  }
+  .milestones-serp-bay--left {
+    padding-left: 2.35rem;
+    padding-right: 1rem;
+  }
+  .milestones-serp-bay--right {
+    padding-left: 1rem;
+    padding-right: 2.35rem;
+  }
+  .milestones-serp-content {
+    padding: 1.85rem 1.15rem;
+    margin: 12px 8px;
+  }
+}
+
+/* Mobile Curved C-Ribbon Timeline (< 720px) */
+.milestones-mob-track {
+  position: absolute;
+  left: 9px;
+  top: 10px;
+  bottom: 18px;
+  width: 6px;
+  pointer-events: none;
+}
+
+.milestones-mob-start-dot {
+  position: absolute;
+  top: -4px;
+  left: -6px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 5px solid #162414;
+  z-index: 3;
+  box-shadow: 0 2px 6px rgba(16, 36, 22, 0.25);
+}
+
+.milestones-mob-spine {
+  display: block;
+  width: 6px;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #16452C 0%, #265D75 36%, #2C6B37 68%, #8C5E14 100%);
+  transform-origin: top center;
+  transform: scaleY(0);
+}
+
+.milestones-serpentine-root.is-visible .milestones-mob-spine {
+  animation: milestonesSpineGrow 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+}
+
+.milestones-mob-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.milestones-mob-item {
+  position: relative;
+  background-color: #FFFFFF;
+  border-radius: 30px 18px 18px 30px;
+  border-top: 5px solid var(--step-outer, #16452C);
+  border-bottom: 5px solid var(--step-outer, #16452C);
+  border-left: 8px solid var(--step-outer, #16452C);
+  border-right: 1px solid rgba(22, 36, 20, 0.1);
+  box-shadow:
+    inset 4px 0 0 var(--step-inner, #4E8F67),
+    inset 0 2.5px 0 var(--step-inner, #4E8F67),
+    inset 0 -2.5px 0 var(--step-inner, #4E8F67),
+    var(--shadow-sm);
+  padding: 1.1rem 1.15rem 1.15rem 1.2rem;
+  min-width: 0;
+  opacity: 0;
+  transform: translateX(18px);
+}
+
+.milestones-serpentine-root.is-visible .milestones-mob-item {
+  animation: milestonesMobReveal 0.6s cubic-bezier(0.22, 1, 0.36, 1) var(--mob-delay, 0.1s) both;
+}
+
+.milestones-mob-item::before {
+  content: '';
+  position: absolute;
+  left: -29px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 4px solid var(--step-outer, #16452C);
+  box-shadow: 0 0 0 3px var(--color-sage-100);
+}
+
+.milestones-mob-curve-badge {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 0.45rem;
+}
+
+.milestones-mob-year {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--step-outer, #16452C);
+  line-height: 1.15;
+}
+
+.milestones-mob-title {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 800;
+  margin-bottom: 0.35rem;
+  line-height: 1.3;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.milestones-mob-desc {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.55;
+  margin: 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+@keyframes milestonesDrawPath {
+  0% {
+    stroke-dashoffset: 1002;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes milestonesNodePop {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes milestonesYearReveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.84);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes milestonesSlideFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes milestonesSlideFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes milestonesSpineGrow {
+  0% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes milestonesMobReveal {
+  0% {
+    opacity: 0;
+    transform: translateX(18px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .milestones-serp-path,
+  .milestones-serp-anchor-node,
+  .milestones-serp-end-node,
+  .milestones-serp-bay,
+  .milestones-serp-content,
+  .milestones-mob-spine,
+  .milestones-mob-item {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    stroke-dashoffset: 0 !important;
+  }
+  .milestones-serp-traveler {
+    display: none;
+  }
+}

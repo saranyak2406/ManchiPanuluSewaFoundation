@@ -65,12 +65,27 @@ export default function Footer() {
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem', marginBottom: '1.5rem', fontSize: '0.88rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: 'var(--color-text-light-muted)' }}>
-                <MapPin size={16} style={{ color: 'var(--color-sprout-light)', flexShrink: 0 }} />
+                <MapPin size={16} style={{ color: 'var(--color-sprout-light)', flexShrink: 0, alignSelf: 'flex-start', marginTop: '3px' }} />
                 <span>{complianceInfo.officeAddress}</span>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: 'var(--color-text-light-muted)' }}>
-                <Phone size={16} style={{ color: 'var(--color-sprout-light)', flexShrink: 0 }} />
-                <span>{complianceInfo.helplinePhone}</span>
+                <Phone size={16} style={{ color: 'var(--color-sprout-light)', flexShrink: 0, alignSelf: 'flex-start', marginTop: '3px' }} />
+                <span style={{ display: 'flex', flexDirection: 'column', gap: '0.2rem' }}>
+                  {complianceInfo.helplineContacts?.length ? (
+                    complianceInfo.helplineContacts.map((contact) => (
+                      <a
+                        key={contact.rawPhone}
+                        href={`tel:+91${contact.rawPhone}`}
+                        style={{ color: 'inherit', textDecoration: 'none', display: 'flex', flexWrap: 'wrap', gap: '0.3rem' }}
+                      >
+                        <strong style={{ color: '#FFFFFF', fontWeight: 600 }}>{contact.name}:</strong>
+                        <span>{contact.phone}</span>
+                      </a>
+                    ))
+                  ) : (
+                    complianceInfo.helplinePhone
+                  )}
+                </span>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: 'var(--color-text-light-muted)' }}>
                 <Mail size={16} style={{ color: 'var(--color-sprout-light)', flexShrink: 0 }} />

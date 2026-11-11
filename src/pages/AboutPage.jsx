@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import {
   ShieldCheck,
   Award,
@@ -13,11 +13,12 @@ import {
 } from 'lucide-react';
 import Button from '../components/Button';
 import { useLanguage } from '../context/LanguageContext';
+import MilestonesTimeline from '../components/MilestonesTimeline';
 
 export default function AboutPage() {
   const { t, language } = useLanguage();
 
-  const milestones = [
+  const milestones = useMemo(() => [
     {
       year: t('about.m1Year'),
       title: t('about.m1Title'),
@@ -38,7 +39,7 @@ export default function AboutPage() {
       title: t('about.m4Title'),
       desc: t('about.m4Desc')
     }
-  ];
+  ], [t]);
 
   return (
     <>
@@ -310,25 +311,7 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div style={{ maxWidth: '780px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '1.75rem' }}>
-            {milestones.map((m, idx) => (
-              <div key={idx} className="milestone-item-card">
-                <div style={{
-                  fontFamily: 'var(--font-heading)',
-                  fontSize: '1.6rem',
-                  fontWeight: 800,
-                  color: 'var(--color-forest-900)',
-                  flexShrink: 0
-                }}>
-                  {m.year}
-                </div>
-                <div style={{ minWidth: 0, flex: 1 }}>
-                  <h4 style={{ color: 'var(--color-forest-900)', marginBottom: '0.4rem', overflowWrap: 'break-word', wordBreak: 'break-word' }}>{m.title}</h4>
-                  <p style={{ fontSize: '0.95rem', color: 'var(--color-text-muted)', lineHeight: '1.6', overflowWrap: 'break-word', wordBreak: 'break-word' }}>{m.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+          <MilestonesTimeline milestones={milestones} />
 
           <div style={{ textAlign: 'center', marginTop: '3.5rem' }}>
             <Button to="/volunteer" variant="primary" size="lg" icon={ArrowRight}>

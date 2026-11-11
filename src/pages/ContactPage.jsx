@@ -132,7 +132,30 @@ export default function ContactPage() {
                   <div style={{ minWidth: 0, flex: 1 }}>
                     <h4 style={{ fontSize: '1.05rem', color: 'var(--color-forest-900)', marginBottom: '0.25rem', overflowWrap: 'break-word', wordBreak: 'break-word' }}>{t('contact.helplineTitle')}</h4>
                     <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', overflowWrap: 'break-word', wordBreak: 'break-word' }}>
-                      {complianceInfo.helplinePhone}
+                      {complianceInfo.helplineContacts?.length ? (
+                        complianceInfo.helplineContacts.map((contact, idx) => (
+                          <span
+                            key={contact.rawPhone}
+                            style={{
+                              display: 'flex',
+                              flexWrap: 'wrap',
+                              gap: '0.35rem',
+                              alignItems: 'baseline',
+                              marginTop: idx === 0 ? '0.1rem' : '0.3rem'
+                            }}
+                          >
+                            <strong style={{ color: 'var(--color-forest-900)', fontWeight: 600 }}>{contact.name}:</strong>
+                            <a
+                              href={`tel:+91${contact.rawPhone}`}
+                              style={{ color: 'var(--color-forest-700)', fontWeight: 600, textDecoration: 'none' }}
+                            >
+                              {contact.phone}
+                            </a>
+                          </span>
+                        ))
+                      ) : (
+                        complianceInfo.helplinePhone
+                      )}
                     </p>
                   </div>
                 </div>

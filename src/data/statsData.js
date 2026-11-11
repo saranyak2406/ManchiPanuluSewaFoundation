@@ -140,8 +140,20 @@ export const complianceInfo = {
   fcraStatus: "FCRA (Foreign Contribution Regulation Act) registration is in-process/compliance. Currently accepting domestic contributions only; international donors can register interest for authorized foreign routing channels.",
   defaultCurrency: "INR (₹)",
   supportedCurrencies: ["INR (₹)", "USD ($)", "EUR (€)", "GBP (£)"],
-  officeAddress: "Plot No. 42, Santhi Nagar, Beside Green Park, Hyderabad / Visakhapatnam, India - 500034 (Placeholder)",
-  helplinePhone: "+91 98765 43210 (Placeholder Helpline)",
+  officeAddress: "E Block 2107, Aditya Empress Towers, Shaikpet, Hyderabad, 500008",
+  helplinePhone: "+91 8333905567 / +91 8333906567",
+  helplineContacts: [
+    {
+      name: "Manchi Panulu",
+      phone: "+91 8333905567",
+      rawPhone: "8333905567"
+    },
+    {
+      name: "Manchi Panulu 2",
+      phone: "+91 8333906567",
+      rawPhone: "8333906567"
+    }
+  ],
   officialEmail: "contact@manchipanulusewa.org (Placeholder)",
   volunteerEmail: "volunteer@manchipanulusewa.org",
   donationsEmail: "donations@manchipanulusewa.org",
