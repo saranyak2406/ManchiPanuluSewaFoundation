@@ -144,8 +144,8 @@ export const complianceInfo = {
       rawPhone: "8333906567"
     }
   ],
-  officialEmail: "contact@manchipanulusewa.org",
-  volunteerEmail: "volunteer@manchipanulusewa.org",
-  donationsEmail: "donations@manchipanulusewa.org",
+  officialEmail: "manchipanulusewafoundation@gmail.com",
+  volunteerEmail: "manchipanulusewafoundation@gmail.com",
+  donationsEmail: "manchipanulusewafoundation@gmail.com",
   workingHours: "Monday to Saturday: 9:00 AM – 6:30 PM IST"
 };
